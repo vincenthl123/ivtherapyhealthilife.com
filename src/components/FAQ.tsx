@@ -10,34 +10,34 @@ import { trackButtonClick } from "@/lib/tracking";
 
 const faqs = [
   {
-    question: "Is stem cell therapy safe?",
+    question: "What is IV Therapy and how does it work?",
     answer:
-      "Yes. At Healthi-Life, we use only fresh, ethically sourced umbilical cord stem cells processed in certified labs. Every batch is tested for safety, purity, and viability. To date, we have seen no serious adverse reactions in any of our patients.",
+      "IV Therapy delivers vitamins, minerals, and antioxidants directly into your bloodstream — allowing your body to absorb them faster and more effectively than oral supplements.",
   },
   {
-    question: "What conditions can stem cell therapy help with?",
+    question: "How long does a session take?",
     answer:
-      "Our stem cell programs support patients dealing with fertility challenges, hormonal imbalance, osteoarthritis, joint pain, chronic fatigue, and visible signs of aging. Treatments are personalized based on your goals and health history.",
+      "Most IV drips take 30 to 45 minutes. You can relax, scroll your phone, or even nap while your body is being replenished.",
   },
   {
-    question: "Where do your stem cells come from?",
+    question: "Is IV Therapy safe?",
     answer:
-      "We use only mesenchymal stem cells (MSCs) derived from fresh umbilical cord tissue, collected during planned C-section deliveries. No fetal or embryonic sources, no animal products — 100% ethical, traceable, and xeno-free.",
+      "Yes — all IV drips at Healthi-Life are prepared by medical professionals using hospital-grade ingredients and are administered by trained nurses under doctor supervision.",
   },
   {
-    question: "How many sessions will I need?",
+    question: "How soon will I feel the effects?",
     answer:
-      "Most patients begin with a plan of 1–3 sessions, spaced out over several weeks. Your doctor will recommend a specific protocol based on your age, condition, and response to treatment.",
+      "Many patients feel more energized, clear-headed, and refreshed within hours. For skin glow or immune support, visible results often appear within 24–72 hours.",
   },
   {
-    question: "What makes fresh stem cells better than frozen ones?",
+    question: "Can IV drip therapy help with weight loss?",
     answer:
-      "Fresh cells retain higher viability, grow faster, and integrate more effectively. Frozen stem cells often suffer from cell damage, reduced activity, and lower therapeutic results. That's why we only use fresh, high-potency MSCs at Healthi-Life.",
+      "Yes! Our Fat Burner IV Therapy includes L-Carnitine, B-Complex, and metabolism boosters to support fat loss, detoxification, and energy production.",
   },
   {
-    question: "Will I need downtime after treatment?",
+    question: "What should I expect during my first visit?",
     answer:
-      "Not at all. Most of our therapies are walk-in / walk-out with no downtime required. You may feel slightly tired or experience a mild low-grade fever — this is a natural response as your body begins to activate its healing.",
+      "You'll be welcomed into our serene, hygienic clinic environment. Our team will discuss your health goals, recommend the right IV drip, and you'll relax in our private treatment lounges during the infusion.",
   },
 ];
 
@@ -84,9 +84,9 @@ const FAQ = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                id="stemcellclick-faq-whatsapp" 
+                id="ivclick-faq-whatsapp" 
                 size="lg" 
-                onClick={() => trackButtonClick('stemcellclick-faq-whatsapp')}
+                onClick={() => trackButtonClick('ivclick-faq-whatsapp')}
                 asChild
               >
                 <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
@@ -95,10 +95,10 @@ const FAQ = () => {
                 </a>
               </Button>
               <Button 
-                id="stemcellclick-faq-call" 
+                id="ivclick-faq-call" 
                 size="lg" 
                 variant="outline" 
-                onClick={() => trackButtonClick('stemcellclick-faq-call')}
+                onClick={() => trackButtonClick('ivclick-faq-call')}
                 asChild
               >
                 <a href="tel:+66919991744">
