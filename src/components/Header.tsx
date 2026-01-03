@@ -17,9 +17,9 @@ const Header = () => {
   }, []);
 
   const navigation = [
-    { name: "Services", href: "#services" },
+    { name: "IV Drips", href: "#services" },
+    { name: "Why IV Therapy", href: "#why-us" },
     { name: "Doctors", href: "#doctors" },
-    { name: "Why Us", href: "#why-us" },
     { name: "Process", href: "#process" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
@@ -38,7 +38,7 @@ const Header = () => {
             <a href="/" className="flex items-center">
               <img 
                 src={logo} 
-                alt="Healthi-Life Longevity Center" 
+                alt="Healthi-Life IV Therapy Bangkok" 
                 className="h-8 md:h-10 w-auto"
               />
             </a>
@@ -60,21 +60,20 @@ const Header = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
             <Button 
-              id="stemcellclick-header-call" 
+              id="ivclick-header-book" 
               variant="outline" 
               size="sm" 
-              onClick={() => trackButtonClick('stemcellclick-header-call')}
+              onClick={() => trackButtonClick('ivclick-header-book')}
               asChild
             >
-              <a href="tel:+66919991744">
-                <Phone className="h-4 w-4 mr-2" />
-                Call Us
+              <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
+                Book Now
               </a>
             </Button>
             <Button 
-              id="stemcellclick-header-whatsapp" 
+              id="ivclick-header-whatsapp" 
               size="sm" 
-              onClick={() => trackButtonClick('stemcellclick-header-whatsapp')}
+              onClick={() => trackButtonClick('ivclick-header-whatsapp')}
               asChild
             >
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
@@ -109,23 +108,22 @@ const Header = () => {
             ))}
             <div className="pt-2 space-y-2">
               <Button 
-                id="stemcellclick-mobile-call" 
+                id="ivclick-mobile-book" 
                 variant="outline" 
                 size="sm" 
                 className="w-full" 
-                onClick={() => trackButtonClick('stemcellclick-mobile-call')}
+                onClick={() => trackButtonClick('ivclick-mobile-book')}
                 asChild
               >
-                <a href="tel:+66919991744">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call Us
+                <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
+                  Book Now
                 </a>
               </Button>
               <Button 
-                id="stemcellclick-mobile-whatsapp" 
+                id="ivclick-mobile-whatsapp" 
                 size="sm" 
                 className="w-full" 
-                onClick={() => trackButtonClick('stemcellclick-mobile-whatsapp')}
+                onClick={() => trackButtonClick('ivclick-mobile-whatsapp')}
                 asChild
               >
                 <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">

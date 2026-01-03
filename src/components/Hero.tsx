@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Healthi-Life clinic exterior with pool"
+          alt="Healthi-Life IV Therapy clinic"
           className="w-full h-full object-cover"
           fetchPriority="high"
           loading="eager"
@@ -33,7 +33,7 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Stem Cell Therapy in{" "}
+            IV Therapy{" "}
             <span className="bg-gradient-medical bg-clip-text text-transparent">
               Bangkok
             </span>
@@ -41,8 +41,7 @@ const Hero = () => {
 
           {/* Subheading */}
           <p className="animate-fade-in-up text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
-            At Healthi-Life, we don't just treat — <strong>We optimize.</strong> Fresh mesenchymal
-            stem cell protocols designed for those who demand more energy, more clarity, more time.
+            Powerful nutrients delivered directly into your bloodstream — for instant absorption and maximum results. <strong>Recharge, recover, and rejuvenate.</strong>
           </p>
 
           {/* Trust Signals */}
@@ -68,31 +67,31 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
             <Button 
-              id="stemcellclick-hero-whatsapp" 
+              id="ivclick-hero-whatsapp" 
               size="lg" 
               className="group" 
-              onClick={() => trackButtonClick('stemcellclick-hero-whatsapp')}
+              onClick={() => trackButtonClick('ivclick-hero-whatsapp')}
               asChild
             >
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
-                Free WhatsApp Consultation
+                Chat with Us on WhatsApp
               </a>
             </Button>
             <Button 
-              id="stemcellclick-hero-call" 
+              id="ivclick-hero-book" 
               size="lg" 
               variant="outline" 
-              onClick={() => trackButtonClick('stemcellclick-hero-call')}
+              onClick={() => trackButtonClick('ivclick-hero-book')}
               asChild
             >
-              <a href="tel:+66919991744">Call +66 (0)9-1999-1744</a>
+              <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
           </div>
 
           {/* Location Info */}
           <p className="animate-fade-in mt-8 text-sm text-muted-foreground">
-            📍 Bangkok's Premier Stem Cell Center at EKKAMAI 10
+            📍 Bangkok's Premium IV Therapy Destination at EKKAMAI 10
           </p>
         </div>
       </div>
