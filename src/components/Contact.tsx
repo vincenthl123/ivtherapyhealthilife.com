@@ -3,18 +3,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 import clinicImage from "@/assets/award-certificate.webp";
 import { trackButtonClick } from "@/lib/tracking";
+import { useLanguage } from "@/lib/i18n";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Visit Our Clinic
+            {t("contact.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Bangkok's most luxurious IV therapy experience in the heart of Sukhumvit
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -28,12 +31,12 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-foreground mb-2">Location</h3>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{t("contact.location")}</h3>
                     <p className="text-muted-foreground mb-1">
-                      94 Ekkamai 10 Alley, Watthana, Bangkok 10110
+                      {t("contact.address")}
                     </p>
                     <p className="text-sm text-muted-foreground mb-3">
-                      BTS Ekkamai - Take motorbike 3 mins
+                      {t("contact.bts")}
                     </p>
                     <Button 
                       id="ivclick-contact-maps" 
@@ -48,7 +51,7 @@ const Contact = () => {
                         rel="noopener noreferrer"
                       >
                         <MapPin className="h-4 w-4 mr-2" />
-                        Find Us on Google Maps
+                        {t("contact.findUs")}
                       </a>
                     </Button>
                   </div>
@@ -63,10 +66,10 @@ const Contact = () => {
                     <Clock className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-foreground mb-2">Opening Hours</h3>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{t("contact.openingHours")}</h3>
                     <div className="space-y-1 text-muted-foreground">
-                      <p>Monday – Saturday: 11:00 AM – 7:00 PM</p>
-                      <p>Sunday: Closed</p>
+                      <p>{t("contact.monSat")}</p>
+                      <p>{t("contact.sunday")}</p>
                     </div>
                   </div>
                 </div>
@@ -80,7 +83,7 @@ const Contact = () => {
                     <Phone className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-foreground mb-2">Contact Us</h3>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{t("contact.contactUs")}</h3>
                     <div className="space-y-3">
                       <a
                         href="tel:+66919991744"
@@ -122,10 +125,10 @@ const Contact = () => {
             />
             <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-lg p-6 shadow-medium max-w-xs">
               <p className="text-sm font-semibold text-foreground mb-2">
-                Award-Winning Facility
+                {t("contact.awardWinning")}
               </p>
               <p className="text-xs text-muted-foreground">
-                Best Regenerative Medicine Clinic 2025 – Asia-Pacific & Thailand Rising Star 2025
+                {t("contact.awardDesc")}
               </p>
             </div>
           </div>
@@ -134,10 +137,10 @@ const Contact = () => {
         {/* Bottom CTA */}
         <div className="mt-16 bg-gradient-medical rounded-2xl p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Feel It Fast. Stay Energized Longer.
+            {t("contact.feelFast")}
           </h3>
           <p className="text-primary-foreground/90 mb-6 max-w-2xl mx-auto">
-            Don't wait days to feel better. Our high-performance IV infusions deliver potent vitamins, minerals, and antioxidants directly to your bloodstream — for immediate energy, deep hydration, and cellular repair that lasts.
+            {t("contact.feelFastDesc")}
           </p>
           <Button 
             id="ivclick-contact-cta" 
@@ -147,7 +150,7 @@ const Contact = () => {
             asChild
           >
             <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
-              Book Your IV Therapy
+              {t("contact.bookYour")}
             </a>
           </Button>
         </div>
