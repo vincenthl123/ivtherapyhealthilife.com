@@ -70,7 +70,8 @@ const Header = () => {
               onClick={() => trackButtonClick('ivclick-header-book')}
               asChild
             >
-              <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-4 w-4 mr-2" />
                 {t("nav.bookNow")}
               </a>
             </Button>
@@ -122,7 +123,8 @@ const Header = () => {
                 onClick={() => trackButtonClick('ivclick-mobile-book')}
                 asChild
               >
-                <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-4 w-4 mr-2" />
                   {t("nav.bookNow")}
                 </a>
               </Button>
