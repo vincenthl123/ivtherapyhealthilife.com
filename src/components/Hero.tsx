@@ -3,8 +3,11 @@ import { Badge } from "@/components/ui/badge";
 import { Star, Award, MapPin, Clock, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/clinic-exterior.webp";
 import { trackButtonClick } from "@/lib/tracking";
+import { useLanguage } from "@/lib/i18n";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center pt-16 md:pt-20">
       {/* Background Image with Overlay */}
@@ -27,21 +30,21 @@ const Hero = () => {
           <div className="animate-fade-in mb-6">
             <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-xs md:text-sm">
               <Award className="h-4 w-4 mr-2" />
-              Best Regenerative Medicine Clinic 2025 – Asia-Pacific
+              {t("hero.badge")}
             </Badge>
           </div>
 
           {/* Main Heading */}
           <h1 className="animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            IV Therapy{" "}
+            {t("hero.title")}{" "}
             <span className="bg-gradient-medical bg-clip-text text-transparent">
-              Bangkok
+              {t("hero.titleHighlight")}
             </span>
           </h1>
 
           {/* Subheading */}
           <p className="animate-fade-in-up text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
-            Powerful nutrients delivered directly into your bloodstream — for instant absorption and maximum results. <strong>Recharge, recover, and rejuvenate.</strong>
+            {t("hero.subtitle")} <strong>{t("hero.subtitleBold")}</strong>
           </p>
 
           {/* Trust Signals */}
@@ -52,15 +55,15 @@ const Hero = () => {
                   <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-sm font-medium">5.0 Google Reviews</span>
+              <span className="text-sm font-medium">{t("hero.reviews")}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4" />
-              <span>Ekkamai, Bangkok</span>
+              <span>{t("hero.location")}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Clock className="h-4 w-4" />
-              <span>Mon-Sat: 11 AM – 7 PM</span>
+              <span>{t("hero.hours")}</span>
             </div>
           </div>
 
@@ -75,7 +78,7 @@ const Hero = () => {
             >
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
-                Chat with Us on WhatsApp
+                {t("hero.cta1")}
               </a>
             </Button>
             <Button 
@@ -85,13 +88,15 @@ const Hero = () => {
               onClick={() => trackButtonClick('ivclick-hero-book')}
               asChild
             >
-              <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">Book Now</a>
+              <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
+                {t("hero.cta2")}
+              </a>
             </Button>
           </div>
 
           {/* Location Info */}
           <p className="animate-fade-in mt-8 text-sm text-muted-foreground">
-            📍 Bangkok's Premium IV Therapy Destination at EKKAMAI 10
+            {t("hero.locationInfo")}
           </p>
         </div>
       </div>

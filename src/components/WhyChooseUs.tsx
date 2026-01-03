@@ -2,58 +2,36 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, Award, Droplets, Zap, Heart } from "lucide-react";
 import treatmentImage from "@/assets/treatment-room.webp";
-
-const features = [
-  {
-    icon: Droplets,
-    title: "100% Absorption",
-    description:
-      "IV Therapy delivers vitamins, minerals, and antioxidants directly into your bloodstream — allowing your body to absorb them faster and more effectively than oral supplements.",
-  },
-  {
-    icon: Zap,
-    title: "Instant Results",
-    description:
-      "Unlike oral supplements, IV therapy bypasses the digestive system and gives your body exactly what it needs, where it needs it, fast. Feel the difference within hours.",
-  },
-  {
-    icon: Heart,
-    title: "Physician-Led Care",
-    description:
-      "All IV drips at Healthi-Life are prepared by medical professionals using hospital-grade ingredients and administered by trained nurses under doctor supervision.",
-  },
-  {
-    icon: Shield,
-    title: "Medical-Grade Formulas",
-    description:
-      "Each infusion is personalized with medical-grade nutrients that match your exact health profile. Because safety isn't optional — it's our standard.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Quick & Comfortable",
-    description:
-      "Most IV drips take 30 to 45 minutes. Relax in our private treatment lounges while your body is being replenished with essential nutrients.",
-  },
-];
-
-const benefits = [
-  { name: "Brain Booster IV", description: "Sharpen focus, clear the fog. Neuro-enhancing vitamins and antioxidants to boost memory, clarity, and cognitive speed." },
-  { name: "Body Booster IV", description: "Total body revival in one drip. Restores energy, strengthens immunity, and supports detox at the cellular level." },
-  { name: "Skin Booster IV", description: "Glow starts from the inside. Skin-loving antioxidants and collagen boosters for radiant, youthful skin." },
-];
+import { useLanguage } from "@/lib/i18n";
 
 const WhyChooseUs = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    { icon: Droplets, title: t("why.absorption.title"), description: t("why.absorption.desc") },
+    { icon: Zap, title: t("why.instant.title"), description: t("why.instant.desc") },
+    { icon: Heart, title: t("why.physician.title"), description: t("why.physician.desc") },
+    { icon: Shield, title: t("why.medical.title"), description: t("why.medical.desc") },
+    { icon: CheckCircle, title: t("why.quick.title"), description: t("why.quick.desc") },
+  ];
+
+  const benefits = [
+    { name: t("why.brainBooster"), description: t("why.brainBoosterDesc") },
+    { name: t("why.bodyBooster"), description: t("why.bodyBoosterDesc") },
+    { name: t("why.skinBooster"), description: t("why.skinBoosterDesc") },
+  ];
+
   return (
     <section id="why-us" className="py-16 md:py-24 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            What is IV Therapy?
+            {t("why.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Modern life drains you. Stress, poor sleep, toxins, travel, and aging all deplete your body's essential reserves.{" "}
-            <strong>IV Therapy restores balance.</strong>
+            {t("why.subtitle")}{" "}
+            <strong>{t("why.subtitleBold")}</strong>
           </p>
         </div>
 
@@ -67,10 +45,10 @@ const WhyChooseUs = () => {
             />
             <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-lg p-6 shadow-medium max-w-xs">
               <p className="text-sm font-semibold text-foreground mb-2">
-                Why You Need It
+                {t("why.whyNeed")}
               </p>
               <p className="text-xs text-muted-foreground">
-                Recharge your system and get the boost you didn't know you were missing.
+                {t("why.whyNeedDesc")}
               </p>
             </div>
           </div>
@@ -94,10 +72,10 @@ const WhyChooseUs = () => {
         {/* IV Categories */}
         <div className="bg-gradient-subtle rounded-2xl p-8 md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-2">
-            Targeted IV Solutions
+            {t("why.targeted")}
           </h3>
           <h4 className="text-lg md:text-xl text-center text-muted-foreground mb-8">
-            Trusted by Doctors. Chosen by High Performers.
+            {t("why.trusted")}
           </h4>
           <div className="grid md:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
@@ -114,7 +92,7 @@ const WhyChooseUs = () => {
           </div>
           <div className="text-center mt-8">
             <Badge className="bg-success text-success-foreground">
-              Bangkok's Most Luxurious IV Experience
+              {t("why.luxurious")}
             </Badge>
           </div>
         </div>

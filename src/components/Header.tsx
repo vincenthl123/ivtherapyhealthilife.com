@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
 import { trackButtonClick } from "@/lib/tracking";
+import { useLanguage } from "@/lib/i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +20,12 @@ const Header = () => {
   }, []);
 
   const navigation = [
-    { name: "IV Drips", href: "#services" },
-    { name: "Why IV Therapy", href: "#why-us" },
-    { name: "Doctors", href: "#doctors" },
-    { name: "Process", href: "#process" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "FAQ", href: "#faq" },
+    { name: t("nav.ivDrips"), href: "#services" },
+    { name: t("nav.whyIVTherapy"), href: "#why-us" },
+    { name: t("nav.doctors"), href: "#doctors" },
+    { name: t("nav.process"), href: "#process" },
+    { name: t("nav.testimonials"), href: "#testimonials" },
+    { name: t("nav.faq"), href: "#faq" },
   ];
 
   return (
@@ -57,8 +60,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons + Language Switcher */}
           <div className="hidden md:flex items-center space-x-3">
+            <LanguageSwitcher />
             <Button 
               id="ivclick-header-book" 
               variant="outline" 
@@ -67,7 +71,7 @@ const Header = () => {
               asChild
             >
               <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
-                Book Now
+                {t("nav.bookNow")}
               </a>
             </Button>
             <Button 
@@ -78,19 +82,22 @@ const Header = () => {
             >
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp
+                {t("nav.whatsapp")}
               </a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -116,7 +123,7 @@ const Header = () => {
                 asChild
               >
                 <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
-                  Book Now
+                  {t("nav.bookNow")}
                 </a>
               </Button>
               <Button 
@@ -128,7 +135,7 @@ const Header = () => {
               >
                 <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-4 w-4 mr-2" />
-                  WhatsApp Consultation
+                  {t("nav.whatsapp")}
                 </a>
               </Button>
             </div>

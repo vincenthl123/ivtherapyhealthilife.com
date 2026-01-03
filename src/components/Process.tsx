@@ -2,45 +2,28 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Calendar, Stethoscope, Droplets } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
-
-const steps = [
-  {
-    icon: MessageCircle,
-    number: "01",
-    title: "Chat with Us",
-    description: "Message us on WhatsApp to discuss your health goals and ask any questions.",
-  },
-  {
-    icon: Stethoscope,
-    number: "02",
-    title: "Quick Consultation",
-    description: "Our medical team will recommend the perfect IV drip for your needs.",
-  },
-  {
-    icon: Calendar,
-    number: "03",
-    title: "Book Your Session",
-    description: "Schedule your visit at our serene clinic in Ekkamai, Bangkok.",
-  },
-  {
-    icon: Droplets,
-    number: "04",
-    title: "Relax & Recharge",
-    description: "Enjoy your 30-45 minute IV drip in our luxurious private treatment lounges.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 const Process = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    { icon: MessageCircle, number: "01", title: t("process.step1.title"), description: t("process.step1.desc") },
+    { icon: Stethoscope, number: "02", title: t("process.step2.title"), description: t("process.step2.desc") },
+    { icon: Calendar, number: "03", title: t("process.step3.title"), description: t("process.step3.desc") },
+    { icon: Droplets, number: "04", title: t("process.step4.title"), description: t("process.step4.desc") },
+  ];
+
   return (
     <section id="process" className="py-16 md:py-24 bg-gradient-subtle">
       <div className="container px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            How It Works
+            {t("process.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            From booking to feeling amazing — we make it seamless and comfortable.
+            {t("process.subtitle")}
           </p>
         </div>
 
@@ -78,7 +61,7 @@ const Process = () => {
         {/* Contact Options */}
         <div className="bg-card rounded-2xl p-8 md:p-12 border border-border shadow-soft">
           <h3 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-8">
-            Ready to Feel Amazing?
+            {t("process.ready")}
           </h3>
           <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             <Button 
@@ -91,7 +74,7 @@ const Process = () => {
             >
               <a href="tel:+66919991744">
                 <div className="text-left w-full">
-                  <div className="font-bold text-base mb-1">Call Us Now</div>
+                  <div className="font-bold text-base mb-1">{t("process.callUs")}</div>
                   <div className="text-xs text-muted-foreground">+66 (0)9-1999-1744</div>
                 </div>
               </a>
@@ -107,7 +90,7 @@ const Process = () => {
                 <MessageCircle className="h-5 w-5 mr-2" />
                 <div className="text-left">
                   <div className="font-bold text-base mb-1">WhatsApp</div>
-                  <div className="text-xs">Quick consultation</div>
+                  <div className="text-xs">{t("process.quickConsult")}</div>
                 </div>
               </a>
             </Button>
@@ -121,8 +104,8 @@ const Process = () => {
             >
               <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
                 <div className="text-left w-full">
-                  <div className="font-bold text-base mb-1">Book Online</div>
-                  <div className="text-xs text-muted-foreground">Schedule your session</div>
+                  <div className="font-bold text-base mb-1">{t("process.bookOnline")}</div>
+                  <div className="text-xs text-muted-foreground">{t("process.scheduleSession")}</div>
                 </div>
               </a>
             </Button>

@@ -1,7 +1,9 @@
 import { MapPin, Phone, Clock } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
+import { useLanguage } from "@/lib/i18n";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,37 +18,37 @@ const Footer = () => {
               className="h-8 w-auto mb-4"
             />
             <p className="text-background/80 text-sm mb-4">
-              Bangkok's premium destination for personalized IV drips. Beyond hydration — targeted nutrients to restore energy, boost immunity, and rejuvenate.
+              {t("footer.desc")}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4">{t("footer.quickLinks")}</h4>
             <ul className="space-y-2 text-sm text-background/80">
               <li>
                 <a href="#services" className="hover:text-background transition-colors">
-                  IV Drips
+                  {t("nav.ivDrips")}
                 </a>
               </li>
               <li>
                 <a href="#why-us" className="hover:text-background transition-colors">
-                  Why IV Therapy
+                  {t("nav.whyIVTherapy")}
                 </a>
               </li>
               <li>
                 <a href="#process" className="hover:text-background transition-colors">
-                  Our Process
+                  {t("nav.process")}
                 </a>
               </li>
               <li>
                 <a href="#testimonials" className="hover:text-background transition-colors">
-                  Testimonials
+                  {t("nav.testimonials")}
                 </a>
               </li>
               <li>
                 <a href="#faq" className="hover:text-background transition-colors">
-                  FAQ
+                  {t("nav.faq")}
                 </a>
               </li>
             </ul>
@@ -54,7 +56,7 @@ const Footer = () => {
 
           {/* Popular IV Drips */}
           <div>
-            <h4 className="font-semibold mb-4">Popular IV Drips</h4>
+            <h4 className="font-semibold mb-4">{t("footer.popularDrips")}</h4>
             <ul className="space-y-2 text-sm text-background/80">
               <li>Fat Burner IV</li>
               <li>NAD+ IV Therapy</li>
@@ -67,11 +69,11 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Contact Us</h4>
+            <h4 className="font-semibold mb-4">{t("contact.contactUs")}</h4>
             <ul className="space-y-3 text-sm text-background/80">
               <li className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                <span>94 Ekkamai 10 Alley, Watthana, Bangkok 10110</span>
+                <span>{t("contact.address")}</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 flex-shrink-0" />
@@ -81,7 +83,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <Clock className="h-4 w-4 mt-1 flex-shrink-0" />
-                <span>Mon-Sat: 11 AM – 7 PM</span>
+                <span>{t("hero.hours")}</span>
               </li>
             </ul>
           </div>
@@ -90,15 +92,15 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-background/70">
-            © {currentYear} IV Therapy Healthi-Life. All rights reserved.
+            © {currentYear} {t("footer.copyright")}
           </p>
           <div className="flex items-center space-x-4 text-sm text-background/70">
             <a href="#" className="hover:text-background transition-colors">
-              Privacy Policy
+              {t("footer.privacy")}
             </a>
             <span>•</span>
             <a href="#" className="hover:text-background transition-colors">
-              Terms of Service
+              {t("footer.terms")}
             </a>
           </div>
         </div>
