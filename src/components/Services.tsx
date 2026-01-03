@@ -193,7 +193,8 @@ const Services = () => {
             onClick={() => trackButtonClick('ivclick-services-book')}
             asChild
           >
-            <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2" />
               {t("nav.bookNow")}
             </a>
           </Button>
