@@ -44,9 +44,12 @@ const translations = {
     // WhatsApp Widget
     "whatsapp.concierge": "Your Medical Concierge",
     "whatsapp.online": "Online",
-    "whatsapp.greeting": "Hello!",
-    "whatsapp.message": "How can we help you today? Ask us about our IV therapy treatments.",
+    "whatsapp.greeting": "Hi 👋",
+    "whatsapp.welcome": "Welcome to Healthi-Life, Asia's leading Regenerative & Stem Cell Center. 💆‍♀️ ✨",
+    "whatsapp.message": "Would you like more info on our treatments, a medical consultation, or to book your session?",
     "whatsapp.startChat": "Start Chat",
+    "whatsapp.enterMessage": "Enter Your Message...",
+    "whatsapp.concierge.name": "Anna - Medical Concierge",
 
     // Google Reviews
     "reviews.googleReviews": "Google Reviews",
@@ -331,9 +334,12 @@ const translations = {
     // WhatsApp Widget
     "whatsapp.concierge": "ที่ปรึกษาทางการแพทย์",
     "whatsapp.online": "ออนไลน์",
-    "whatsapp.greeting": "สวัสดีค่ะ!",
-    "whatsapp.message": "เราช่วยอะไรคุณได้บ้างคะ? สอบถามเกี่ยวกับ IV Therapy ของเรา",
+    "whatsapp.greeting": "สวัสดีค่ะ 👋",
+    "whatsapp.welcome": "ยินดีต้อนรับสู่ Healthi-Life ศูนย์เวชศาสตร์ฟื้นฟูและสเต็มเซลล์ชั้นนำของเอเชีย 💆‍♀️ ✨",
+    "whatsapp.message": "ต้องการข้อมูลเพิ่มเติมเกี่ยวกับการรักษา ปรึกษาแพทย์ หรือจองนัดหมายไหมคะ?",
     "whatsapp.startChat": "เริ่มแชท",
+    "whatsapp.enterMessage": "พิมพ์ข้อความ...",
+    "whatsapp.concierge.name": "แอนนา - ที่ปรึกษาทางการแพทย์",
 
     // Google Reviews
     "reviews.googleReviews": "รีวิว Google",

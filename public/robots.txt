@@ -1,15 +1,32 @@
-# Sitemap
-Sitemap: https://stemcellhealthilife.com/sitemap.xml
+# Healthi-Life IV Therapy Bangkok - Robots.txt
+# Optimized for Search Engines and AI Crawlers
 
-# LLMs Context File
+# Sitemap Location
+Sitemap: https://ivtherapyhealthilife.com/sitemap.xml
+
+# LLMs Context File (AI Training & Context)
 # See https://llmstxt.org/ for more information
-LLMs: https://stemcellhealthilife.com/llms.txt
+LLMs: https://ivtherapyhealthilife.com/llms.txt
+
+# AI Plugin (OpenAI GPT Actions)
+AI-Plugin: https://ivtherapyhealthilife.com/.well-known/ai-plugin.json
 
 # ===== Search Engine Crawlers =====
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: DuckDuckBot
 Allow: /
 
 User-agent: Twitterbot
@@ -21,12 +38,19 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# ===== AI Crawlers (Explicitly Allowed) =====
+User-agent: Slurp
+Allow: /
+
+# ===== AI Crawlers (Explicitly Allowed for GEO) =====
+
 # OpenAI / ChatGPT
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 # Anthropic / Claude
@@ -36,16 +60,25 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 # Perplexity AI
 User-agent: PerplexityBot
 Allow: /
 
-# Google AI (Gemini, Bard)
+# Google AI (Gemini, Bard, SGE)
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot-Video
 Allow: /
 
 # Microsoft Copilot
 User-agent: Copilot
+Allow: /
+
+User-agent: bingpreview
 Allow: /
 
 # Meta AI
@@ -74,6 +107,39 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
+# Amazon AI
+User-agent: Amazonbot
+Allow: /
+
+# Mistral AI
+User-agent: MistralBot
+Allow: /
+
+# AI Search Engines
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ===== Speed & Rich Results =====
+# Allow all media files
+User-agent: *
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.css$
+Allow: /*.js$
+
 # ===== Default Rule =====
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# ===== Host Directive =====
+Host: https://ivtherapyhealthilife.com

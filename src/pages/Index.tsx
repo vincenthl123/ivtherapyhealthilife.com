@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBanner from "@/components/TrustBanner";
+import Breadcrumb from "@/components/Breadcrumb";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import MedicalTeam from "@/components/MedicalTeam";
@@ -21,6 +22,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <TrustBanner />
+        <Breadcrumb />
         <Services />
         <WhyChooseUs />
         <MedicalTeam />
