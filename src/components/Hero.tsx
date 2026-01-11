@@ -10,15 +10,19 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 md:pt-20">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Overlay - LCP Optimized */}
       <div className="absolute inset-0 z-0">
+        {/* Preload hint already in index.html */}
         <img
           src={heroImage}
-          alt="Healthi-Life IV Therapy clinic"
+          alt="Healthi-Life IV Therapy Clinic Bangkok - Premium IV Drip Treatments at Ekkamai"
           className="w-full h-full object-cover"
+          width={1920}
+          height={1080}
           fetchPriority="high"
           loading="eager"
-          decoding="async"
+          decoding="sync"
+          style={{ contentVisibility: 'auto' }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
       </div>

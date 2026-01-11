@@ -36,33 +36,49 @@ const videoTestimonials = [
 ];
 
 // VideoObject Schema for SEO with accessibility
+// VideoObject Schema for SEO - Optimized for Rich Snippets
 const generateVideoSchema = () => ({
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "name": "Healthi-Life IV Therapy Patient Testimonials",
+  "description": "Video testimonials from patients at Healthi-Life IV Therapy Bangkok",
+  "numberOfItems": videoTestimonials.length,
   "itemListElement": videoTestimonials.map((video, index) => ({
     "@type": "ListItem",
     "position": index + 1,
     "item": {
       "@type": "VideoObject",
-      "@id": `https://stemcellhealthilife.com/#video-${video.id}`,
+      "@id": `https://ivtherapyhealthilife.com/#video-${video.id}`,
       "name": video.title,
       "description": video.description,
-      "thumbnailUrl": `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+      "thumbnailUrl": [
+        `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+        `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`,
+        `https://img.youtube.com/vi/${video.id}/mqdefault.jpg`
+      ],
       "uploadDate": video.uploadDate,
       "duration": video.duration,
       "contentUrl": `https://www.youtube.com/watch?v=${video.id}`,
       "embedUrl": `https://www.youtube.com/embed/${video.id}`,
       "inLanguage": video.inLanguage,
       "transcript": video.transcript,
+      "interactionStatistic": {
+        "@type": "InteractionCounter",
+        "interactionType": "https://schema.org/WatchAction",
+        "userInteractionCount": 1000
+      },
       "accessibilityFeature": ["captions", "transcript"],
       "accessibilityHazard": "noFlashingHazard",
       "accessibilitySummary": "Video includes captions and transcript for accessibility",
       "publisher": {
         "@type": "Organization",
-        "name": "Healthi-Life Longevity Center",
+        "@id": "https://ivtherapyhealthilife.com/#org",
+        "name": "Healthi-Life IV Therapy Bangkok",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://stemcellhealthilife.com/og-image.jpg"
+          "url": "https://ivtherapyhealthilife.com/og-image.jpg",
+          "width": 1200,
+          "height": 630
         }
       },
       "potentialAction": {
