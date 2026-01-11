@@ -1,8 +1,23 @@
-import { useEffect } from 'react';
-import { useLanguage } from '@/lib/i18n';
+import { useEffect, useState } from 'react';
+
+// Safe hook to get language without throwing errors
+const useSafeLanguage = () => {
+  const [language, setLanguage] = useState<'en' | 'th'>('en');
+  
+  useEffect(() => {
+    // Check URL for language parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam === 'th') {
+      setLanguage('th');
+    }
+  }, []);
+  
+  return { language };
+};
 
 const SEO = () => {
-  const { language } = useLanguage();
+  const { language } = useSafeLanguage();
 
   useEffect(() => {
     // Update HTML lang attribute based on current language
