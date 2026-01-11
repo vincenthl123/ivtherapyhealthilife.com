@@ -122,6 +122,8 @@ const Contact = () => {
               src={clinicImage}
               alt="Healthi-Life 2025 award certificate"
               className="rounded-2xl shadow-strong w-full"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-lg p-6 shadow-medium max-w-xs">
               <p className="text-sm font-semibold text-foreground mb-2">

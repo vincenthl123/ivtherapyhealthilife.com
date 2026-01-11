@@ -77,7 +77,11 @@ const Testimonials = () => {
               <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-medical opacity-10 rounded-full" />
               <Quote className="absolute top-4 left-4 h-8 w-8 text-primary/30" />
               <Avatar className="absolute top-4 right-4 h-12 w-12 border-2 border-primary/20 shadow-sm">
-                <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                <AvatarImage 
+                  src={testimonial.avatar} 
+                  alt={testimonial.name} 
+                  loading="lazy"
+                />
                 <AvatarFallback className="bg-gradient-medical text-white font-semibold text-sm">
                   {testimonial.initials}
                 </AvatarFallback>
@@ -110,7 +114,11 @@ const Testimonials = () => {
               <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-medical opacity-10 rounded-full" />
               <Quote className="absolute top-4 left-4 h-8 w-8 text-primary/30" />
               <Avatar className="absolute top-4 right-4 h-12 w-12 border-2 border-primary/20 shadow-sm">
-                <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                <AvatarImage 
+                  src={testimonial.avatar} 
+                  alt={testimonial.name}
+                  loading="lazy"
+                />
                 <AvatarFallback className="bg-gradient-medical text-white font-semibold text-sm">
                   {testimonial.initials}
                 </AvatarFallback>
