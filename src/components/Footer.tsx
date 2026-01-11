@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import logoWhite from "@/assets/healthilife-logo-white.png";
 import { useLanguage } from "@/lib/i18n";
 
@@ -66,12 +67,36 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">{t("footer.popularDrips")}</h4>
             <ul className="space-y-2 text-sm text-background/80">
-              <li>Fat Burner IV</li>
-              <li>NAD+ IV Therapy</li>
-              <li>Glow Revive IV</li>
-              <li>Athlete Max IV</li>
-              <li>Hangover IV</li>
-              <li>Neuro Boost IV</li>
+              <li>
+                <Link to="/sitemap#fat-burner-iv" className="hover:text-background transition-colors">
+                  Fat Burner IV
+                </Link>
+              </li>
+              <li>
+                <Link to="/sitemap#nad-plus-100mg" className="hover:text-background transition-colors">
+                  NAD+ IV Therapy
+                </Link>
+              </li>
+              <li>
+                <Link to="/sitemap#glow-revive" className="hover:text-background transition-colors">
+                  Glow Revive IV
+                </Link>
+              </li>
+              <li>
+                <Link to="/sitemap#athlete-max-iv" className="hover:text-background transition-colors">
+                  Athlete Max IV
+                </Link>
+              </li>
+              <li>
+                <Link to="/sitemap#hangover-iv" className="hover:text-background transition-colors">
+                  Hangover IV
+                </Link>
+              </li>
+              <li>
+                <Link to="/sitemap#neuro-boost-iv" className="hover:text-background transition-colors">
+                  Neuro Boost IV
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -128,6 +153,10 @@ const Footer = () => {
             © {currentYear} {t("footer.copyright")}
           </p>
           <div className="flex items-center space-x-4 text-sm text-background/70">
+            <Link to="/sitemap" className="hover:text-background transition-colors">
+              Sitemap
+            </Link>
+            <span>•</span>
             <a href="#" className="hover:text-background transition-colors">
               {t("footer.privacy")}
             </a>
