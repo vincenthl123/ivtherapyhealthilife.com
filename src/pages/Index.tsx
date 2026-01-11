@@ -12,6 +12,7 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import DevTools from "@/components/DevTools";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -34,6 +35,7 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppWidget />
+      <DevTools />
     </div>
   );
 };

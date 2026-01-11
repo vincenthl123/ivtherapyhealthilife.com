@@ -161,15 +161,21 @@ const SEO = () => {
       "hasMap": "https://maps.app.goo.gl/Uttmbd2da2kBfkZSA"
     };
 
-    // MedicalBusiness Schema
-    const medicalBusinessSchema = {
+    // MedicalClinic Schema with Parent Organization (for site hierarchy)
+    const medicalClinicSchema = {
       "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "@id": "https://ivtherapyhealthilife.com/#medicalbusiness",
-      "name": "Healthi-Life IV Therapy Bangkok",
-      "alternateName": ["Healthi-Life", "HealthiLife Bangkok", "IV Therapy Bangkok"],
-      "description": "Premium medical clinic specializing in IV vitamin therapy, NAD+ treatments, and regenerative medicine in Bangkok, Thailand.",
+      "@type": "MedicalClinic",
+      "@id": "https://ivtherapyhealthilife.com/#org",
+      "name": "Healthi Life IV Therapy",
       "url": "https://ivtherapyhealthilife.com/",
+      "parentOrganization": {
+        "@id": "https://healthi-life.com/#org"
+      },
+      "sameAs": [
+        "https://healthi-life.com/"
+      ],
+      "alternateName": ["Healthi-Life", "HealthiLife Bangkok", "IV Therapy Bangkok"],
+      "description": "Premium medical clinic specializing in IV vitamin therapy, NAD+ treatments, and regenerative medicine in Bangkok, Thailand. Part of Healthi Life Longevity Center.",
       "telephone": "+66919991744",
       "priceRange": "$$",
       "image": "https://ivtherapyhealthilife.com/og-image.jpg",
@@ -396,7 +402,7 @@ const SEO = () => {
     const schemas = [
       faqSchema,
       localBusinessSchema,
-      medicalBusinessSchema,
+      medicalClinicSchema,
       serviceSchema,
       organizationSchema,
       websiteSchema,
