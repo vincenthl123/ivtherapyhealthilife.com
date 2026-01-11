@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Healthi-Life IV Therapy Bangkok",
+  "name_for_model": "healthilife_iv_therapy",
+  "description_for_human": "Find information about IV therapy treatments, prices, and booking at Healthi-Life Bangkok.",
+  "description_for_model": "Get information about IV vitamin therapy treatments available at Healthi-Life clinic in Bangkok, Thailand. This includes NAD+ IV therapy, Fat Burner IV, Glow IV, detox treatments, and 21+ specialized IV drips. The clinic is award-winning with 5.0 Google rating, ISO/GMP certified, and serves patients from 50+ countries. Located at Ekkamai, Bangkok. Contact via WhatsApp +66919991744.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://ivtherapyhealthilife.com/openapi.yaml"
+  },
+  "logo_url": "https://ivtherapyhealthilife.com/images/healthilife-logo.png",
+  "contact_email": "contact@healthi-life.com",
+  "legal_info_url": "https://ivtherapyhealthilife.com/terms"
+}
