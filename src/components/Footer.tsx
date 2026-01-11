@@ -1,5 +1,5 @@
 import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
-import logo from "@/assets/healthilife-logo.png";
+import logoWhite from "@/assets/healthilife-logo-white.png";
 import { useLanguage } from "@/lib/i18n";
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <img 
-              src={logo} 
+              src={logoWhite} 
               alt="Healthi-Life IV Therapy Bangkok" 
               className="h-8 w-auto mb-4"
             />
