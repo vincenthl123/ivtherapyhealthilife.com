@@ -65,30 +65,46 @@
     <link rel="alternate" hreflang="th" href="https://ivtherapyhealthilife.com/?lang=th" />
     <link rel="alternate" hreflang="x-default" href="https://ivtherapyhealthilife.com/" />
     
-    <!-- Google Analytics (async + defer for performance) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9R2HXK3QT"></script>
+    <!-- Google Analytics - Optimized for SEO (async + beacon transport) -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-K9R2HXK3QT', { 
-        'anonymize_ip': true,
-        'transport_type': 'beacon'
+      // Defer GA loading until after page is interactive
+      window.addEventListener('load', function() {
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-K9R2HXK3QT';
+        script.async = true;
+        document.head.appendChild(script);
+        
+        script.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-K9R2HXK3QT', { 
+            'anonymize_ip': true,
+            'transport_type': 'beacon',
+            'send_page_view': true
+          });
+          window.gtag = gtag;
+        };
       });
     </script>
     
-    <!-- Meta Pixel (deferred for Core Web Vitals) -->
+    <!-- Meta Pixel - Deferred for Core Web Vitals -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '649796334255386');
-    fbq('track', 'PageView');
+      // Defer Meta Pixel loading
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '649796334255386');
+          fbq('track', 'PageView');
+        }, 2000); // Delay 2s after load for better CWV
+      });
     </script>
   </head>
 
