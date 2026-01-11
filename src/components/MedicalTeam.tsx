@@ -3,50 +3,53 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Award, GraduationCap, Shield, Stethoscope } from "lucide-react";
 import drPetchImage from "@/assets/dr-petch.jpg";
 import drFirstImage from "@/assets/dr-first.jpg";
-
-const doctors = [
-  {
-    name: "Dr. Petch (Sarassawadee Suwanjinda)",
-    title: "Founder & Lifestyle Medicine Specialist - MD",
-    image: drPetchImage,
-    specialty: "Lifestyle Medicine Specialist & Anti-Aging",
-    education: [
-      "Medical Physician",
-      "Internship Training at Police General Hospital",
-      "Internship Training at Ananda Mahidol Hospital"
-    ],
-    certifications: [
-      "Certificate in Aesthetic Medicine – AAAM",
-      "Member of American Academy of Aesthetic Medicine",
-      "Certificate in IV Nutrition Infusion Therapy – CBAM",
-      "Certificate in Allogeneic Cellular Therapy – ISSCA",
-      "HEAT International Congress on Wellness Management",
-      "Nutraceutical Certificate – Thai Traditional Medicine"
-    ]
-  },
-  {
-    name: "Dr. First (Napat Hunsajarupan)",
-    title: "Founder MD, Dermatologist",
-    image: drFirstImage,
-    specialty: "Dermatology & Aesthetic Medicine",
-    education: [
-      "MSc. Dermatology – CICM, Thammasat University",
-      "Doctor of Medicine (M.D.) – Thammasat University",
-      "General Practitioner – Royal Thai Army Medical Dept",
-      "Dermatology OPD – Benchakitti Park Hospital"
-    ],
-    certifications: [
-      "Certificate in Aesthetic Medicine – AAAM",
-      "Member of American Academy of Aesthetic Medicine",
-      "Practical Cell Therapy Symposium",
-      "American Board of Laser Surgery",
-      "Integrative Botulinum Injection – Rassapoom Institute",
-      "Nutraceutical Certificate – Thai Traditional Medicine"
-    ]
-  }
-];
+import { useLanguage } from "@/lib/i18n";
 
 const MedicalTeam = () => {
+  const { t } = useLanguage();
+
+  const doctors = [
+    {
+      nameKey: "team.drPetch.name",
+      titleKey: "team.drPetch.role",
+      image: drPetchImage,
+      specialtyKey: "team.drPetch.specialty",
+      education: [
+        "team.drPetch.edu1",
+        "team.drPetch.edu2",
+        "team.drPetch.edu3"
+      ],
+      certifications: [
+        "team.drPetch.cert1",
+        "team.drPetch.cert2",
+        "team.drPetch.cert3",
+        "team.drPetch.cert4",
+        "team.drPetch.cert5",
+        "team.drPetch.cert6"
+      ]
+    },
+    {
+      nameKey: "team.drFirst.name",
+      titleKey: "team.drFirst.role",
+      image: drFirstImage,
+      specialtyKey: "team.drFirst.specialty",
+      education: [
+        "team.drFirst.edu1",
+        "team.drFirst.edu2",
+        "team.drFirst.edu3",
+        "team.drFirst.edu4"
+      ],
+      certifications: [
+        "team.drFirst.cert1",
+        "team.drFirst.cert2",
+        "team.drFirst.cert3",
+        "team.drFirst.cert4",
+        "team.drFirst.cert5",
+        "team.drFirst.cert6"
+      ]
+    }
+  ];
+
   return (
     <section id="doctors" className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
@@ -54,14 +57,13 @@ const MedicalTeam = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge variant="outline" className="mb-4 border-primary/30 text-primary">
             <Stethoscope className="w-3 h-3 mr-1" />
-            World-Class Medical Team
+            {t("team.badge")}
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Meet Your <span className="text-primary">Expert Physicians</span>
+            {t("team.title")}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Our internationally certified doctors combine decades of experience in regenerative medicine, 
-            aesthetic procedures, and longevity science to deliver personalized treatment plans.
+            {t("team.subtitle")}
           </p>
         </div>
 
@@ -77,15 +79,17 @@ const MedicalTeam = () => {
                 <div className="relative overflow-hidden">
                   <img 
                     src={doctor.image}
-                    alt={`${doctor.name} - ${doctor.specialty}`}
+                    alt={`${t(doctor.nameKey)} - ${t(doctor.specialtyKey)}`}
                     className="aspect-square w-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   
                   {/* Specialty Badge */}
                   <div className="absolute bottom-4 left-4 right-4">
                     <Badge className="bg-primary/90 text-primary-foreground">
-                      {doctor.specialty}
+                      {t(doctor.specialtyKey)}
                     </Badge>
                   </div>
                 </div>
@@ -94,10 +98,10 @@ const MedicalTeam = () => {
                 <div className="p-6 space-y-4">
                   <div>
                     <h3 className="text-xl font-bold text-foreground mb-1">
-                      {doctor.name}
+                      {t(doctor.nameKey)}
                     </h3>
                     <p className="text-primary font-medium text-sm">
-                      {doctor.title}
+                      {t(doctor.titleKey)}
                     </p>
                   </div>
 
@@ -105,13 +109,13 @@ const MedicalTeam = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <GraduationCap className="w-4 h-4 text-primary" />
-                      <span className="text-sm font-semibold text-foreground">Education & Training</span>
+                      <span className="text-sm font-semibold text-foreground">{t("team.education")}</span>
                     </div>
                     <ul className="space-y-1">
-                      {doctor.education.slice(0, 3).map((edu, i) => (
+                      {doctor.education.slice(0, 3).map((eduKey, i) => (
                         <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
                           <span className="w-1 h-1 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                          {edu}
+                          {t(eduKey)}
                         </li>
                       ))}
                     </ul>
@@ -121,16 +125,16 @@ const MedicalTeam = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <Award className="w-4 h-4 text-primary" />
-                      <span className="text-sm font-semibold text-foreground">Key Certifications</span>
+                      <span className="text-sm font-semibold text-foreground">{t("team.certifications")}</span>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      {doctor.certifications.slice(0, 4).map((cert, i) => (
+                      {doctor.certifications.slice(0, 4).map((certKey, i) => (
                         <Badge 
                           key={i} 
                           variant="secondary" 
                           className="text-[10px] bg-secondary/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
                         >
-                          {cert.split('–')[0].trim()}
+                          {t(certKey).split('–')[0].trim()}
                         </Badge>
                       ))}
                       {doctor.certifications.length > 4 && (
@@ -138,7 +142,7 @@ const MedicalTeam = () => {
                           variant="outline" 
                           className="text-[10px] border-primary/30 text-primary"
                         >
-                          +{doctor.certifications.length - 4} more
+                          +{doctor.certifications.length - 4} {t("team.more")}
                         </Badge>
                       )}
                     </div>
@@ -153,15 +157,15 @@ const MedicalTeam = () => {
         <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Shield className="w-4 h-4 text-primary" />
-            <span>AAAM Certified Physicians</span>
+            <span>{t("team.trustAAM")}</span>
           </div>
           <div className="flex items-center gap-2">
             <Award className="w-4 h-4 text-primary" />
-            <span>ISSCA Stem Cell Specialists</span>
+            <span>{t("team.trustISSCA")}</span>
           </div>
           <div className="flex items-center gap-2">
             <GraduationCap className="w-4 h-4 text-primary" />
-            <span>International Training</span>
+            <span>{t("team.trustIntl")}</span>
           </div>
         </div>
       </div>

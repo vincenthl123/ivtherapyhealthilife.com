@@ -42,6 +42,8 @@ const WhyChooseUs = () => {
               src={treatmentImage}
               alt="Healthi-Life IV therapy treatment room"
               className="rounded-2xl shadow-strong w-full"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-lg p-6 shadow-medium max-w-xs">
               <p className="text-sm font-semibold text-foreground mb-2">
