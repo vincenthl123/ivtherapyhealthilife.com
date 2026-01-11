@@ -9,64 +9,72 @@
     <!-- Preload LCP image for faster rendering -->
     <link rel="preload" as="image" href="/src/assets/clinic-exterior.webp" type="image/webp" fetchpriority="high" />
     
-    <!-- Preconnect to external domains -->
+    <!-- Preconnect to external domains (reduce DNS/TLS latency) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.youtube.com" />
     <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     
-    <title>IV Therapy Bangkok | Healthi-Life - NAD+, Fat Burner, Glow IV Drips</title>
+    <!-- SEO: Title under 60 chars with main keyword first -->
+    <title>IV Therapy Bangkok | Healthi-Life – NAD+, Fat Burner, Glow</title>
     
-    <!-- Primary Meta Tags -->
+    <!-- SEO: Meta description under 160 chars with CTA -->
     <meta name="description" content="Premium IV Therapy in Bangkok. NAD+, Fat Burner, Glow & 21+ IV drips. Award-winning clinic at Ekkamai. 5.0★ Google Reviews. Book now or WhatsApp +66919991744" />
     <meta name="author" content="Healthi-Life IV Therapy Bangkok" />
-    <meta name="keywords" content="IV therapy Bangkok, NAD+ IV Bangkok, fat burner IV drip, vitamin IV therapy Thailand, hangover IV Bangkok, glow IV drip, IV vitamin infusion Bangkok, best IV clinic Thailand" />
+    <meta name="keywords" content="IV therapy Bangkok, NAD+ IV Bangkok, fat burner IV drip, vitamin IV therapy Thailand, hangover IV Bangkok, glow IV drip, IV vitamin infusion Bangkok, best IV clinic Thailand, Ekkamai IV clinic" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
     
-    <!-- Geo Tags -->
+    <!-- GEO Tags for Local SEO -->
     <meta name="geo.region" content="TH-10" />
-    <meta name="geo.placename" content="Bangkok" />
+    <meta name="geo.placename" content="Bangkok, Watthana, Ekkamai" />
     <meta name="geo.position" content="13.7268;100.5847" />
     <meta name="ICBM" content="13.7268, 100.5847" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Healthi-Life IV Therapy Bangkok" />
-    <meta property="og:title" content="IV Therapy Bangkok | Healthi-Life - NAD+, Fat Burner, Glow IV Drips" />
+    <meta property="og:title" content="IV Therapy Bangkok | Healthi-Life – NAD+, Fat Burner, Glow IV Drips" />
     <meta property="og:description" content="Premium IV Therapy in Bangkok. NAD+, Fat Burner, Glow & 21+ IV drips. Award-winning clinic at Ekkamai. Book now!" />
     <meta property="og:url" content="https://ivtherapyhealthilife.com/" />
     <meta property="og:image" content="https://ivtherapyhealthilife.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Healthi-Life IV Therapy Clinic Bangkok" />
+    <meta property="og:image:alt" content="Healthi-Life IV Therapy Clinic Bangkok - Premium IV Drips" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="th_TH" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@healthilife" />
-    <meta name="twitter:title" content="IV Therapy Bangkok | Healthi-Life - NAD+, Fat Burner, Glow IV Drips" />
+    <meta name="twitter:title" content="IV Therapy Bangkok | Healthi-Life – NAD+, Fat Burner, Glow" />
     <meta name="twitter:description" content="Premium IV Therapy in Bangkok. NAD+, Fat Burner, Glow & 21+ specialized IV drips. Award-winning clinic." />
     <meta name="twitter:image" content="https://ivtherapyhealthilife.com/og-image.jpg" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ivtherapyhealthilife.com/" />
     
-    <!-- Alternate Languages for hreflang (Thai & English) -->
+    <!-- Hreflang for multi-language SEO -->
     <link rel="alternate" hreflang="en" href="https://ivtherapyhealthilife.com/" />
     <link rel="alternate" hreflang="th" href="https://ivtherapyhealthilife.com/?lang=th" />
     <link rel="alternate" hreflang="x-default" href="https://ivtherapyhealthilife.com/" />
     
-    <!-- Google Analytics -->
+    <!-- Google Analytics (async + defer for performance) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9R2HXK3QT"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-K9R2HXK3QT');
+      gtag('config', 'G-K9R2HXK3QT', { 
+        'anonymize_ip': true,
+        'transport_type': 'beacon'
+      });
     </script>
-    <!-- Meta Pixel Code -->
+    
+    <!-- Meta Pixel (deferred for Core Web Vitals) -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -79,7 +87,6 @@
     fbq('init', '649796334255386');
     fbq('track', 'PageView');
     </script>
-    <!-- End Meta Pixel Code -->
   </head>
 
   <body>
@@ -90,6 +97,5 @@
     
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    
   </body>
 </html>

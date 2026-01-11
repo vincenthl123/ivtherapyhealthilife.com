@@ -5,7 +5,6 @@ const useSafeLanguage = () => {
   const [language, setLanguage] = useState<'en' | 'th'>('en');
   
   useEffect(() => {
-    // Check URL for language parameter
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
     if (langParam === 'th') {
@@ -18,24 +17,24 @@ const useSafeLanguage = () => {
 
 const SEO = () => {
   const { language } = useSafeLanguage();
-  const scriptsRef = useRef<HTMLScriptElement[]>([]);
-  const hreflangRef = useRef<HTMLLinkElement | null>(null);
+  const mainSchemaRef = useRef<HTMLScriptElement | null>(null);
+  const faqSchemaRef = useRef<HTMLScriptElement | null>(null);
 
   useEffect(() => {
-    // Update HTML lang attribute based on current language
+    // Update HTML lang attribute
     document.documentElement.lang = language;
     
-    // Update page title based on language
+    // SEO-optimized titles (under 60 chars with main keyword first)
     const titles = {
-      en: "IV Therapy Bangkok | Healthi-Life Longevity Center - NAD+, Fat Burner, Glow IV Drips",
-      th: "IV Therapy กรุงเทพ | Healthi-Life - NAD+, Fat Burner, Glow IV Drip"
+      en: "IV Therapy Bangkok | Healthi-Life – NAD+, Fat Burner, Glow",
+      th: "IV Therapy กรุงเทพ | Healthi-Life – NAD+, Fat Burner, Glow"
     };
     document.title = titles[language];
     
-    // Update meta description based on language
+    // Meta description (under 160 chars with CTA)
     const descriptions = {
       en: "Premium IV Therapy in Bangkok. NAD+, Fat Burner, Glow & 21+ IV drips. Award-winning clinic at Ekkamai. 5.0★ Google Reviews. Book now or WhatsApp +66919991744",
-      th: "IV Therapy ระดับพรีเมียมในกรุงเทพ NAD+, Fat Burner, Glow & IV Drip 21+ สูตร คลินิกรางวัล ที่เอกมัย 5.0★ Google Reviews จองเลยหรือ WhatsApp +66919991744"
+      th: "IV Therapy ระดับพรีเมียมในกรุงเทพ NAD+, Fat Burner, Glow & 21+ สูตร คลินิกที่เอกมัย 5.0★ Google จองเลยหรือ WhatsApp +66919991744"
     };
     
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -43,7 +42,260 @@ const SEO = () => {
       metaDescription.setAttribute('content', descriptions[language]);
     }
 
-    // FAQ Schema for AEO (Voice Search Optimization)
+    // ============================================
+    // CONSOLIDATED @GRAPH SCHEMA (SEO + GEO + AEO)
+    // Single injection = faster parsing + cleaner DOM
+    // ============================================
+    const consolidatedSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        // 1. WebSite - for Sitelinks & Search
+        {
+          "@type": "WebSite",
+          "@id": "https://ivtherapyhealthilife.com/#website",
+          "url": "https://ivtherapyhealthilife.com/",
+          "name": "Healthi Life IV Therapy",
+          "alternateName": ["Healthi-Life IV Therapy", "HealthiLife Bangkok"],
+          "description": "Premium IV Therapy clinic in Bangkok offering NAD+, Fat Burner, Glow & 21+ specialized IV drips",
+          "publisher": { "@id": "https://ivtherapyhealthilife.com/#org" },
+          "inLanguage": ["en", "th"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://ivtherapyhealthilife.com/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        
+        // 2. Organization - Parent entity linkage
+        {
+          "@type": "Organization",
+          "@id": "https://ivtherapyhealthilife.com/#org",
+          "name": "Healthi Life IV Therapy",
+          "alternateName": ["Healthi-Life", "HealthiLife", "Healthi Life IV Therapy Bangkok"],
+          "url": "https://ivtherapyhealthilife.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ivtherapyhealthilife.com/og-image.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          "image": "https://ivtherapyhealthilife.com/og-image.jpg",
+          "description": "Bangkok's premier IV therapy clinic. Award-winning medical facility offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips.",
+          "foundingDate": "2022",
+          "parentOrganization": { "@id": "https://healthi-life.com/#org" },
+          "sameAs": [
+            "https://healthi-life.com/",
+            "https://maps.app.goo.gl/Uttmbd2da2kBfkZSA",
+            "https://www.instagram.com/healthi_life_th/",
+            "https://www.facebook.com/HealthiLifeTH",
+            "https://wa.me/66919991744"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+66919991744",
+            "contactType": "customer service",
+            "areaServed": ["TH", "Asia"],
+            "availableLanguage": ["English", "Thai"]
+          },
+          "award": [
+            "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
+            "Thailand Rising Star 2025"
+          ]
+        },
+        
+        // 3. MedicalClinic + LocalBusiness (Dual Type for max coverage)
+        {
+          "@type": ["MedicalClinic", "LocalBusiness"],
+          "@id": "https://ivtherapyhealthilife.com/#clinic",
+          "name": "Healthi Life IV Therapy",
+          "alternateName": ["Healthi-Life IV Therapy Bangkok", "IV Therapy Bangkok", "HealthiLife Ekkamai"],
+          "url": "https://ivtherapyhealthilife.com/",
+          "telephone": "+66919991744",
+          "email": "info@healthi-life.com",
+          "priceRange": "$$",
+          "currenciesAccepted": "THB, USD",
+          "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+          "image": "https://ivtherapyhealthilife.com/og-image.jpg",
+          "logo": "https://ivtherapyhealthilife.com/og-image.jpg",
+          "description": "Bangkok's premium IV therapy clinic offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips. Award-winning clinic at Ekkamai with 5.0 Google rating from 250+ patients.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "94 Ekkamai 10 Alley",
+            "addressLocality": "Watthana",
+            "addressRegion": "Bangkok",
+            "postalCode": "10110",
+            "addressCountry": "TH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 13.7268,
+            "longitude": 100.5847
+          },
+          "hasMap": "https://maps.app.goo.gl/Uttmbd2da2kBfkZSA",
+          "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "11:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "11:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "11:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "11:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:00", "closes": "19:00" }
+          ],
+          "areaServed": [
+            { "@type": "City", "name": "Bangkok", "@id": "https://www.wikidata.org/wiki/Q1861" },
+            { "@type": "Country", "name": "Thailand", "@id": "https://www.wikidata.org/wiki/Q869" }
+          ],
+          "medicalSpecialty": [
+            "IV Therapy",
+            "Preventive Medicine",
+            "Regenerative Medicine",
+            "Longevity Medicine",
+            "Wellness Medicine"
+          ],
+          "isAcceptingNewPatients": true,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "250",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "parentOrganization": { "@id": "https://ivtherapyhealthilife.com/#org" },
+          "employee": [
+            {
+              "@type": "Physician",
+              "@id": "https://ivtherapyhealthilife.com/#dr-petch",
+              "name": "Dr. Petch (Sarassawadee Suwanjinda)",
+              "jobTitle": "Founder & Lifestyle Medicine Specialist",
+              "medicalSpecialty": ["Longevity Medicine", "Preventive Medicine"],
+              "worksFor": { "@id": "https://ivtherapyhealthilife.com/#clinic" }
+            },
+            {
+              "@type": "Physician",
+              "@id": "https://ivtherapyhealthilife.com/#dr-first",
+              "name": "Dr. First (Napat Hunsajarupan)",
+              "jobTitle": "Founder & MD",
+              "medicalSpecialty": ["Dermatology", "Aesthetic Medicine"],
+              "worksFor": { "@id": "https://ivtherapyhealthilife.com/#clinic" }
+            }
+          ],
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "NAD+ IV Therapy",
+              "description": "Boost energy, repair cells, slow aging with NAD+ infusion",
+              "procedureType": "https://schema.org/NoninvasiveProcedure"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Fat Burner IV Therapy",
+              "description": "Accelerate metabolism with L-Carnitine & B-vitamins",
+              "procedureType": "https://schema.org/NoninvasiveProcedure"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Glow Revive IV Therapy",
+              "description": "Skin rejuvenation with placenta extract & antioxidants",
+              "procedureType": "https://schema.org/NoninvasiveProcedure"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "IV Therapy Treatments",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Fat Burner IV Therapy" },
+                "price": "4500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "NAD+ IV Therapy 100mg" },
+                "price": "6000",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "NAD+ IV Therapy 250mg" },
+                "price": "8500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Glow Revive IV Therapy" },
+                "price": "12000",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Hangover IV" },
+                "price": "4500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Curcumin IV Therapy" },
+                "price": "8500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Resveratrol IV Therapy" },
+                "price": "8500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Full Body Detox IV" },
+                "price": "8500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
+          }
+        },
+        
+        // 4. BreadcrumbList - for rich snippets
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ivtherapyhealthilife.com/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://ivtherapyhealthilife.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "IV Therapy Services",
+              "item": "https://ivtherapyhealthilife.com/#services"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Contact",
+              "item": "https://ivtherapyhealthilife.com/#contact"
+            }
+          ]
+        }
+      ]
+    };
+
+    // ============================================
+    // FAQ SCHEMA (Separate for AEO/Voice Search)
+    // ============================================
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -53,7 +305,7 @@ const SEO = () => {
           "name": "What is IV Therapy and how does it work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "IV Therapy delivers vitamins, minerals, and antioxidants directly into your bloodstream — allowing your body to absorb them faster and more effectively than oral supplements. At Healthi-Life Bangkok, treatments take 30-45 minutes."
+            "text": "IV Therapy delivers vitamins, minerals, and antioxidants directly into your bloodstream — allowing your body to absorb them faster and more effectively than oral supplements. At Healthi-Life Bangkok, treatments take 30-45 minutes in our private treatment lounges."
           }
         },
         {
@@ -61,7 +313,7 @@ const SEO = () => {
           "name": "How long does an IV therapy session take in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most IV drips at Healthi-Life take 30 to 45 minutes. You can relax in our private treatment lounges while your body is being replenished with essential nutrients."
+            "text": "Most IV drips at Healthi-Life take 30 to 45 minutes. You can relax in our private treatment lounges at Ekkamai while your body is being replenished with essential nutrients."
           }
         },
         {
@@ -85,7 +337,7 @@ const SEO = () => {
           "name": "What is the best IV therapy for weight loss in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our Fat Burner IV Therapy (4,500 THB) includes L-Carnitine, B-Complex, and metabolism boosters to support fat loss, detoxification, and energy production. It's one of our most popular treatments."
+            "text": "Our Fat Burner IV Therapy (4,500 THB) includes L-Carnitine, B-Complex, and metabolism boosters to support fat loss, detoxification, and energy production. It's one of our most popular treatments at Healthi-Life Ekkamai."
           }
         },
         {
@@ -93,7 +345,7 @@ const SEO = () => {
           "name": "How much does IV therapy cost in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,500 THB for treatments like Fat Burner or Hangover IV, to 12,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB."
+            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,500 THB for treatments like Fat Burner or Hangover IV, to 12,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg."
           }
         },
         {
@@ -101,341 +353,43 @@ const SEO = () => {
           "name": "Where is the best IV therapy clinic in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110. Awarded Best Regenerative Medicine Clinic 2025 Asia-Pacific with 5.0 Google rating from 2,500+ patients."
+            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110 — near Ekkamai BTS station. Awarded Best Regenerative Medicine Clinic 2025 Asia-Pacific with 5.0 Google rating from 250+ patients. Book via WhatsApp: +66919991744"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What IV drips does Healthi-Life Bangkok offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Healthi-Life offers 21+ specialized IV drips including: NAD+ (anti-aging & energy), Fat Burner (weight loss), Glow Revive (skin rejuvenation), Hangover Recovery, Immune Boost, Athlete Max, Neuro Boost, Curcumin, Resveratrol, and Full Body Detox treatments."
           }
         }
       ]
     };
 
-    // LocalBusiness Schema for GEO (Local SEO)
-    const localBusinessSchema = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://ivtherapyhealthilife.com/#localbusiness",
-      "name": "Healthi-Life IV Therapy Bangkok",
-      "image": "https://ivtherapyhealthilife.com/og-image.jpg",
-      "logo": "https://ivtherapyhealthilife.com/images/healthilife-logo.png",
-      "description": "Bangkok's premium IV therapy clinic offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips. Award-winning clinic at Ekkamai with 5.0 Google rating.",
-      "url": "https://ivtherapyhealthilife.com/",
-      "telephone": "+66919991744",
-      "priceRange": "$$",
-      "currenciesAccepted": "THB",
-      "paymentAccepted": "Cash, Credit Card",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "94 Ekkamai 10 Alley, Khlong Tan Nuea",
-        "addressLocality": "Watthana",
-        "addressRegion": "Bangkok",
-        "postalCode": "10110",
-        "addressCountry": "TH"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 13.7268,
-        "longitude": 100.5847
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "11:00",
-          "closes": "19:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "00:00",
-          "closes": "00:00"
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "250",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "sameAs": [
-        "https://www.instagram.com/healthi_life_th/",
-        "https://www.facebook.com/HealthiLifeTH",
-        "https://wa.me/66919991744"
-      ],
-      "hasMap": "https://maps.app.goo.gl/Uttmbd2da2kBfkZSA"
-    };
-
-    // MedicalClinic Schema with Parent Organization (for site hierarchy)
-    const medicalClinicSchema = {
-      "@context": "https://schema.org",
-      "@type": "MedicalClinic",
-      "@id": "https://ivtherapyhealthilife.com/#org",
-      "name": "Healthi Life IV Therapy",
-      "url": "https://ivtherapyhealthilife.com/",
-      "parentOrganization": {
-        "@id": "https://healthi-life.com/#org"
-      },
-      "sameAs": [
-        "https://healthi-life.com/"
-      ],
-      "alternateName": ["Healthi-Life", "HealthiLife Bangkok", "IV Therapy Bangkok"],
-      "description": "Premium medical clinic specializing in IV vitamin therapy, NAD+ treatments, and regenerative medicine in Bangkok, Thailand. Part of Healthi Life Longevity Center.",
-      "telephone": "+66919991744",
-      "priceRange": "$$",
-      "image": "https://ivtherapyhealthilife.com/og-image.jpg",
-      "medicalSpecialty": [
-        "IV Therapy",
-        "Regenerative Medicine",
-        "Longevity Medicine",
-        "Wellness Medicine"
-      ],
-      "isAcceptingNewPatients": true,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "94 Ekkamai 10 Alley",
-        "addressLocality": "Watthana",
-        "addressRegion": "Bangkok",
-        "postalCode": "10110",
-        "addressCountry": "TH"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 13.7268,
-        "longitude": 100.5847
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "11:00",
-          "closes": "19:00"
-        }
-      ],
-      "availableService": [
-        {
-          "@type": "MedicalProcedure",
-          "name": "NAD+ IV Therapy",
-          "description": "Boost energy, repair cells, slow aging, and enhance brain power with NAD+ delivered directly into your bloodstream.",
-          "howPerformed": "Intravenous infusion administered by trained medical professionals."
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Fat Burner IV Therapy",
-          "description": "Accelerate fat burning with L-Carnitine, B-complex vitamins, and antioxidants to boost energy and detoxify.",
-          "howPerformed": "Intravenous infusion administered by trained medical professionals."
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Glow Revive IV Therapy",
-          "description": "Revitalize your skin with placenta extract for a brighter glow, firmer texture, and lasting youthfulness.",
-          "howPerformed": "Intravenous infusion administered by trained medical professionals."
-        }
-      ],
-      "employee": [
-        {
-          "@type": "Physician",
-          "name": "Dr. Petch (Sarassawadee Suwanjinda)",
-          "jobTitle": "Founder & Lifestyle Medicine Specialist",
-          "medicalSpecialty": "Longevity Medicine"
-        },
-        {
-          "@type": "Physician",
-          "name": "Dr. First (Napat Hunsajarupan)",
-          "jobTitle": "Founder & MD",
-          "medicalSpecialty": "Dermatology"
-        }
-      ]
-    };
-
-    // Service Schema with Offers
-    const serviceSchema = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "IV Therapy Bangkok",
-      "provider": {
-        "@type": "MedicalClinic",
-        "name": "Healthi-Life IV Therapy Bangkok",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "94 Ekkamai 10 Alley",
-          "addressLocality": "Bangkok",
-          "postalCode": "10110",
-          "addressCountry": "TH"
-        }
-      },
-      "serviceType": "IV Vitamin Therapy",
-      "areaServed": {
-        "@type": "City",
-        "name": "Bangkok"
-      },
-      "description": "Premium IV therapy delivering vitamins, minerals, and antioxidants directly into your bloodstream for instant absorption and maximum results.",
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Fat Burner IV Therapy",
-          "price": "4500",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "NAD+ IV Therapy 100mg",
-          "price": "6000",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "NAD+ IV Therapy 250mg",
-          "price": "8500",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "Glow Revive IV Therapy",
-          "price": "12000",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "Resveratrol IV Therapy",
-          "price": "8500",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "Full Body Detox IV",
-          "price": "8500",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "Liver Detox IV",
-          "price": "4500",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "Curcumin IV Therapy",
-          "price": "8500",
-          "priceCurrency": "THB",
-          "availability": "https://schema.org/InStock"
-        }
-      ]
-    };
-
-    // Organization Schema
-    const organizationSchema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://ivtherapyhealthilife.com/#organization",
-      "name": "Healthi-Life IV Therapy Bangkok",
-      "alternateName": ["Healthi-Life", "HealthiLife", "Healthi Life IV Therapy"],
-      "url": "https://ivtherapyhealthilife.com/",
-      "logo": "https://ivtherapyhealthilife.com/images/healthilife-logo.png",
-      "description": "Bangkok's premier IV therapy clinic. Award-winning medical facility offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips.",
-      "foundingDate": "2022",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana",
-        "addressLocality": "Bangkok",
-        "postalCode": "10110",
-        "addressCountry": "TH"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+66919991744",
-        "contactType": "customer service",
-        "availableLanguage": ["English", "Thai"]
-      },
-      "sameAs": [
-        "https://www.instagram.com/healthi_life_th/",
-        "https://www.facebook.com/HealthiLifeTH",
-        "https://wa.me/66919991744"
-      ],
-      "award": [
-        "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
-        "Thailand Rising Star 2025"
-      ]
-    };
-
-    // WebSite Schema for Sitelinks Search Box
-    const websiteSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Healthi-Life IV Therapy Bangkok",
-      "url": "https://ivtherapyhealthilife.com/",
-      "description": "Premium IV Therapy clinic in Bangkok offering NAD+, Fat Burner, Glow & 21+ IV drips",
-      "inLanguage": ["en", "th"],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://ivtherapyhealthilife.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    };
-
-    // BreadcrumbList Schema
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ivtherapyhealthilife.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "IV Therapy Bangkok",
-          "item": "https://ivtherapyhealthilife.com/#services"
-        }
-      ]
-    };
-
-    // Clean up previously created scripts
-    scriptsRef.current.forEach(script => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    });
-    scriptsRef.current = [];
-    
-    // Add all schema scripts
-    const schemas = [
-      faqSchema,
-      localBusinessSchema,
-      medicalClinicSchema,
-      serviceSchema,
-      organizationSchema,
-      websiteSchema,
-      breadcrumbSchema
-    ];
-
-    schemas.forEach(schema => {
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
-      scriptsRef.current.push(script);
-    });
-
-    // Add hreflang tag if not exists
-    if (!hreflangRef.current) {
-      const existingHreflangTh = document.querySelector('link[hreflang="th"]');
-      if (!existingHreflangTh) {
-        const hreflangTh = document.createElement('link');
-        hreflangTh.rel = 'alternate';
-        hreflangTh.setAttribute('hreflang', 'th');
-        hreflangTh.href = 'https://ivtherapyhealthilife.com/?lang=th';
-        document.head.appendChild(hreflangTh);
-        hreflangRef.current = hreflangTh;
-      }
+    // Clean up previous scripts
+    if (mainSchemaRef.current?.parentNode) {
+      mainSchemaRef.current.parentNode.removeChild(mainSchemaRef.current);
     }
+    if (faqSchemaRef.current?.parentNode) {
+      faqSchemaRef.current.parentNode.removeChild(faqSchemaRef.current);
+    }
+    
+    // Inject consolidated @graph schema (single injection = faster)
+    const mainScript = document.createElement('script');
+    mainScript.type = 'application/ld+json';
+    mainScript.id = 'schema-main';
+    mainScript.textContent = JSON.stringify(consolidatedSchema);
+    document.head.appendChild(mainScript);
+    mainSchemaRef.current = mainScript;
+    
+    // Inject FAQ schema separately (for AEO rich results)
+    const faqScript = document.createElement('script');
+    faqScript.type = 'application/ld+json';
+    faqScript.id = 'schema-faq';
+    faqScript.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(faqScript);
+    faqSchemaRef.current = faqScript;
 
     // Update og:locale based on language
     const ogLocale = document.querySelector('meta[property="og:locale"]');
@@ -443,18 +397,15 @@ const SEO = () => {
       ogLocale.setAttribute('content', language === 'th' ? 'th_TH' : 'en_US');
     }
 
-    // Cleanup function
+    // Cleanup
     return () => {
-      scriptsRef.current.forEach(script => {
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-      });
-      scriptsRef.current = [];
-      
-      if (hreflangRef.current && hreflangRef.current.parentNode) {
-        hreflangRef.current.parentNode.removeChild(hreflangRef.current);
-        hreflangRef.current = null;
+      if (mainSchemaRef.current?.parentNode) {
+        mainSchemaRef.current.parentNode.removeChild(mainSchemaRef.current);
+        mainSchemaRef.current = null;
+      }
+      if (faqSchemaRef.current?.parentNode) {
+        faqSchemaRef.current.parentNode.removeChild(faqSchemaRef.current);
+        faqSchemaRef.current = null;
       }
     };
   }, [language]);
