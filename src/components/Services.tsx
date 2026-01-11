@@ -35,6 +35,41 @@ const Services = () => {
       description: t("popular.glow.desc"),
       benefits: [t("popular.glow.benefit1"), t("popular.glow.benefit2"), t("popular.glow.benefit3")],
     },
+    {
+      icon: Heart,
+      title: t("popular.resveratrol.title"),
+      price: t("popular.resveratrol.price"),
+      description: t("popular.resveratrol.desc"),
+      benefits: [t("popular.resveratrol.benefit1"), t("popular.resveratrol.benefit2"), t("popular.resveratrol.benefit3")],
+    },
+    {
+      icon: Flame,
+      title: t("popular.fullDetox.title"),
+      price: t("popular.fullDetox.price"),
+      description: t("popular.fullDetox.desc"),
+      benefits: [t("popular.fullDetox.benefit1"), t("popular.fullDetox.benefit2"), t("popular.fullDetox.benefit3")],
+    },
+    {
+      icon: Heart,
+      title: t("popular.liverDetox.title"),
+      price: t("popular.liverDetox.price"),
+      description: t("popular.liverDetox.desc"),
+      benefits: [t("popular.liverDetox.benefit1"), t("popular.liverDetox.benefit2"), t("popular.liverDetox.benefit3")],
+    },
+    {
+      icon: Sparkles,
+      title: t("popular.curcumin.title"),
+      price: t("popular.curcumin.price"),
+      description: t("popular.curcumin.desc"),
+      benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
+    },
+    {
+      icon: Zap,
+      title: t("popular.nad250.title"),
+      price: t("popular.nad250.price"),
+      description: t("popular.nad250.desc"),
+      benefits: [t("popular.nad250.benefit1"), t("popular.nad250.benefit2"), t("popular.nad250.benefit3")],
+    },
   ];
 
   const bodyBoosterDrips = [

@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
 import { useLanguage } from "@/lib/i18n";
 
@@ -20,11 +20,14 @@ const Footer = () => {
             <p className="text-background/80 text-sm mb-4">
               {t("footer.desc")}
             </p>
+            <p className="text-background/60 text-xs">
+              {t("footer.serviceProvider")}
+            </p>
           </div>
 
-          {/* Quick Links */}
+          {/* The House Links */}
           <div>
-            <h4 className="font-semibold mb-4">{t("footer.quickLinks")}</h4>
+            <h4 className="font-semibold mb-4">{t("footer.theHouse")}</h4>
             <ul className="space-y-2 text-sm text-background/80">
               <li>
                 <a href="#services" className="hover:text-background transition-colors">
@@ -34,6 +37,11 @@ const Footer = () => {
               <li>
                 <a href="#why-us" className="hover:text-background transition-colors">
                   {t("nav.whyIVTherapy")}
+                </a>
+              </li>
+              <li>
+                <a href="#doctors" className="hover:text-background transition-colors">
+                  {t("nav.doctors")}
                 </a>
               </li>
               <li>
@@ -73,7 +81,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-background/80">
               <li className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                <span>{t("contact.address")}</span>
+                <a 
+                  href="https://maps.app.goo.gl/Uttmbd2da2kBfkZSA" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-background transition-colors group"
+                >
+                  94 Ekkamai 10 Alley, Watthana, Bangkok 10110
+                  <ExternalLink className="inline-block h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 flex-shrink-0" />

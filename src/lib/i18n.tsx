@@ -29,15 +29,34 @@ const translations = {
     "hero.reviews": "5.0 Google Reviews",
     "hero.location": "Ekkamai, Bangkok",
     "hero.hours": "Mon-Sat: 11 AM – 7 PM",
-    "hero.cta1": "Chat with Us on WhatsApp",
+    "hero.cta1": "Talk with Us on WhatsApp",
     "hero.cta2": "Book Now",
     "hero.locationInfo": "📍 Bangkok's Premium IV Therapy Destination at EKKAMAI 10",
+
+    // Trust Banner
+    "trust.googleRating": "Google Rating",
+    "trust.patientsTreated": "Patients Treated",
+    "trust.countriesServed": "Countries Served",
+    "trust.certifiedLab": "Certified Lab",
+    "trust.bestClinicValue": "Best Clinic",
+    "trust.bestClinicLabel": "2025 Asia-Pacific",
+
+    // WhatsApp Widget
+    "whatsapp.concierge": "Your Medical Concierge",
+    "whatsapp.online": "Online",
+    "whatsapp.greeting": "Hello!",
+    "whatsapp.message": "How can we help you today? Ask us about our IV therapy treatments.",
+    "whatsapp.startChat": "Start Chat",
+
+    // Google Reviews
+    "reviews.googleReviews": "Google Reviews",
+    "reviews.viewAll": "View all reviews on Google",
 
     // Services
     "services.title": "Most Popular IV Therapy",
     "services.subtitle": "Replenish your energy, enhance metabolism, and support detoxification with our targeted IV drips.",
     "services.subtitleBold": "Fast, effective results.",
-    "services.chatWithUs": "Chat with Us",
+    "services.chatWithUs": "Talk with Us",
     "services.discoverMore": "Discover more than 21 IV drips tailored for your wellness needs",
     "services.bodyBooster": "BODY BOOSTER IV",
     "services.brainBooster": "BRAIN BOOSTER",
@@ -54,8 +73,8 @@ const translations = {
     "popular.fatBurner.benefit2": "Boost energy",
     "popular.fatBurner.benefit3": "Detoxify liver",
 
-    "popular.nad.title": "NAD+ IV Therapy",
-    "popular.nad.price": "6,900 THB",
+    "popular.nad.title": "NAD+ IV 100mg",
+    "popular.nad.price": "6,000 THB",
     "popular.nad.desc": "Boost energy, repair cells, slow aging, and enhance brain power. Delivering NAD+ directly into your bloodstream for cellular health and cognitive enhancement.",
     "popular.nad.benefit1": "Cellular health",
     "popular.nad.benefit2": "Anti-aging",
@@ -68,9 +87,44 @@ const translations = {
     "popular.glow.benefit2": "Improves elasticity",
     "popular.glow.benefit3": "Radiant glow",
 
+    "popular.resveratrol.title": "Resveratrol IV Therapy",
+    "popular.resveratrol.price": "8,500 THB",
+    "popular.resveratrol.desc": "Powerful antioxidant therapy derived from red grapes. Protects against cellular aging, supports cardiovascular health, and promotes longevity at the cellular level.",
+    "popular.resveratrol.benefit1": "Anti-aging antioxidant",
+    "popular.resveratrol.benefit2": "Heart health",
+    "popular.resveratrol.benefit3": "Cellular protection",
+
+    "popular.fullDetox.title": "Full Body Detox IV",
+    "popular.fullDetox.price": "8,500 THB",
+    "popular.fullDetox.desc": "Complete systemic cleanse to eliminate toxins, heavy metals, and metabolic waste. Rejuvenate your organs, boost immunity, and restore optimal body function.",
+    "popular.fullDetox.benefit1": "Full body cleanse",
+    "popular.fullDetox.benefit2": "Organ support",
+    "popular.fullDetox.benefit3": "Immune boost",
+
+    "popular.liverDetox.title": "Liver Detox IV",
+    "popular.liverDetox.price": "4,500 THB",
+    "popular.liverDetox.desc": "Targeted liver cleansing formula with glutathione and essential nutrients. Flush toxins, restore liver function, and improve overall metabolic health.",
+    "popular.liverDetox.benefit1": "Liver cleansing",
+    "popular.liverDetox.benefit2": "Toxin removal",
+    "popular.liverDetox.benefit3": "Metabolic support",
+
+    "popular.curcumin.title": "Curcumin IV Therapy",
+    "popular.curcumin.price": "8,500 THB",
+    "popular.curcumin.desc": "High-absorption curcumin infusion with powerful anti-inflammatory properties. Reduces inflammation, supports joint health, and provides potent antioxidant protection.",
+    "popular.curcumin.benefit1": "Anti-inflammatory",
+    "popular.curcumin.benefit2": "Joint support",
+    "popular.curcumin.benefit3": "Pain relief",
+
+    "popular.nad250.title": "NAD+ IV 250mg",
+    "popular.nad250.price": "8,500 THB",
+    "popular.nad250.desc": "High-dose NAD+ therapy for maximum cellular regeneration. Premium anti-aging treatment that supercharges energy, sharpens cognitive function, and reverses cellular decline.",
+    "popular.nad250.benefit1": "Maximum regeneration",
+    "popular.nad250.benefit2": "Peak energy",
+    "popular.nad250.benefit3": "Brain optimization",
+
     // Body Booster drips
-    "body.nad.title": "NAD+ IV",
-    "body.nad.price": "6,900 THB",
+    "body.nad.title": "NAD+ IV 100mg",
+    "body.nad.price": "6,000 THB",
     "body.nad.tagline": "Cellular health, boosts energy, anti-aging",
     "body.nad.desc": "Elevate your energy, mental clarity, and vitality with this advanced IV treatment. Delivering Nicotinamide Adenine Dinucleotide (NAD+) directly into your bloodstream, it restores cellular health, boosts energy, enhances cognitive focus, supports anti-aging, and accelerates athletic recovery.",
 
@@ -173,7 +227,7 @@ const translations = {
     // Process
     "process.title": "How It Works",
     "process.subtitle": "From booking to feeling amazing — we make it seamless and comfortable.",
-    "process.step1.title": "Chat with Us",
+    "process.step1.title": "Talk with Us",
     "process.step1.desc": "Message us on WhatsApp to discuss your health goals and ask any questions.",
     "process.step2.title": "Quick Consultation",
     "process.step2.desc": "Our medical team will recommend the perfect IV drip for your needs.",
@@ -207,6 +261,14 @@ const translations = {
     "faq.whatsappUs": "WhatsApp Us",
     "faq.call": "Call",
 
+    // Testimonials
+    "testimonials.title": "Real Patients. Real Results.",
+    "testimonials.subtitle": "Loved by Healthi-Life patients across the world",
+    "testimonials.googleRating": "Google Rating",
+    "testimonials.patientsTreated": "Patients Treated",
+    "testimonials.countriesServed": "Countries Served",
+    "testimonials.bestClinic": "Best Clinic 2025 Asia-Pacific",
+
     // Contact
     "contact.title": "Visit Our Clinic",
     "contact.subtitle": "Bangkok's most luxurious IV therapy experience in the heart of Sukhumvit",
@@ -226,11 +288,13 @@ const translations = {
 
     // Footer
     "footer.desc": "Bangkok's premium destination for personalized IV drips. Beyond hydration — targeted nutrients to restore energy, boost immunity, and rejuvenate.",
+    "footer.theHouse": "THE HOUSE",
     "footer.quickLinks": "Quick Links",
     "footer.popularDrips": "Popular IV Drips",
     "footer.copyright": "IV Therapy Healthi-Life. All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
+    "footer.serviceProvider": "Service provided by Healthi-Life Group",
   },
   th: {
     // Header
@@ -252,15 +316,34 @@ const translations = {
     "hero.reviews": "5.0 รีวิว Google",
     "hero.location": "เอกมัย กรุงเทพฯ",
     "hero.hours": "จันทร์-เสาร์: 11:00 - 19:00",
-    "hero.cta1": "แชทกับเราผ่าน WhatsApp",
+    "hero.cta1": "พูดคุยกับเราผ่าน WhatsApp",
     "hero.cta2": "จองเลย",
     "hero.locationInfo": "📍 ศูนย์ IV Therapy ระดับพรีเมียมที่เอกมัย 10",
+
+    // Trust Banner
+    "trust.googleRating": "คะแนน Google",
+    "trust.patientsTreated": "ผู้ป่วยที่รักษา",
+    "trust.countriesServed": "ประเทศที่ให้บริการ",
+    "trust.certifiedLab": "ห้องปฏิบัติการรับรอง",
+    "trust.bestClinicValue": "คลินิกดีที่สุด",
+    "trust.bestClinicLabel": "2025 เอเชียแปซิฟิก",
+
+    // WhatsApp Widget
+    "whatsapp.concierge": "ที่ปรึกษาทางการแพทย์",
+    "whatsapp.online": "ออนไลน์",
+    "whatsapp.greeting": "สวัสดีค่ะ!",
+    "whatsapp.message": "เราช่วยอะไรคุณได้บ้างคะ? สอบถามเกี่ยวกับ IV Therapy ของเรา",
+    "whatsapp.startChat": "เริ่มแชท",
+
+    // Google Reviews
+    "reviews.googleReviews": "รีวิว Google",
+    "reviews.viewAll": "ดูรีวิวทั้งหมดบน Google",
 
     // Services
     "services.title": "IV Therapy ยอดนิยม",
     "services.subtitle": "เติมพลังงาน เร่งเผาผลาญ และช่วยขับสารพิษด้วย IV Drip ที่ออกแบบมาเฉพาะ",
     "services.subtitleBold": "เห็นผลเร็ว ได้ผลจริง",
-    "services.chatWithUs": "แชทกับเรา",
+    "services.chatWithUs": "พูดคุยกับเรา",
     "services.discoverMore": "ค้นพบ IV Drip มากกว่า 21 สูตรที่ออกแบบมาเพื่อสุขภาพของคุณ",
     "services.bodyBooster": "บอดี้ บูสเตอร์ IV",
     "services.brainBooster": "เบรน บูสเตอร์",
@@ -277,8 +360,8 @@ const translations = {
     "popular.fatBurner.benefit2": "เพิ่มพลังงาน",
     "popular.fatBurner.benefit3": "ล้างพิษตับ",
 
-    "popular.nad.title": "NAD+ IV Therapy",
-    "popular.nad.price": "6,900 บาท",
+    "popular.nad.title": "NAD+ IV 100mg",
+    "popular.nad.price": "6,000 บาท",
     "popular.nad.desc": "เพิ่มพลังงาน ซ่อมแซมเซลล์ ชะลอวัย และเพิ่มประสิทธิภาพสมอง ส่ง NAD+ ตรงเข้าสู่กระแสเลือดเพื่อสุขภาพเซลล์และการทำงานของสมอง",
     "popular.nad.benefit1": "สุขภาพเซลล์",
     "popular.nad.benefit2": "ชะลอวัย",
@@ -291,9 +374,44 @@ const translations = {
     "popular.glow.benefit2": "เพิ่มความยืดหยุ่น",
     "popular.glow.benefit3": "ผิวเปล่งประกาย",
 
+    "popular.resveratrol.title": "Resveratrol IV Therapy",
+    "popular.resveratrol.price": "8,500 บาท",
+    "popular.resveratrol.desc": "สารต้านอนุมูลอิสระทรงพลังจากองุ่นแดง ปกป้องจากความชราของเซลล์ สนับสนุนสุขภาพหัวใจ และส่งเสริมอายุยืนยาวในระดับเซลล์",
+    "popular.resveratrol.benefit1": "สารต้านอนุมูลอิสระชะลอวัย",
+    "popular.resveratrol.benefit2": "สุขภาพหัวใจ",
+    "popular.resveratrol.benefit3": "ปกป้องเซลล์",
+
+    "popular.fullDetox.title": "Full Body Detox IV",
+    "popular.fullDetox.price": "8,500 บาท",
+    "popular.fullDetox.desc": "การล้างพิษทั้งระบบเพื่อกำจัดสารพิษ โลหะหนัก และของเสียจากการเผาผลาญ ฟื้นฟูอวัยวะ เสริมภูมิคุ้มกัน และฟื้นฟูการทำงานของร่างกาย",
+    "popular.fullDetox.benefit1": "ล้างพิษทั้งร่างกาย",
+    "popular.fullDetox.benefit2": "สนับสนุนอวัยวะ",
+    "popular.fullDetox.benefit3": "เสริมภูมิคุ้มกัน",
+
+    "popular.liverDetox.title": "Liver Detox IV",
+    "popular.liverDetox.price": "4,500 บาท",
+    "popular.liverDetox.desc": "สูตรล้างพิษตับเฉพาะเจาะจงด้วย Glutathione และสารอาหารที่จำเป็น ขจัดสารพิษ ฟื้นฟูการทำงานของตับ และปรับปรุงสุขภาพการเผาผลาญ",
+    "popular.liverDetox.benefit1": "ล้างพิษตับ",
+    "popular.liverDetox.benefit2": "ขจัดสารพิษ",
+    "popular.liverDetox.benefit3": "สนับสนุนการเผาผลาญ",
+
+    "popular.curcumin.title": "Curcumin IV Therapy",
+    "popular.curcumin.price": "8,500 บาท",
+    "popular.curcumin.desc": "การอินฟิวชันเคอร์คูมินที่ดูดซึมสูงพร้อมคุณสมบัติต้านการอักเสบที่ทรงพลัง ลดการอักเสบ สนับสนุนสุขภาพข้อต่อ และให้การปกป้องจากสารต้านอนุมูลอิสระ",
+    "popular.curcumin.benefit1": "ต้านการอักเสบ",
+    "popular.curcumin.benefit2": "สนับสนุนข้อต่อ",
+    "popular.curcumin.benefit3": "บรรเทาอาการปวด",
+
+    "popular.nad250.title": "NAD+ IV 250mg",
+    "popular.nad250.price": "8,500 บาท",
+    "popular.nad250.desc": "การบำบัด NAD+ ขนาดสูงเพื่อการฟื้นฟูเซลล์สูงสุด การรักษาชะลอวัยระดับพรีเมียมที่เพิ่มพลังงาน เพิ่มความคมชัดของสมอง และย้อนกลับความเสื่อมของเซลล์",
+    "popular.nad250.benefit1": "ฟื้นฟูสูงสุด",
+    "popular.nad250.benefit2": "พลังงานสูงสุด",
+    "popular.nad250.benefit3": "เพิ่มประสิทธิภาพสมอง",
+
     // Body Booster drips
-    "body.nad.title": "NAD+ IV",
-    "body.nad.price": "6,900 บาท",
+    "body.nad.title": "NAD+ IV 100mg",
+    "body.nad.price": "6,000 บาท",
     "body.nad.tagline": "สุขภาพเซลล์ เพิ่มพลังงาน ชะลอวัย",
     "body.nad.desc": "เพิ่มพลังงาน ความชัดเจนทางจิตใจ และความมีชีวิตชีวาด้วยการรักษา IV ขั้นสูง ส่ง NAD+ ตรงเข้าสู่กระแสเลือด ฟื้นฟูสุขภาพเซลล์ เพิ่มพลังงาน เพิ่มสมาธิ ชะลอวัย และเร่งการฟื้นตัว",
 
@@ -396,7 +514,7 @@ const translations = {
     // Process
     "process.title": "ขั้นตอนการรับบริการ",
     "process.subtitle": "ตั้งแต่การจองจนถึงการรู้สึกดี — เราทำให้ทุกอย่างราบรื่นและสะดวกสบาย",
-    "process.step1.title": "แชทกับเรา",
+    "process.step1.title": "พูดคุยกับเรา",
     "process.step1.desc": "ส่งข้อความหาเราผ่าน WhatsApp เพื่อพูดคุยเกี่ยวกับเป้าหมายสุขภาพและถามคำถาม",
     "process.step2.title": "ปรึกษาแพทย์",
     "process.step2.desc": "ทีมแพทย์ของเราจะแนะนำ IV Drip ที่เหมาะกับความต้องการของคุณ",
@@ -430,6 +548,14 @@ const translations = {
     "faq.whatsappUs": "WhatsApp เรา",
     "faq.call": "โทร",
 
+    // Testimonials
+    "testimonials.title": "ผู้ป่วยจริง ผลลัพธ์จริง",
+    "testimonials.subtitle": "ได้รับความรักจากผู้ป่วย Healthi-Life ทั่วโลก",
+    "testimonials.googleRating": "คะแนน Google",
+    "testimonials.patientsTreated": "ผู้ป่วยที่รักษา",
+    "testimonials.countriesServed": "ประเทศที่ให้บริการ",
+    "testimonials.bestClinic": "คลินิกดีที่สุด 2025 เอเชียแปซิฟิก",
+
     // Contact
     "contact.title": "เยี่ยมชมคลินิกของเรา",
     "contact.subtitle": "ประสบการณ์ IV Therapy หรูหราที่สุดในกรุงเทพฯ ใจกลางสุขุมวิท",
@@ -449,11 +575,13 @@ const translations = {
 
     // Footer
     "footer.desc": "จุดหมายพรีเมียมของกรุงเทพฯ สำหรับ IV Drip แบบเฉพาะบุคคล มากกว่าการให้ความชุ่มชื้น — สารอาหารเฉพาะเพื่อฟื้นฟูพลังงาน เสริมภูมิคุ้มกัน และฟื้นฟู",
+    "footer.theHouse": "THE HOUSE",
     "footer.quickLinks": "ลิงก์ด่วน",
     "footer.popularDrips": "IV Drip ยอดนิยม",
     "footer.copyright": "IV Therapy Healthi-Life สงวนลิขสิทธิ์",
     "footer.privacy": "นโยบายความเป็นส่วนตัว",
     "footer.terms": "ข้อกำหนดการให้บริการ",
+    "footer.serviceProvider": "บริการโดย Healthi-Life Group",
   },
 };
 
