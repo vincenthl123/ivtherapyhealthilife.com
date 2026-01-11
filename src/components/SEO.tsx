@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 // Safe hook to get language without throwing errors
 const useSafeLanguage = () => {
@@ -18,6 +18,8 @@ const useSafeLanguage = () => {
 
 const SEO = () => {
   const { language } = useSafeLanguage();
+  const scriptsRef = useRef<HTMLScriptElement[]>([]);
+  const hreflangRef = useRef<HTMLLinkElement | null>(null);
 
   useEffect(() => {
     // Update HTML lang attribute based on current language
@@ -395,8 +397,13 @@ const SEO = () => {
       ]
     };
 
-    // Remove existing schema scripts
-    document.querySelectorAll('script[type="application/ld+json"]').forEach(script => script.remove());
+    // Clean up previously created scripts
+    scriptsRef.current.forEach(script => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    });
+    scriptsRef.current = [];
     
     // Add all schema scripts
     const schemas = [
@@ -414,16 +421,20 @@ const SEO = () => {
       script.type = 'application/ld+json';
       script.textContent = JSON.stringify(schema);
       document.head.appendChild(script);
+      scriptsRef.current.push(script);
     });
 
-    // Add hreflang tags
-    const existingHreflangTh = document.querySelector('link[hreflang="th"]');
-    if (!existingHreflangTh) {
-      const hreflangTh = document.createElement('link');
-      hreflangTh.rel = 'alternate';
-      hreflangTh.setAttribute('hreflang', 'th');
-      hreflangTh.href = 'https://ivtherapyhealthilife.com/?lang=th';
-      document.head.appendChild(hreflangTh);
+    // Add hreflang tag if not exists
+    if (!hreflangRef.current) {
+      const existingHreflangTh = document.querySelector('link[hreflang="th"]');
+      if (!existingHreflangTh) {
+        const hreflangTh = document.createElement('link');
+        hreflangTh.rel = 'alternate';
+        hreflangTh.setAttribute('hreflang', 'th');
+        hreflangTh.href = 'https://ivtherapyhealthilife.com/?lang=th';
+        document.head.appendChild(hreflangTh);
+        hreflangRef.current = hreflangTh;
+      }
     }
 
     // Update og:locale based on language
@@ -434,7 +445,17 @@ const SEO = () => {
 
     // Cleanup function
     return () => {
-      document.querySelectorAll('script[type="application/ld+json"]').forEach(script => script.remove());
+      scriptsRef.current.forEach(script => {
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      });
+      scriptsRef.current = [];
+      
+      if (hreflangRef.current && hreflangRef.current.parentNode) {
+        hreflangRef.current.parentNode.removeChild(hreflangRef.current);
+        hreflangRef.current = null;
+      }
     };
   }, [language]);
 
