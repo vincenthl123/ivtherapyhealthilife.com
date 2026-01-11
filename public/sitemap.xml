@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Main Pages -->
   <url>
     <loc>https://ivtherapyhealthilife.com/</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/og-image.jpg</image:loc>
+      <image:title>Healthi-Life IV Therapy Clinic Bangkok</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://ivtherapyhealthilife.com/#services</loc>
+    <loc>https://ivtherapyhealthilife.com/sitemap</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Sections -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/#services</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/#why-us</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/#doctors</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -41,5 +60,91 @@
     <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  
+  <!-- Popular IV Services -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#fat-burner-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#nad-plus-100mg</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#nad-plus-250mg</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#glow-revive</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#resveratrol-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#curcumin-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#hangover-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Body Booster IV Services -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#vital-boost-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#athlete-max-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Brain Booster IV Services -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#neuro-boost-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#stress-ease-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Skin Booster IV Services -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#glow-vita-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap#glow-restore-iv</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
