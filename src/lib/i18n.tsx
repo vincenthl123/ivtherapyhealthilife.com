@@ -293,8 +293,10 @@ const translations = {
     "faq.call": "Call",
 
     // Testimonials
-    "testimonials.title": "Real Patients. Real Results.",
-    "testimonials.subtitle": "Loved by Healthi-Life patients across the world",
+    "testimonials.badge": "RECOGNITION",
+    "testimonials.title": "Client Feedback",
+    "testimonials.reviews": "reviews",
+    "testimonials.privateClients": "Private Clients",
     "testimonials.googleRating": "Google Rating",
     "testimonials.patientsTreated": "Patients Treated",
     "testimonials.countriesServed": "Countries Served",
@@ -611,8 +613,10 @@ const translations = {
     "faq.call": "โทร",
 
     // Testimonials
-    "testimonials.title": "ผู้ป่วยจริง ผลลัพธ์จริง",
-    "testimonials.subtitle": "ได้รับความรักจากผู้ป่วย Healthi-Life ทั่วโลก",
+    "testimonials.badge": "การยอมรับ",
+    "testimonials.title": "ความคิดเห็นจากลูกค้า",
+    "testimonials.reviews": "รีวิว",
+    "testimonials.privateClients": "ลูกค้าส่วนตัว",
     "testimonials.googleRating": "คะแนน Google",
     "testimonials.patientsTreated": "ผู้ป่วยที่รักษา",
     "testimonials.countriesServed": "ประเทศที่ให้บริการ",
