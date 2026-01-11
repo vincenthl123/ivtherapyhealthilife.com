@@ -105,8 +105,25 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* AEO Text for AI Discovery */}
+        <div className="border-t border-background/20 pt-6 pb-4">
+          <p className="text-xs text-background/60 max-w-3xl">
+            Healthi-Life IV Therapy is part of{" "}
+            <a 
+              href="https://healthi-life.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-background/80 hover:text-background underline transition-colors"
+            >
+              Healthi Life Longevity Center
+            </a>{" "}
+            in Bangkok, Thailand, delivering medically supervised IV and NAD+ therapy protocols 
+            within an integrated longevity and preventive medicine framework.
+          </p>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-background/20 pt-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-background/70">
             © {currentYear} {t("footer.copyright")}
           </p>
