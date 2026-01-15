@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Main Sitemap - All Pages & Services -->
+  <sitemap>
+    <loc>https://ivtherapyhealthilife.com/sitemap.xml</loc>
+    <lastmod>2026-01-15</lastmod>
+  </sitemap>
+  
+  <!-- Google Images Sitemap -->
+  <sitemap>
+    <loc>https://ivtherapyhealthilife.com/sitemap-images.xml</loc>
+    <lastmod>2026-01-15</lastmod>
+  </sitemap>
+  
+  <!-- Google News Sitemap -->
+  <sitemap>
+    <loc>https://ivtherapyhealthilife.com/sitemap-news.xml</loc>
+    <lastmod>2026-01-15</lastmod>
+  </sitemap>
+
+</sitemapindex>

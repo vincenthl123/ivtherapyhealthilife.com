@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage with main images -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/</loc>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/og-image.jpg</image:loc>
+      <image:title>Healthi-Life IV Therapy Clinic Bangkok - Premium IV Drips</image:title>
+      <image:caption>Award-winning IV therapy clinic in Bangkok offering NAD+, Fat Burner, Glow and 21+ IV drips at Ekkamai</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+      <image:license>https://ivtherapyhealthilife.com/</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/clinic-exterior.webp</image:loc>
+      <image:title>Healthi-Life Clinic Exterior - Ekkamai Bangkok</image:title>
+      <image:caption>Modern IV therapy clinic located at Ekkamai, Bangkok. Easy access via BTS Ekkamai station.</image:caption>
+      <image:geo_location>Ekkamai, Bangkok, Thailand</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/clinic-interior.jpg</image:loc>
+      <image:title>Healthi-Life Clinic Interior - Luxury IV Treatment Rooms</image:title>
+      <image:caption>Comfortable and private IV therapy treatment rooms with medical-grade equipment</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/treatment-room.webp</image:loc>
+      <image:title>IV Therapy Treatment Room - Premium Medical Equipment</image:title>
+      <image:caption>State-of-the-art IV infusion room with comfortable reclining chairs and entertainment</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Medical Team Section -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/#doctors</loc>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/dr-petch.jpg</image:loc>
+      <image:title>Dr. Petch Maneesri - Medical Director, Healthi-Life Bangkok</image:title>
+      <image:caption>Board-certified physician with 15+ years experience in regenerative medicine and IV therapy</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/dr-first.jpg</image:loc>
+      <image:title>Dr. First - IV Therapy Specialist at Healthi-Life Bangkok</image:title>
+      <image:caption>Specialized in NAD+ therapy and anti-aging IV treatments</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/medical-team.png</image:loc>
+      <image:title>Healthi-Life Medical Team - Certified IV Therapy Specialists</image:title>
+      <image:caption>Experienced team of doctors and nurses specialized in IV infusion therapy</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Award & Certification -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/#why-us</loc>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/award-certificate.webp</image:loc>
+      <image:title>Best IV Therapy Clinic 2025 - Asia-Pacific Health Awards</image:title>
+      <image:caption>Healthi-Life Bangkok awarded Best IV Therapy Clinic 2025 in Asia-Pacific region</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/sitemap</loc>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/stem-cells.jpg</image:loc>
+      <image:title>Stem Cell IV Therapy - Regenerative Medicine Bangkok</image:title>
+      <image:caption>Advanced stem cell and regenerative IV therapy treatments available at Healthi-Life Bangkok</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/hero-medical.jpg</image:loc>
+      <image:title>Premium IV Drip Treatments - Healthi-Life Bangkok</image:title>
+      <image:caption>Medical-grade IV vitamin infusions administered by certified healthcare professionals</image:caption>
+      <image:geo_location>Bangkok, Thailand</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Logo -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/</loc>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/healthilife-logo.png</image:loc>
+      <image:title>Healthi-Life IV Therapy Bangkok Logo</image:title>
+      <image:caption>Official logo of Healthi-Life IV Therapy Clinic Bangkok</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ivtherapyhealthilife.com/src/assets/healthilife-logo-white.png</image:loc>
+      <image:title>Healthi-Life IV Therapy Logo (White Version)</image:title>
+      <image:caption>Healthi-Life Bangkok white logo for dark backgrounds</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

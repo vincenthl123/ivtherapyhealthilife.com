@@ -1,8 +1,11 @@
 # Healthi-Life IV Therapy Bangkok - Robots.txt
 # Optimized for Search Engines and AI Crawlers
 
-# Sitemap Location
+# Sitemap Locations (Index + Individual)
+Sitemap: https://ivtherapyhealthilife.com/sitemap-index.xml
 Sitemap: https://ivtherapyhealthilife.com/sitemap.xml
+Sitemap: https://ivtherapyhealthilife.com/sitemap-images.xml
+Sitemap: https://ivtherapyhealthilife.com/sitemap-news.xml
 
 # LLMs Context File (AI Training & Context)
 # See https://llmstxt.org/ for more information
