@@ -72,13 +72,13 @@ const WhatsAppWidget = () => {
               {/* Chat bubble tail */}
               <div className="absolute -left-2 top-0 w-0 h-0 border-t-8 border-t-white border-r-8 border-r-transparent" />
               <p className="text-gray-800 text-sm mb-2">
-                Hi 👋
+                {t("whatsapp.greeting")}
               </p>
               <p className="text-gray-800 text-sm mb-2">
-                Welcome to Healthi-Life! 💉✨
+                {t("whatsapp.welcome")}
               </p>
               <p className="text-gray-600 text-sm">
-                Personalized IV Therapy for Energy, Vitality & Peak Performance. Ready to optimize your health?
+                {t("whatsapp.message")}
               </p>
               <p className="text-gray-400 text-[10px] text-right mt-2">
                 {currentTime}
