@@ -75,10 +75,10 @@ const WhatsAppWidget = () => {
                 Hi 👋
               </p>
               <p className="text-gray-800 text-sm mb-2">
-                Welcome to Healthi-Life, Asia's leading Regenerative & Stem Cell Center. 💆‍♀️ ✨
+                Welcome to Healthi-Life! 💉✨
               </p>
               <p className="text-gray-600 text-sm">
-                Would you like more info on our treatments, a medical consultation, or to book your session?
+                Personalized IV Therapy for Energy, Vitality & Peak Performance. Ready to optimize your health?
               </p>
               <p className="text-gray-400 text-[10px] text-right mt-2">
                 {currentTime}
