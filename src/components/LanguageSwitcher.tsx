@@ -34,7 +34,7 @@ const LanguageSwitcher = () => {
         }`}
         onClick={() => setLanguage('ja')}
       >
-        日本語
+        JA
       </Button>
     </div>
   );
