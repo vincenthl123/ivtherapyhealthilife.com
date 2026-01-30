@@ -2,13 +2,15 @@ import { useEffect, useState, useRef } from 'react';
 
 // Safe hook to get language without throwing errors
 const useSafeLanguage = () => {
-  const [language, setLanguage] = useState<'en' | 'th'>('en');
+  const [language, setLanguage] = useState<'en' | 'th' | 'ja'>('en');
   
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
     if (langParam === 'th') {
       setLanguage('th');
+    } else if (langParam === 'ja') {
+      setLanguage('ja');
     }
   }, []);
   
@@ -25,16 +27,18 @@ const SEO = () => {
     document.documentElement.lang = language;
     
     // SEO-optimized titles (under 60 chars with main keyword first)
-    const titles = {
+    const titles: Record<'en' | 'th' | 'ja', string> = {
       en: "IV Therapy Bangkok | Healthi-Life – NAD+, Fat Burner, Glow",
-      th: "IV Therapy กรุงเทพ | Healthi-Life – NAD+, Fat Burner, Glow"
+      th: "IV Therapy กรุงเทพ | Healthi-Life – NAD+, Fat Burner, Glow",
+      ja: "IV療法バンコク | Healthi-Life – NAD+, 脂肪燃焼, 美肌"
     };
     document.title = titles[language];
     
     // Meta description (under 160 chars with CTA)
-    const descriptions = {
+    const descriptions: Record<'en' | 'th' | 'ja', string> = {
       en: "Premium IV Therapy in Bangkok. NAD+, Fat Burner, Glow & 21+ IV drips. Award-winning clinic at Ekkamai. 5.0★ Google Reviews. Book now or WhatsApp +66919991744",
-      th: "IV Therapy ระดับพรีเมียมในกรุงเทพ NAD+, Fat Burner, Glow & 21+ สูตร คลินิกที่เอกมัย 5.0★ Google จองเลยหรือ WhatsApp +66919991744"
+      th: "IV Therapy ระดับพรีเมียมในกรุงเทพ NAD+, Fat Burner, Glow & 21+ สูตร คลินิกที่เอกมัย 5.0★ Google จองเลยหรือ WhatsApp +66919991744",
+      ja: "バンコクでプレミアムIV療法。NAD+、脂肪燃焼、美肌など21種類以上。エカマイの受賞クリニック。Google 5.0★。WhatsApp +66919991744"
     };
     
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -58,7 +62,7 @@ const SEO = () => {
           "alternateName": ["Healthi-Life IV Therapy", "HealthiLife Bangkok"],
           "description": "Premium IV Therapy clinic in Bangkok offering NAD+, Fat Burner, Glow & 21+ specialized IV drips",
           "publisher": { "@id": "https://ivtherapyhealthilife.com/#org" },
-          "inLanguage": ["en", "th"],
+          "inLanguage": ["en", "th", "ja"],
           "potentialAction": {
             "@type": "SearchAction",
             "target": {
@@ -97,8 +101,8 @@ const SEO = () => {
             "@type": "ContactPoint",
             "telephone": "+66919991744",
             "contactType": "customer service",
-            "areaServed": ["TH", "Asia"],
-            "availableLanguage": ["English", "Thai"]
+            "areaServed": ["TH", "Asia", "JP"],
+            "availableLanguage": ["English", "Thai", "Japanese"]
           },
           "award": [
             "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
@@ -438,7 +442,12 @@ const SEO = () => {
     // Update og:locale based on language
     const ogLocale = document.querySelector('meta[property="og:locale"]');
     if (ogLocale) {
-      ogLocale.setAttribute('content', language === 'th' ? 'th_TH' : 'en_US');
+      const localeMap: Record<'en' | 'th' | 'ja', string> = {
+        en: 'en_US',
+        th: 'th_TH',
+        ja: 'ja_JP'
+      };
+      ogLocale.setAttribute('content', localeMap[language]);
     }
 
     // Cleanup
