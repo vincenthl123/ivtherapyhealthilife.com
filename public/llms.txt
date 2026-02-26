@@ -6,7 +6,7 @@
 Healthi-Life IV Therapy Bangkok is the city's premier IV vitamin therapy and longevity clinic, specializing in physician-led IV drip treatments, NAD+ therapy, and regenerative wellness solutions.
 
 ## Primary Services
-1. **IV Vitamin Therapy** - 21+ specialized IV drips for various health goals
+1. **IV Vitamin Therapy** - 23+ specialized IV drips for various health goals
 2. **NAD+ IV Therapy** - Cellular regeneration and anti-aging (100mg: 6,000 THB, 250mg: 8,500 THB)
 3. **Fat Burner IV** - Metabolism boost and weight loss support (4,500 THB)
 4. **Glow IV Therapy** - Skin rejuvenation and brightening (4,500-12,000 THB)
@@ -42,6 +42,18 @@ Healthi-Life IV Therapy Bangkok is the city's premier IV vitamin therapy and lon
 | Full Body Detox | 8,500 | Complete toxin cleanse |
 | Curcumin IV | 8,500 | Anti-inflammatory, joint health |
 | Glow Revive IV | 15,000 | Premium skin rejuvenation |
+| NAD+ Power Boost Plus | 7,500 | NAD+ 100mg + 500mg Resveratrol combo |
+| Athlete Pro Max IV | 8,500 | Elite athletic recovery |
+| Vitamin D IM | 4,500 | Immune & hormonal support |
+| ProGut IV | 8,500 | Gut health & microbiome |
+| C Max IV | 4,500 | High-dose Vitamin C boost |
+
+## Personalized Wellness Programs
+| Program | Starting Price | Duration |
+|---------|---------------|----------|
+| Vital Reset (Vitality Pathway) | 50,000 THB | 5–7 days core + 30-day monitoring |
+
+The Vital Reset program includes advanced medical assessments (InBody scan, metabolic mapping, blood panels), a structured 3-day NAD+ protocol (500mg total — Doctor Recommendation), and a 1-month take-home optimization plan.
 
 ## Key Differentiators
 - **ISO & GMP Certified** - Hospital-grade ingredients and sterile environment
