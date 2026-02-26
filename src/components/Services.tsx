@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Search, Calendar } from "lucide-react";
+import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Search, Calendar, Package } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 
@@ -201,59 +201,33 @@ const Services = () => {
             {/* Decorative corner accent */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
               {/* Left: Title & Description */}
               <div>
-                {/* NAD+ Highlight Badge */}
+                {/* Doctor Recommendation Highlight - Top */}
                 <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
+                  <span className="text-primary text-lg">⭐</span>
                   <p className="text-sm font-semibold text-primary">{t("pathway.vitalReset.nadHighlight")}</p>
                 </div>
-
-                {/* Governed Label */}
-                <p className="text-xs font-semibold tracking-widest text-primary/70 uppercase mb-3">
-                  {t("pathway.vitalReset.governedLabel")}
-                </p>
-
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   {t("pathway.vitalReset.title")}
                 </h3>
-                <p className="text-primary font-semibold mb-4">{t("pathway.vitalReset.subtitle")}</p>
-                <p className="text-muted-foreground mb-4">{t("pathway.vitalReset.desc")}</p>
+                <p className="text-primary font-semibold mb-3">{t("pathway.vitalReset.subtitle")}</p>
+                <p className="text-muted-foreground mb-6">{t("pathway.vitalReset.desc")}</p>
 
-                {/* Not isolated statement */}
-                <div className="border-l-2 border-primary/30 pl-4 mb-6">
-                  <p className="text-foreground font-medium text-sm italic">{t("pathway.vitalReset.notIsolated")}</p>
-                  <p className="text-foreground font-medium text-sm italic">{t("pathway.vitalReset.notIsolated2")}</p>
-                </div>
-
-                {/* What This Pathway Supports */}
-                <h4 className="font-semibold text-foreground text-sm mb-3 flex items-center gap-2">
-                  <Activity className="h-4 w-4 text-primary" />
-                  {t("pathway.vitalReset.supportsTitle")}
-                </h4>
-                <ul className="space-y-2 mb-4">
-                  {[t("pathway.vitalReset.support1"), t("pathway.vitalReset.support2"), t("pathway.vitalReset.support3"), t("pathway.vitalReset.support4")].map((item, i) => (
-                    <li key={i} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
-                      {item}
-                    </li>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {[t("pathway.vitalReset.benefit1"), t("pathway.vitalReset.benefit2"), t("pathway.vitalReset.benefit3"), t("pathway.vitalReset.benefit4")].map((b, i) => (
+                    <span key={i} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                      <Activity className="h-3 w-3 mr-1.5" />
+                      {b}
+                    </span>
                   ))}
-                </ul>
-
-                {/* Before performance */}
-                <div className="bg-secondary/50 rounded-lg p-4 mb-6">
-                  <p className="text-sm text-foreground font-medium italic">{t("pathway.vitalReset.beforePerformance")}</p>
-                  <p className="text-sm text-foreground font-medium italic">{t("pathway.vitalReset.beforeIntensity")}</p>
                 </div>
 
-                {/* Price & Duration */}
-                <div className="flex items-baseline gap-3 mb-2">
+                <div className="flex items-baseline gap-3 mb-6">
                   <span className="text-2xl md:text-3xl font-bold text-primary">{t("pathway.vitalReset.price")}</span>
                 </div>
-                <div className="space-y-1 mb-6">
-                  <p className="text-sm text-muted-foreground">{t("pathway.vitalReset.duration1")}</p>
-                  <p className="text-sm text-muted-foreground">{t("pathway.vitalReset.duration2")}</p>
-                </div>
+                <p className="text-sm text-muted-foreground mb-6">{t("pathway.vitalReset.duration")}</p>
 
                 <Button
                   id="ivclick-vital-reset"
@@ -263,53 +237,56 @@ const Services = () => {
                 >
                   <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5 mr-2" />
-                    {t("pathway.vitalReset.cta")}
+                    {t("services.talkToUs")}
                   </a>
                 </Button>
               </div>
 
-              {/* Right: Structured Phase & Clinical Oversight */}
-              <div className="space-y-6">
-                {/* Structured 3-Day Phase */}
+              {/* Right: Protocol Details */}
+              <div className="space-y-5">
+                {/* Assessment */}
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.phaseTitle")}</h4>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Search className="h-4 w-4 text-primary" />
+                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.assess")}</h4>
                   </div>
-                  <p className="text-xs text-primary font-semibold mb-3">{t("pathway.vitalReset.phaseSubtitle")}</p>
-                  <p className="text-xs text-muted-foreground mb-4">{t("pathway.vitalReset.phaseDesc")}</p>
-
-                  <p className="text-xs font-medium text-foreground mb-2">{t("pathway.vitalReset.adjustedTitle")}</p>
-                  <ul className="space-y-1.5 mb-3">
-                    {[t("pathway.vitalReset.adjusted1"), t("pathway.vitalReset.adjusted2"), t("pathway.vitalReset.adjusted3"), t("pathway.vitalReset.adjusted4")].map((item, i) => (
-                      <li key={i} className="flex items-center text-xs text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-0.5 mr-2 flex-shrink-0" />
+                  <ul className="space-y-2">
+                    {[t("pathway.vitalReset.assess1"), t("pathway.vitalReset.assess2"), t("pathway.vitalReset.assess3"), t("pathway.vitalReset.assess4")].map((item, i) => (
+                      <li key={i} className="flex items-start text-xs text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 mr-2 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <p className="text-xs text-muted-foreground italic">{t("pathway.vitalReset.protocolNote")}</p>
                 </div>
 
-                {/* Clinical Oversight */}
+                {/* Protocol */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.protocol")}</h4>
+                  </div>
+                  <div className="space-y-3">
+                    {[
+                      { day: t("pathway.vitalReset.day1"), desc: t("pathway.vitalReset.day1Desc") },
+                      { day: t("pathway.vitalReset.day3"), desc: t("pathway.vitalReset.day3Desc") },
+                      { day: t("pathway.vitalReset.day5"), desc: t("pathway.vitalReset.day5Desc") },
+                    ].map((step, i) => (
+                      <div key={i} className="bg-secondary/50 rounded-lg p-3">
+                        <p className="font-medium text-foreground text-sm">{step.day}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Take-Home */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Search className="h-4 w-4 text-primary" />
-                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.oversightTitle")}</h4>
+                    <Package className="h-4 w-4 text-primary" />
+                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.takeHome")}</h4>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-3">{t("pathway.vitalReset.oversightIntro")}</p>
-                  <ul className="space-y-1.5 mb-4">
-                    {[t("pathway.vitalReset.oversight1"), t("pathway.vitalReset.oversight2"), t("pathway.vitalReset.oversight3"), t("pathway.vitalReset.oversight4")].map((item, i) => (
-                      <li key={i} className="flex items-center text-xs text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-0.5 mr-2 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="bg-secondary/50 rounded-lg p-3">
-                    <p className="text-xs text-foreground font-medium italic">{t("pathway.vitalReset.noPathway")}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{t("pathway.vitalReset.standardized")}</p>
-                  </div>
+                  <p className="text-xs text-muted-foreground">{t("pathway.vitalReset.takeHomeDesc")}</p>
                 </div>
               </div>
             </div>
