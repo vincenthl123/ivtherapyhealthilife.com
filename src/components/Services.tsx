@@ -204,6 +204,11 @@ const Services = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
               {/* Left: Title & Description */}
               <div>
+                {/* Doctor Recommendation Highlight - Top */}
+                <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
+                  <span className="text-primary text-lg">⭐</span>
+                  <p className="text-sm font-semibold text-primary">{t("pathway.vitalReset.nadHighlight")}</p>
+                </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   {t("pathway.vitalReset.title")}
                 </h3>
@@ -272,11 +277,6 @@ const Services = () => {
                         <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
                       </div>
                     ))}
-                    {/* Doctor Recommendation Highlight */}
-                    <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2">
-                      <span className="text-primary text-lg">⭐</span>
-                      <p className="text-sm font-semibold text-primary">{t("pathway.vitalReset.nadHighlight")}</p>
-                    </div>
                   </div>
                 </div>
 
