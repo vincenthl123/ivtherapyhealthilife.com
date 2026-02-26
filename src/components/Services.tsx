@@ -272,6 +272,11 @@ const Services = () => {
                         <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
                       </div>
                     ))}
+                    {/* Doctor Recommendation Highlight */}
+                    <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2">
+                      <span className="text-primary text-lg">⭐</span>
+                      <p className="text-sm font-semibold text-primary">{t("pathway.vitalReset.nadHighlight")}</p>
+                    </div>
                   </div>
                 </div>
 
