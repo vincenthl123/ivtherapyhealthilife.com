@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Calendar, Package } from "lucide-react";
+import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Calendar, Package, Users, CheckCircle2 } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 
@@ -213,7 +213,23 @@ const Services = () => {
                   {t("pathway.vitalReset.title")}
                 </h3>
                 <p className="text-primary font-semibold mb-3">{t("pathway.vitalReset.subtitle")}</p>
-                <p className="text-muted-foreground mb-6">{t("pathway.vitalReset.desc")}</p>
+                <p className="text-muted-foreground mb-4">{t("pathway.vitalReset.desc")}</p>
+
+                {/* Ideal For - Persona Block */}
+                <div className="bg-secondary/60 rounded-lg p-4 mb-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Users className="h-4 w-4 text-primary" />
+                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.idealFor")}</h4>
+                  </div>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                    {[t("pathway.vitalReset.persona1"), t("pathway.vitalReset.persona2"), t("pathway.vitalReset.persona3"), t("pathway.vitalReset.persona4")].map((p, i) => (
+                      <li key={i} className="flex items-center text-xs text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {[t("pathway.vitalReset.benefit1"), t("pathway.vitalReset.benefit2"), t("pathway.vitalReset.benefit3"), t("pathway.vitalReset.benefit4")].map((b, i) => (
@@ -271,6 +287,22 @@ const Services = () => {
                     <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.takeHome")}</h4>
                   </div>
                   <p className="text-xs text-muted-foreground">{t("pathway.vitalReset.takeHomeDesc")}</p>
+                </div>
+
+                {/* What Most Clients Report - Outcome Frame */}
+                <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.outcomeTitle")}</h4>
+                  </div>
+                  <ul className="space-y-2">
+                    {[t("pathway.vitalReset.outcome1"), t("pathway.vitalReset.outcome2"), t("pathway.vitalReset.outcome3"), t("pathway.vitalReset.outcome4")].map((o, i) => (
+                      <li key={i} className="flex items-center text-xs text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
+                        {o}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
