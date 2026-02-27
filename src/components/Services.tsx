@@ -15,11 +15,32 @@ const Services = () => {
 
   const popularDrips = [
     {
+      icon: Zap,
+      title: t("popular.nad250.title"),
+      price: t("popular.nad250.price"),
+      description: t("popular.nad250.desc"),
+      benefits: [t("popular.nad250.benefit1"), t("popular.nad250.benefit2"), t("popular.nad250.benefit3")],
+    },
+    {
       icon: Flame,
-      title: t("popular.fatBurner.title"),
-      price: t("popular.fatBurner.price"),
-      description: t("popular.fatBurner.desc"),
-      benefits: [t("popular.fatBurner.benefit1"), t("popular.fatBurner.benefit2"), t("popular.fatBurner.benefit3")],
+      title: t("popular.fullDetox.title"),
+      price: t("popular.fullDetox.price"),
+      description: t("popular.fullDetox.desc"),
+      benefits: [t("popular.fullDetox.benefit1"), t("popular.fullDetox.benefit2"), t("popular.fullDetox.benefit3")],
+    },
+    {
+      icon: Sparkles,
+      title: t("popular.curcumin.title"),
+      price: t("popular.curcumin.price"),
+      description: t("popular.curcumin.desc"),
+      benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
+    },
+    {
+      icon: Heart,
+      title: t("popular.resveratrol.title"),
+      price: t("popular.resveratrol.price"),
+      description: t("popular.resveratrol.desc"),
+      benefits: [t("popular.resveratrol.benefit1"), t("popular.resveratrol.benefit2"), t("popular.resveratrol.benefit3")],
     },
     {
       icon: Zap,
@@ -27,6 +48,13 @@ const Services = () => {
       price: t("popular.nad.price"),
       description: t("popular.nad.desc"),
       benefits: [t("popular.nad.benefit1"), t("popular.nad.benefit2"), t("popular.nad.benefit3")],
+    },
+    {
+      icon: Flame,
+      title: t("popular.fatBurner.title"),
+      price: t("popular.fatBurner.price"),
+      description: t("popular.fatBurner.desc"),
+      benefits: [t("popular.fatBurner.benefit1"), t("popular.fatBurner.benefit2"), t("popular.fatBurner.benefit3")],
     },
     {
       icon: Sparkles,
@@ -37,38 +65,10 @@ const Services = () => {
     },
     {
       icon: Heart,
-      title: t("popular.resveratrol.title"),
-      price: t("popular.resveratrol.price"),
-      description: t("popular.resveratrol.desc"),
-      benefits: [t("popular.resveratrol.benefit1"), t("popular.resveratrol.benefit2"), t("popular.resveratrol.benefit3")],
-    },
-    {
-      icon: Flame,
-      title: t("popular.fullDetox.title"),
-      price: t("popular.fullDetox.price"),
-      description: t("popular.fullDetox.desc"),
-      benefits: [t("popular.fullDetox.benefit1"), t("popular.fullDetox.benefit2"), t("popular.fullDetox.benefit3")],
-    },
-    {
-      icon: Heart,
       title: t("popular.liverDetox.title"),
       price: t("popular.liverDetox.price"),
       description: t("popular.liverDetox.desc"),
       benefits: [t("popular.liverDetox.benefit1"), t("popular.liverDetox.benefit2"), t("popular.liverDetox.benefit3")],
-    },
-    {
-      icon: Sparkles,
-      title: t("popular.curcumin.title"),
-      price: t("popular.curcumin.price"),
-      description: t("popular.curcumin.desc"),
-      benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
-    },
-    {
-      icon: Zap,
-      title: t("popular.nad250.title"),
-      price: t("popular.nad250.price"),
-      description: t("popular.nad250.desc"),
-      benefits: [t("popular.nad250.benefit1"), t("popular.nad250.benefit2"), t("popular.nad250.benefit3")],
     },
   ];
 
