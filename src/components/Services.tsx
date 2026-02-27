@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Search, Calendar, Package } from "lucide-react";
+import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Calendar, Package } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 
@@ -244,22 +244,6 @@ const Services = () => {
 
               {/* Right: Protocol Details */}
               <div className="space-y-5">
-                {/* Assessment */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Search className="h-4 w-4 text-primary" />
-                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.assess")}</h4>
-                  </div>
-                  <ul className="space-y-2">
-                    {[t("pathway.vitalReset.assess1"), t("pathway.vitalReset.assess2"), t("pathway.vitalReset.assess3"), t("pathway.vitalReset.assess4")].map((item, i) => (
-                      <li key={i} className="flex items-start text-xs text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 mr-2 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
                 {/* Protocol */}
                 <div>
                   <div className="flex items-center gap-2 mb-3">
