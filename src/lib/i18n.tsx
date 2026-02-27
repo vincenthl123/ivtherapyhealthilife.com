@@ -66,7 +66,8 @@ const translations = {
     "services.skinBooster": "SKIN BOOSTER",
     "services.notSure": "Not Sure Which IV Drip is Right for You?",
     "services.notSureSubtitle": "Our medical team will help you choose the perfect IV therapy for your needs.",
-    "services.talkToUs": "Talk to Us Directly",
+    "services.bookMedicalReview": "Book Your Medical Review",
+    "services.speakConcierge": "Speak With Our Medical Concierge",
 
     // Popular drips
     "popular.fatBurner.title": "Fat Burner IV Therapy",
@@ -477,7 +478,8 @@ const translations = {
     "services.skinBooster": "สกิน บูสเตอร์",
     "services.notSure": "ไม่แน่ใจว่า IV Drip สูตรไหนเหมาะกับคุณ?",
     "services.notSureSubtitle": "ทีมแพทย์ของเราพร้อมช่วยเลือก IV Therapy ที่เหมาะกับความต้องการของคุณ",
-    "services.talkToUs": "พูดคุยกับเราโดยตรง",
+    "services.bookMedicalReview": "จองการตรวจประเมินทางการแพทย์",
+    "services.speakConcierge": "พูดคุยกับเจ้าหน้าที่ดูแลทางการแพทย์",
 
     // Popular drips
     "popular.fatBurner.title": "Fat Burner IV Therapy",
@@ -886,7 +888,8 @@ const translations = {
     "services.skinBooster": "スキンブースター",
     "services.notSure": "どのIV点滴が最適かわからない？",
     "services.notSureSubtitle": "医療チームがあなたに最適なIV療法をお選びします。",
-    "services.talkToUs": "直接ご相談ください",
+    "services.bookMedicalReview": "医療レビューを予約する",
+    "services.speakConcierge": "メディカルコンシェルジュに相談する",
 
     // Popular drips
     "popular.fatBurner.title": "ファットバーナー IV療法",

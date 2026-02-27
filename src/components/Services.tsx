@@ -253,7 +253,7 @@ const Services = () => {
                 >
                   <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5 mr-2" />
-                    {t("services.talkToUs")}
+                    {t("services.bookMedicalReview")}
                   </a>
                 </Button>
               </div>
@@ -364,7 +364,7 @@ const Services = () => {
           </Button>
         </div>
 
-        {/* Talk to us CTA */}
+        {/* Medical Review CTA */}
         <div className="text-center mt-12 bg-card border border-border rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-foreground mb-2">
             {t("services.notSure")}
@@ -372,17 +372,31 @@ const Services = () => {
           <p className="text-muted-foreground mb-6">
             {t("services.notSureSubtitle")}
           </p>
-          <Button 
-            id="ivclick-services-whatsapp" 
-            size="lg" 
-            onClick={() => trackButtonClick('ivclick-services-whatsapp')}
-            asChild
-          >
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5 mr-2" />
-              {t("services.talkToUs")}
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button 
+              id="ivclick-services-book-review" 
+              size="lg" 
+              onClick={() => trackButtonClick('ivclick-services-book-review')}
+              asChild
+            >
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 mr-2" />
+                {t("services.bookMedicalReview")}
+              </a>
+            </Button>
+            <Button 
+              id="ivclick-services-concierge" 
+              variant="ghost" 
+              size="lg" 
+              onClick={() => trackButtonClick('ivclick-services-concierge')}
+              asChild
+            >
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 mr-2" />
+                {t("services.speakConcierge")}
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
