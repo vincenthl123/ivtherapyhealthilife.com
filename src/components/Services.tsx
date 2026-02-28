@@ -11,7 +11,7 @@ import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 
 const DiscountBadge = ({ percent }: { percent: number }) => (
-  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-destructive/10 text-destructive text-xs font-bold">
+  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold">
     -{percent}%
   </span>
 );
@@ -62,6 +62,7 @@ const Services = () => {
       description: t("popular.fatBurner.desc"),
       benefits: [t("popular.fatBurner.benefit1"), t("popular.fatBurner.benefit2"), t("popular.fatBurner.benefit3")],
       discount: 10,
+      limited: t("body.fatBurner.limited"),
     },
     {
       icon: Heart,
@@ -70,6 +71,7 @@ const Services = () => {
       description: t("popular.liverDetox.desc"),
       benefits: [t("popular.liverDetox.benefit1"), t("popular.liverDetox.benefit2"), t("popular.liverDetox.benefit3")],
       discount: 10,
+      limited: t("body.liverDetox.limited"),
     },
   ];
 
@@ -77,30 +79,30 @@ const Services = () => {
     { title: t("body.nad.title"), price: t("body.nad.price"), tagline: t("body.nad.tagline"), description: t("body.nad.desc") },
     { title: t("body.nad250.title"), price: t("body.nad250.price"), tagline: t("body.nad250.tagline"), description: t("body.nad250.desc") },
     { title: t("body.nadResveratrol.title"), price: t("body.nadResveratrol.price"), tagline: t("body.nadResveratrol.tagline"), description: t("body.nadResveratrol.desc"), limited: t("body.nadResveratrol.limited") },
-    { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), discount: 10 },
-    { title: t("body.vitalBoost.title"), price: t("body.vitalBoost.price"), tagline: t("body.vitalBoost.tagline"), description: t("body.vitalBoost.desc"), discount: 10 },
-    { title: t("body.athletePro.title"), price: t("body.athletePro.price"), tagline: t("body.athletePro.tagline"), description: t("body.athletePro.desc") },
+    { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), discount: 10, limited: t("body.fatBurner.limited") },
+    { title: t("body.vitalBoost.title"), price: t("body.vitalBoost.price"), tagline: t("body.vitalBoost.tagline"), description: t("body.vitalBoost.desc"), discount: 10, limited: t("body.vitalBoost.limited") },
+    { title: t("body.athletePro.title"), price: t("body.athletePro.price"), tagline: t("body.athletePro.tagline"), description: t("body.athletePro.desc"), discount: 10, limited: t("body.athletePro.limited") },
     { title: t("body.athleteProMax.title"), price: t("body.athleteProMax.price"), tagline: t("body.athleteProMax.tagline"), description: t("body.athleteProMax.desc") },
     { title: t("body.resveratrol.title"), price: t("body.resveratrol.price"), tagline: t("body.resveratrol.tagline"), description: t("body.resveratrol.desc") },
-    { title: t("body.vitaminD.title"), price: t("body.vitaminD.price"), tagline: t("body.vitaminD.tagline"), description: t("body.vitaminD.desc") },
-    { title: t("body.liverDetox.title"), price: t("body.liverDetox.price"), tagline: t("body.liverDetox.tagline"), description: t("body.liverDetox.desc"), discount: 10 },
+    { title: t("body.vitaminD.title"), price: t("body.vitaminD.price"), tagline: t("body.vitaminD.tagline"), description: t("body.vitaminD.desc"), discount: 10, limited: t("body.vitaminD.limited") },
+    { title: t("body.liverDetox.title"), price: t("body.liverDetox.price"), tagline: t("body.liverDetox.tagline"), description: t("body.liverDetox.desc"), discount: 10, limited: t("body.liverDetox.limited") },
     { title: t("body.curcumin.title"), price: t("body.curcumin.price"), tagline: t("body.curcumin.tagline"), description: t("body.curcumin.desc") },
     { title: t("body.proGut.title"), price: t("body.proGut.price"), tagline: t("body.proGut.tagline"), description: t("body.proGut.desc") },
     { title: t("body.fullDetox.title"), price: t("body.fullDetox.price"), tagline: t("body.fullDetox.tagline"), description: t("body.fullDetox.desc") },
-    { title: t("body.cMax.title"), price: t("body.cMax.price"), tagline: t("body.cMax.tagline"), description: t("body.cMax.desc") },
-    { title: t("body.partyShield.title"), price: t("body.partyShield.price"), tagline: t("body.partyShield.tagline"), description: t("body.partyShield.desc") },
-    { title: t("body.hangover.title"), price: t("body.hangover.price"), tagline: t("body.hangover.tagline"), description: t("body.hangover.desc") },
+    { title: t("body.cMax.title"), price: t("body.cMax.price"), tagline: t("body.cMax.tagline"), description: t("body.cMax.desc"), discount: 10, limited: t("body.cMax.limited") },
+    { title: t("body.partyShield.title"), price: t("body.partyShield.price"), tagline: t("body.partyShield.tagline"), description: t("body.partyShield.desc"), discount: 10, limited: t("body.partyShield.limited") },
+    { title: t("body.hangover.title"), price: t("body.hangover.price"), tagline: t("body.hangover.tagline"), description: t("body.hangover.desc"), discount: 10, limited: t("body.hangover.limited") },
   ];
 
   const brainBoosterDrips = [
-    { title: t("brain.timeZone.title"), price: t("brain.timeZone.price"), tagline: t("brain.timeZone.tagline"), description: t("brain.timeZone.desc") },
-    { title: t("brain.stressEase.title"), price: t("brain.stressEase.price"), tagline: t("brain.stressEase.tagline"), description: t("brain.stressEase.desc"), discount: 20 },
-    { title: t("brain.neuroBoost.title"), price: t("brain.neuroBoost.price"), tagline: t("brain.neuroBoost.tagline"), description: t("brain.neuroBoost.desc") },
-    { title: t("brain.dreamEase.title"), price: t("brain.dreamEase.price"), tagline: t("brain.dreamEase.tagline"), description: t("brain.dreamEase.desc"), discount: 20 },
+    { title: t("brain.timeZone.title"), price: t("brain.timeZone.price"), tagline: t("brain.timeZone.tagline"), description: t("brain.timeZone.desc"), discount: 10, limited: t("brain.timeZone.limited") },
+    { title: t("brain.stressEase.title"), price: t("brain.stressEase.price"), tagline: t("brain.stressEase.tagline"), description: t("brain.stressEase.desc"), discount: 10, limited: t("brain.stressEase.limited") },
+    { title: t("brain.neuroBoost.title"), price: t("brain.neuroBoost.price"), tagline: t("brain.neuroBoost.tagline"), description: t("brain.neuroBoost.desc"), discount: 10, limited: t("brain.neuroBoost.limited") },
+    { title: t("brain.dreamEase.title"), price: t("brain.dreamEase.price"), tagline: t("brain.dreamEase.tagline"), description: t("brain.dreamEase.desc"), discount: 10, limited: t("brain.dreamEase.limited") },
   ];
 
   const skinBoosterDrips = [
-    { title: t("skin.glowVita.title"), price: t("skin.glowVita.price"), tagline: t("skin.glowVita.tagline"), description: t("skin.glowVita.desc"), discount: 20 },
+    { title: t("skin.glowVita.title"), price: t("skin.glowVita.price"), tagline: t("skin.glowVita.tagline"), description: t("skin.glowVita.desc"), discount: 10, limited: t("skin.glowVita.limited") },
     { title: t("skin.glowRestore.title"), price: t("skin.glowRestore.price"), tagline: t("skin.glowRestore.tagline"), description: t("skin.glowRestore.desc") },
     { title: t("skin.glowRevive.title"), price: t("skin.glowRevive.price"), tagline: t("skin.glowRevive.tagline"), description: t("skin.glowRevive.desc") },
   ];
@@ -214,7 +216,7 @@ const Services = () => {
             >
               {drip.discount && (
                 <div className="absolute top-3 right-3 z-10">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-destructive text-destructive-foreground text-sm font-bold shadow-sm">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-primary-foreground text-sm font-bold shadow-sm">
                     -{drip.discount}%
                   </span>
                 </div>
@@ -224,7 +226,14 @@ const Services = () => {
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-medical flex items-center justify-center group-hover:scale-110 transition-transform">
                     <drip.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <span className="text-lg font-bold text-primary">{drip.price}</span>
+                  {drip.price.includes("→") ? (
+                    <div className="text-right">
+                      <span className="line-through text-muted-foreground text-sm">{drip.price.split("→")[0].trim()}</span>
+                      <span className="block text-lg font-bold text-primary">{drip.price.split("→")[1].trim()}</span>
+                    </div>
+                  ) : (
+                    <span className="text-lg font-bold text-primary">{drip.price}</span>
+                  )}
                 </div>
 
                 <h3 className="text-xl font-bold text-foreground mb-2">{drip.title}</h3>
@@ -238,6 +247,10 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+
+                {drip.limited && (
+                  <p className="text-xs font-semibold text-primary italic mb-4">{drip.limited}</p>
+                )}
 
                 <Button 
                   id={`ivclick-popular-${index}`} 

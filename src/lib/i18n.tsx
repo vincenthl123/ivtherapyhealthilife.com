@@ -71,7 +71,7 @@ const translations = {
 
     // Popular drips
     "popular.fatBurner.title": "Fat Burner IV Therapy",
-    "popular.fatBurner.price": "4,500 THB",
+    "popular.fatBurner.price": "4,500 THB → 4,050 THB",
     "popular.fatBurner.desc": "Ignite your metabolism and accelerate fat burning. Packed with L-Carnitine, CLA, B-complex vitamins, and antioxidants to boost energy, detoxify your body, and target stubborn fat.",
     "popular.fatBurner.benefit1": "Accelerate fat burning",
     "popular.fatBurner.benefit2": "Boost energy",
@@ -106,7 +106,7 @@ const translations = {
     "popular.fullDetox.benefit3": "Immune boost",
 
     "popular.liverDetox.title": "Liver Detox IV",
-    "popular.liverDetox.price": "4,500 THB",
+    "popular.liverDetox.price": "4,500 THB → 4,050 THB",
     "popular.liverDetox.desc": "Targeted liver cleansing formula with glutathione and essential nutrients. Flush toxins, restore liver function, and improve overall metabolic health.",
     "popular.liverDetox.benefit1": "Liver cleansing",
     "popular.liverDetox.benefit2": "Toxin removal",
@@ -224,19 +224,22 @@ const translations = {
     "body.nad.desc": "Elevate your energy, mental clarity, and vitality with this advanced IV treatment. Delivering Nicotinamide Adenine Dinucleotide (NAD+) directly into your bloodstream, it restores cellular health, boosts energy, enhances cognitive focus, supports anti-aging, and accelerates athletic recovery.",
 
     "body.fatBurner.title": "Fat Burner IV",
-    "body.fatBurner.price": "4,500 THB",
+    "body.fatBurner.price": "4,500 THB → 4,050 THB",
     "body.fatBurner.tagline": "Accelerate fat burning, detox",
     "body.fatBurner.desc": "Ignite your metabolism and accelerate fat burning with our scientifically formulated IV drip. Packed with essential nutrients like L-Carnitine, CLA, B-complex vitamins, and antioxidants.",
+    "body.fatBurner.limited": "Available for a limited number of bookings.",
 
     "body.vitalBoost.title": "Vital Boost / Myer's Cocktail IV",
-    "body.vitalBoost.price": "4,500 THB",
+    "body.vitalBoost.price": "4,500 THB → 4,050 THB",
     "body.vitalBoost.tagline": "Energy boost, strengthens immunity, reduces stress",
     "body.vitalBoost.desc": "Recharge instantly with Vital Boost IV – a powerful blend of vitamins to fight fatigue, boost immunity, and restore total body balance.",
+    "body.vitalBoost.limited": "Available for a limited number of bookings.",
 
     "body.athletePro.title": "Athlete Pro IV",
-    "body.athletePro.price": "4,500 THB",
+    "body.athletePro.price": "4,500 THB → 4,050 THB",
     "body.athletePro.tagline": "Enhance endurance, speed recovery, support muscle growth",
     "body.athletePro.desc": "Enhance endurance, speed recovery, support muscle growth, and boost performance with our Athlete Pro IV – advanced amino acids + vitamin infusion.",
+    "body.athletePro.limited": "Available for a limited number of bookings.",
 
     "body.athleteProMax.title": "Athlete Pro Max IV",
     "body.athleteProMax.price": "8,500 THB",
@@ -244,14 +247,16 @@ const translations = {
     "body.athleteProMax.desc": "Maximize muscle repair, boost strength, improve endurance, and accelerate recovery with our premium Athlete Pro Max IV – includes complimentary massage.",
 
     "body.partyShield.title": "Party Shield IV",
-    "body.partyShield.price": "4,500 THB",
+    "body.partyShield.price": "4,500 THB → 4,050 THB",
     "body.partyShield.tagline": "Rehydrates body, restores energy, supports liver detox",
     "body.partyShield.desc": "Pre-party protection in a drip – boost energy, hydrate deeply, and stay energized all night with Party Shield IV Therapy.",
+    "body.partyShield.limited": "Available for a limited number of bookings.",
 
     "body.hangover.title": "Hangover IV",
-    "body.hangover.price": "4,500 THB",
+    "body.hangover.price": "4,500 THB → 4,050 THB",
     "body.hangover.tagline": "Reduces nausea, relieves headache, fast rehydration",
     "body.hangover.desc": "Rapid hangover relief – rehydrate, eliminate toxins, and detox your liver in one powerful, refreshing IV drip.",
+    "body.hangover.limited": "Available for a limited number of bookings.",
 
     "body.nad250.title": "NAD+ IV 250mg",
     "body.nad250.price": "8,500 THB",
@@ -270,14 +275,16 @@ const translations = {
     "body.resveratrol.desc": "Powerful antioxidant therapy derived from red grapes. Protects against cellular aging, supports cardiovascular health, and promotes longevity at the cellular level.",
 
     "body.vitaminD.title": "Vitamin D IM",
-    "body.vitaminD.price": "4,500 THB",
+    "body.vitaminD.price": "4,500 THB → 4,050 THB",
     "body.vitaminD.tagline": "Strengthen bones, boost mood, support immunity",
     "body.vitaminD.desc": "Strengthen bones, boost mood, balance hormones, support immunity, and increase energy with our Vitamin D intramuscular injection.",
+    "body.vitaminD.limited": "Available for a limited number of bookings.",
 
     "body.liverDetox.title": "Liver Detox IV",
-    "body.liverDetox.price": "4,500 THB",
+    "body.liverDetox.price": "4,500 THB → 4,050 THB",
     "body.liverDetox.tagline": "Cleanse liver, eliminate toxins, improve metabolism",
     "body.liverDetox.desc": "Targeted liver cleansing formula with glutathione and essential nutrients. Flush toxins, restore liver function, and improve overall metabolic health.",
+    "body.liverDetox.limited": "Available for a limited number of bookings.",
 
     "body.curcumin.title": "Curcumin IV",
     "body.curcumin.price": "8,500 THB",
@@ -295,36 +302,42 @@ const translations = {
     "body.fullDetox.desc": "Complete systemic cleanse to eliminate toxins, heavy metals, and metabolic waste. Rejuvenate your organs, boost immunity, and restore optimal body function.",
 
     "body.cMax.title": "C Max IV",
-    "body.cMax.price": "4,500 THB",
+    "body.cMax.price": "4,500 THB → 4,050 THB",
     "body.cMax.tagline": "Boost immunity, protect cells, speed recovery",
     "body.cMax.desc": "Boost immunity, protect cells, reduce inflammation, and speed recovery with our high-dose Vitamin C infusion.",
+    "body.cMax.limited": "Available for a limited number of bookings.",
 
     // Brain Booster drips
     "brain.timeZone.title": "Time Zone IV",
-    "brain.timeZone.price": "4,500 THB",
+    "brain.timeZone.price": "4,500 THB → 4,050 THB",
     "brain.timeZone.tagline": "Fights jet lag, restores energy, reduces fatigue",
     "brain.timeZone.desc": "Rehydrate, recharge, and reset your body with a tailored blend to combat fatigue, restore energy, and ease travel recovery.",
+    "brain.timeZone.limited": "Available for a limited number of bookings.",
 
     "brain.stressEase.title": "Stress Ease IV",
-    "brain.stressEase.price": "4,500 THB",
+    "brain.stressEase.price": "4,500 THB → 4,050 THB",
     "brain.stressEase.tagline": "Calms the nervous system, lowers stress, improves mood",
     "brain.stressEase.desc": "Recharge your mind and body with a soothing blend of nutrients designed to relieve stress, restore balance, and promote relaxation.",
+    "brain.stressEase.limited": "Available for a limited number of bookings.",
 
     "brain.neuroBoost.title": "Neuro Boost IV",
-    "brain.neuroBoost.price": "4,500 THB",
+    "brain.neuroBoost.price": "4,500 THB → 4,050 THB",
     "brain.neuroBoost.tagline": "Improves focus, enhances memory, boosts cognitive function",
     "brain.neuroBoost.desc": "Unlock Your Brain's Full Potential. Experience sharper focus, enhanced memory, and improved cognitive function.",
+    "brain.neuroBoost.limited": "Available for a limited number of bookings.",
 
     "brain.dreamEase.title": "Dream Ease IV",
-    "brain.dreamEase.price": "4,500 THB",
+    "brain.dreamEase.price": "4,500 THB → 4,050 THB",
     "brain.dreamEase.tagline": "Improves sleep quality, relaxes body & mind, restores balance",
     "brain.dreamEase.desc": "A premium infusion designed to soothe your mind, relax your body, and unlock the rejuvenating power of deep, restorative sleep.",
+    "brain.dreamEase.limited": "Available for a limited number of bookings.",
 
     // Skin Booster drips
     "skin.glowVita.title": "Glow Vita IV",
-    "skin.glowVita.price": "4,500 THB",
+    "skin.glowVita.price": "4,500 THB → 4,050 THB",
     "skin.glowVita.tagline": "Hydrates skin deeply, brightens complexion, restores natural glow",
     "skin.glowVita.desc": "Brighten your skin with nutrients that boost hydration, enhance collagen production, and reveal your natural glow.",
+    "skin.glowVita.limited": "Available for a limited number of bookings.",
 
     "skin.glowRestore.title": "Glow Restore IV",
     "skin.glowRestore.price": "8,500 THB",
@@ -536,7 +549,7 @@ const translations = {
 
     // Popular drips
     "popular.fatBurner.title": "Fat Burner IV Therapy",
-    "popular.fatBurner.price": "4,500 บาท",
+    "popular.fatBurner.price": "4,500 บาท → 4,050 บาท",
     "popular.fatBurner.desc": "กระตุ้นการเผาผลาญและเร่งการเผาผลาญไขมัน อัดแน่นด้วย L-Carnitine, CLA, วิตามินบีรวม และสารต้านอนุมูลอิสระ เพื่อเพิ่มพลังงาน ขับสารพิษ และกำจัดไขมันที่ดื้อรั้น",
     "popular.fatBurner.benefit1": "เร่งเผาผลาญไขมัน",
     "popular.fatBurner.benefit2": "เพิ่มพลังงาน",
@@ -571,7 +584,7 @@ const translations = {
     "popular.fullDetox.benefit3": "เสริมภูมิคุ้มกัน",
 
     "popular.liverDetox.title": "Liver Detox IV",
-    "popular.liverDetox.price": "4,500 บาท",
+    "popular.liverDetox.price": "4,500 บาท → 4,050 บาท",
     "popular.liverDetox.desc": "สูตรล้างพิษตับเฉพาะเจาะจงด้วย Glutathione และสารอาหารที่จำเป็น ขจัดสารพิษ ฟื้นฟูการทำงานของตับ และปรับปรุงสุขภาพการเผาผลาญ",
     "popular.liverDetox.benefit1": "ล้างพิษตับ",
     "popular.liverDetox.benefit2": "ขจัดสารพิษ",
@@ -689,19 +702,22 @@ const translations = {
     "body.nad.desc": "เพิ่มพลังงาน ความชัดเจนทางจิตใจ และความมีชีวิตชีวาด้วยการรักษา IV ขั้นสูง ส่ง NAD+ ตรงเข้าสู่กระแสเลือด ฟื้นฟูสุขภาพเซลล์ เพิ่มพลังงาน เพิ่มสมาธิ ชะลอวัย และเร่งการฟื้นตัว",
 
     "body.fatBurner.title": "Fat Burner IV",
-    "body.fatBurner.price": "4,500 บาท",
+    "body.fatBurner.price": "4,500 บาท → 4,050 บาท",
     "body.fatBurner.tagline": "เร่งเผาผลาญไขมัน ขับสารพิษ",
     "body.fatBurner.desc": "กระตุ้นการเผาผลาญและเร่งการเผาผลาญไขมันด้วยสูตร IV Drip ที่คิดค้นทางวิทยาศาสตร์ อัดแน่นด้วย L-Carnitine, CLA, วิตามินบีรวม และสารต้านอนุมูลอิสระ",
+    "body.fatBurner.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "body.vitalBoost.title": "Vital Boost / Myer's Cocktail IV",
-    "body.vitalBoost.price": "4,500 บาท",
+    "body.vitalBoost.price": "4,500 บาท → 4,050 บาท",
     "body.vitalBoost.tagline": "เพิ่มพลังงาน เสริมภูมิคุ้มกัน ลดความเครียด",
     "body.vitalBoost.desc": "เติมพลังทันทีด้วย Vital Boost IV – ส่วนผสมวิตามินทรงพลังที่ช่วยต่อสู้กับความเหนื่อยล้า เสริมภูมิคุ้มกัน และฟื้นฟูสมดุลร่างกาย",
+    "body.vitalBoost.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "body.athletePro.title": "Athlete Pro IV",
-    "body.athletePro.price": "4,500 บาท",
+    "body.athletePro.price": "4,500 บาท → 4,050 บาท",
     "body.athletePro.tagline": "เพิ่มความทนทาน เร่งการฟื้นตัว สนับสนุนกล้ามเนื้อ",
     "body.athletePro.desc": "เพิ่มความทนทาน เร่งการฟื้นตัว สนับสนุนการเติบโตของกล้ามเนื้อ และเพิ่มประสิทธิภาพด้วย Athlete Pro IV – กรดอะมิโนขั้นสูงและวิตามินอินฟิวชัน",
+    "body.athletePro.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "body.athleteProMax.title": "Athlete Pro Max IV",
     "body.athleteProMax.price": "8,500 บาท",
@@ -709,14 +725,16 @@ const translations = {
     "body.athleteProMax.desc": "ซ่อมแซมกล้ามเนื้อสูงสุด เพิ่มความแข็งแรง เพิ่มความทนทาน และเร่งการฟื้นตัวด้วย Athlete Pro Max IV ระดับพรีเมียม – รวมนวดเสริมฟรี",
 
     "body.partyShield.title": "Party Shield IV",
-    "body.partyShield.price": "4,500 บาท",
+    "body.partyShield.price": "4,500 บาท → 4,050 บาท",
     "body.partyShield.tagline": "เติมน้ำให้ร่างกาย ฟื้นฟูพลังงาน ช่วยล้างพิษตับ",
     "body.partyShield.desc": "การป้องกันก่อนปาร์ตี้ในหยด – เพิ่มพลังงาน ให้ความชุ่มชื้นอย่างล้ำลึก และมีพลังตลอดคืนด้วย Party Shield IV Therapy",
+    "body.partyShield.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "body.hangover.title": "Hangover IV",
-    "body.hangover.price": "4,500 บาท",
+    "body.hangover.price": "4,500 บาท → 4,050 บาท",
     "body.hangover.tagline": "ลดคลื่นไส้ บรรเทาปวดหัว เติมน้ำอย่างรวดเร็ว",
     "body.hangover.desc": "บรรเทาอาการเมาค้างอย่างรวดเร็ว – เติมน้ำ กำจัดสารพิษ และล้างพิษตับในหยดเดียว รู้สึกดีขึ้นเร็ว",
+    "body.hangover.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "body.nad250.title": "NAD+ IV 250mg",
     "body.nad250.price": "8,500 บาท",
@@ -735,14 +753,16 @@ const translations = {
     "body.resveratrol.desc": "สารต้านอนุมูลอิสระทรงพลังจากองุ่นแดง ปกป้องจากความชราของเซลล์ สนับสนุนสุขภาพหัวใจ และส่งเสริมอายุยืนยาวในระดับเซลล์",
 
     "body.vitaminD.title": "Vitamin D IM",
-    "body.vitaminD.price": "4,500 บาท",
+    "body.vitaminD.price": "4,500 บาท → 4,050 บาท",
     "body.vitaminD.tagline": "เสริมกระดูก เพิ่มอารมณ์ สนับสนุนภูมิคุ้มกัน",
     "body.vitaminD.desc": "เสริมสร้างกระดูก เพิ่มอารมณ์ สมดุลฮอร์โมน สนับสนุนภูมิคุ้มกัน และเพิ่มพลังงานด้วยการฉีดวิตามินดีเข้ากล้ามเนื้อ",
+    "body.vitaminD.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "body.liverDetox.title": "Liver Detox IV",
-    "body.liverDetox.price": "4,500 บาท",
+    "body.liverDetox.price": "4,500 บาท → 4,050 บาท",
     "body.liverDetox.tagline": "ล้างพิษตับ กำจัดสารพิษ ปรับปรุงการเผาผลาญ",
     "body.liverDetox.desc": "สูตรล้างพิษตับเฉพาะเจาะจงด้วย Glutathione และสารอาหารที่จำเป็น ขจัดสารพิษ ฟื้นฟูการทำงานของตับ และปรับปรุงสุขภาพการเผาผลาญ",
+    "body.liverDetox.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "body.curcumin.title": "Curcumin IV",
     "body.curcumin.price": "8,500 บาท",
@@ -760,36 +780,42 @@ const translations = {
     "body.fullDetox.desc": "การล้างพิษทั้งระบบเพื่อกำจัดสารพิษ โลหะหนัก และของเสียจากการเผาผลาญ ฟื้นฟูอวัยวะ เสริมภูมิคุ้มกัน และฟื้นฟูการทำงานของร่างกาย",
 
     "body.cMax.title": "C Max IV",
-    "body.cMax.price": "4,500 บาท",
+    "body.cMax.price": "4,500 บาท → 4,050 บาท",
     "body.cMax.tagline": "เสริมภูมิคุ้มกัน ปกป้องเซลล์ เร่งการฟื้นตัว",
     "body.cMax.desc": "เสริมภูมิคุ้มกัน ปกป้องเซลล์ ลดการอักเสบ และเร่งการฟื้นตัวด้วยการอินฟิวชันวิตามินซีขนาดสูง",
+    "body.cMax.limited": "จำนวนจำกัดสำหรับการจอง",
 
     // Brain Booster drips
     "brain.timeZone.title": "Time Zone IV",
-    "brain.timeZone.price": "4,500 บาท",
+    "brain.timeZone.price": "4,500 บาท → 4,050 บาท",
     "brain.timeZone.tagline": "ต่อสู้กับเจ็ทแลค ฟื้นฟูพลังงาน ลดความเหนื่อยล้า",
     "brain.timeZone.desc": "เติมน้ำ ชาร์จพลัง และรีเซ็ตร่างกายด้วยส่วนผสมที่ออกแบบมาเพื่อต่อสู้กับความเหนื่อยล้า ฟื้นฟูพลังงาน และบรรเทาอาการเมาค้าง",
+    "brain.timeZone.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "brain.stressEase.title": "Stress Ease IV",
-    "brain.stressEase.price": "4,500 บาท",
+    "brain.stressEase.price": "4,500 บาท → 4,050 บาท",
     "brain.stressEase.tagline": "สงบระบบประสาท ลดความเครียด ปรับอารมณ์",
     "brain.stressEase.desc": "ชาร์จจิตใจและร่างกายด้วยส่วนผสมที่ผ่อนคลายซึ่งออกแบบมาเพื่อบรรเทาความเครียด ฟื้นฟูสมดุล และส่งเสริมการผ่อนคลาย",
+    "brain.stressEase.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "brain.neuroBoost.title": "Neuro Boost IV",
-    "brain.neuroBoost.price": "4,500 บาท",
+    "brain.neuroBoost.price": "4,500 บาท → 4,050 บาท",
     "brain.neuroBoost.tagline": "เพิ่มสมาธิ เสริมความจำ เพิ่มการทำงานของสมอง",
     "brain.neuroBoost.desc": "ปลดล็อกศักยภาพสมองเต็มที่ สัมผัสสมาธิที่แหลมคม ความจำที่เพิ่มขึ้น และการทำงานของสมองที่ดีขึ้น",
+    "brain.neuroBoost.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "brain.dreamEase.title": "Dream Ease IV",
-    "brain.dreamEase.price": "4,500 บาท",
+    "brain.dreamEase.price": "4,500 บาท → 4,050 บาท",
     "brain.dreamEase.tagline": "ปรับปรุงคุณภาพการนอน ผ่อนคลายกายใจ ฟื้นฟูสมดุล",
     "brain.dreamEase.desc": "อินฟิวชันพรีเมียมที่ออกแบบมาเพื่อผ่อนคลายจิตใจ ผ่อนคลายร่างกาย และปลดล็อกพลังฟื้นฟูของการนอนหลับลึก",
+    "brain.dreamEase.limited": "จำนวนจำกัดสำหรับการจอง",
 
     // Skin Booster drips
     "skin.glowVita.title": "Glow Vita IV",
-    "skin.glowVita.price": "4,500 บาท",
+    "skin.glowVita.price": "4,500 บาท → 4,050 บาท",
     "skin.glowVita.tagline": "ให้ความชุ่มชื้นผิวอย่างล้ำลึก ผิวกระจ่างใส ฟื้นฟูความเปล่งประกาย",
     "skin.glowVita.desc": "ทำให้ผิวกระจ่างใสด้วยสารอาหารที่เพิ่มความชุ่มชื้น เพิ่มการผลิตคอลลาเจน และเผยความเปล่งประกายตามธรรมชาติ",
+    "skin.glowVita.limited": "จำนวนจำกัดสำหรับการจอง",
 
     "skin.glowRestore.title": "Glow Restore IV",
     "skin.glowRestore.price": "8,500 บาท",
@@ -999,7 +1025,7 @@ const translations = {
 
     // Popular drips
     "popular.fatBurner.title": "ファットバーナー IV療法",
-    "popular.fatBurner.price": "4,500 バーツ",
+    "popular.fatBurner.price": "4,500 バーツ → 4,050 バーツ",
     "popular.fatBurner.desc": "代謝を活性化し、脂肪燃焼を促進。L-カルニチン、CLA、ビタミンB群、抗酸化物質を配合し、エネルギー増加、デトックス、頑固な脂肪にアプローチ。",
     "popular.fatBurner.benefit1": "脂肪燃焼促進",
     "popular.fatBurner.benefit2": "エネルギー増加",
@@ -1034,7 +1060,7 @@ const translations = {
     "popular.fullDetox.benefit3": "免疫力向上",
 
     "popular.liverDetox.title": "肝臓デトックス IV",
-    "popular.liverDetox.price": "4,500 バーツ",
+    "popular.liverDetox.price": "4,500 バーツ → 4,050 バーツ",
     "popular.liverDetox.desc": "グルタチオンと必須栄養素を配合した肝臓専用クレンジング処方。毒素を排出し、肝機能を回復、全体的な代謝健康を改善。",
     "popular.liverDetox.benefit1": "肝臓クレンジング",
     "popular.liverDetox.benefit2": "毒素除去",
@@ -1152,19 +1178,22 @@ const translations = {
     "body.nad.desc": "この高度なIV治療でエネルギー、精神的明晰さ、活力を高めます。NAD+を血流に直接届け、細胞の健康を回復し、エネルギーを増加、認知集中力を高め、アンチエイジングをサポート、アスリートの回復を促進。",
 
     "body.fatBurner.title": "ファットバーナー IV",
-    "body.fatBurner.price": "4,500 バーツ",
+    "body.fatBurner.price": "4,500 バーツ → 4,050 バーツ",
     "body.fatBurner.tagline": "脂肪燃焼促進、デトックス",
     "body.fatBurner.desc": "科学的に配合されたIV点滴で代謝を活性化し、脂肪燃焼を促進。L-カルニチン、CLA、ビタミンB群、抗酸化物質を配合。",
+    "body.fatBurner.limited": "予約数限定で提供中。",
 
     "body.vitalBoost.title": "バイタルブースト / マイヤーズカクテル IV",
-    "body.vitalBoost.price": "4,500 バーツ",
+    "body.vitalBoost.price": "4,500 バーツ → 4,050 バーツ",
     "body.vitalBoost.tagline": "エネルギー増加、免疫力強化、ストレス軽減",
     "body.vitalBoost.desc": "バイタルブーストIVで即座にリチャージ — 疲労と戦い、免疫力を高め、全身のバランスを回復するパワフルなビタミンブレンド。",
+    "body.vitalBoost.limited": "予約数限定で提供中。",
 
     "body.athletePro.title": "アスリートプロ IV",
-    "body.athletePro.price": "4,500 バーツ",
+    "body.athletePro.price": "4,500 バーツ → 4,050 バーツ",
     "body.athletePro.tagline": "持久力向上、回復促進、筋肉成長サポート",
     "body.athletePro.desc": "持久力を高め、回復を加速し、筋肉成長をサポートし、パフォーマンスを向上させるアスリートプロIV — 高度なアミノ酸とビタミン点滴。",
+    "body.athletePro.limited": "予約数限定で提供中。",
 
     "body.athleteProMax.title": "アスリートプロマックス IV",
     "body.athleteProMax.price": "8,500 バーツ",
@@ -1172,14 +1201,16 @@ const translations = {
     "body.athleteProMax.desc": "筋肉修復を最大化し、強度を向上させ、持久力を改善し、回復を加速するプレミアムアスリートプロマックスIV — 無料マッサージ付き。",
 
     "body.partyShield.title": "パーティーシールド IV",
-    "body.partyShield.price": "4,500 バーツ",
+    "body.partyShield.price": "4,500 バーツ → 4,050 バーツ",
     "body.partyShield.tagline": "水分補給、エネルギー回復、肝臓デトックスサポート",
     "body.partyShield.desc": "パーティー前の保護点滴 — エネルギーを高め、深く水分補給し、パーティーシールドIV療法で一晩中元気をキープ。",
+    "body.partyShield.limited": "予約数限定で提供中。",
 
     "body.hangover.title": "二日酔い IV",
-    "body.hangover.price": "4,500 バーツ",
+    "body.hangover.price": "4,500 バーツ → 4,050 バーツ",
     "body.hangover.tagline": "吐き気軽減、頭痛緩和、迅速な水分補給",
     "body.hangover.desc": "迅速な二日酔い緩和 — 水分補給、毒素除去、肝臓デトックスを一つのパワフルでリフレッシングなIV点滴で。",
+    "body.hangover.limited": "予約数限定で提供中。",
 
     "body.nad250.title": "NAD+ IV 250mg",
     "body.nad250.price": "8,500 バーツ",
@@ -1198,14 +1229,16 @@ const translations = {
     "body.resveratrol.desc": "赤ブドウ由来の強力な抗酸化療法。細胞の老化を防ぎ、心血管の健康をサポート、細胞レベルで長寿を促進。",
 
     "body.vitaminD.title": "ビタミンD IM",
-    "body.vitaminD.price": "4,500 バーツ",
+    "body.vitaminD.price": "4,500 バーツ → 4,050 バーツ",
     "body.vitaminD.tagline": "骨強化、気分向上、免疫サポート",
     "body.vitaminD.desc": "骨を強化し、気分を高め、ホルモンバランスを整え、免疫力をサポートし、エネルギーを増加するビタミンD筋肉注射。",
+    "body.vitaminD.limited": "予約数限定で提供中。",
 
     "body.liverDetox.title": "肝臓デトックス IV",
-    "body.liverDetox.price": "4,500 バーツ",
+    "body.liverDetox.price": "4,500 バーツ → 4,050 バーツ",
     "body.liverDetox.tagline": "肝臓クレンジング、毒素除去、代謝改善",
     "body.liverDetox.desc": "グルタチオンと必須栄養素を配合した肝臓専用クレンジング処方。毒素を排出し、肝機能を回復、全体的な代謝健康を改善。",
+    "body.liverDetox.limited": "予約数限定で提供中。",
 
     "body.curcumin.title": "クルクミン IV",
     "body.curcumin.price": "8,500 バーツ",
@@ -1223,36 +1256,42 @@ const translations = {
     "body.fullDetox.desc": "毒素、重金属、代謝廃棄物を除去する完全な全身クレンズ。臓器を若返らせ、免疫力を高め、最適な身体機能を回復。",
 
     "body.cMax.title": "C Max IV",
-    "body.cMax.price": "4,500 バーツ",
+    "body.cMax.price": "4,500 バーツ → 4,050 バーツ",
     "body.cMax.tagline": "免疫力向上、細胞保護、回復促進",
     "body.cMax.desc": "免疫力を高め、細胞を保護し、炎症を軽減し、高用量ビタミンC点滴で回復を促進。",
+    "body.cMax.limited": "予約数限定で提供中。",
 
     // Brain Booster drips
     "brain.timeZone.title": "タイムゾーン IV",
-    "brain.timeZone.price": "4,500 バーツ",
+    "brain.timeZone.price": "4,500 バーツ → 4,050 バーツ",
     "brain.timeZone.tagline": "時差ボケ対策、エネルギー回復、疲労軽減",
     "brain.timeZone.desc": "疲労と戦い、エネルギーを回復し、旅行からの回復を楽にするカスタマイズブレンドで水分補給、リチャージ、リセット。",
+    "brain.timeZone.limited": "予約数限定で提供中。",
 
     "brain.stressEase.title": "ストレスイーズ IV",
-    "brain.stressEase.price": "4,500 バーツ",
+    "brain.stressEase.price": "4,500 バーツ → 4,050 バーツ",
     "brain.stressEase.tagline": "神経系を落ち着かせる、ストレス軽減、気分改善",
     "brain.stressEase.desc": "ストレス解消、バランス回復、リラクゼーション促進のために設計された心地よい栄養素のブレンドで心身をリチャージ。",
+    "brain.stressEase.limited": "予約数限定で提供中。",
 
     "brain.neuroBoost.title": "ニューロブースト IV",
-    "brain.neuroBoost.price": "4,500 バーツ",
+    "brain.neuroBoost.price": "4,500 バーツ → 4,050 バーツ",
     "brain.neuroBoost.tagline": "集中力向上、記憶力強化、認知機能向上",
     "brain.neuroBoost.desc": "脳の潜在能力を解放。より鋭い集中力、強化された記憶力、改善された認知機能を体験。",
+    "brain.neuroBoost.limited": "予約数限定で提供中。",
 
     "brain.dreamEase.title": "ドリームイーズ IV",
-    "brain.dreamEase.price": "4,500 バーツ",
+    "brain.dreamEase.price": "4,500 バーツ → 4,050 バーツ",
     "brain.dreamEase.tagline": "睡眠の質向上、心身のリラックス、バランス回復",
     "brain.dreamEase.desc": "心を落ち着かせ、体をリラックスさせ、深い回復的な睡眠の若返り力を解放するために設計されたプレミアム点滴。",
+    "brain.dreamEase.limited": "予約数限定で提供中。",
 
     // Skin Booster drips
     "skin.glowVita.title": "グロウビタ IV",
-    "skin.glowVita.price": "4,500 バーツ",
+    "skin.glowVita.price": "4,500 バーツ → 4,050 バーツ",
     "skin.glowVita.tagline": "肌に深い潤い、肌を明るく、自然な輝きを回復",
     "skin.glowVita.desc": "潤いを高め、コラーゲン生成を促進し、自然な輝きを引き出す栄養素で肌を明るく。",
+    "skin.glowVita.limited": "予約数限定で提供中。",
 
     "skin.glowRestore.title": "グロウリストア IV",
     "skin.glowRestore.price": "8,500 バーツ",
