@@ -45,7 +45,7 @@ const Services = () => {
       description: t("popular.curcumin.desc"),
       benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
       footMassage: true,
-      cta: "Book My NAD+ Session",
+      cta: "Book My Curcumin IV",
     },
     {
       icon: Heart,
