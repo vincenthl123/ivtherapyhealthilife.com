@@ -76,7 +76,7 @@ const Services = () => {
   const bodyBoosterDrips = [
     { title: t("body.nad.title"), price: t("body.nad.price"), tagline: t("body.nad.tagline"), description: t("body.nad.desc") },
     { title: t("body.nad250.title"), price: t("body.nad250.price"), tagline: t("body.nad250.tagline"), description: t("body.nad250.desc") },
-    { title: t("body.nadResveratrol.title"), price: t("body.nadResveratrol.price"), tagline: t("body.nadResveratrol.tagline"), description: t("body.nadResveratrol.desc") },
+    { title: t("body.nadResveratrol.title"), price: t("body.nadResveratrol.price"), tagline: t("body.nadResveratrol.tagline"), description: t("body.nadResveratrol.desc"), limited: t("body.nadResveratrol.limited") },
     { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), discount: 10 },
     { title: t("body.vitalBoost.title"), price: t("body.vitalBoost.price"), tagline: t("body.vitalBoost.tagline"), description: t("body.vitalBoost.desc"), discount: 10 },
     { title: t("body.athletePro.title"), price: t("body.athletePro.price"), tagline: t("body.athletePro.tagline"), description: t("body.athletePro.desc") },
@@ -154,24 +154,40 @@ const Services = () => {
     categoryId: string;
   }) => (
     <Accordion type="single" collapsible className="space-y-3">
-      {drips.map((drip, index) => (
-        <AccordionItem
-          key={index}
-          value={`${categoryId}-${index}`}
-          className="bg-secondary/50 border-none rounded-xl px-6"
-        >
-          <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-4">
-            <span className="flex items-center gap-2 flex-wrap">
-              {drip.title} - <span className="font-bold">{drip.price}</span>{" "}
-              <span className="text-muted-foreground font-normal">({drip.tagline})</span>
-              {drip.discount && <DiscountBadge percent={drip.discount} />}
-            </span>
-          </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
-            {drip.description}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
+      {drips.map((drip, index) => {
+        const hasStrikePrice = drip.price.includes("→");
+        const [oldPrice, newPrice] = hasStrikePrice ? drip.price.split("→").map(s => s.trim()) : [null, drip.price];
+        return (
+          <AccordionItem
+            key={index}
+            value={`${categoryId}-${index}`}
+            className="bg-secondary/50 border-none rounded-xl px-6"
+          >
+            <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-4">
+              <span className="flex items-center gap-2 flex-wrap">
+                {drip.title} -{" "}
+                {hasStrikePrice ? (
+                  <>
+                    <span className="line-through text-muted-foreground font-normal">{oldPrice}</span>
+                    <span className="font-bold text-primary">{newPrice}</span>
+                  </>
+                ) : (
+                  <span className="font-bold">{drip.price}</span>
+                )}
+                {" "}
+                <span className="text-muted-foreground font-normal">({drip.tagline})</span>
+                {drip.discount && <DiscountBadge percent={drip.discount} />}
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+              {drip.description}
+              {drip.limited && (
+                <p className="mt-2 text-sm font-semibold text-primary italic">{drip.limited}</p>
+              )}
+            </AccordionContent>
+          </AccordionItem>
+        );
+      })}
     </Accordion>
   );
 
