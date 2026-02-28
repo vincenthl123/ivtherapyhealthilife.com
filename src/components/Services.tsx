@@ -228,15 +228,7 @@ const Services = () => {
                   </span>
                 </div>
               )}
-              {drip.footMassage && (
-                <div className="absolute top-3 left-3 z-10">
-                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-sm">
-                    <Gift className="h-3 w-3" />
-                    Complimentary Foot Massage
-                  </span>
-                </div>
-              )}
-              <CardContent className="p-6 md:p-8 pt-12">
+              <CardContent className="p-6 md:p-8">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-medical flex items-center justify-center group-hover:scale-110 transition-transform">
                     <drip.icon className="h-6 w-6 text-primary-foreground" />
@@ -265,6 +257,15 @@ const Services = () => {
 
                 {drip.limited && (
                   <p className="text-xs font-semibold text-primary italic mb-4">{drip.limited}</p>
+                )}
+
+                {drip.footMassage && (
+                  <div className="mb-3">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-sm">
+                      <Gift className="h-3 w-3" />
+                      Complimentary Foot Massage
+                    </span>
+                  </div>
                 )}
 
                 <Button 
