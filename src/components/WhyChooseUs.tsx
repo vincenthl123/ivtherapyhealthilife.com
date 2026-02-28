@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-lg p-6 shadow-medium max-w-xs">
+            <div className="relative mt-4 lg:absolute lg:mt-0 lg:-bottom-6 lg:-right-6 bg-card border border-border rounded-lg p-4 md:p-6 shadow-medium max-w-xs">
               <p className="text-sm font-semibold text-foreground mb-2">
                 {t("why.whyNeed")}
               </p>

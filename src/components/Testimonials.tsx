@@ -67,7 +67,7 @@ const Testimonials = () => {
           </h2>
           
           {/* Rating with Google Logo */}
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
             {/* Rating */}
             <div className="flex items-center gap-2">
               <span className="text-3xl font-bold text-foreground">5</span>
