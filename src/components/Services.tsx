@@ -346,84 +346,82 @@ const Services = () => {
             </span>
           </div>
           
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {packages.map((pkg) => (
-              <div key={pkg.id} className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-8 md:p-10 overflow-hidden">
+              <div key={pkg.id} className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-6 md:p-8 overflow-hidden flex flex-col">
                 {/* Save badge */}
                 {pkg.saveBadge && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-primary-foreground text-sm font-bold shadow-sm">
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-sm">
                       {pkg.saveBadge}
                     </span>
                   </div>
                 )}
                 {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-medical opacity-10 rounded-bl-[80px]" />
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
-                  {/* Left: Title & Description */}
-                  <div>
-                    {/* Highlight */}
-                    <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
-                      <span className="text-primary text-lg">⭐</span>
-                      <p className="text-sm font-semibold text-primary">{pkg.highlight}</p>
+                <div className="relative z-10 flex flex-col flex-grow">
+                  {/* Highlight */}
+                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-2.5 flex items-center gap-2 mb-3">
+                    <span className="text-primary text-base">⭐</span>
+                    <p className="text-xs font-semibold text-primary">{pkg.highlight}</p>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">
+                    {pkg.title}
+                  </h3>
+                  <p className="text-primary font-semibold text-sm mb-2">{pkg.subtitle}</p>
+                  <p className="text-muted-foreground text-sm mb-3">{pkg.desc}</p>
+
+                  {pkg.bonus && (
+                    <div className="bg-accent/10 border border-accent/30 rounded-lg p-2.5 flex items-center gap-2 mb-3">
+                      <Gift className="h-3.5 w-3.5 text-accent flex-shrink-0" />
+                      <p className="text-xs font-semibold text-foreground">{pkg.bonus}</p>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                      {pkg.title}
-                    </h3>
-                    <p className="text-primary font-semibold mb-3">{pkg.subtitle}</p>
-                    <p className="text-muted-foreground mb-4">{pkg.desc}</p>
+                  )}
 
-                    {pkg.bonus && (
-                      <div className="bg-accent/10 border border-accent/30 rounded-lg p-3 flex items-center gap-2 mb-5">
-                        <Gift className="h-4 w-4 text-accent" />
-                        <p className="text-sm font-semibold text-foreground">{pkg.bonus}</p>
-                      </div>
-                    )}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {pkg.benefits.map((b, i) => (
+                      <span key={i} className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                        <Activity className="h-3 w-3 mr-1" />
+                        {b}
+                      </span>
+                    ))}
+                  </div>
 
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {pkg.benefits.map((b, i) => (
-                        <span key={i} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                          <Activity className="h-3 w-3 mr-1.5" />
-                          {b}
-                        </span>
+                  {/* Outcomes */}
+                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-3 mb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                      <h4 className="font-semibold text-foreground text-xs">{t("pathway.vitalReset.outcomeTitle")}</h4>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {pkg.outcomes.map((o, i) => (
+                        <li key={i} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
+                          {o}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
+                  </div>
 
-                    <div className="flex items-baseline gap-3 mb-2">
-                      <span className="text-2xl md:text-3xl font-bold text-primary">{pkg.price}</span>
+                  <div className="mt-auto">
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-xl md:text-2xl font-bold text-primary">{pkg.price}</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">{pkg.pricePerSession}</p>
+                    <p className="text-xs text-muted-foreground mb-4">{pkg.pricePerSession}</p>
 
                     <Button
                       id={`ivclick-package-${pkg.id}`}
-                      size="lg"
+                      size="default"
+                      className="w-full"
                       onClick={() => trackButtonClick(`ivclick-package-${pkg.id}`)}
                       asChild
                     >
                       <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="h-5 w-5 mr-2" />
+                        <MessageCircle className="h-4 w-4 mr-2" />
                         {t("services.bookMedicalReview")}
                       </a>
                     </Button>
-                  </div>
-
-                  {/* Right: Outcomes */}
-                  <div className="space-y-5">
-                    <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
-                      <div className="flex items-center gap-2 mb-3">
-                        <CheckCircle2 className="h-4 w-4 text-primary" />
-                        <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.outcomeTitle")}</h4>
-                      </div>
-                      <ul className="space-y-2">
-                        {pkg.outcomes.map((o, i) => (
-                          <li key={i} className="flex items-center text-xs text-muted-foreground">
-                            <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
-                            {o}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
                   </div>
                 </div>
               </div>
