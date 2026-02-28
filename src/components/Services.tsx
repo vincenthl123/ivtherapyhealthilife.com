@@ -123,6 +123,7 @@ const Services = () => {
     {
       id: "fat-burner-10",
       icon: Flame,
+      saveBadge: "Save 20%",
       title: t("package.fatBurner10.title"),
       subtitle: t("package.fatBurner10.subtitle"),
       price: t("package.fatBurner10.price"),
@@ -280,6 +281,14 @@ const Services = () => {
           <div className="space-y-8">
             {packages.map((pkg) => (
               <div key={pkg.id} className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-8 md:p-10 overflow-hidden">
+                {/* Save badge */}
+                {pkg.saveBadge && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-primary-foreground text-sm font-bold shadow-sm">
+                      {pkg.saveBadge}
+                    </span>
+                  </div>
+                )}
                 {/* Decorative corner accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
                 
