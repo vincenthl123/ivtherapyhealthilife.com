@@ -33,10 +33,10 @@ const WhatsAppWidget = () => {
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
       {/* Popup Message */}
       {showPopup && (
-        <div className="absolute bottom-20 right-0 w-80 bg-card rounded-2xl shadow-2xl border border-border overflow-hidden animate-fade-in-up">
+        <div className="absolute bottom-16 md:bottom-20 right-0 w-[calc(100vw-2rem)] max-w-80 bg-card rounded-2xl shadow-2xl border border-border overflow-hidden animate-fade-in-up">
           {/* Header */}
           <div className="bg-success p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -94,7 +94,7 @@ const WhatsAppWidget = () => {
       {/* Floating Button */}
       <div className="relative flex items-center gap-3">
         {!showPopup && (
-          <div className="bg-card rounded-full pl-2 pr-4 py-2 shadow-lg border border-border flex items-center gap-2 animate-fade-in">
+          <div className="hidden md:flex bg-card rounded-full pl-2 pr-4 py-2 shadow-lg border border-border items-center gap-2 animate-fade-in">
             <div className="w-7 h-7 rounded-full overflow-hidden border border-border">
               <img 
                 src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=face" 
@@ -109,7 +109,7 @@ const WhatsAppWidget = () => {
         
         <button
           onClick={handleOpenChat}
-          className="group relative w-14 h-14 rounded-full bg-success shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
+          className="group relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-success shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
           aria-label="Chat on WhatsApp"
         >
           <MessageCircle className="w-7 h-7 text-success-foreground" />
