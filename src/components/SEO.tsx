@@ -379,6 +379,34 @@ const SEO = () => {
               "item": "https://ivtherapyhealthilife.com/#contact"
             }
           ]
+        },
+
+        // 5. VideoObject - for video rich snippets & AI crawlers
+        {
+          "@type": "VideoObject",
+          "@id": "https://ivtherapyhealthilife.com/#video-dr-petch",
+          "name": "Dr. Petch - Founder & Lifestyle Medicine Specialist",
+          "description": "Dr. Petch introduces Healthi-Life's holistic approach to regenerative medicine, IV therapy, and longevity in Bangkok.",
+          "thumbnailUrl": "https://img.youtube.com/vi/0q0ht-nms4w/maxresdefault.jpg",
+          "uploadDate": "2024-01-15T00:00:00+07:00",
+          "duration": "PT1M30S",
+          "contentUrl": "https://www.youtube.com/watch?v=0q0ht-nms4w",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/0q0ht-nms4w",
+          "publisher": { "@id": "https://ivtherapyhealthilife.com/#org" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://ivtherapyhealthilife.com/#video-blake",
+          "name": "Blake from USA - Human Performance Enhancement Testimonial",
+          "description": "Patient testimonial: Enhancing athletic performance with regenerative medicine at Healthi-Life Bangkok.",
+          "thumbnailUrl": "https://img.youtube.com/vi/acuxB5dBjqw/maxresdefault.jpg",
+          "uploadDate": "2024-03-10T00:00:00+07:00",
+          "duration": "PT1M45S",
+          "contentUrl": "https://www.youtube.com/watch?v=acuxB5dBjqw",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/acuxB5dBjqw",
+          "publisher": { "@id": "https://ivtherapyhealthilife.com/#org" },
+          "inLanguage": "en"
         }
       ]
     };
