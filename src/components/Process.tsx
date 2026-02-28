@@ -36,7 +36,7 @@ const Process = () => {
             >
               <CardContent className="p-6">
                 {/* Step Number */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-medical flex items-center justify-center text-primary-foreground font-bold text-lg shadow-soft">
+                <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm md:text-lg shadow-soft">
                   {step.number}
                 </div>
 
