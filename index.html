@@ -36,8 +36,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="format-detection" content="telephone=no" />
     
-    <!-- Preload LCP image for faster rendering - Critical for PageSpeed >90 -->
-    <link rel="preload" as="image" href="/src/assets/clinic-exterior.webp" type="image/webp" fetchpriority="high" imagesizes="100vw" />
+    <!-- LCP image preload handled by Vite asset pipeline + fetchpriority="high" on <img> tag -->
     
     <!-- Preload critical font for FCP -->
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" crossorigin />
