@@ -27,7 +27,7 @@ const Services = () => {
       description: t("popular.nad250.desc"),
       benefits: [t("popular.nad250.benefit1"), t("popular.nad250.benefit2"), t("popular.nad250.benefit3")],
       footMassage: true,
-      cta: "Book My NAD+ Session",
+      cta: t("services.bookMedicalReview"),
     },
     {
       icon: Flame,
@@ -36,7 +36,7 @@ const Services = () => {
       description: t("popular.fullDetox.desc"),
       benefits: [t("popular.fullDetox.benefit1"), t("popular.fullDetox.benefit2"), t("popular.fullDetox.benefit3")],
       footMassage: true,
-      cta: "Start My Detox Protocol",
+      cta: t("services.bookMedicalReview"),
     },
     {
       icon: Sparkles,
@@ -45,7 +45,7 @@ const Services = () => {
       description: t("popular.curcumin.desc"),
       benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
       footMassage: true,
-      cta: "Book My Curcumin IV",
+      cta: t("services.bookMedicalReview"),
     },
     {
       icon: Heart,

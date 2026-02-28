@@ -15,7 +15,7 @@ const WhatsAppWidget = () => {
         setShowPopup(true);
         setHasSeenPopup(true);
       }
-    }, 15000);
+    }, 30000);
 
     return () => clearTimeout(timer);
   }, [hasSeenPopup]);
@@ -43,9 +43,9 @@ const WhatsAppWidget = () => {
               <div className="relative">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-success-foreground/30">
                   <img 
-                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=face" 
+                    src=""
                     alt="Anna - Medical Concierge"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hidden"
                     loading="lazy"
                   />
                 </div>
@@ -97,9 +97,9 @@ const WhatsAppWidget = () => {
           <div className="hidden md:flex bg-card rounded-full pl-2 pr-4 py-2 shadow-lg border border-border items-center gap-2 animate-fade-in">
             <div className="w-7 h-7 rounded-full overflow-hidden border border-border">
               <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=face" 
+                src=""
                 alt="Concierge"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hidden"
                 loading="lazy"
               />
             </div>

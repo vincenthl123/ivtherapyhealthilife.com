@@ -28,7 +28,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-12 md:py-32">
         <div className="max-w-3xl">
           {/* Award Badge */}
           <div className="animate-fade-in mb-6">
@@ -39,7 +39,7 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+          <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-4 md:mb-6 leading-[1.15]">
             {t("hero.title")}{" "}
             <span className="bg-gradient-medical bg-clip-text text-transparent">
               {t("hero.titleHighlight")}
@@ -47,7 +47,7 @@ const Hero = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="animate-fade-in-up text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
+          <p className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
             {t("hero.subtitle")} <strong>{t("hero.subtitleBold")}</strong>
           </p>
 

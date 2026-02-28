@@ -157,11 +157,11 @@ const Footer = () => {
               Sitemap
             </Link>
             <span>•</span>
-            <a href="#" className="hover:text-background transition-colors">
+            <a href="https://healthi-life.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">
               {t("footer.privacy")}
             </a>
             <span>•</span>
-            <a href="#" className="hover:text-background transition-colors">
+            <a href="https://healthi-life.com/terms-of-service" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">
               {t("footer.terms")}
             </a>
           </div>

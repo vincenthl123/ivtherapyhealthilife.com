@@ -11,7 +11,7 @@ const testimonials = [
     text: "After years of living with knee pain from an old sports injury, I finally found relief at Healthi-Life. The stem cell therapy not only reduced my inflammation but restored mobility I hadn't had in years. I'm walking without pain—and even jogging again. Truly life-changing.",
     rating: 5,
     initials: "JO",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    avatar: "",
   },
   {
     name: "Meera Kapoor",
@@ -20,7 +20,7 @@ const testimonials = [
     text: "Healthi-Life gave me more than just a refreshed appearance—it gave me confidence. After one month, I noticed firmer skin, deeper sleep, and better focus. The stem cell therapy felt like a reset button for my whole body. Highly recommended for anyone serious about graceful aging.",
     rating: 5,
     initials: "MK",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
+    avatar: "",
   },
   {
     name: "Nathalie Dufresne",
@@ -29,7 +29,7 @@ const testimonials = [
     text: "I was told I had poor egg quality and limited chances with IVF. But after undergoing the fertility stem cell program at Healthi-Life, my hormone levels improved significantly. I felt energized, balanced, and within two months—I received a positive pregnancy test. Forever grateful!",
     rating: 5,
     initials: "ND",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+    avatar: "",
   },
   {
     name: "Richard Chen",
@@ -38,7 +38,7 @@ const testimonials = [
     text: "At 58, I was feeling the effects of aging—low energy, brain fog, and joint stiffness. After my anti-aging stem cell treatment at Healthi-Life, I feel 15 years younger. My energy levels are through the roof, my skin looks healthier, and I'm back to playing tennis every week. This is real regenerative medicine.",
     rating: 5,
     initials: "RC",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    avatar: "",
   },
   {
     name: "Sophie Williams",
@@ -47,7 +47,7 @@ const testimonials = [
     text: "I came to Healthi-Life for their anti-aging stem cell program after researching clinics across Asia. The results exceeded my expectations—my wrinkles have softened, my hair is thicker, and I have mental clarity I haven't experienced in years. Dr. Petch and the team are exceptional professionals.",
     rating: 5,
     initials: "SW",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    avatar: "",
   },
 ];
 
