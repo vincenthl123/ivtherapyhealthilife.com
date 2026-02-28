@@ -270,8 +270,8 @@ const SEO = () => {
               },
               {
                 "@type": "Offer",
-                "itemOffered": { "@type": "Service", "name": "Glow Revive IV Therapy" },
-                "price": "12000",
+              "itemOffered": { "@type": "Service", "name": "Glow Revive IV Therapy" },
+                "price": "15000",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
@@ -300,6 +300,48 @@ const SEO = () => {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "Full Body Detox IV" },
                 "price": "8500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "NAD+ 100mg — 5 Sessions Package" },
+                "price": "27500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "NAD+ 100mg — 10 Sessions Package" },
+                "price": "54000",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "NAD+ 250mg — 5 Sessions Package" },
+                "price": "41500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "NAD+ 250mg — 10 Sessions Package" },
+                "price": "80000",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Fat Burner — 5 Sessions Package" },
+                "price": "17500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Fat Burner — 10 Sessions Package" },
+                "price": "30000",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               }
@@ -393,7 +435,7 @@ const SEO = () => {
           "name": "How much does IV therapy cost in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,500 THB for treatments like Fat Burner or Hangover IV, to 12,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg."
+            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,050 THB for treatments like Fat Burner or Hangover IV, to 15,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg. Multi-session packages available: NAD+ 100mg 5 sessions at 27,500 THB, NAD+ 250mg 5 sessions at 41,500 THB."
           }
         },
         {
