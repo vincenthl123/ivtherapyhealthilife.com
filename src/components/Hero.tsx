@@ -22,7 +22,7 @@ const Hero = () => {
           fetchPriority="high"
           loading="eager"
           decoding="sync"
-          style={{ contentVisibility: 'auto' }}
+          style={{ containIntrinsicSize: '1920px 1080px' }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
       </div>
