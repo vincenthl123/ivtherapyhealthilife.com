@@ -26,6 +26,8 @@ const Services = () => {
       price: t("popular.nad250.price"),
       description: t("popular.nad250.desc"),
       benefits: [t("popular.nad250.benefit1"), t("popular.nad250.benefit2"), t("popular.nad250.benefit3")],
+      footMassage: true,
+      cta: "Book My NAD+ Session",
     },
     {
       icon: Flame,
@@ -33,6 +35,8 @@ const Services = () => {
       price: t("popular.fullDetox.price"),
       description: t("popular.fullDetox.desc"),
       benefits: [t("popular.fullDetox.benefit1"), t("popular.fullDetox.benefit2"), t("popular.fullDetox.benefit3")],
+      footMassage: true,
+      cta: "Start My Detox Protocol",
     },
     {
       icon: Sparkles,
@@ -40,6 +44,8 @@ const Services = () => {
       price: t("popular.curcumin.price"),
       description: t("popular.curcumin.desc"),
       benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
+      footMassage: true,
+      cta: "Book My NAD+ Session",
     },
     {
       icon: Heart,
@@ -222,7 +228,15 @@ const Services = () => {
                   </span>
                 </div>
               )}
-              <CardContent className="p-6 md:p-8">
+              {drip.footMassage && (
+                <div className="absolute top-3 left-3 z-10">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-sm">
+                    <Gift className="h-3 w-3" />
+                    Complimentary Foot Massage
+                  </span>
+                </div>
+              )}
+              <CardContent className="p-6 md:p-8 pt-12">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-medical flex items-center justify-center group-hover:scale-110 transition-transform">
                     <drip.icon className="h-6 w-6 text-primary-foreground" />
@@ -262,7 +276,7 @@ const Services = () => {
                 >
                   <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-4 w-4 mr-2" />
-                    {t("services.chatWithUs")}
+                    {drip.cta || t("services.chatWithUs")}
                   </a>
                 </Button>
               </CardContent>
