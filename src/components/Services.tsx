@@ -145,6 +145,7 @@ const Services = () => {
     {
       id: "nad-5",
       icon: Zap,
+      saveBadge: "Save 8%",
       title: t("package.nad5.title"),
       subtitle: t("package.nad5.subtitle"),
       price: t("package.nad5.price"),
@@ -154,6 +155,20 @@ const Services = () => {
       bonus: t("package.nad5.bonus"),
       benefits: [t("package.nad5.benefit1"), t("package.nad5.benefit2"), t("package.nad5.benefit3"), t("package.nad5.benefit4")],
       outcomes: [t("package.nad5.outcome1"), t("package.nad5.outcome2"), t("package.nad5.outcome3"), t("package.nad5.outcome4")],
+    },
+    {
+      id: "nad-10",
+      icon: Zap,
+      saveBadge: "Save 10%",
+      title: t("package.nad10.title"),
+      subtitle: t("package.nad10.subtitle"),
+      price: t("package.nad10.price"),
+      pricePerSession: t("package.nad10.pricePerSession"),
+      desc: t("package.nad10.desc"),
+      highlight: t("package.nad10.highlight"),
+      bonus: t("package.nad10.bonus"),
+      benefits: [t("package.nad10.benefit1"), t("package.nad10.benefit2"), t("package.nad10.benefit3"), t("package.nad10.benefit4")],
+      outcomes: [t("package.nad10.outcome1"), t("package.nad10.outcome2"), t("package.nad10.outcome3"), t("package.nad10.outcome4")],
     },
   ];
 
