@@ -57,13 +57,6 @@ const Services = () => {
       benefits: [t("popular.fatBurner.benefit1"), t("popular.fatBurner.benefit2"), t("popular.fatBurner.benefit3")],
     },
     {
-      icon: Sparkles,
-      title: t("popular.glow.title"),
-      price: t("popular.glow.price"),
-      description: t("popular.glow.desc"),
-      benefits: [t("popular.glow.benefit1"), t("popular.glow.benefit2"), t("popular.glow.benefit3")],
-    },
-    {
       icon: Heart,
       title: t("popular.liverDetox.title"),
       price: t("popular.liverDetox.price"),
