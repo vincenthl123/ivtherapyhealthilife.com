@@ -19,10 +19,10 @@ const Hero = () => {
           className="w-full h-full object-cover"
           width={1920}
           height={1080}
-          fetchPriority="high"
+          // @ts-expect-error fetchpriority is valid HTML but React 18 uses camelCase
+          fetchpriority="high"
           loading="eager"
           decoding="sync"
-          style={{ containIntrinsicSize: '1920px 1080px' }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
       </div>
