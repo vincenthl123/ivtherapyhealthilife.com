@@ -131,7 +131,7 @@ const Services = () => {
     {
       id: "fat-burner-10",
       icon: Flame,
-      saveBadge: "Save 20%",
+      saveBadge: "Save 33%",
       title: t("package.fatBurner10.title"),
       subtitle: t("package.fatBurner10.subtitle"),
       price: t("package.fatBurner10.price"),
