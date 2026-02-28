@@ -259,7 +259,8 @@ const translations = {
     "body.nad250.desc": "High-dose NAD+ therapy for maximum cellular regeneration. Premium anti-aging treatment that supercharges energy, sharpens cognitive function, and reverses cellular decline.",
 
     "body.nadResveratrol.title": "NAD+ 100mg + Resveratrol 500mg",
-    "body.nadResveratrol.price": "7,500 THB",
+    "body.nadResveratrol.price": "7,500 THB → 6,750 THB",
+    "body.nadResveratrol.limited": "Available for a limited number of bookings.",
     "body.nadResveratrol.tagline": "Deep cellular renewal, protect against aging, sustain energy",
     "body.nadResveratrol.desc": "NAD+ 100mg combined with 500mg Resveratrol for deep cellular renewal, protection against aging, sustained energy, and enhanced resilience. Doctor's choice for longevity.",
 
@@ -723,7 +724,8 @@ const translations = {
     "body.nad250.desc": "การบำบัด NAD+ ขนาดสูงเพื่อการฟื้นฟูเซลล์สูงสุด การรักษาชะลอวัยระดับพรีเมียมที่เพิ่มพลังงาน เพิ่มความคมชัดของสมอง และย้อนกลับความเสื่อมของเซลล์",
 
     "body.nadResveratrol.title": "NAD+ 100mg + Resveratrol 500mg",
-    "body.nadResveratrol.price": "7,500 บาท",
+    "body.nadResveratrol.price": "7,500 บาท → 6,750 บาท",
+    "body.nadResveratrol.limited": "จำนวนจำกัดสำหรับการจอง",
     "body.nadResveratrol.tagline": "ฟื้นฟูเซลล์ลึก ปกป้องจากความชรา พลังงานยั่งยืน",
     "body.nadResveratrol.desc": "NAD+ 100mg ผสมกับ Resveratrol 500mg เพื่อฟื้นฟูเซลล์ลึก ปกป้องจากความชรา พลังงานยั่งยืน และเพิ่มความยืดหยุ่น ทางเลือกของแพทย์สำหรับอายุยืน",
 
@@ -1185,7 +1187,8 @@ const translations = {
     "body.nad250.desc": "最大限の細胞再生のための高用量NAD+療法。エネルギーを最大化し、認知機能を鋭くし、細胞の衰退を逆転するプレミアムアンチエイジング治療。",
 
     "body.nadResveratrol.title": "NAD+ 100mg + レスベラトロール 500mg",
-    "body.nadResveratrol.price": "7,500 バーツ",
+    "body.nadResveratrol.price": "7,500 バーツ → 6,750 バーツ",
+    "body.nadResveratrol.limited": "予約数限定で提供中。",
     "body.nadResveratrol.tagline": "深い細胞再生、老化防止、持続的エネルギー",
     "body.nadResveratrol.desc": "NAD+ 100mgとレスベラトロール500mgの組み合わせで、深い細胞再生、老化防止、持続的エネルギー、回復力向上。長寿のためのドクターズチョイス。",
 
