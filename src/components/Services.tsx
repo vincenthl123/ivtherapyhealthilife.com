@@ -397,119 +397,253 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Vitality Pathway - Premium Program */}
+        {/* Personalized Wellness Programs */}
         <div className="mb-16">
           <div className="text-center mb-8">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wider mb-4">
               {t("services.vitalityPathway")}
             </span>
           </div>
-          <div className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-8 md:p-10 overflow-hidden">
-            {/* Decorative corner accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
-              {/* Left: Title & Description */}
-              <div>
-                {/* Doctor Recommendation Highlight - Top */}
-                <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
-                  <span className="text-primary text-lg">⭐</span>
-                  <p className="text-sm font-semibold text-primary">{t("pathway.vitalReset.nadHighlight")}</p>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                  {t("pathway.vitalReset.title")}
-                </h3>
-                <p className="text-primary font-semibold mb-3">{t("pathway.vitalReset.subtitle")}</p>
-                <p className="text-muted-foreground mb-4">{t("pathway.vitalReset.desc")}</p>
 
-                {/* Ideal For - Persona Block */}
-                <div className="bg-secondary/60 rounded-lg p-4 mb-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Users className="h-4 w-4 text-primary" />
-                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.idealFor")}</h4>
-                  </div>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                    {[t("pathway.vitalReset.persona1"), t("pathway.vitalReset.persona2"), t("pathway.vitalReset.persona3"), t("pathway.vitalReset.persona4")].map((p, i) => (
-                      <li key={i} className="flex items-center text-xs text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {[t("pathway.vitalReset.benefit1"), t("pathway.vitalReset.benefit2"), t("pathway.vitalReset.benefit3"), t("pathway.vitalReset.benefit4")].map((b, i) => (
-                    <span key={i} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                      <Activity className="h-3 w-3 mr-1.5" />
-                      {b}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-baseline gap-3 mb-6">
-                  <span className="text-2xl md:text-3xl font-bold text-primary">{t("pathway.vitalReset.price")}</span>
-                </div>
-                <p className="text-sm text-muted-foreground mb-6">{t("pathway.vitalReset.duration")}</p>
-
-                <Button
-                  id="ivclick-vital-reset"
-                  size="lg"
-                  onClick={() => trackButtonClick('ivclick-vital-reset')}
-                  asChild
-                >
-                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5 mr-2" />
-                    {t("services.bookMedicalReview")}
-                  </a>
-                </Button>
-              </div>
-
-              {/* Right: Protocol Details */}
-              <div className="space-y-5">
-                {/* Protocol */}
+          <div className="space-y-8">
+            {/* VITAL RESET™ */}
+            <div className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-6 md:p-8 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.protocol")}</h4>
+                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
+                    <span className="text-primary text-lg">⭐</span>
+                    <p className="text-sm font-semibold text-primary">{t("pathway.vitalReset.nadHighlight")}</p>
                   </div>
-                  <div className="space-y-3">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("pathway.vitalReset.title")}</h3>
+                  <p className="text-primary font-semibold mb-3">{t("pathway.vitalReset.subtitle")}</p>
+                  <p className="text-muted-foreground mb-4">{t("pathway.vitalReset.desc")}</p>
+                  <div className="bg-secondary/60 rounded-lg p-4 mb-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Users className="h-4 w-4 text-primary" />
+                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.idealFor")}</h4>
+                    </div>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                      {[t("pathway.vitalReset.persona1"), t("pathway.vitalReset.persona2"), t("pathway.vitalReset.persona3"), t("pathway.vitalReset.persona4")].map((p, i) => (
+                        <li key={i} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {[t("pathway.vitalReset.benefit1"), t("pathway.vitalReset.benefit2"), t("pathway.vitalReset.benefit3"), t("pathway.vitalReset.benefit4")].map((b, i) => (
+                      <span key={i} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                        <Activity className="h-3 w-3 mr-1.5" />
+                        {b}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-baseline gap-3 mb-6">
+                    <span className="text-2xl md:text-3xl font-bold text-primary">{t("pathway.vitalReset.price")}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-6">{t("pathway.vitalReset.duration")}</p>
+                  <Button id="ivclick-vital-reset" size="lg" onClick={() => trackButtonClick('ivclick-vital-reset')} asChild>
+                    <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-5 w-5 mr-2" />
+                      {t("services.bookMedicalReview")}
+                    </a>
+                  </Button>
+                </div>
+                <div className="space-y-5">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Calendar className="h-4 w-4 text-primary" />
+                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.protocol")}</h4>
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        { day: t("pathway.vitalReset.day1"), desc: t("pathway.vitalReset.day1Desc") },
+                        { day: t("pathway.vitalReset.day3"), desc: t("pathway.vitalReset.day3Desc") },
+                        { day: t("pathway.vitalReset.day5"), desc: t("pathway.vitalReset.day5Desc") },
+                      ].map((step, i) => (
+                        <div key={i} className="bg-secondary/50 rounded-lg p-3">
+                          <p className="font-medium text-foreground text-sm">{step.day}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Package className="h-4 w-4 text-primary" />
+                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.takeHome")}</h4>
+                    </div>
+                    <p className="text-xs text-muted-foreground">{t("pathway.vitalReset.takeHomeDesc")}</p>
+                  </div>
+                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <CheckCircle2 className="h-4 w-4 text-primary" />
+                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.outcomeTitle")}</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {[t("pathway.vitalReset.outcome1"), t("pathway.vitalReset.outcome2"), t("pathway.vitalReset.outcome3"), t("pathway.vitalReset.outcome4")].map((o, i) => (
+                        <li key={i} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
+                          {o}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* VITALITY PROTOCOL™ & VITALITY INTENSIVE™ */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* VITALITY PROTOCOL™ */}
+              <div className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-6 overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-medical opacity-10 rounded-bl-[80px]" />
+                <div className="relative z-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{t("pathway.protocol.title")}</h3>
+                  <p className="text-primary font-semibold text-sm mb-1">{t("pathway.protocol.subtitle")}</p>
+                  <p className="text-xs text-muted-foreground italic mb-4">{t("pathway.protocol.designer")}</p>
+                  <p className="text-muted-foreground text-sm mb-4">{t("pathway.protocol.desc")}</p>
+
+                  {/* Phases */}
+                  <div className="space-y-3 mb-5">
                     {[
-                      { day: t("pathway.vitalReset.day1"), desc: t("pathway.vitalReset.day1Desc") },
-                      { day: t("pathway.vitalReset.day3"), desc: t("pathway.vitalReset.day3Desc") },
-                      { day: t("pathway.vitalReset.day5"), desc: t("pathway.vitalReset.day5Desc") },
-                    ].map((step, i) => (
+                      { title: t("pathway.protocol.phase1"), items: [t("pathway.protocol.phase1a"), t("pathway.protocol.phase1b"), t("pathway.protocol.phase1c")] },
+                      { title: t("pathway.protocol.phase2"), items: [t("pathway.protocol.phase2a"), t("pathway.protocol.phase2b"), t("pathway.protocol.phase2c")] },
+                      { title: t("pathway.protocol.phase3"), items: [t("pathway.protocol.phase3a"), t("pathway.protocol.phase3b"), t("pathway.protocol.phase3c")] },
+                      { title: t("pathway.protocol.phase4"), items: [t("pathway.protocol.phase4a"), t("pathway.protocol.phase4b"), t("pathway.protocol.phase4c")] },
+                    ].map((phase, i) => (
                       <div key={i} className="bg-secondary/50 rounded-lg p-3">
-                        <p className="font-medium text-foreground text-sm">{step.day}</p>
-                        <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
+                        <p className="font-medium text-foreground text-xs mb-1.5">{phase.title}</p>
+                        <ul className="space-y-1">
+                          {phase.items.map((item, j) => (
+                            <li key={j} className="flex items-start text-xs text-muted-foreground">
+                              <div className="w-1 h-1 rounded-full bg-primary mr-2 mt-1.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     ))}
                   </div>
-                </div>
 
-                {/* Take-Home */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Package className="h-4 w-4 text-primary" />
-                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.takeHome")}</h4>
+                  {/* Designed For */}
+                  <div className="bg-secondary/60 rounded-lg p-3 mb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Users className="h-3.5 w-3.5 text-primary" />
+                      <h4 className="font-semibold text-foreground text-xs">{t("pathway.protocol.idealFor")}</h4>
+                    </div>
+                    <ul className="grid grid-cols-2 gap-1">
+                      {[t("pathway.protocol.persona1"), t("pathway.protocol.persona2"), t("pathway.protocol.persona3"), t("pathway.protocol.persona4")].map((p, i) => (
+                        <li key={i} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-xs text-muted-foreground">{t("pathway.vitalReset.takeHomeDesc")}</p>
-                </div>
 
-                {/* What Most Clients Report - Outcome Frame */}
-                <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.outcomeTitle")}</h4>
+                  {/* Outcomes */}
+                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-3 mb-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                      <h4 className="font-semibold text-foreground text-xs">{t("pathway.protocol.outcomeTitle")}</h4>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {[t("pathway.protocol.outcome1"), t("pathway.protocol.outcome2"), t("pathway.protocol.outcome3"), t("pathway.protocol.outcome4")].map((o, i) => (
+                        <li key={i} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
+                          {o}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2">
-                    {[t("pathway.vitalReset.outcome1"), t("pathway.vitalReset.outcome2"), t("pathway.vitalReset.outcome3"), t("pathway.vitalReset.outcome4")].map((o, i) => (
-                      <li key={i} className="flex items-center text-xs text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
-                        {o}
-                      </li>
+
+                  <div className="flex items-baseline gap-3 mb-4">
+                    <span className="text-xl md:text-2xl font-bold text-primary">{t("pathway.protocol.price")}</span>
+                  </div>
+                  <Button id="ivclick-vitality-protocol" size="lg" className="w-full" onClick={() => trackButtonClick('ivclick-vitality-protocol')} asChild>
+                    <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-5 w-5 mr-2" />
+                      {t("services.bookMedicalReview")}
+                    </a>
+                  </Button>
+                </div>
+              </div>
+
+              {/* VITALITY INTENSIVE™ */}
+              <div className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-6 overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-medical opacity-10 rounded-bl-[80px]" />
+                <div className="relative z-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{t("pathway.intensive.title")}</h3>
+                  <p className="text-primary font-semibold text-sm mb-1">{t("pathway.intensive.subtitle")}</p>
+                  <p className="text-xs text-muted-foreground italic mb-4">{t("pathway.intensive.designer")}</p>
+                  <p className="text-muted-foreground text-sm mb-4">{t("pathway.intensive.desc")}</p>
+
+                  {/* Phases */}
+                  <div className="space-y-3 mb-5">
+                    {[
+                      { title: t("pathway.intensive.phase1"), items: [t("pathway.intensive.phase1a"), t("pathway.intensive.phase1b"), t("pathway.intensive.phase1c"), t("pathway.intensive.phase1d"), t("pathway.intensive.phase1e")] },
+                      { title: t("pathway.intensive.phase2"), items: [t("pathway.intensive.phase2a"), t("pathway.intensive.phase2b"), t("pathway.intensive.phase2c"), t("pathway.intensive.phase2d")] },
+                      { title: t("pathway.intensive.phase3"), items: [t("pathway.intensive.phase3a"), t("pathway.intensive.phase3b"), t("pathway.intensive.phase3c")] },
+                      { title: t("pathway.intensive.phase4"), items: [t("pathway.intensive.phase4a"), t("pathway.intensive.phase4b"), t("pathway.intensive.phase4c")] },
+                    ].map((phase, i) => (
+                      <div key={i} className="bg-secondary/50 rounded-lg p-3">
+                        <p className="font-medium text-foreground text-xs mb-1.5">{phase.title}</p>
+                        <ul className="space-y-1">
+                          {phase.items.map((item, j) => (
+                            <li key={j} className="flex items-start text-xs text-muted-foreground">
+                              <div className="w-1 h-1 rounded-full bg-primary mr-2 mt-1.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+
+                  {/* Designed For */}
+                  <div className="bg-secondary/60 rounded-lg p-3 mb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Users className="h-3.5 w-3.5 text-primary" />
+                      <h4 className="font-semibold text-foreground text-xs">{t("pathway.intensive.idealFor")}</h4>
+                    </div>
+                    <ul className="grid grid-cols-2 gap-1">
+                      {[t("pathway.intensive.persona1"), t("pathway.intensive.persona2"), t("pathway.intensive.persona3"), t("pathway.intensive.persona4")].map((p, i) => (
+                        <li key={i} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Outcomes */}
+                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-3 mb-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                      <h4 className="font-semibold text-foreground text-xs">{t("pathway.intensive.outcomeTitle")}</h4>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {[t("pathway.intensive.outcome1"), t("pathway.intensive.outcome2"), t("pathway.intensive.outcome3"), t("pathway.intensive.outcome4")].map((o, i) => (
+                        <li key={i} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
+                          {o}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex items-baseline gap-3 mb-4">
+                    <span className="text-xl md:text-2xl font-bold text-primary">{t("pathway.intensive.price")}</span>
+                  </div>
+                  <Button id="ivclick-vitality-intensive" size="lg" className="w-full" onClick={() => trackButtonClick('ivclick-vitality-intensive')} asChild>
+                    <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-5 w-5 mr-2" />
+                      {t("services.bookMedicalReview")}
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
