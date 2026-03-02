@@ -5,7 +5,7 @@ const PriceList = () => {
   const handlePrint = () => window.print();
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Print button - hidden on print */}
       <div className="print:hidden fixed top-4 right-4 z-50 flex gap-2">
         <Button onClick={handlePrint} size="lg" className="shadow-lg">
@@ -17,10 +17,10 @@ const PriceList = () => {
       <div className="max-w-[210mm] mx-auto px-8 py-10 print:px-6 print:py-4">
         {/* Header */}
         <div className="text-center mb-8 print:mb-4">
-          <h1 className="text-3xl font-bold text-teal-700 print:text-2xl">HEALTHI LIFE CLINIC</h1>
-          <p className="text-sm text-gray-500 mt-1">IV Therapy & Personalized Wellness Programs — Bangkok, Thailand</p>
-          <p className="text-xs text-gray-400 mt-1">WhatsApp: +66 91 999 1744 · healthilifeclinic.com</p>
-          <div className="w-full h-px bg-teal-600 mt-4" />
+          <h1 className="text-3xl font-bold text-primary print:text-2xl">HEALTHI LIFE CLINIC</h1>
+          <p className="text-sm text-muted-foreground mt-1">IV Therapy & Personalized Wellness Programs — Bangkok, Thailand</p>
+          <p className="text-xs text-muted-foreground/70 mt-1">WhatsApp: +66 91 999 1744 · healthilifeclinic.com</p>
+          <div className="w-full h-px bg-primary mt-4" />
         </div>
 
         {/* Most Popular */}
@@ -104,7 +104,7 @@ const PriceList = () => {
               ["NAD+ 250mg — 10 Sessions", "72,250 THB", "85,000 THB", "15%", "7,225 THB"],
             ]}
           />
-          <p className="text-xs text-gray-500 mt-2">🎁 All packages include Complimentary Foot Massage</p>
+          <p className="text-xs text-muted-foreground mt-2">🎁 All packages include Complimentary Foot Massage</p>
         </Section>
 
         {/* Personalized Wellness Programs */}
@@ -140,9 +140,9 @@ const PriceList = () => {
         </Section>
 
         {/* Footer */}
-        <div className="mt-8 pt-4 border-t border-gray-300 text-center print:mt-4">
-          <p className="text-xs text-gray-400">Healthi Life Clinic · Bangkok, Thailand · All prices in Thai Baht (THB)</p>
-          <p className="text-xs text-gray-400">Prices subject to change. Contact us for the latest offers.</p>
+        <div className="mt-8 pt-4 border-t border-border text-center print:mt-4">
+          <p className="text-xs text-muted-foreground">Healthi Life Clinic · Bangkok, Thailand · All prices in Thai Baht (THB)</p>
+          <p className="text-xs text-muted-foreground">Prices subject to change. Contact us for the latest offers.</p>
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@ const PriceList = () => {
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="mb-6 print:mb-4">
-    <h2 className="text-lg font-bold text-teal-700 mb-2 print:text-base">{title}</h2>
+    <h2 className="text-lg font-bold text-primary mb-2 print:text-base">{title}</h2>
     {children}
   </div>
 );
@@ -161,7 +161,7 @@ const PriceTable = ({ headers, rows }: { headers: string[]; rows: string[][] }) 
     <thead>
       <tr>
         {headers.map((h, i) => (
-          <th key={i} className="text-left py-1.5 px-2 bg-teal-50 border border-gray-200 font-semibold text-teal-800 text-xs print:text-[10px]">
+          <th key={i} className="text-left py-1.5 px-2 bg-secondary border border-border font-semibold text-primary text-xs print:text-[10px]">
             {h}
           </th>
         ))}
@@ -171,11 +171,11 @@ const PriceTable = ({ headers, rows }: { headers: string[]; rows: string[][] }) 
       {rows.map((row, i) => (
         <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
           {row.map((cell, j) => (
-            <td key={j} className="py-1.5 px-2 border border-gray-200 text-xs print:text-[10px]">
+            <td key={j} className="py-1.5 px-2 border border-border text-xs print:text-[10px]">
               {cell.includes("was ") ? (
                 <>
                   <strong>{cell.split(" (")[0]}</strong>{" "}
-                  <span className="text-gray-400 line-through text-[10px]">({cell.split("(")[1]}</span>
+                  <span className="text-muted-foreground line-through text-[10px]">({cell.split("(")[1]}</span>
                 </>
               ) : (
                 cell
@@ -194,22 +194,22 @@ const ProgramCard = ({
   title: string; price: string; designer?: string; duration: string;
   highlights: string[]; takeHome: string; idealFor: string;
 }) => (
-  <div className="border border-teal-200 rounded-lg p-4 print:p-3 bg-teal-50/30">
+  <div className="border border-primary/20 rounded-lg p-4 print:p-3 bg-secondary/30">
     <div className="flex justify-between items-start mb-1">
-      <h3 className="font-bold text-teal-800 text-sm print:text-xs">{title}</h3>
-      <span className="font-bold text-teal-700 text-sm print:text-xs">{price}</span>
+      <h3 className="font-bold text-primary text-sm print:text-xs">{title}</h3>
+      <span className="font-bold text-accent-foreground text-sm print:text-xs">{price}</span>
     </div>
-    {designer && <p className="text-[10px] text-gray-500 italic mb-1">Designed by Healthi Life | {designer}</p>}
-    <p className="text-xs text-gray-600 mb-2 print:text-[10px]">{duration}</p>
+    {designer && <p className="text-[10px] text-muted-foreground italic mb-1">Designed by Healthi Life | {designer}</p>}
+    <p className="text-xs text-muted-foreground mb-2 print:text-[10px]">{duration}</p>
     <ul className="space-y-0.5 mb-2">
       {highlights.map((h, i) => (
-        <li key={i} className="text-xs text-gray-700 flex items-start gap-1 print:text-[10px]">
-          <span className="text-teal-600 mt-0.5">•</span> {h}
+        <li key={i} className="text-xs text-foreground flex items-start gap-1 print:text-[10px]">
+          <span className="text-primary mt-0.5">•</span> {h}
         </li>
       ))}
     </ul>
-    <p className="text-[10px] text-gray-500"><strong>Take-Home:</strong> {takeHome}</p>
-    <p className="text-[10px] text-gray-500"><strong>Ideal For:</strong> {idealFor}</p>
+    <p className="text-[10px] text-muted-foreground"><strong>Take-Home:</strong> {takeHome}</p>
+    <p className="text-[10px] text-muted-foreground"><strong>Ideal For:</strong> {idealFor}</p>
   </div>
 );
 
