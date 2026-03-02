@@ -26,6 +26,7 @@ const Services = () => {
       price: t("popular.nad.price"),
       description: t("popular.nad.desc"),
       benefits: [t("popular.nad.benefit1"), t("popular.nad.benefit2"), t("popular.nad.benefit3")],
+      footMassage: true,
       cta: t("services.bookMedicalReview"),
     },
     {
@@ -50,7 +51,7 @@ const Services = () => {
   ];
 
   const bodyBoosterDrips = [
-    { title: t("body.nad.title"), price: t("body.nad.price"), tagline: t("body.nad.tagline"), description: t("body.nad.desc") },
+    { title: t("body.nad.title"), price: t("body.nad.price"), tagline: t("body.nad.tagline"), description: t("body.nad.desc"), footMassage: true },
     { title: t("body.nad250.title"), price: t("body.nad250.price"), tagline: t("body.nad250.tagline"), description: t("body.nad250.desc"), footMassage: true },
     { title: t("body.nadResveratrol.title"), price: t("body.nadResveratrol.price"), tagline: t("body.nadResveratrol.tagline"), description: t("body.nadResveratrol.desc"), limited: t("body.nadResveratrol.limited") },
     { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), discount: 10, limited: t("body.fatBurner.limited") },
@@ -171,7 +172,7 @@ const Services = () => {
     drips, 
     categoryId 
   }: { 
-    drips: typeof bodyBoosterDrips; 
+    drips: Array<{ title: string; price: string; tagline: string; description: string; footMassage?: boolean; discount?: number; limited?: string }>;
     categoryId: string;
   }) => (
     <Accordion type="single" collapsible className="space-y-3">
