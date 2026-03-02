@@ -48,6 +48,33 @@ const Services = () => {
       limited: t("body.fatBurner.limited"),
       cta: t("services.bookMedicalReview"),
     },
+    {
+      icon: Sparkles,
+      title: t("popular.curcumin.title"),
+      price: t("popular.curcumin.price"),
+      description: t("popular.curcumin.desc"),
+      benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
+      footMassage: true,
+      cta: t("services.bookMedicalReview"),
+    },
+    {
+      icon: Activity,
+      title: t("popular.fullDetox.title"),
+      price: t("popular.fullDetox.price"),
+      description: t("popular.fullDetox.desc"),
+      benefits: [t("popular.fullDetox.benefit1"), t("popular.fullDetox.benefit2"), t("popular.fullDetox.benefit3")],
+      footMassage: true,
+      cta: t("services.bookMedicalReview"),
+    },
+    {
+      icon: Heart,
+      title: t("popular.resveratrol.title"),
+      price: t("popular.resveratrol.price"),
+      description: t("popular.resveratrol.desc"),
+      benefits: [t("popular.resveratrol.benefit1"), t("popular.resveratrol.benefit2"), t("popular.resveratrol.benefit3")],
+      footMassage: true,
+      cta: t("services.bookMedicalReview"),
+    },
   ];
 
   const bodyBoosterDrips = [
