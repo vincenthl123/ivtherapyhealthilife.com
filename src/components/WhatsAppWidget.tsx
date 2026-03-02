@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import conciergeAvatar from "@/assets/concierge-anna.jpg";
 
 const WhatsAppWidget = () => {
   const { t } = useLanguage();
@@ -43,9 +44,9 @@ const WhatsAppWidget = () => {
               <div className="relative">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-success-foreground/30">
                   <img 
-                    src=""
+                    src={conciergeAvatar}
                     alt="Anna - Medical Concierge"
-                    className="w-full h-full object-cover hidden"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -97,9 +98,9 @@ const WhatsAppWidget = () => {
           <div className="hidden md:flex bg-card rounded-full pl-2 pr-4 py-2 shadow-lg border border-border items-center gap-2 animate-fade-in">
             <div className="w-7 h-7 rounded-full overflow-hidden border border-border">
               <img 
-                src=""
+                src={conciergeAvatar}
                 alt="Concierge"
-                className="w-full h-full object-cover hidden"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
