@@ -112,11 +112,12 @@ const Services = () => {
   const packages = [
     {
       id: "fat-burner-5",
-      saveBadge: "Save 22%",
+      saveBadge: "Save 20%",
       icon: Flame,
       title: t("package.fatBurner5.title"),
       subtitle: t("package.fatBurner5.subtitle"),
       price: t("package.fatBurner5.price"),
+      originalPrice: t("package.fatBurner5.originalPrice"),
       pricePerSession: t("package.fatBurner5.pricePerSession"),
       desc: t("package.fatBurner5.desc"),
       highlight: t("package.fatBurner5.highlight"),
@@ -126,10 +127,11 @@ const Services = () => {
     {
       id: "fat-burner-10",
       icon: Flame,
-      saveBadge: "Save 33%",
+      saveBadge: "Save 30%",
       title: t("package.fatBurner10.title"),
       subtitle: t("package.fatBurner10.subtitle"),
       price: t("package.fatBurner10.price"),
+      originalPrice: t("package.fatBurner10.originalPrice"),
       pricePerSession: t("package.fatBurner10.pricePerSession"),
       desc: t("package.fatBurner10.desc"),
       highlight: t("package.fatBurner10.highlight"),
@@ -140,10 +142,11 @@ const Services = () => {
     {
       id: "nad-5",
       icon: Zap,
-      saveBadge: "Save 8%",
+      saveBadge: "Save 10%",
       title: t("package.nad5.title"),
       subtitle: t("package.nad5.subtitle"),
       price: t("package.nad5.price"),
+      originalPrice: t("package.nad5.originalPrice"),
       pricePerSession: t("package.nad5.pricePerSession"),
       desc: t("package.nad5.desc"),
       highlight: t("package.nad5.highlight"),
@@ -154,10 +157,11 @@ const Services = () => {
     {
       id: "nad-10",
       icon: Zap,
-      saveBadge: "Save 10%",
+      saveBadge: "Save 15%",
       title: t("package.nad10.title"),
       subtitle: t("package.nad10.subtitle"),
       price: t("package.nad10.price"),
+      originalPrice: t("package.nad10.originalPrice"),
       pricePerSession: t("package.nad10.pricePerSession"),
       desc: t("package.nad10.desc"),
       highlight: t("package.nad10.highlight"),
@@ -168,10 +172,11 @@ const Services = () => {
     {
       id: "nad-250-5",
       icon: Zap,
-      saveBadge: "Save 2%",
+      saveBadge: "Save 10%",
       title: t("package.nad250_5.title"),
       subtitle: t("package.nad250_5.subtitle"),
       price: t("package.nad250_5.price"),
+      originalPrice: t("package.nad250_5.originalPrice"),
       pricePerSession: t("package.nad250_5.pricePerSession"),
       desc: t("package.nad250_5.desc"),
       highlight: t("package.nad250_5.highlight"),
@@ -182,10 +187,11 @@ const Services = () => {
     {
       id: "nad-250-10",
       icon: Zap,
-      saveBadge: "Save 6%",
+      saveBadge: "Save 15%",
       title: t("package.nad250_10.title"),
       subtitle: t("package.nad250_10.subtitle"),
       price: t("package.nad250_10.price"),
+      originalPrice: t("package.nad250_10.originalPrice"),
       pricePerSession: t("package.nad250_10.pricePerSession"),
       desc: t("package.nad250_10.desc"),
       highlight: t("package.nad250_10.highlight"),
@@ -402,6 +408,9 @@ const Services = () => {
                   <div className="mt-auto">
                     <div className="flex items-baseline gap-2 mb-1">
                       <span className="text-xl md:text-2xl font-bold text-primary">{pkg.price}</span>
+                      {pkg.originalPrice && (
+                        <span className="text-sm line-through text-muted-foreground">{pkg.originalPrice}</span>
+                      )}
                     </div>
                     <p className="text-xs text-muted-foreground mb-4">{pkg.pricePerSession}</p>
 
