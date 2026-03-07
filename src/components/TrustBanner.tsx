@@ -13,7 +13,7 @@ const TrustBanner = () => {
     },
     {
       icon: Users,
-      value: "2,500+",
+      value: "2,000+",
       label: t("trust.patientsTreated"),
     },
     {
@@ -34,25 +34,29 @@ const TrustBanner = () => {
   ];
 
   return (
-    <section className="bg-foreground py-3 md:py-5 relative overflow-hidden">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-      </div>
-      
-      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 md:gap-10 lg:gap-16">
+    <section className="bg-secondary/50 py-4 md:py-5 border-y border-border/30">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 md:gap-12 lg:gap-16">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className="flex items-center gap-2 md:gap-3 text-background group"
+            <div
+              key={index}
+              className="flex items-center gap-3 group"
             >
-              <stat.icon className={`w-5 h-5 md:w-6 md:h-6 ${stat.highlight ? 'text-yellow-400' : 'text-background/70'} group-hover:scale-110 transition-transform`} />
-              <div className="text-center md:text-left">
-                <p className={`font-bold text-lg md:text-xl leading-tight ${stat.highlight ? 'text-yellow-400' : 'text-background'}`}>
+              <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                <stat.icon className={`w-5 h-5 ${stat.highlight ? 'text-yellow-500 fill-yellow-500' : 'text-primary/70'}`} />
+              </div>
+              <div>
+                <p className="font-bold text-foreground text-base md:text-lg leading-tight flex items-center gap-1.5">
                   {stat.value}
+                  {stat.highlight && (
+                    <span className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </span>
+                  )}
                 </p>
-                <p className="text-xs md:text-sm text-background/70 whitespace-nowrap">
+                <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">
                   {stat.label}
                 </p>
               </div>
