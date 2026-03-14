@@ -646,9 +646,8 @@ const PeptideCatalog = () => (
     </div>
   </section>
 );
-    </div>
-  </section>
-);
+
+
 
 // ─── CLINIC PRESENTATION ─────────────────────────────────
 const ClinicPresentation = () => (
