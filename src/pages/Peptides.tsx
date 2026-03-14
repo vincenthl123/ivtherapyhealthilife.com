@@ -649,8 +649,37 @@ const PeptideCatalog = () => (
 );
 
 
+// ─── CTA SECTION ─────────────────────────────────────────
+const PeptideCTA = () => (
+  <section className="py-12 md:py-16 bg-secondary/20">
+    <div className="container px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto text-center bg-card rounded-2xl border border-border p-8 md:p-12 shadow-sm">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+          Not Sure Which Peptide Program is Right for You?
+        </h2>
+        <p className="text-muted-foreground mb-8">
+          Our medical team will help you choose the right peptide protocol based on your goals, health profile, and biomarkers.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-book')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2" />
+              Book Your Medical Review
+            </a>
+          </Button>
+          <Button size="lg" variant="outline" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-concierge')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2" />
+              Speak With Our Medical Concierge
+            </a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
-// ─── CLINIC PRESENTATION ─────────────────────────────────
+
 const ClinicPresentation = () => (
   <section className="py-16 md:py-24 bg-secondary/30">
     <div className="container px-4 sm:px-6 lg:px-8">
@@ -1059,6 +1088,7 @@ const Peptides = () => (
       <PeptideTrustBanner />
       <PeptidePrograms />
       <PeptideCatalog />
+      <PeptideCTA />
       <ClinicPresentation />
       <MedicalTeam />
       <PeptideWhyUs />
