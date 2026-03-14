@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import MedicalTeam from "@/components/MedicalTeam";
 import { Button } from "@/components/ui/button";
