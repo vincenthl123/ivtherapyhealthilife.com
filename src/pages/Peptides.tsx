@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/accordion";
 import { trackButtonClick } from "@/lib/tracking";
 import heroImage from "@/assets/clinic-exterior.webp";
+import clinicTreatmentRoom from "@/assets/clinic-treatment-room.png";
 import clinicInterior from "@/assets/clinic-interior.jpg";
 import drPetchImage from "@/assets/dr-petch.jpg";
 import drFirstImage from "@/assets/dr-first.jpg";
@@ -680,47 +681,57 @@ const PeptideCTA = () => (
 );
 
 
-const ClinicPresentation = () => (
-  <section className="py-16 md:py-24 bg-secondary/30">
-    <div className="container px-4 sm:px-6 lg:px-8">
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+const ClinicPresentation = () => {
+  const points = [
+    { icon: Stethoscope, title: "Physician-Supervised Programs", desc: "All peptide therapies are prescribed and monitored by our medical team to ensure safety, effectiveness, and proper dosing." },
+    { icon: UserCheck, title: "Personalized Protocols", desc: "Each program is tailored after consultation and lab analysis to match your metabolism, health goals, and recovery needs." },
+    { icon: RefreshCw, title: "Structured Treatment Phases", desc: "Protocols are delivered in monitored phases with adjustments based on your progress and biomarker response." },
+    { icon: Heart, title: "Integrated Longevity Approach", desc: "Peptide therapy is combined with nutrition, recovery strategies, and lifestyle guidance to maximize long-term results." },
+    { icon: ShieldCheck, title: "Premium Medical Care", desc: "Receive high-touch medical support with individualized follow-up and physician oversight throughout your program." },
+  ];
+
+  return (
+    <section className="py-16 md:py-24 bg-secondary/30">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             A Medical Approach to Peptide Therapy
           </h2>
-          <p className="text-muted-foreground mb-6 leading-relaxed">
-            At Healthi-Life, peptide therapy is delivered as part of a structured medical program — not as an over-the-counter wellness shortcut. Each patient pathway is doctor-supervised, lab-monitored, personalized, and integrated with nutrition, recovery, and lifestyle guidance.
+          <p className="text-lg text-muted-foreground">
+            Peptide therapy at Healthi Life is delivered through structured medical programs designed to improve metabolism, recovery, and healthy aging. Each protocol is personalized based on medical consultation, biomarker testing, and continuous physician supervision.
           </p>
-          <p className="text-muted-foreground mb-8 leading-relaxed">
-            Our goal is to build safe, coherent, and medically governed programs that align with each patient's physiology, goals, and response over time.
-          </p>
-          <ul className="space-y-3">
-            {[
-              "Doctor-supervised medical programs",
-              "Personalized after consultation and lab review",
-              "Structured in monitored phases",
-              "Integrated with nutrition, training, recovery, and lifestyle recommendations",
-              "Designed for premium, high-touch medical support",
-            ].map((point) => (
-              <li key={point} className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground font-medium">{point}</span>
-              </li>
-            ))}
-          </ul>
         </div>
-        <div className="rounded-2xl overflow-hidden shadow-lg">
-          <img
-            src={clinicInterior}
-            alt="Healthi-Life Clinic Interior - Premium Medical Environment"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Clinic photo */}
+          <div className="rounded-2xl overflow-hidden shadow-lg sticky top-24">
+            <img
+              src={clinicTreatmentRoom}
+              alt="Healthi-Life Peptide Therapy Treatment Room"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Points */}
+          <div className="space-y-6">
+            {points.map((p) => (
+              <div key={p.title} className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <p.icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground mb-1">{p.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 
 // ─── WHY CHOOSE US ───────────────────────────────────────
