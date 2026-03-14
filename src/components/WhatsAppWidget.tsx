@@ -6,20 +6,18 @@ import conciergeAvatar from "@/assets/concierge-anna.jpg";
 
 const WhatsAppWidget = () => {
   const { t } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [hasSeenPopup, setHasSeenPopup] = useState(false);
+  const [dismissCount, setDismissCount] = useState(0);
 
+  // Initial open after 25s, reopen 30s after each dismiss
   useEffect(() => {
+    const delay = dismissCount === 0 ? 25000 : 30000;
     const timer = setTimeout(() => {
-      if (!hasSeenPopup) {
-        setShowPopup(true);
-        setHasSeenPopup(true);
-      }
-    }, 30000);
+      setShowPopup(true);
+    }, delay);
 
     return () => clearTimeout(timer);
-  }, [hasSeenPopup]);
+  }, [dismissCount]);
 
   const handleOpenChat = () => {
     trackButtonClick('ivclick-whatsapp-widget');
@@ -29,6 +27,7 @@ const WhatsAppWidget = () => {
 
   const closePopup = () => {
     setShowPopup(false);
+    setDismissCount(prev => prev + 1);
   };
 
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
