@@ -168,79 +168,71 @@ const PeptideTrustBanner = () => {
 const programs = [
   {
     icon: Brain,
-    title: "Cellular Longevity Protocol",
-    duration: "6–12 Months",
-    focus: "Healthy aging support, mitochondrial performance, metabolic resilience, recovery quality",
-    designedFor: [
-      "Individuals seeking proactive longevity support",
-      "Clients focused on sleep, recovery, and healthy aging markers",
-      "Those wanting a medically guided optimization pathway",
-    ],
-    benefits: [
-      "Support for healthy biological aging markers",
+    subtitle: "6–12 Months — Healthy Aging — Mitochondrial Support",
+    title: "CELLULAR LONGEVITY PROTOCOL",
+    tagline: "Healthy Aging & Metabolic Resilience",
+    description: "A structured longevity program designed to support biological aging markers, mitochondrial performance, and metabolic resilience through personalized peptide protocols.",
+    tags: ["Healthy aging support", "Mitochondrial performance", "Recovery quality", "Sleep optimization"],
+    clientsReport: [
       "Better sleep quality and recovery rhythm",
+      "Improved energy stability",
       "Improved metabolic resilience",
-      "Better energy stability",
       "Support for systemic balance",
     ],
     includes: ["Doctor consultation", "Baseline lab review", "Personalized peptide plan", "Monitoring and follow-up reviews"],
+    price: "From 40,000 THB",
+    duration: "6–12 months",
   },
   {
     icon: HeartPulse,
-    title: "Recovery & Regeneration Protocol",
-    duration: "3–6 Months",
-    focus: "Recovery support, tissue resilience, inflammation management, movement restoration",
-    designedFor: [
-      "Clients recovering from intense training or physical strain",
-      "Individuals looking for structured recovery support",
-      "Those seeking doctor-guided regenerative optimization",
-    ],
-    benefits: [
+    subtitle: "3–6 Months — Recovery — Tissue Resilience",
+    title: "RECOVERY & REGENERATION PROTOCOL",
+    tagline: "Recovery Support & Movement Restoration",
+    description: "A doctor-guided recovery program focused on tissue resilience, inflammation management, and structured return-to-performance capacity.",
+    tags: ["Recovery support", "Inflammation management", "Tissue resilience", "Movement restoration"],
+    clientsReport: [
       "Faster recovery support",
       "Improved mobility and resilience",
       "Reduced inflammatory burden",
-      "Enhanced tissue support",
       "Better return-to-performance capacity",
     ],
     includes: ["Medical assessment", "Functional and symptom review", "Personalized recovery protocol", "Progress tracking and review"],
+    price: "From 40,000 THB",
+    duration: "3–6 months",
   },
   {
     icon: Flame,
-    title: "Metabolic Reset & Weight Optimization Protocol",
-    duration: "6–12 Months",
-    focus: "Weight optimization, metabolic flexibility, appetite regulation, insulin support",
-    designedFor: [
-      "Individuals targeting sustainable fat loss",
-      "Clients with metabolic inefficiency or weight resistance",
-      "Those seeking a medically supervised body composition strategy",
-    ],
-    benefits: [
-      "Sustainable fat reduction support",
+    subtitle: "6–12 Months — Fat Loss — Metabolic Flexibility",
+    title: "METABOLIC RESET & WEIGHT OPTIMIZATION",
+    tagline: "Sustainable Fat Loss & Metabolic Health",
+    description: "A medically supervised body composition strategy targeting sustainable fat reduction, appetite regulation, and improved metabolic flexibility.",
+    tags: ["Fat reduction support", "Appetite regulation", "Insulin sensitivity", "Body composition"],
+    clientsReport: [
+      "Visible body composition change",
       "Improved appetite control",
       "Better insulin sensitivity markers",
-      "Improved body composition",
       "More stable energy and metabolic function",
     ],
     includes: ["Physician assessment", "Metabolic lab review", "Body composition tracking", "Personalized plan with medical follow-up"],
+    price: "From 40,000 THB",
+    duration: "6–12 months",
   },
   {
     icon: Dumbbell,
-    title: "Lean Muscle & Performance Optimization Protocol",
-    duration: "6–12 Months",
-    focus: "Lean mass support, recovery enhancement, performance capacity, body composition improvement",
-    designedFor: [
-      "Professionals and active individuals",
-      "Clients wanting to improve recovery and body composition",
-      "Those seeking medically guided performance support",
-    ],
-    benefits: [
+    subtitle: "6–12 Months — Lean Mass — Performance Capacity",
+    title: "LEAN MUSCLE & PERFORMANCE OPTIMIZATION",
+    tagline: "Performance Support & Body Recomposition",
+    description: "A performance-oriented peptide program designed to support lean muscle, training recovery, and optimized body composition under medical supervision.",
+    tags: ["Lean muscle support", "Training recovery", "Injury risk reduction", "Performance capacity"],
+    clientsReport: [
       "Lean muscle support",
       "Better training recovery",
       "Reduced injury risk",
       "Improved sleep and recovery rhythm",
-      "More optimized body composition",
     ],
     includes: ["Medical consultation", "Biomarker review", "Personalized performance framework", "Ongoing monitoring and review"],
+    price: "From 40,000 THB",
+    duration: "6–12 months",
   },
 ];
 
@@ -258,49 +250,52 @@ const PeptidePrograms = () => (
 
       <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
         {programs.map((p) => (
-          <Card key={p.title} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
-            <CardHeader className="pb-4">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-medical flex items-center justify-center">
-                  <p.icon className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <CardTitle className="text-xl mb-1">{p.title}</CardTitle>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="text-xs"><Timer className="h-3 w-3 mr-1" />{p.duration}</Badge>
-                  </div>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="flex-grow space-y-5">
-              <p className="text-sm text-muted-foreground"><strong className="text-foreground">Focus:</strong> {p.focus}</p>
+          <Card key={p.title} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden">
+            {/* Top subtitle banner */}
+            <div className="bg-secondary/70 px-6 py-3 flex items-center gap-2">
+              <p.icon className="h-4 w-4 text-primary" />
+              <span className="text-sm text-muted-foreground">{p.subtitle}</span>
+            </div>
 
+            <CardContent className="flex-grow p-6 space-y-5">
+              {/* Title & tagline */}
               <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2">Designed For</h4>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{p.title}</h3>
+                <p className="text-sm font-medium bg-gradient-medical bg-clip-text text-transparent">{p.tagline}</p>
+              </div>
+
+              {/* Description */}
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {p.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary" className="text-xs font-normal">
+                    <Sparkles className="h-3 w-3 mr-1 text-primary" />
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              {/* What Most Clients Report */}
+              <div className="bg-secondary/50 rounded-lg p-4 border border-border">
+                <div className="flex items-center gap-2 mb-3">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  <span className="text-sm font-bold text-foreground">What Most Clients Report</span>
+                </div>
                 <ul className="space-y-1.5">
-                  {p.designedFor.map((d) => (
-                    <li key={d} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      {d}
+                  {p.clientsReport.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary mt-1">•</span>
+                      {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
+              {/* Includes */}
               <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2">Potential Benefits</h4>
-                <ul className="space-y-1.5">
-                  {p.benefits.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <Sparkles className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2">Includes</h4>
+                <h4 className="text-sm font-semibold text-foreground mb-2">Program Includes</h4>
                 <ul className="space-y-1.5">
                   {p.includes.map((inc) => (
                     <li key={inc} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -311,9 +306,17 @@ const PeptidePrograms = () => (
                 </ul>
               </div>
 
-              <Button className="w-full mt-4 group" onClick={() => trackButtonClick(`ivclick-peptide-${p.title.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+              {/* Price */}
+              <div className="pt-2">
+                <p className="text-2xl font-bold text-foreground">{p.price}</p>
+                <p className="text-xs text-muted-foreground">{p.duration} · Pricing confirmed after doctor consultation</p>
+              </div>
+
+              {/* CTA */}
+              <Button className="w-full group" size="lg" onClick={() => trackButtonClick(`ivclick-peptide-${p.title.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
                 <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                  Explore This Program <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  Book Your Medical Review
                 </a>
               </Button>
             </CardContent>
