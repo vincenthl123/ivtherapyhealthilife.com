@@ -1194,7 +1194,6 @@ const PeptideFooter = () => {
               <Link to="/" className="block hover:text-background transition-colors">Home — IV Therapy</Link>
               <Link to="/peptides" className="block hover:text-background transition-colors">Peptide Programs</Link>
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Book a Consultation</a>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Book a Consultation</a>
             </div>
           </div>
         </div>
