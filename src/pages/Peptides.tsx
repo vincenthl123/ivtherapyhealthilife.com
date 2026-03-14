@@ -239,6 +239,49 @@ const programs = [
 const PeptidePrograms = () => (
   <section id="services" className="py-16 md:py-24 bg-background">
     <div className="container px-4 sm:px-6 lg:px-8">
+      {/* Individual Peptide Cards */}
+      <div className="mb-16 md:mb-20">
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">Key Peptides Used in Our Programs</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { icon: Flame, name: "GLP-1", useCase: "Weight Loss", benefit: "Appetite control, fat loss", bullets: ["Appetite suppression", "Sustainable fat loss", "Metabolic regulation"] },
+            { icon: Dumbbell, name: "CJC-1295 + Ipamorelin", useCase: "Muscle / Anti-Aging", benefit: "Growth hormone stimulation", bullets: ["Lean muscle support", "Anti-aging benefits", "Recovery enhancement"] },
+            { icon: HeartPulse, name: "BPC-157", useCase: "Recovery", benefit: "Tissue repair", bullets: ["Tissue regeneration", "Gut healing support", "Inflammation reduction"] },
+            { icon: Shield, name: "Thymosin Alpha-1", useCase: "Immune / Longevity", benefit: "Immune modulation", bullets: ["Immune system support", "Longevity optimization", "Systemic resilience"] },
+            { icon: Zap, name: "Epithalon", useCase: "Anti-Aging", benefit: "Telomere support", bullets: ["Telomere lengthening", "Cellular longevity", "DNA repair support"] },
+            { icon: Brain, name: "Selank / Semax", useCase: "Brain Optimization", benefit: "Cognition & stress", bullets: ["Cognitive enhancement", "Stress reduction", "Mental clarity"] },
+          ].map((peptide) => (
+            <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
+              <CardContent className="p-6 flex flex-col flex-grow">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
+                    <peptide.icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <span className="text-sm font-semibold text-primary">{peptide.useCase}</span>
+                </div>
+                <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
+                <p className="text-sm text-muted-foreground mb-4">{peptide.benefit}</p>
+                <ul className="space-y-2 mb-6 flex-grow">
+                  {peptide.bullets.map((b) => (
+                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary">•</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    Talk with Doctor
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Programs Section */}
       <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
           Peptide Therapy Programs
@@ -322,48 +365,6 @@ const PeptidePrograms = () => (
             </CardContent>
           </Card>
         ))}
-      </div>
-
-      {/* Individual Peptide Cards */}
-      <div className="mt-12 md:mt-16">
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">Key Peptides Used in Our Programs</h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { icon: Flame, name: "GLP-1", useCase: "Weight Loss", benefit: "Appetite control, fat loss", bullets: ["Appetite suppression", "Sustainable fat loss", "Metabolic regulation"] },
-            { icon: Dumbbell, name: "CJC-1295 + Ipamorelin", useCase: "Muscle / Anti-Aging", benefit: "Growth hormone stimulation", bullets: ["Lean muscle support", "Anti-aging benefits", "Recovery enhancement"] },
-            { icon: HeartPulse, name: "BPC-157", useCase: "Recovery", benefit: "Tissue repair", bullets: ["Tissue regeneration", "Gut healing support", "Inflammation reduction"] },
-            { icon: Shield, name: "Thymosin Alpha-1", useCase: "Immune / Longevity", benefit: "Immune modulation", bullets: ["Immune system support", "Longevity optimization", "Systemic resilience"] },
-            { icon: Zap, name: "Epithalon", useCase: "Anti-Aging", benefit: "Telomere support", bullets: ["Telomere lengthening", "Cellular longevity", "DNA repair support"] },
-            { icon: Brain, name: "Selank / Semax", useCase: "Brain Optimization", benefit: "Cognition & stress", bullets: ["Cognitive enhancement", "Stress reduction", "Mental clarity"] },
-          ].map((peptide) => (
-            <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
-              <CardContent className="p-6 flex flex-col flex-grow">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
-                    <peptide.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <span className="text-sm font-semibold text-primary">{peptide.useCase}</span>
-                </div>
-                <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
-                <p className="text-sm text-muted-foreground mb-4">{peptide.benefit}</p>
-                <ul className="space-y-2 mb-6 flex-grow">
-                  {peptide.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary">•</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4 mr-2" />
-                    Talk with Doctor
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
       </div>
 
       <div className="mt-10 text-center">
