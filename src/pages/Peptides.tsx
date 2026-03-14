@@ -768,31 +768,108 @@ const PeptideWhyUs = () => {
   );
 };
 
-// ─── VIDEO TESTIMONIALS ──────────────────────────────────
-const PeptideVideoTestimonials = () => (
-  <section className="py-16 md:py-24 bg-background">
-    <div className="container px-4 sm:px-6 lg:px-8">
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Patient Experience</h2>
-        <p className="text-lg text-muted-foreground">
-          Hear from patients who chose Healthi-Life for medically guided recovery, longevity, and metabolic optimization.
-        </p>
-      </div>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="aspect-video bg-muted rounded-xl flex items-center justify-center border border-border">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                <Play className="h-8 w-8 text-primary ml-1" />
-              </div>
-              <p className="text-sm text-muted-foreground">Video Testimonial {i}</p>
-            </div>
+// ─── PATIENT EXPERIENCE (VIDEO TESTIMONIALS) ─────────────
+const patientVideos = [
+  {
+    id: "0q0ht-nms4w",
+    title: "Dr. Petch - Founder & Lifestyle Medicine",
+    subtitle: "Meet Our Founder",
+    description: "Dr. Petch introduces our holistic approach to regenerative medicine and longevity.",
+  },
+  {
+    id: "acuxB5dBjqw",
+    title: "Blake from USA - Human Performance Enhancement",
+    subtitle: "Human Performance",
+    description: "Patient testimonial: Enhancing athletic performance with regenerative medicine at Healthi-Life Bangkok.",
+  },
+  {
+    id: "Q0-FuK5CViA",
+    title: "Angelica from Philippines - Stem Cell Knee Treatment",
+    subtitle: "Stem Cell Knee Treatment",
+    description: "Patient testimonial: Recovery journey with stem cell therapy for knee pain at Healthi-Life Longevity Center Bangkok.",
+  },
+];
+
+const PeptideVideoTestimonials = () => {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
+  return (
+    <>
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              Patient Experience
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Real Stories. Real Results.</h2>
+            <p className="text-lg text-muted-foreground">
+              Hear from patients who chose Healthi-Life for medically guided recovery, longevity, and metabolic optimization.
+            </p>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            {patientVideos.map((video) => (
+              <div
+                key={video.id}
+                className="group relative cursor-pointer"
+                onClick={() => setSelectedVideo(video.id)}
+                role="button"
+                tabIndex={0}
+                aria-label={`Play video: ${video.title}`}
+                onKeyDown={(e) => e.key === 'Enter' && setSelectedVideo(video.id)}
+              >
+                <div className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 group-hover:scale-[1.02]">
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                    alt={video.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                      <Play className="h-8 w-8 md:h-10 md:w-10 text-primary-foreground ml-1" fill="currentColor" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="inline-block px-2 py-0.5 bg-primary text-primary-foreground rounded text-xs font-medium mb-2">
+                      {video.subtitle}
+                    </span>
+                    <h3 className="font-bold text-white text-sm md:text-base line-clamp-2">
+                      {video.title}
+                    </h3>
+                  </div>
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="text-sm text-muted-foreground line-clamp-2">{video.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {selectedVideo && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={() => setSelectedVideo(null)}>
+          <button onClick={() => setSelectedVideo(null)} className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center" aria-label="Close video">
+            <span className="text-white text-2xl">✕</span>
+          </button>
+          <div className="relative aspect-[9/16] max-h-[85vh] w-full max-w-lg" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0&modestbranding=1`}
+              title="Video testimonial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full rounded-xl"
+            />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 // ─── PROCESS ─────────────────────────────────────────────
 const PeptideProcess = () => {
