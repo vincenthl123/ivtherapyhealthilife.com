@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import MedicalTeam from "@/components/MedicalTeam";
 import { Button } from "@/components/ui/button";
@@ -735,22 +735,22 @@ const ClinicPresentation = () => {
 };
 
 
-// ─── WHY CHOOSE US ───────────────────────────────────────
+// ─── WHY PATIENTS CHOOSE ─────────────────────────────────
 const PeptideWhyUs = () => {
   const points = [
-    { icon: Stethoscope, title: "Doctor First", desc: "Every program starts with medical evaluation, not product selection." },
-    { icon: UserCheck, title: "Personalized Programs", desc: "Your plan is adapted to your biomarkers, goals, history, and response." },
-    { icon: Microscope, title: "Lab-Monitored", desc: "We use clinical review and follow-up testing to guide decisions." },
-    { icon: Sparkles, title: "Premium Experience", desc: "Online or onsite consultation, concierge-style support, and structured follow-up." },
-    { icon: Heart, title: "Integrated Care", desc: "Programs are supported with nutrition, recovery, and performance guidance." },
-    { icon: ShieldCheck, title: "Medical Governance", desc: "Treatment pathways are supervised and reviewed by experienced doctors." },
+    { icon: Stethoscope, title: "Physician-Led Care", desc: "Every program begins with a medical consultation and health assessment, ensuring the right treatment strategy for your biology." },
+    { icon: UserCheck, title: "Personalized Protocols", desc: "Your program is tailored to your biomarkers, health history, and goals, with adjustments based on your progress." },
+    { icon: Microscope, title: "Lab-Guided Monitoring", desc: "We use biomarker testing and clinical follow-up to guide decisions and optimize your results safely." },
+    { icon: Sparkles, title: "Premium Medical Experience", desc: "Enjoy online or in-clinic consultations, concierge-style support, and a comfortable, private treatment environment." },
+    { icon: Heart, title: "Integrated Longevity Approach", desc: "Peptide therapy is combined with nutrition, recovery strategies, and lifestyle guidance to maximize long-term outcomes." },
+    { icon: ShieldCheck, title: "Medical Oversight", desc: "All treatment pathways are supervised and reviewed by experienced physicians to ensure safety and effectiveness." },
   ];
 
   return (
     <section id="why-us" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Patients Choose Healthi-Life</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Patients Choose Healthi Life</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {points.map((p) => (
@@ -768,40 +768,120 @@ const PeptideWhyUs = () => {
   );
 };
 
-// ─── VIDEO TESTIMONIALS ──────────────────────────────────
-const PeptideVideoTestimonials = () => (
-  <section className="py-16 md:py-24 bg-background">
-    <div className="container px-4 sm:px-6 lg:px-8">
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Patient Experience</h2>
-        <p className="text-lg text-muted-foreground">
-          Hear from patients who chose Healthi-Life for medically guided recovery, longevity, and metabolic optimization.
-        </p>
-      </div>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="aspect-video bg-muted rounded-xl flex items-center justify-center border border-border">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                <Play className="h-8 w-8 text-primary ml-1" />
-              </div>
-              <p className="text-sm text-muted-foreground">Video Testimonial {i}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+// ─── PATIENT EXPERIENCE (VIDEO TESTIMONIALS) ─────────────
+const patientVideos = [
+  {
+    id: "0q0ht-nms4w",
+    title: "Dr. Petch - Founder & Lifestyle Medicine",
+    subtitle: "Meet Our Founder",
+    description: "Dr. Petch introduces our holistic approach to regenerative medicine and longevity.",
+  },
+  {
+    id: "acuxB5dBjqw",
+    title: "Blake from USA - Human Performance Enhancement",
+    subtitle: "Human Performance",
+    description: "Patient testimonial: Enhancing athletic performance with regenerative medicine at Healthi-Life Bangkok.",
+  },
+  {
+    id: "Q0-FuK5CViA",
+    title: "Angelica from Philippines - Stem Cell Knee Treatment",
+    subtitle: "Stem Cell Knee Treatment",
+    description: "Patient testimonial: Recovery journey with stem cell therapy for knee pain at Healthi-Life Longevity Center Bangkok.",
+  },
+];
 
-// ─── PROCESS ─────────────────────────────────────────────
+const PeptideVideoTestimonials = () => {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
+  return (
+    <>
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              Patient Experience
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Real Stories. Real Results.</h2>
+            <p className="text-lg text-muted-foreground">
+              Hear from patients who chose Healthi-Life for medically guided recovery, longevity, and metabolic optimization.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            {patientVideos.map((video) => (
+              <div
+                key={video.id}
+                className="group relative cursor-pointer"
+                onClick={() => setSelectedVideo(video.id)}
+                role="button"
+                tabIndex={0}
+                aria-label={`Play video: ${video.title}`}
+                onKeyDown={(e) => e.key === 'Enter' && setSelectedVideo(video.id)}
+              >
+                <div className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 group-hover:scale-[1.02]">
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                    alt={video.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                      <Play className="h-8 w-8 md:h-10 md:w-10 text-primary-foreground ml-1" fill="currentColor" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="inline-block px-2 py-0.5 bg-primary text-primary-foreground rounded text-xs font-medium mb-2">
+                      {video.subtitle}
+                    </span>
+                    <h3 className="font-bold text-white text-sm md:text-base line-clamp-2">
+                      {video.title}
+                    </h3>
+                  </div>
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="text-sm text-muted-foreground line-clamp-2">{video.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {selectedVideo && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={() => setSelectedVideo(null)}>
+          <button onClick={() => setSelectedVideo(null)} className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center" aria-label="Close video">
+            <span className="text-white text-2xl">✕</span>
+          </button>
+          <div className="relative aspect-[9/16] max-h-[85vh] w-full max-w-lg" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0&modestbranding=1`}
+              title="Video testimonial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full rounded-xl"
+            />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+// ─── HOW THE PROGRAM WORKS ───────────────────────────────
 const PeptideProcess = () => {
-  const steps = [
-    { icon: CalendarCheck, title: "Book Your Consultation", desc: "Choose an online or onsite consultation with a Healthi-Life doctor." },
+  const mainSteps = [
+    { icon: CalendarCheck, title: "Book Your Consultation", desc: "Choose an online or onsite consultation with a Healthi-Life doctor to discuss your health goals." },
+    { icon: Microscope, title: "Blood Tests & Baseline Review", desc: "Relevant labs and health markers are assessed to build an accurate picture of your biology." },
+    { icon: Monitor, title: "Follow-Up & Monitoring", desc: "You receive structured check-ins, medical review, and plan adjustments based on your progress." },
+  ];
+
+  const additionalSteps = [
     { icon: ClipboardCheck, title: "Medical Assessment", desc: "We review your health history, symptoms, goals, and treatment suitability." },
-    { icon: Microscope, title: "Blood Tests & Baseline Review", desc: "Relevant labs and health markers are assessed to personalize your program." },
     { icon: FlaskConical, title: "Personalized 3, 6, or 12-Month Plan", desc: "Your doctor builds a tailored treatment roadmap based on your profile and objectives." },
-    { icon: Monitor, title: "Follow-Up & Monitoring", desc: "You receive structured check-ins, medical review, and plan adjustments where appropriate." },
     { icon: RefreshCw, title: "Review & Renew", desc: "At the end of the program cycle, your results are reviewed and your next phase is decided with the doctor." },
   ];
 
@@ -810,21 +890,43 @@ const PeptideProcess = () => {
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How the Program Works</h2>
+          <p className="text-lg text-muted-foreground">From consultation to results — a clear, medically guided pathway.</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {steps.map((step, i) => (
-            <div key={step.title} className="relative bg-card rounded-xl border border-border p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm">
-                  {i + 1}
-                </div>
-                <step.icon className="h-5 w-5 text-primary" />
+
+        {/* 3 Main Steps */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {mainSteps.map((step, i) => (
+            <Card key={step.title} className="relative border-border p-6 hover:shadow-lg transition-shadow bg-card">
+              <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm shadow-md">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <step.icon className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
               <p className="text-sm text-muted-foreground">{step.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
+
+        {/* Additional Steps */}
+        <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">What Happens Next</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {additionalSteps.map((step) => (
+              <div key={step.title} className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <step.icon className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-foreground mb-1">{step.title}</h4>
+                  <p className="text-xs text-muted-foreground">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <p className="mt-8 text-center text-sm text-muted-foreground italic max-w-2xl mx-auto">
           Please note that peptide therapies are prepared through certified partner pharmacies and laboratories. Advance notice is required before treatment scheduling.
         </p>
@@ -870,30 +972,61 @@ const PeptideFAQ = () => {
   );
 };
 
-// ─── TESTIMONIALS ────────────────────────────────────────
+// ─── CLIENT FEEDBACK ─────────────────────────────────────
 const PeptideTestimonials = () => {
-  const testimonials = [
-    { text: "The process felt structured, medical, and highly personalized.", author: "Patient" },
-    { text: "I appreciated the doctor supervision and follow-up rather than a generic wellness approach.", author: "Patient" },
-    { text: "Healthi-Life made the entire experience feel premium, clear, and safe.", author: "Patient" },
+  const reviews = [
+    { initials: "RM", text: "I started a 6-month peptide program for metabolic optimization. The doctor consultations, blood work, and personalized protocol made me feel in safe hands. After 4 months, my energy and body composition changed noticeably.", name: "Richard M.", location: "London, UK" },
+    { initials: "SY", text: "I was skeptical at first, but the 3-month recovery protocol exceeded my expectations. The follow-ups and lab monitoring gave me confidence. My knee inflammation improved significantly and I'm back to training.", name: "Soo-Yeon K.", location: "Seoul, South Korea" },
+    { initials: "TW", text: "The 12-month longevity program has been transformative. Better sleep, sharper focus, and improved metabolic markers. Dr. First personally reviewed my progress every month. Truly premium medical care.", name: "Thomas W.", location: "Sydney, Australia" },
+    { initials: "AL", text: "After struggling with weight management for years, the metabolic reset protocol with peptides finally gave me sustainable results. The personalized approach based on my blood work made all the difference.", name: "Anna L.", location: "Munich, Germany" },
+    { initials: "JC", text: "I chose Healthi-Life for a 6-month performance optimization program. The combination of peptides, nutrition guidance, and regular monitoring helped me reach a level of fitness I hadn't seen in years.", name: "James C.", location: "New York, USA" },
   ];
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What Patients Say</h2>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 uppercase tracking-wide">
+            Recognition
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">Client Feedback</h2>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <span className="text-3xl font-bold text-foreground">5</span>
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <span className="text-muted-foreground">+250 reviews</span>
+            <Badge variant="outline" className="border-border gap-1.5 px-3 py-1.5">
+              <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
+              Private Clients
+            </Badge>
+          </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {testimonials.map((t, i) => (
-            <Card key={i} className="border-border p-6 text-center">
-              <div className="flex justify-center mb-4">
+
+        {/* Reviews Grid */}
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-7xl mx-auto">
+          {reviews.map((r, i) => (
+            <Card key={i} className="relative border-border p-5 flex flex-col">
+              {/* Quote icon */}
+              <div className="text-primary/20 text-4xl font-serif leading-none mb-2">"</div>
+              {/* Initials badge */}
+              <div className="absolute -top-3 right-4 w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold shadow-md">
+                {r.initials}
+              </div>
+              {/* Stars */}
+              <div className="flex mb-3">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <p className="text-muted-foreground italic mb-4">"{t.text}"</p>
-              <p className="text-sm font-medium text-foreground">— Verified {t.author}</p>
+              <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">"{r.text}"</p>
+              <div className="border-t border-border pt-3 mt-auto">
+                <p className="text-sm font-bold text-foreground">{r.name}</p>
+                <p className="text-xs text-muted-foreground">{r.location}</p>
+              </div>
             </Card>
           ))}
         </div>
@@ -953,34 +1086,57 @@ const PeptideContact = () => (
 
         {/* Inquiry Form */}
         <Card className="border-border">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const data = new FormData(form);
+              const fullName = data.get('fullName') || '';
+              const country = data.get('country') || '';
+              const whatsapp = data.get('whatsapp') || '';
+              const email = data.get('email') || '';
+              const goal = data.get('goal') || '';
+              const consultType = data.get('consultType') || 'online';
+              const time = data.get('time') || '';
+              const notes = data.get('notes') || '';
+              
+              const subject = encodeURIComponent(`Peptide Inquiry — ${fullName}`);
+              const body = encodeURIComponent(
+                `Name: ${fullName}\nCountry: ${country}\nWhatsApp: ${whatsapp}\nEmail: ${email}\nGoal: ${goal}\nConsultation: ${consultType}\nPreferred Time: ${time}\nNotes: ${notes}`
+              );
+              
+              trackButtonClick('ivclick-peptide-form-submit');
+              window.location.href = `mailto:contact@healthi-life.com?subject=${subject}&body=${body}`;
+            }}
+          >
           <CardContent className="p-6 space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="fullName">Full Name</Label>
-                <Input id="fullName" placeholder="Your full name" />
+                <Input id="fullName" name="fullName" placeholder="Your full name" required />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="country">Country</Label>
-                <Input id="country" placeholder="Your country" />
+                <Input id="country" name="country" placeholder="Your country" />
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="whatsapp">WhatsApp Number</Label>
-                <Input id="whatsapp" placeholder="+66..." />
+                <Input id="whatsapp" name="whatsapp" placeholder="+66..." />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="you@example.com" />
+                <Input id="email" name="email" type="email" placeholder="you@example.com" required />
               </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="goal">Primary Goal</Label>
-              <Input id="goal" placeholder="e.g. Longevity, Recovery, Weight Optimization..." />
+              <Input id="goal" name="goal" placeholder="e.g. Longevity, Recovery, Weight Optimization..." />
             </div>
             <div className="space-y-2">
               <Label>Preferred Consultation Type</Label>
-              <RadioGroup defaultValue="online" className="flex gap-6">
+              <RadioGroup defaultValue="online" name="consultType" className="flex gap-6">
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="online" id="online" />
                   <Label htmlFor="online" className="font-normal">Online</Label>
@@ -993,17 +1149,18 @@ const PeptideContact = () => (
             </div>
             <div className="space-y-2">
               <Label htmlFor="time">Preferred Time</Label>
-              <Input id="time" placeholder="e.g. Weekday mornings, Afternoon..." />
+              <Input id="time" name="time" placeholder="e.g. Weekday mornings, Afternoon..." />
             </div>
             <div className="space-y-2">
               <Label htmlFor="notes">Notes</Label>
-              <Textarea id="notes" placeholder="Any additional information..." rows={3} />
+              <Textarea id="notes" name="notes" placeholder="Any additional information..." rows={3} />
             </div>
-            <Button className="w-full" size="lg" onClick={() => trackButtonClick('ivclick-peptide-form-submit')}>
-              <MessageCircle className="h-5 w-5 mr-2" />
+            <Button type="submit" className="w-full" size="lg">
+              <Mail className="h-5 w-5 mr-2" />
               Submit Inquiry
             </Button>
           </CardContent>
+          </form>
         </Card>
       </div>
     </div>
@@ -1036,7 +1193,6 @@ const PeptideFooter = () => {
             <div className="space-y-2 text-sm text-background/70">
               <Link to="/" className="block hover:text-background transition-colors">Home — IV Therapy</Link>
               <Link to="/peptides" className="block hover:text-background transition-colors">Peptide Programs</Link>
-              <Link to="/price-list" className="block hover:text-background transition-colors">Price List</Link>
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Book a Consultation</a>
             </div>
           </div>
