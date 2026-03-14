@@ -12,8 +12,15 @@ import {
   FlaskConical, Activity, Dumbbell, Flame, Heart, Users, Globe,
   Phone, Mail, ArrowRight, CheckCircle2, Play, Timer, Microscope,
   CalendarCheck, RefreshCw, ClipboardCheck, UserCheck, Beaker,
-  Sparkles, Brain, Zap, HeartPulse, ShieldCheck, Monitor
+  Sparkles, Brain, Zap, HeartPulse, ShieldCheck, Monitor, ChevronDown,
+  Moon, Syringe, Pill, Eye
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { trackButtonClick } from "@/lib/tracking";
 import heroImage from "@/assets/clinic-exterior.webp";
 import clinicInterior from "@/assets/clinic-interior.jpg";
@@ -483,6 +490,163 @@ const PeptidePrograms = () => (
   </section>
 );
 
+// ─── PEPTIDE CATALOG ─────────────────────────────────────
+const peptideCatalog = [
+  {
+    category: "Anti-Aging",
+    icon: Sparkles,
+    peptides: [
+      { name: "Epithalon", benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
+      { name: "NMN", benefits: "Boosts NAD⁺, enhances energy, metabolism, and longevity", route: "Oral capsule", frequency: "1 tab daily (500 mg)" },
+      { name: "MOTS-c", benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly (10 mg) for 3–4 months, pause for 2 months" },
+      { name: "SS-31 (Elamipretide)", benefits: "Protects mitochondria, reduces oxidative stress, improves muscle strength & endurance", route: "Subcutaneous injection", frequency: "Once daily (5–10 mg) for 3–4 months, pause for 2 months" },
+    ],
+  },
+  {
+    category: "Growth Hormones",
+    icon: Dumbbell,
+    peptides: [
+      { name: "CJC-1295", benefits: "Stimulates natural growth hormone release, improves fat loss, recovery, sleep quality, and lean muscle support", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
+      { name: "Ipamorelin", benefits: "Selective GH secretagogue, enhances recovery, improves sleep, supports fat loss with minimal cortisol impact", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
+      { name: "Tesamorelin", benefits: "Reduces visceral fat, improves body composition, supports metabolic health and GH axis", route: "Subcutaneous injection", frequency: "5 days/week (1 mg), fasting 2–3 hours prior" },
+    ],
+  },
+  {
+    category: "Weight Loss / Sport Performance & Men Health",
+    icon: Flame,
+    peptides: [
+      { name: "MOTS-c", benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly for 3–4 months, pause for 2 months" },
+      { name: "SLU-PP-332", benefits: "Enhances mitochondrial efficiency, reduces oxidative stress, supports anti-aging and neuroprotection", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
+      { name: "Tesofensine", benefits: "Potent appetite suppression, improves satiety control, supports significant fat loss and metabolic regulation", route: "Oral capsule", frequency: "1–2 tab daily (500 mcg)" },
+      { name: "Retatrutide", benefits: "Triple agonist (GLP-1/GIP/Glucagon), supports significant fat loss, appetite regulation, insulin sensitivity, and metabolic optimization", route: "Subcutaneous injection", frequency: "Start 0.5 mg once weekly, titrate monthly based on response" },
+    ],
+  },
+  {
+    category: "Healing, Gut Health & Skin Repair",
+    icon: HeartPulse,
+    peptides: [
+      { name: "BPC-157", benefits: "Accelerates tendon/ligament/muscle healing, gut repair, reduces inflammation, pain", route: "Subcutaneous injection", frequency: "Once daily (1 mg) for 3–4 months, pause for 2 months" },
+      { name: "Thymosin Beta-4 (TB-500)", benefits: "Enhances tissue regeneration, improves muscle, tendon and ligament recovery", route: "Subcutaneous injection", frequency: "Once daily (0.5 mg) for 2–3 months, pause for 2 months" },
+      { name: "BPC-157 (Oral)", benefits: "Supports gut lining repair, reduces GI inflammation, and improves nutrient absorption", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
+      { name: "GHK-Cu", benefits: "Skin rejuvenation, hair growth stimulation, wound healing, anti-inflammatory", route: "Subcutaneous injection", frequency: "Once daily (2 mg) for 3–4 months, pause for 2 months" },
+    ],
+  },
+  {
+    category: "Sleep Disorder",
+    icon: Moon,
+    peptides: [
+      { name: "Epithalon", benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
+      { name: "DSIP", benefits: "Improves sleep quality, reduces nighttime stress, provides stress-protective effects on brain and body", route: "Subcutaneous injection", frequency: "2–12 hours before bedtime (250–500 mcg)" },
+    ],
+  },
+  {
+    category: "Focus / Neuro Function",
+    icon: Brain,
+    peptides: [
+      { name: "Selank", benefits: "Anti-anxiety, mood stabilizer, enhances focus & reduces stress without sedation", route: "Intranasal spray", frequency: "1 spray in each nostril 1–2 times daily (Night time)" },
+      { name: "Semax", benefits: "Cognitive enhancer, neuroprotection, boosts memory, focus & recovery after stress or stroke", route: "Intranasal spray", frequency: "1 spray in each nostril 1–2 times daily (Day time)" },
+    ],
+  },
+  {
+    category: "Libido",
+    icon: Heart,
+    peptides: [
+      { name: "PT-141", benefits: "Enhances libido and sexual function", route: "Subcutaneous injection", frequency: "As needed, up to 3 times/week, 1–2 hours prior to desired effect (1–2 mg)" },
+      { name: "PT-141 Nasal Spray", benefits: "Enhances libido and sexual function", route: "Intranasal spray", frequency: "1 spray in each nostril once daily" },
+      { name: "Oxytocin", benefits: "Enhances bonding, intimacy, social connection, reduces stress, supports sexual health", route: "Intranasal spray", frequency: "1 spray in each nostril once daily" },
+    ],
+  },
+  {
+    category: "Boost Fertility",
+    icon: HeartPulse,
+    peptides: [
+      { name: "Kisspeptin", benefits: "Stimulates natural release of LH & FSH, boosts testosterone/estrogen balance, supports fertility & libido", route: "Subcutaneous injection", frequency: "Once daily (100–200 mcg) for 3–4 months" },
+    ],
+  },
+];
+
+const PeptideCatalog = () => (
+  <section className="py-16 md:py-24 bg-secondary/30">
+    <div className="container px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          Peptide Therapy
+        </h2>
+        <p className="text-lg text-muted-foreground mb-4">
+          Discover our full range of peptides organized by therapeutic category
+        </p>
+        <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-sm font-medium">
+          Program on Demand
+        </Badge>
+      </div>
+
+      <Accordion type="multiple" className="space-y-3">
+        {peptideCatalog.map((cat) => (
+          <AccordionItem key={cat.category} value={cat.category} className="border border-border rounded-xl overflow-hidden bg-card">
+            <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0">
+                  <cat.icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-foreground text-left">{cat.category}</h3>
+                <Badge variant="secondary" className="ml-2 text-xs">{cat.peptides.length} peptide{cat.peptides.length > 1 ? 's' : ''}</Badge>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-0 pb-0">
+              {/* Desktop table */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-t border-border bg-secondary/40">
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">Main Benefits</th>
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">Route</th>
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">How Often</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cat.peptides.map((p, i) => (
+                      <tr key={p.name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
+                        <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{p.name}</td>
+                        <td className="px-6 py-4 text-muted-foreground">{p.benefits}</td>
+                        <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{p.route}</td>
+                        <td className="px-6 py-4 text-muted-foreground">{p.frequency}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {/* Mobile cards */}
+              <div className="md:hidden divide-y divide-border border-t border-border">
+                {cat.peptides.map((p) => (
+                  <div key={p.name} className="p-4 space-y-2">
+                    <h4 className="font-semibold text-foreground">{p.name}</h4>
+                    <p className="text-sm text-muted-foreground">{p.benefits}</p>
+                    <div className="flex flex-wrap gap-2 text-xs">
+                      <Badge variant="secondary">{p.route}</Badge>
+                      <Badge variant="outline">{p.frequency}</Badge>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* CTA row */}
+              <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
+                <span className="text-sm text-muted-foreground italic">Program on Demand — Contact us for a personalized protocol</span>
+                <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.category.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-4 w-4 mr-1" />
+                    Talk to Us
+                  </a>
+                </Button>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  </section>
+);
+
 // ─── CLINIC PRESENTATION ─────────────────────────────────
 const ClinicPresentation = () => (
   <section className="py-16 md:py-24 bg-secondary/30">
@@ -935,6 +1099,7 @@ const Peptides = () => (
       <PeptideHero />
       <PeptideTrustBanner />
       <PeptidePrograms />
+      <PeptideCatalog />
       <ClinicPresentation />
       <PeptideMedicalTeam />
       <PeptideWhyUs />
