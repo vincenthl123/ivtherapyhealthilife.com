@@ -117,24 +117,43 @@ const PeptideHero = () => (
   </section>
 );
 
-// ─── STATS BAR ───────────────────────────────────────────
-const PeptideStats = () => {
+// ─── TRUST BANNER ────────────────────────────────────────
+const PeptideTrustBanner = () => {
   const stats = [
-    { icon: CalendarCheck, label: "Personalized 3, 6, or 12-month programs" },
-    { icon: Monitor, label: "Online or onsite doctor consultation" },
-    { icon: Microscope, label: "Lab-monitored treatment pathways" },
-    { icon: RefreshCw, label: "Follow-up, review & renewal built in" },
+    {
+      icon: Star,
+      value: "5.0",
+      label: "Google Rating",
+      extra: (
+        <div className="flex ml-1">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+      ),
+    },
+    { icon: Users, value: "2,000+", label: "Patients Treated" },
+    { icon: Globe, value: "50+", label: "Countries Served" },
+    { icon: Shield, value: "ISO · GMP", label: "Certified Lab" },
+    { icon: Award, value: "Best Clinic", label: "2025 Asia-Pacific" },
   ];
+
   return (
     <section className="py-6 bg-secondary/50 border-y border-border">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
           {stats.map((s) => (
             <div key={s.label} className="flex items-center gap-3">
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
                 <s.icon className="h-5 w-5 text-primary" />
               </div>
-              <span className="text-sm font-medium text-foreground">{s.label}</span>
+              <div>
+                <div className="flex items-center gap-1">
+                  <span className="text-base font-bold text-foreground">{s.value}</span>
+                  {s.extra}
+                </div>
+                <span className="text-xs text-muted-foreground">{s.label}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -759,7 +778,7 @@ const Peptides = () => (
     <Header />
     <main className="flex-grow">
       <PeptideHero />
-      <PeptideStats />
+      <PeptideTrustBanner />
       <PeptidePrograms />
       <ClinicPresentation />
       <PeptideMedicalTeam />
