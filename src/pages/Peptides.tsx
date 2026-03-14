@@ -1059,7 +1059,7 @@ const Peptides = () => (
       <PeptidePrograms />
       <PeptideCatalog />
       <ClinicPresentation />
-      <PeptideMedicalTeam />
+      <MedicalTeam />
       <PeptideWhyUs />
       <PeptideVideoTestimonials />
       <PeptideProcess />
