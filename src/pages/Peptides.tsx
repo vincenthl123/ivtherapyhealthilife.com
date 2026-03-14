@@ -735,22 +735,22 @@ const ClinicPresentation = () => {
 };
 
 
-// ─── WHY CHOOSE US ───────────────────────────────────────
+// ─── WHY PATIENTS CHOOSE ─────────────────────────────────
 const PeptideWhyUs = () => {
   const points = [
-    { icon: Stethoscope, title: "Doctor First", desc: "Every program starts with medical evaluation, not product selection." },
-    { icon: UserCheck, title: "Personalized Programs", desc: "Your plan is adapted to your biomarkers, goals, history, and response." },
-    { icon: Microscope, title: "Lab-Monitored", desc: "We use clinical review and follow-up testing to guide decisions." },
-    { icon: Sparkles, title: "Premium Experience", desc: "Online or onsite consultation, concierge-style support, and structured follow-up." },
-    { icon: Heart, title: "Integrated Care", desc: "Programs are supported with nutrition, recovery, and performance guidance." },
-    { icon: ShieldCheck, title: "Medical Governance", desc: "Treatment pathways are supervised and reviewed by experienced doctors." },
+    { icon: Stethoscope, title: "Physician-Led Care", desc: "Every program begins with a medical consultation and health assessment, ensuring the right treatment strategy for your biology." },
+    { icon: UserCheck, title: "Personalized Protocols", desc: "Your program is tailored to your biomarkers, health history, and goals, with adjustments based on your progress." },
+    { icon: Microscope, title: "Lab-Guided Monitoring", desc: "We use biomarker testing and clinical follow-up to guide decisions and optimize your results safely." },
+    { icon: Sparkles, title: "Premium Medical Experience", desc: "Enjoy online or in-clinic consultations, concierge-style support, and a comfortable, private treatment environment." },
+    { icon: Heart, title: "Integrated Longevity Approach", desc: "Peptide therapy is combined with nutrition, recovery strategies, and lifestyle guidance to maximize long-term outcomes." },
+    { icon: ShieldCheck, title: "Medical Oversight", desc: "All treatment pathways are supervised and reviewed by experienced physicians to ensure safety and effectiveness." },
   ];
 
   return (
     <section id="why-us" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Patients Choose Healthi-Life</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Patients Choose Healthi Life</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {points.map((p) => (
