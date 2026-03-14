@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import Header from "@/components/Header";
+import MedicalTeam from "@/components/MedicalTeam";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
