@@ -302,6 +302,25 @@ const PeptidePrograms = () => (
           ))}
         </div>
 
+        {/* Dr First Quote */}
+        <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-12 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+          <img
+            src={drFirstPortrait}
+            alt="Dr First - Napat Hunsajarupan, Healthi-Life"
+            className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
+            loading="lazy"
+          />
+          <div>
+            <blockquote className="text-lg md:text-xl font-semibold text-foreground italic mb-3">
+              "Our goal is not simply treatment — it is measurable transformation."
+            </blockquote>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              Dr First believes that medicine should not only treat disease, but help patients restore energy, improve resilience, and unlock their full health potential through personalized, science-based programs.
+            </p>
+            <p className="text-sm font-bold text-primary">Dr First — Peptide Program Director</p>
+          </div>
+        </div>
+
         {/* Section 2: Recovery & Performance */}
         <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
           <HeartPulse className="h-6 w-6 text-primary" />
