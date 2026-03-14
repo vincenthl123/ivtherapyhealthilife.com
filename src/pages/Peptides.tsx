@@ -248,8 +248,8 @@ const PeptidePrograms = () => (
             { icon: Dumbbell, name: "CJC-1295 + Ipamorelin", useCase: "Muscle / Anti-Aging", benefit: "Growth hormone stimulation", bullets: ["Lean muscle support", "Anti-aging benefits", "Recovery enhancement"], cta: "Book Your Medical Review" },
             { icon: HeartPulse, name: "BPC-157", useCase: "Recovery", benefit: "Tissue repair", bullets: ["Tissue regeneration", "Gut healing support", "Inflammation reduction"], cta: "Talk to Us" },
             { icon: Shield, name: "Thymosin Alpha-1", useCase: "Immune / Longevity", benefit: "Immune modulation", bullets: ["Immune system support", "Longevity optimization", "Systemic resilience"], cta: "Talk with Doctor" },
-            { icon: Zap, name: "Epithalon", useCase: "Anti-Aging", benefit: "Telomere support", bullets: ["Telomere lengthening", "Cellular longevity", "DNA repair support"], cta: "Talk with Doctor" },
-            { icon: Brain, name: "Selank / Semax", useCase: "Brain Optimization", benefit: "Cognition & stress", bullets: ["Cognitive enhancement", "Stress reduction", "Mental clarity"], cta: "Talk with Doctor" },
+            { icon: Zap, name: "Epithalon", useCase: "Anti-Aging", benefit: "Telomere support", bullets: ["Telomere lengthening", "Cellular longevity", "DNA repair support"], cta: "Book Your Medical Review" },
+            { icon: Brain, name: "Selank / Semax", useCase: "Brain Optimization", benefit: "Cognition & stress", bullets: ["Cognitive enhancement", "Stress reduction", "Mental clarity"], cta: "Talk to Us" },
           ].map((peptide) => (
             <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
               <CardContent className="p-6 flex flex-col flex-grow">
