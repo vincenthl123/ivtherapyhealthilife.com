@@ -692,50 +692,6 @@ const ClinicPresentation = () => (
   </section>
 );
 
-// ─── MEDICAL TEAM ────────────────────────────────────────
-const PeptideMedicalTeam = () => {
-  const doctors = [
-    {
-      name: "Dr. Petch",
-      title: "Longevity & Regenerative Medicine Physician",
-      desc: "Expert in personalized longevity medicine, metabolic optimization, and structured treatment planning.",
-      image: drPetchImage,
-    },
-    {
-      name: "Dr. First",
-      title: "Functional & Preventive Health Physician",
-      desc: "Focused on biomarker interpretation, recovery strategy, and personalized health optimization.",
-      image: drFirstImage,
-    },
-  ];
-
-  return (
-    <section id="doctors" className="py-16 md:py-24 bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Meet Our Medical Team</h2>
-          <p className="text-lg text-muted-foreground">
-            Your peptide program begins with a physician-led consultation to assess your goals, medical history, current biomarkers, and suitability for treatment.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {doctors.map((doc) => (
-            <Card key={doc.name} className="border-border overflow-hidden">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-1">{doc.name}</h3>
-                <p className="text-sm text-primary font-medium mb-3">{doc.title}</p>
-                <p className="text-sm text-muted-foreground">{doc.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ─── WHY CHOOSE US ───────────────────────────────────────
 const PeptideWhyUs = () => {
