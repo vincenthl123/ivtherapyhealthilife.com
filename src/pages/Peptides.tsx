@@ -249,10 +249,10 @@ const PeptidePrograms = () => (
     <div className="container px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          Peptide Programs at Healthi-Life
+          Peptide Therapy Programs
         </h2>
         <p className="text-lg text-muted-foreground">
-          Our peptide therapy programs are medically supervised frameworks designed to support healthy aging, recovery capacity, metabolic performance, and body composition optimization. Each protocol is adapted to the individual after physician consultation, health review, and laboratory analysis.
+          Restore energy, support metabolism, and improve recovery with doctor-supervised peptide protocols designed by Dr First.
         </p>
       </div>
 
