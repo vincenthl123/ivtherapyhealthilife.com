@@ -38,6 +38,7 @@ const App = () => (
                 <Route path="/sitemap" element={<Sitemap />} />
                 <Route path="/install" element={<Install />} />
                 <Route path="/price-list" element={<PriceList />} />
+                <Route path="/peptides" element={<Peptides />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
