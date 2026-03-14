@@ -250,7 +250,8 @@ const PeptidePrograms = () => (
     <div className="container px-4 sm:px-6 lg:px-8">
       {/* Individual Peptide Cards */}
       <div className="mb-16 md:mb-20">
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">Key Peptides Used in Our Programs</h3>
+         <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">Medical Peptides Used in Our Programs</h3>
+         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">Each peptide is selected by our physicians based on your metabolic profile, health goals, and clinical evaluation.</p>
 
         {/* Section 1: Metabolic & Weight Loss */}
         <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
