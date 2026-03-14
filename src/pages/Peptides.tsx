@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/accordion";
 import { trackButtonClick } from "@/lib/tracking";
 import heroImage from "@/assets/clinic-exterior.webp";
+import clinicTreatmentRoom from "@/assets/clinic-treatment-room.png";
 import clinicInterior from "@/assets/clinic-interior.jpg";
 import drPetchImage from "@/assets/dr-petch.jpg";
 import drFirstImage from "@/assets/dr-first.jpg";
