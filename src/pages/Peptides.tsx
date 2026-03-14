@@ -49,12 +49,14 @@ const PeptideHero = () => (
     </div>
     <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-12 md:py-32">
       <div className="max-w-3xl">
+        {/* Award Badge */}
         <div className="animate-fade-in mb-6">
           <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-xs md:text-sm">
-            <Stethoscope className="h-4 w-4 mr-2" />
-            Doctor-Supervised Peptide Therapy
+            <Award className="h-4 w-4 mr-2" />
+            Best Regenerative Medicine Clinic 2025 – Asia-Pacific
           </Badge>
         </div>
+
         <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-[1.15]">
           Personalized Peptide Programs for{" "}
           <span className="bg-gradient-medical bg-clip-text text-transparent">
@@ -64,28 +66,47 @@ const PeptideHero = () => (
         <p className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
           Structured 3, 6, or 12-month medical programs designed by doctors, guided by lab data, and personalized to your health goals.
         </p>
-        <div className="animate-fade-in-up flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-8">
-          {["Doctor-supervised", "Lab-monitored", "Personalized protocols", "Bangkok premium longevity center"].map((item) => (
-            <span key={item} className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-              {item}
-            </span>
-          ))}
+
+        {/* Trust Signals */}
+        <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-8">
+          <div className="flex items-center space-x-2">
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <span className="text-sm font-medium">5.0 Google Reviews</span>
+          </div>
+          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <MapPin className="h-4 w-4" />
+            <span>Ekkamai, Bangkok</span>
+          </div>
+          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <Clock className="h-4 w-4" />
+            <span>Mon-Sat: 11 AM – 7 PM</span>
+          </div>
         </div>
+
+        {/* CTA Buttons */}
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
-          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-hero-consult')} asChild>
+          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-hero-whatsapp')} asChild>
             <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
-              Book a Doctor Consultation
+              Talk with Us on WhatsApp
             </a>
           </Button>
-          <Button size="lg" variant="outline" onClick={() => trackButtonClick('ivclick-peptide-hero-details')} asChild>
-            <a href="https://wa.me/66919991744?text=I%27d%20like%20to%20request%20peptide%20program%20details" target="_blank" rel="noopener noreferrer">
-              <ClipboardCheck className="h-5 w-5 mr-2" />
-              Request Program Details
+          <Button size="lg" variant="outline" onClick={() => trackButtonClick('ivclick-peptide-hero-book')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2" />
+              Book Now
             </a>
           </Button>
         </div>
+
+        {/* Location Info */}
+        <p className="animate-fade-in mt-8 text-sm text-muted-foreground">
+          📍 Bangkok's Premium IV Therapy Destination at EKKAMAI 10
+        </p>
       </div>
     </div>
   </section>
