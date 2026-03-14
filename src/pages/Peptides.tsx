@@ -57,14 +57,16 @@ const PeptideHero = () => (
           </Badge>
         </div>
 
-        <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-[1.15]">
-          Medical Peptide Therapy Programs to{" "}
+        <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 md:mb-3 leading-[1.15]">
+          Peptide Therapy Programs
+        </h1>
+        <h3 className="animate-fade-in-up text-xl sm:text-2xl md:text-3xl font-semibold mb-4 md:mb-6">
           <span className="bg-gradient-medical bg-clip-text text-transparent">
             Restore Energy, Metabolism & Recovery
           </span>
-        </h1>
+        </h3>
         <div className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
-          <p className="mb-3">Doctor-supervised peptide protocols designed to support:</p>
+          <p className="mb-3">Protocols designed by <strong className="text-foreground">Doctor First</strong> to support:</p>
           <ul className="space-y-1.5">
             <li>• fat loss & metabolic health</li>
             <li>• muscle recovery & performance</li>
