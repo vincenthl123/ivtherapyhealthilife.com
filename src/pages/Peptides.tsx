@@ -778,7 +778,7 @@ const Peptides = () => (
     <Header />
     <main className="flex-grow">
       <PeptideHero />
-      <PeptideStats />
+      <PeptideTrustBanner />
       <PeptidePrograms />
       <ClinicPresentation />
       <PeptideMedicalTeam />
