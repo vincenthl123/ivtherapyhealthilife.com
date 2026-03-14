@@ -372,6 +372,7 @@ const PeptidePrograms = () => (
           Starting from 40,000 THB depending on program duration, medical evaluation, and personalization level. Detailed treatment recommendations and pricing are provided after doctor consultation.
         </p>
       </div>
+    </div>
   </section>
 );
 
