@@ -272,7 +272,7 @@ const PeptidePrograms = () => (
                 {/* Program available badge */}
                 <div className="mb-4">
                   <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
-                    🎁 Program Available on Demand
+                    Program Available on Demand
                   </Badge>
                 </div>
                 <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
