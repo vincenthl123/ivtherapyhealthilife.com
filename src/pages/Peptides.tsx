@@ -1086,34 +1086,57 @@ const PeptideContact = () => (
 
         {/* Inquiry Form */}
         <Card className="border-border">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const data = new FormData(form);
+              const fullName = data.get('fullName') || '';
+              const country = data.get('country') || '';
+              const whatsapp = data.get('whatsapp') || '';
+              const email = data.get('email') || '';
+              const goal = data.get('goal') || '';
+              const consultType = data.get('consultType') || 'online';
+              const time = data.get('time') || '';
+              const notes = data.get('notes') || '';
+              
+              const subject = encodeURIComponent(`Peptide Inquiry — ${fullName}`);
+              const body = encodeURIComponent(
+                `Name: ${fullName}\nCountry: ${country}\nWhatsApp: ${whatsapp}\nEmail: ${email}\nGoal: ${goal}\nConsultation: ${consultType}\nPreferred Time: ${time}\nNotes: ${notes}`
+              );
+              
+              trackButtonClick('ivclick-peptide-form-submit');
+              window.location.href = `mailto:contact@healthi-life.com?subject=${subject}&body=${body}`;
+            }}
+          >
           <CardContent className="p-6 space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="fullName">Full Name</Label>
-                <Input id="fullName" placeholder="Your full name" />
+                <Input id="fullName" name="fullName" placeholder="Your full name" required />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="country">Country</Label>
-                <Input id="country" placeholder="Your country" />
+                <Input id="country" name="country" placeholder="Your country" />
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="whatsapp">WhatsApp Number</Label>
-                <Input id="whatsapp" placeholder="+66..." />
+                <Input id="whatsapp" name="whatsapp" placeholder="+66..." />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="you@example.com" />
+                <Input id="email" name="email" type="email" placeholder="you@example.com" required />
               </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="goal">Primary Goal</Label>
-              <Input id="goal" placeholder="e.g. Longevity, Recovery, Weight Optimization..." />
+              <Input id="goal" name="goal" placeholder="e.g. Longevity, Recovery, Weight Optimization..." />
             </div>
             <div className="space-y-2">
               <Label>Preferred Consultation Type</Label>
-              <RadioGroup defaultValue="online" className="flex gap-6">
+              <RadioGroup defaultValue="online" name="consultType" className="flex gap-6">
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="online" id="online" />
                   <Label htmlFor="online" className="font-normal">Online</Label>
@@ -1126,17 +1149,18 @@ const PeptideContact = () => (
             </div>
             <div className="space-y-2">
               <Label htmlFor="time">Preferred Time</Label>
-              <Input id="time" placeholder="e.g. Weekday mornings, Afternoon..." />
+              <Input id="time" name="time" placeholder="e.g. Weekday mornings, Afternoon..." />
             </div>
             <div className="space-y-2">
               <Label htmlFor="notes">Notes</Label>
-              <Textarea id="notes" placeholder="Any additional information..." rows={3} />
+              <Textarea id="notes" name="notes" placeholder="Any additional information..." rows={3} />
             </div>
-            <Button className="w-full" size="lg" onClick={() => trackButtonClick('ivclick-peptide-form-submit')}>
-              <MessageCircle className="h-5 w-5 mr-2" />
+            <Button type="submit" className="w-full" size="lg">
+              <Mail className="h-5 w-5 mr-2" />
               Submit Inquiry
             </Button>
           </CardContent>
+          </form>
         </Card>
       </div>
     </div>
