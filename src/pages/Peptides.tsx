@@ -580,72 +580,74 @@ const PeptideCatalog = () => (
         </Badge>
       </div>
 
-      <Accordion type="multiple" className="space-y-3">
+      <div className="space-y-8">
         {peptideCatalog.map((cat) => (
-          <AccordionItem key={cat.category} value={cat.category} className="border border-border rounded-xl overflow-hidden bg-card">
-            <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0">
-                  <cat.icon className="h-5 w-5 text-primary-foreground" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-foreground text-left">{cat.category}</h3>
-                <Badge variant="secondary" className="ml-2 text-xs">{cat.peptides.length} peptide{cat.peptides.length > 1 ? 's' : ''}</Badge>
+          <div key={cat.category} className="border border-border rounded-xl overflow-hidden bg-card">
+            {/* Category header */}
+            <div className="px-6 py-5 flex items-center gap-3 border-b border-border">
+              <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0">
+                <cat.icon className="h-5 w-5 text-primary-foreground" />
               </div>
-            </AccordionTrigger>
-            <AccordionContent className="px-0 pb-0">
-              {/* Desktop table */}
-              <div className="hidden md:block overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-t border-border bg-secondary/40">
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">Main Benefits</th>
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">Route</th>
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">How Often</th>
+              <h3 className="text-lg md:text-xl font-bold text-foreground">{cat.category}</h3>
+              <Badge variant="secondary" className="ml-2 text-xs">{cat.peptides.length} peptide{cat.peptides.length > 1 ? 's' : ''}</Badge>
+            </div>
+
+            {/* Desktop table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-secondary/40">
+                    <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
+                    <th className="px-6 py-3 text-left font-semibold text-foreground">Main Benefits</th>
+                    <th className="px-6 py-3 text-left font-semibold text-foreground">Route</th>
+                    <th className="px-6 py-3 text-left font-semibold text-foreground">How Often</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cat.peptides.map((p, i) => (
+                    <tr key={p.name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
+                      <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{p.name}</td>
+                      <td className="px-6 py-4 text-muted-foreground">{p.benefits}</td>
+                      <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{p.route}</td>
+                      <td className="px-6 py-4 text-muted-foreground">{p.frequency}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {cat.peptides.map((p, i) => (
-                      <tr key={p.name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
-                        <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{p.name}</td>
-                        <td className="px-6 py-4 text-muted-foreground">{p.benefits}</td>
-                        <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{p.route}</td>
-                        <td className="px-6 py-4 text-muted-foreground">{p.frequency}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {/* Mobile cards */}
-              <div className="md:hidden divide-y divide-border border-t border-border">
-                {cat.peptides.map((p) => (
-                  <div key={p.name} className="p-4 space-y-2">
-                    <h4 className="font-semibold text-foreground">{p.name}</h4>
-                    <p className="text-sm text-muted-foreground">{p.benefits}</p>
-                    <div className="flex flex-wrap gap-2 text-xs">
-                      <Badge variant="secondary">{p.route}</Badge>
-                      <Badge variant="outline">{p.frequency}</Badge>
-                    </div>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile cards */}
+            <div className="md:hidden divide-y divide-border">
+              {cat.peptides.map((p) => (
+                <div key={p.name} className="p-4 space-y-2">
+                  <h4 className="font-semibold text-foreground">{p.name}</h4>
+                  <p className="text-sm text-muted-foreground">{p.benefits}</p>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    <Badge variant="secondary">{p.route}</Badge>
+                    <Badge variant="outline">{p.frequency}</Badge>
                   </div>
-                ))}
-              </div>
-              {/* CTA row */}
-              <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
-                <span className="text-sm text-muted-foreground italic">Program on Demand — Contact us for a personalized protocol</span>
-                <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.category.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4 mr-1" />
-                    Talk to Us
-                  </a>
-                </Button>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA row */}
+            <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
+              <span className="text-sm text-muted-foreground italic">Program on Demand — Contact us for a personalized protocol</span>
+              <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.category.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+                <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-4 w-4 mr-1" />
+                  Talk to Us
+                </a>
+              </Button>
+            </div>
+          </div>
         ))}
-      </Accordion>
+      </div>
     </div>
   </section>
 );
+
+
 
 // ─── CLINIC PRESENTATION ─────────────────────────────────
 const ClinicPresentation = () => (
