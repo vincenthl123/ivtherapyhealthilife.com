@@ -23,6 +23,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { trackButtonClick } from "@/lib/tracking";
+import { useLanguage } from "@/lib/i18n";
 import heroImage from "@/assets/clinic-exterior.webp";
 import clinicTreatmentRoom from "@/assets/premium-iv-lounge.jpg";
 import drFirstPortrait from "@/assets/dr-first-portrait.jpg";
@@ -41,101 +42,101 @@ const SectionLoader = () => (
 );
 
 // ─── HERO ────────────────────────────────────────────────
-const PeptideHero = () => (
-  <section className="relative min-h-screen flex items-center pt-16 md:pt-20">
-    <div className="absolute inset-0 z-0">
-      <img
-        src={heroImage}
-        alt="Healthi-Life Peptide Therapy Clinic Bangkok"
-        className="w-full h-full object-cover"
-        width={1920}
-        height={1080}
-        // @ts-expect-error fetchpriority is valid HTML
-        fetchpriority="high"
-        loading="eager"
-        decoding="sync"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
-    </div>
-    <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-12 md:py-32">
-      <div className="max-w-3xl">
-        {/* Award Badge */}
-        <div className="animate-fade-in mb-6">
-          <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-xs md:text-sm">
-            <Award className="h-4 w-4 mr-2" />
-            Best Regenerative Medicine Clinic 2025 – Asia-Pacific
-          </Badge>
-        </div>
-
-        <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 md:mb-3 leading-[1.15]">
-          Peptide Therapy Programs
-        </h1>
-        <h3 className="animate-fade-in-up text-xl sm:text-2xl md:text-3xl font-semibold mb-4 md:mb-6">
-          <span className="bg-gradient-medical bg-clip-text text-transparent">
-            Restore Energy, Metabolism & Recovery
-          </span>
-        </h3>
-        <div className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
-          <p className="mb-3">Protocols designed by <strong className="text-foreground">Doctor First</strong> to support:</p>
-          <ul className="space-y-1.5">
-            <li>• fat loss & metabolic health</li>
-            <li>• muscle recovery & performance</li>
-            <li>• healthy aging & longevity</li>
-          </ul>
-        </div>
-
-        {/* Trust Signals */}
-        <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-8">
-          <div className="flex items-center space-x-2">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <span className="text-sm font-medium">5.0 Google Reviews</span>
-          </div>
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <MapPin className="h-4 w-4" />
-            <span>Ekkamai, Bangkok</span>
-          </div>
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <Clock className="h-4 w-4" />
-            <span>Mon-Sat: 11 AM – 7 PM</span>
-          </div>
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
-          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-hero-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
-              Talk with Us on WhatsApp
-            </a>
-          </Button>
-          <Button size="lg" variant="outline" onClick={() => trackButtonClick('ivclick-peptide-hero-book')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5 mr-2" />
-              Book Now
-            </a>
-          </Button>
-        </div>
-
-        {/* Location Info */}
-        <p className="animate-fade-in mt-8 text-sm text-muted-foreground">
-          📍 Bangkok's Premium IV Therapy Destination at EKKAMAI 10
-        </p>
+const PeptideHero = () => {
+  const { t } = useLanguage();
+  return (
+    <section className="relative min-h-screen flex items-center pt-16 md:pt-20">
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroImage}
+          alt="Healthi-Life Peptide Therapy Clinic Bangkok"
+          className="w-full h-full object-cover"
+          width={1920}
+          height={1080}
+          // @ts-expect-error fetchpriority is valid HTML
+          fetchpriority="high"
+          loading="eager"
+          decoding="sync"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
       </div>
-    </div>
-  </section>
-);
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-12 md:py-32">
+        <div className="max-w-3xl">
+          <div className="animate-fade-in mb-6">
+            <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-xs md:text-sm">
+              <Award className="h-4 w-4 mr-2" />
+              {t("pep.hero.badge")}
+            </Badge>
+          </div>
+
+          <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 md:mb-3 leading-[1.15]">
+            {t("pep.hero.title")}
+          </h1>
+          <h3 className="animate-fade-in-up text-xl sm:text-2xl md:text-3xl font-semibold mb-4 md:mb-6">
+            <span className="bg-gradient-medical bg-clip-text text-transparent">
+              {t("pep.hero.subtitle")}
+            </span>
+          </h3>
+          <div className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
+            <p className="mb-3">{t("pep.hero.intro")} <strong className="text-foreground">{t("pep.hero.doctorName")}</strong> {t("pep.hero.introEnd")}</p>
+            <ul className="space-y-1.5">
+              <li>• {t("pep.hero.bullet1")}</li>
+              <li>• {t("pep.hero.bullet2")}</li>
+              <li>• {t("pep.hero.bullet3")}</li>
+            </ul>
+          </div>
+
+          <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-8">
+            <div className="flex items-center space-x-2">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <span className="text-sm font-medium">{t("pep.hero.reviews")}</span>
+            </div>
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <MapPin className="h-4 w-4" />
+              <span>{t("pep.hero.location")}</span>
+            </div>
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <Clock className="h-4 w-4" />
+              <span>{t("pep.hero.hours")}</span>
+            </div>
+          </div>
+
+          <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-hero-whatsapp')} asChild>
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+                {t("pep.hero.cta1")}
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" onClick={() => trackButtonClick('ivclick-peptide-hero-book')} asChild>
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 mr-2" />
+                {t("pep.hero.cta2")}
+              </a>
+            </Button>
+          </div>
+
+          <p className="animate-fade-in mt-8 text-sm text-muted-foreground">
+            {t("pep.hero.locationInfo")}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // ─── TRUST BANNER ────────────────────────────────────────
 const PeptideTrustBanner = () => {
+  const { t } = useLanguage();
   const stats = [
     {
       icon: Star,
       value: "5.0",
-      label: "Google Rating",
+      label: t("pep.trust.googleRating"),
       extra: (
         <div className="flex ml-1">
           {[...Array(5)].map((_, i) => (
@@ -144,10 +145,10 @@ const PeptideTrustBanner = () => {
         </div>
       ),
     },
-    { icon: Users, value: "2,000+", label: "Patients Treated" },
-    { icon: Globe, value: "50+", label: "Countries Served" },
-    { icon: Shield, value: "ISO · GMP", label: "Certified Lab" },
-    { icon: Award, value: "Best Clinic", label: "2025 Asia-Pacific" },
+    { icon: Users, value: "2,000+", label: t("pep.trust.patientsTreated") },
+    { icon: Globe, value: "50+", label: t("pep.trust.countriesServed") },
+    { icon: Shield, value: "ISO · GMP", label: t("pep.trust.certifiedLab") },
+    { icon: Award, value: t("pep.trust.bestClinic"), label: t("pep.trust.bestClinicLabel") },
   ];
 
   return (
@@ -174,541 +175,394 @@ const PeptideTrustBanner = () => {
   );
 };
 
-// ─── SERVICES / PROGRAMS ─────────────────────────────────
-const programs = [
-  {
-    icon: Brain,
-    subtitle: "6–12 Months — Healthy Aging — Mitochondrial Support",
-    title: "CELLULAR LONGEVITY PROTOCOL",
-    tagline: "Healthy Aging & Metabolic Resilience",
-    description: "A structured longevity program designed to support biological aging markers, mitochondrial performance, and metabolic resilience through personalized peptide protocols.",
-    tags: ["Healthy aging support", "Mitochondrial performance", "Recovery quality", "Sleep optimization"],
-    clientsReport: [
-      "Better sleep quality and recovery rhythm",
-      "Improved energy stability",
-      "Improved metabolic resilience",
-      "Support for systemic balance",
-    ],
-    includes: ["Doctor consultation", "Baseline lab review", "Personalized peptide plan", "Monitoring and follow-up reviews"],
-    price: "From 40,000 THB",
-    duration: "6–12 months",
-  },
-  {
-    icon: HeartPulse,
-    subtitle: "3–6 Months — Recovery — Tissue Resilience",
-    title: "RECOVERY & REGENERATION PROTOCOL",
-    tagline: "Recovery Support & Movement Restoration",
-    description: "A doctor-guided recovery program focused on tissue resilience, inflammation management, and structured return-to-performance capacity.",
-    tags: ["Recovery support", "Inflammation management", "Tissue resilience", "Movement restoration"],
-    clientsReport: [
-      "Faster recovery support",
-      "Improved mobility and resilience",
-      "Reduced inflammatory burden",
-      "Better return-to-performance capacity",
-    ],
-    includes: ["Medical assessment", "Functional and symptom review", "Personalized recovery protocol", "Progress tracking and review"],
-    price: "From 40,000 THB",
-    duration: "3–6 months",
-  },
-  {
-    icon: Flame,
-    subtitle: "6–12 Months — Fat Loss — Metabolic Flexibility",
-    title: "METABOLIC RESET & WEIGHT OPTIMIZATION",
-    tagline: "Sustainable Fat Loss & Metabolic Health",
-    description: "A medically supervised body composition strategy targeting sustainable fat reduction, appetite regulation, and improved metabolic flexibility.",
-    tags: ["Fat reduction support", "Appetite regulation", "Insulin sensitivity", "Body composition"],
-    clientsReport: [
-      "Visible body composition change",
-      "Improved appetite control",
-      "Better insulin sensitivity markers",
-      "More stable energy and metabolic function",
-    ],
-    includes: ["Physician assessment", "Metabolic lab review", "Body composition tracking", "Personalized plan with medical follow-up"],
-    price: "From 40,000 THB",
-    duration: "6–12 months",
-  },
-  {
-    icon: Dumbbell,
-    subtitle: "6–12 Months — Lean Mass — Performance Capacity",
-    title: "LEAN MUSCLE & PERFORMANCE OPTIMIZATION",
-    tagline: "Performance Support & Body Recomposition",
-    description: "A performance-oriented peptide program designed to support lean muscle, training recovery, and optimized body composition under medical supervision.",
-    tags: ["Lean muscle support", "Training recovery", "Injury risk reduction", "Performance capacity"],
-    clientsReport: [
-      "Lean muscle support",
-      "Better training recovery",
-      "Reduced injury risk",
-      "Improved sleep and recovery rhythm",
-    ],
-    includes: ["Medical consultation", "Biomarker review", "Personalized performance framework", "Ongoing monitoring and review"],
-    price: "From 40,000 THB",
-    duration: "6–12 months",
-  },
-];
-
-const PeptidePrograms = () => (
-  <section id="services" className="py-16 md:py-24 bg-background">
-    <div className="container px-4 sm:px-6 lg:px-8">
-      {/* Individual Peptide Cards */}
-      <div className="mb-16 md:mb-20">
-         <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">Medical Peptides Used in Our Programs</h3>
-         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">Each peptide is selected by our physicians based on your metabolic profile, health goals, and clinical evaluation.</p>
-
-        {/* Section 1: Metabolic & Weight Loss */}
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-          <Flame className="h-6 w-6 text-primary" />
-          Metabolic & Weight Loss Peptides
-        </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {[
-            { icon: Flame, name: "GLP-1", useCase: "Weight Loss", benefit: "Appetite control, fat loss", bullets: ["Appetite suppression", "Sustainable fat loss", "Metabolic regulation"], cta: "Talk with Doctor" },
-            { icon: Flame, name: "Retatrutide", useCase: "Triple Agonist", benefit: "Next-generation metabolic therapy targeting GLP-1, GIP, and glucagon pathways for advanced weight loss support.", bullets: ["Significant fat loss support", "Appetite regulation", "Metabolic improvement"], cta: "Book Your Medical Review" },
-            { icon: Flame, name: "Tesofensine", useCase: "Weight Management", benefit: "Helps regulate appetite and satiety while supporting effective fat loss and metabolic regulation.", bullets: ["Appetite suppression", "Fat loss support", "Metabolic optimization"], cta: "Talk with Doctor" },
-            { icon: Zap, name: "MOTS-c", useCase: "Metabolic Optimization", benefit: "Boosts metabolism, mimics the effects of exercise, and supports energy production at the cellular level.", bullets: ["Metabolic optimization", "Weight loss support", "Energy & endurance"], cta: "Talk with Doctor" },
-            { icon: Flame, name: "Tesamorelin", useCase: "Metabolic Health", benefit: "Supports reduction of visceral fat while improving metabolic health and body composition.", bullets: ["Visceral fat reduction", "Metabolic health support", "Body composition improvement"], cta: "Book Your Medical Review" },
-            { icon: Zap, name: "SLU-PP-332", useCase: "Longevity", benefit: "Enhances mitochondrial efficiency and supports cellular resilience for healthy aging and metabolic balance.", bullets: ["Mitochondrial efficiency", "Anti-aging support", "Cellular energy"], cta: "Talk with Doctor" },
-          ].map((peptide) => (
-            <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
-              <CardContent className="p-6 flex flex-col flex-grow">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
-                    <peptide.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <span className="text-sm font-semibold text-primary">{peptide.useCase}</span>
-                </div>
-                <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
-                <p className="text-sm text-muted-foreground mb-4">{peptide.benefit}</p>
-                <ul className="space-y-2 mb-4 flex-grow">
-                  {peptide.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary">•</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mb-4">
-                  <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
-                    Program Available on Demand
-                  </Badge>
-                </div>
-                <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4 mr-2" />
-                    {peptide.cta}
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+// ─── PEPTIDE CARD RENDERER ───────────────────────────────
+const PeptideCard = ({ peptide, t }: { peptide: { icon: any; name: string; useCaseKey: string; benefitKey: string; bulletKeys: string[]; ctaKey: string }; t: (k: string) => string }) => (
+  <Card className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
+    <CardContent className="p-6 flex flex-col flex-grow">
+      <div className="flex items-start justify-between mb-4">
+        <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
+          <peptide.icon className="h-6 w-6 text-primary-foreground" />
         </div>
-
-        {/* Dr First Quote */}
-        <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-12 flex flex-col md:flex-row items-center gap-6 md:gap-8">
-          <img
-            src={drFirstPortrait}
-            alt="Dr First - Napat Hunsajarupan, Healthi-Life"
-            className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
-            loading="lazy"
-          />
-          <div>
-            <blockquote className="text-lg md:text-xl font-semibold text-foreground italic mb-3">
-              "Our goal is not simply treatment — it is measurable transformation."
-            </blockquote>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-              Dr First believes that medicine should not only treat disease, but help patients restore energy, improve resilience, and unlock their full health potential through personalized, science-based programs.
-            </p>
-            <p className="text-sm font-bold text-primary">Dr First — Peptide Program Director</p>
-          </div>
-        </div>
-
-        {/* Section 2: Recovery & Performance */}
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-          <HeartPulse className="h-6 w-6 text-primary" />
-          Recovery & Performance
-        </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {[
-            { icon: HeartPulse, name: "BPC-157", useCase: "Recovery", benefit: "Supports healing of tendons, ligaments, and muscles while reducing inflammation and promoting tissue repair.", bullets: ["Tissue repair", "Reduced inflammation", "Recovery support"], cta: "Talk to Us" },
-            { icon: HeartPulse, name: "BPC-157 (Oral)", useCase: "Gut Support", benefit: "Supports gut lining repair and digestive health while reducing gastrointestinal inflammation.", bullets: ["Gut lining repair", "Reduced GI inflammation", "Improved nutrient absorption"], cta: "Talk to Us" },
-            { icon: Dumbbell, name: "CJC-1295", useCase: "Growth Hormone", benefit: "Stimulates natural growth hormone release to support recovery, fat metabolism, and lean muscle development.", bullets: ["Fat loss support", "Muscle recovery", "Better sleep quality"], cta: "Book Your Medical Review" },
-            { icon: Dumbbell, name: "Ipamorelin", useCase: "GH Secretagogue", benefit: "Selective growth hormone stimulation that enhances recovery, sleep, and fat metabolism with minimal hormonal disruption.", bullets: ["Recovery optimization", "Fat metabolism support", "Deep sleep improvement"], cta: "Book Your Medical Review" },
-            { icon: Sparkles, name: "GHK-Cu", useCase: "Regeneration", benefit: "Promotes skin regeneration, hair growth, and wound healing while supporting anti-inflammatory processes.", bullets: ["Skin rejuvenation", "Hair growth support", "Tissue repair"], cta: "Talk with Doctor" },
-          ].map((peptide) => (
-            <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
-              <CardContent className="p-6 flex flex-col flex-grow">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
-                    <peptide.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <span className="text-sm font-semibold text-primary">{peptide.useCase}</span>
-                </div>
-                <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
-                <p className="text-sm text-muted-foreground mb-4">{peptide.benefit}</p>
-                <ul className="space-y-2 mb-4 flex-grow">
-                  {peptide.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary">•</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mb-4">
-                  <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
-                    Program Available on Demand
-                  </Badge>
-                </div>
-                <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4 mr-2" />
-                    {peptide.cta}
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Section 3: Longevity & Brain Optimization */}
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-          <Brain className="h-6 w-6 text-primary" />
-          Longevity & Brain Optimization
-        </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { icon: Zap, name: "Epithalon", useCase: "Anti-Aging", benefit: "Supports healthy aging through telomere protection while improving sleep quality and immune function.", bullets: ["Telomere protection", "Improved sleep quality", "Longevity support"], cta: "Book Your Medical Review" },
-            { icon: Shield, name: "SS-31", useCase: "Mitochondrial", benefit: "Protects mitochondria, reduces oxidative stress, and supports muscle performance and cellular energy.", bullets: ["Mitochondrial protection", "Muscle strength & endurance", "Anti-aging support"], cta: "Talk with Doctor" },
-            { icon: Brain, name: "Selank", useCase: "Cognitive", benefit: "Helps reduce anxiety and stress while improving mental clarity and emotional balance.", bullets: ["Anxiety reduction", "Improved focus", "Stress resilience"], cta: "Talk to Us" },
-            { icon: Brain, name: "Semax", useCase: "Nootropic", benefit: "Enhances cognitive performance and neuroprotection while supporting memory and focus.", bullets: ["Memory support", "Mental clarity", "Neuroprotection"], cta: "Talk to Us" },
-            { icon: Heart, name: "PT-141", useCase: "Libido", benefit: "Supports sexual health by enhancing libido and improving sexual response.", bullets: ["Libido enhancement", "Sexual performance support", "Hormonal balance"], cta: "Talk with Doctor" },
-            { icon: Heart, name: "PT-141 Nasal Spray", useCase: "Nasal Therapy", benefit: "Convenient nasal peptide therapy designed to support libido and sexual function.", bullets: ["Libido support", "Fast-acting delivery", "Sexual performance enhancement"], cta: "Talk with Doctor" },
-            { icon: HeartPulse, name: "Kisspeptin", useCase: "Hormonal", benefit: "Stimulates natural hormone signaling to support testosterone balance, fertility, and libido.", bullets: ["Hormone balance", "Fertility support", "Libido optimization"], cta: "Talk with Doctor" },
-          ].map((peptide) => (
-            <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
-              <CardContent className="p-6 flex flex-col flex-grow">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
-                    <peptide.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <span className="text-sm font-semibold text-primary">{peptide.useCase}</span>
-                </div>
-                <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
-                <p className="text-sm text-muted-foreground mb-4">{peptide.benefit}</p>
-                <ul className="space-y-2 mb-4 flex-grow">
-                  {peptide.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary">•</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mb-4">
-                  <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
-                    Program Available on Demand
-                  </Badge>
-                </div>
-                <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4 mr-2" />
-                    {peptide.cta}
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <span className="text-sm font-semibold text-primary">{t(peptide.useCaseKey)}</span>
       </div>
-
-      {/* Programs Section */}
-      <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          Peptide Therapy Programs
-        </h2>
-        <p className="text-lg text-muted-foreground">
-          Restore energy, support metabolism, and improve recovery with doctor-supervised peptide protocols designed by Dr First.
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-        {programs.map((p) => (
-          <Card key={p.title} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden">
-            {/* Top subtitle banner */}
-            <div className="bg-secondary/70 px-6 py-3 flex items-center gap-2">
-              <p.icon className="h-4 w-4 text-primary" />
-              <span className="text-sm text-muted-foreground">{p.subtitle}</span>
-            </div>
-
-            <CardContent className="flex-grow p-6 space-y-5">
-              {/* Title & tagline */}
-              <div>
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{p.title}</h3>
-                <p className="text-sm font-medium bg-gradient-medical bg-clip-text text-transparent">{p.tagline}</p>
-              </div>
-
-              {/* Description */}
-              <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
-                {p.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="text-xs font-normal">
-                    <Sparkles className="h-3 w-3 mr-1 text-primary" />
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-
-              {/* What Most Clients Report */}
-              <div className="bg-secondary/50 rounded-lg p-4 border border-border">
-                <div className="flex items-center gap-2 mb-3">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-bold text-foreground">What Most Clients Report</span>
-                </div>
-                <ul className="space-y-1.5">
-                  {p.clientsReport.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary mt-1">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Includes */}
-              <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2">Program Includes</h4>
-                <ul className="space-y-1.5">
-                  {p.includes.map((inc) => (
-                    <li key={inc} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <ShieldCheck className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      {inc}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Price */}
-              <div className="pt-2">
-                <p className="text-2xl font-bold text-foreground">{p.price}</p>
-                <p className="text-xs text-muted-foreground">{p.duration} · Pricing confirmed after doctor consultation</p>
-              </div>
-
-              {/* CTA */}
-              <Button className="w-full group" size="lg" onClick={() => trackButtonClick(`ivclick-peptide-${p.title.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-                <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5 mr-2" />
-                  Book Your Medical Review
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
+      <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
+      <p className="text-sm text-muted-foreground mb-4">{t(peptide.benefitKey)}</p>
+      <ul className="space-y-2 mb-4 flex-grow">
+        {peptide.bulletKeys.map((bk) => (
+          <li key={bk} className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="text-primary">•</span>
+            {t(bk)}
+          </li>
         ))}
-      </div>
-
-      <div className="mt-10 text-center">
-        <p className="text-sm text-muted-foreground italic">
-          Starting from 40,000 THB depending on program duration, medical evaluation, and personalization level. Detailed treatment recommendations and pricing are provided after doctor consultation.
-        </p>
-      </div>
-    </div>
-  </section>
-);
-
-// ─── PEPTIDE CATALOG ─────────────────────────────────────
-const peptideCatalog = [
-  {
-    category: "Anti-Aging",
-    icon: Sparkles,
-    peptides: [
-      { name: "Epithalon", benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
-      { name: "NMN", benefits: "Boosts NAD⁺, enhances energy, metabolism, and longevity", route: "Oral capsule", frequency: "1 tab daily (500 mg)" },
-      { name: "MOTS-c", benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly (10 mg) for 3–4 months, pause for 2 months" },
-      { name: "SS-31 (Elamipretide)", benefits: "Protects mitochondria, reduces oxidative stress, improves muscle strength & endurance", route: "Subcutaneous injection", frequency: "Once daily (5–10 mg) for 3–4 months, pause for 2 months" },
-    ],
-  },
-  {
-    category: "Growth Hormones",
-    icon: Dumbbell,
-    peptides: [
-      { name: "CJC-1295", benefits: "Stimulates natural growth hormone release, improves fat loss, recovery, sleep quality, and lean muscle support", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
-      { name: "Ipamorelin", benefits: "Selective GH secretagogue, enhances recovery, improves sleep, supports fat loss with minimal cortisol impact", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
-      { name: "Tesamorelin", benefits: "Reduces visceral fat, improves body composition, supports metabolic health and GH axis", route: "Subcutaneous injection", frequency: "5 days/week (1 mg), fasting 2–3 hours prior" },
-    ],
-  },
-  {
-    category: "Weight Loss / Sport Performance & Men Health",
-    icon: Flame,
-    peptides: [
-      { name: "MOTS-c", benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly for 3–4 months, pause for 2 months" },
-      { name: "SLU-PP-332", benefits: "Enhances mitochondrial efficiency, reduces oxidative stress, supports anti-aging and neuroprotection", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
-      { name: "Tesofensine", benefits: "Potent appetite suppression, improves satiety control, supports significant fat loss and metabolic regulation", route: "Oral capsule", frequency: "1–2 tab daily (500 mcg)" },
-      { name: "Retatrutide", benefits: "Triple agonist (GLP-1/GIP/Glucagon), supports significant fat loss, appetite regulation, insulin sensitivity, and metabolic optimization", route: "Subcutaneous injection", frequency: "Start 0.5 mg once weekly, titrate monthly based on response" },
-    ],
-  },
-  {
-    category: "Healing, Gut Health & Skin Repair",
-    icon: HeartPulse,
-    peptides: [
-      { name: "BPC-157", benefits: "Accelerates tendon/ligament/muscle healing, gut repair, reduces inflammation, pain", route: "Subcutaneous injection", frequency: "Once daily (1 mg) for 3–4 months, pause for 2 months" },
-      { name: "Thymosin Beta-4 (TB-500)", benefits: "Enhances tissue regeneration, improves muscle, tendon and ligament recovery", route: "Subcutaneous injection", frequency: "Once daily (0.5 mg) for 2–3 months, pause for 2 months" },
-      { name: "BPC-157 (Oral)", benefits: "Supports gut lining repair, reduces GI inflammation, and improves nutrient absorption", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
-      { name: "GHK-Cu", benefits: "Skin rejuvenation, hair growth stimulation, wound healing, anti-inflammatory", route: "Subcutaneous injection", frequency: "Once daily (2 mg) for 3–4 months, pause for 2 months" },
-    ],
-  },
-  {
-    category: "Sleep Disorder",
-    icon: Moon,
-    peptides: [
-      { name: "Epithalon", benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
-      { name: "DSIP", benefits: "Improves sleep quality, reduces nighttime stress, provides stress-protective effects on brain and body", route: "Subcutaneous injection", frequency: "2–12 hours before bedtime (250–500 mcg)" },
-    ],
-  },
-  {
-    category: "Focus / Neuro Function",
-    icon: Brain,
-    peptides: [
-      { name: "Selank", benefits: "Anti-anxiety, mood stabilizer, enhances focus & reduces stress without sedation", route: "Intranasal spray", frequency: "1 spray in each nostril 1–2 times daily (Night time)" },
-      { name: "Semax", benefits: "Cognitive enhancer, neuroprotection, boosts memory, focus & recovery after stress or stroke", route: "Intranasal spray", frequency: "1 spray in each nostril 1–2 times daily (Day time)" },
-    ],
-  },
-  {
-    category: "Libido",
-    icon: Heart,
-    peptides: [
-      { name: "PT-141", benefits: "Enhances libido and sexual function", route: "Subcutaneous injection", frequency: "As needed, up to 3 times/week, 1–2 hours prior to desired effect (1–2 mg)" },
-      { name: "PT-141 Nasal Spray", benefits: "Enhances libido and sexual function", route: "Intranasal spray", frequency: "1 spray in each nostril once daily" },
-      { name: "Oxytocin", benefits: "Enhances bonding, intimacy, social connection, reduces stress, supports sexual health", route: "Intranasal spray", frequency: "1 spray in each nostril once daily" },
-    ],
-  },
-  {
-    category: "Boost Fertility",
-    icon: HeartPulse,
-    peptides: [
-      { name: "Kisspeptin", benefits: "Stimulates natural release of LH & FSH, boosts testosterone/estrogen balance, supports fertility & libido", route: "Subcutaneous injection", frequency: "Once daily (100–200 mcg) for 3–4 months" },
-    ],
-  },
-];
-
-const PeptideCatalog = () => (
-  <section className="py-16 md:py-24 bg-secondary/30">
-    <div className="container px-4 sm:px-6 lg:px-8">
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          Peptide Therapy
-        </h2>
-        <p className="text-lg text-muted-foreground mb-4">
-          Discover our full range of peptides organized by therapeutic category
-        </p>
-        <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-sm font-medium">
-          Program on Demand
+      </ul>
+      <div className="mb-4">
+        <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
+          {t("pep.programs.programAvailable")}
         </Badge>
       </div>
+      <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+        <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+          <MessageCircle className="h-4 w-4 mr-2" />
+          {t(peptide.ctaKey)}
+        </a>
+      </Button>
+    </CardContent>
+  </Card>
+);
 
-      <div className="space-y-8">
-        {peptideCatalog.map((cat) => (
-          <div key={cat.category} className="border border-border rounded-xl overflow-hidden bg-card">
-            {/* Category header */}
-            <div className="px-6 py-5 flex items-center gap-3 border-b border-border">
-              <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0">
-                <cat.icon className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <h3 className="text-lg md:text-xl font-bold text-foreground">{cat.category}</h3>
-              <Badge variant="secondary" className="ml-2 text-xs">{cat.peptides.length} peptide{cat.peptides.length > 1 ? 's' : ''}</Badge>
-            </div>
+// ─── PEPTIDE DATA ────────────────────────────────────────
+const metabolicPeptides = [
+  { icon: Flame, name: "GLP-1", useCaseKey: "pep.glp1.useCase", benefitKey: "pep.glp1.benefit", bulletKeys: ["pep.glp1.b1", "pep.glp1.b2", "pep.glp1.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Flame, name: "Retatrutide", useCaseKey: "pep.retatrutide.useCase", benefitKey: "pep.retatrutide.benefit", bulletKeys: ["pep.retatrutide.b1", "pep.retatrutide.b2", "pep.retatrutide.b3"], ctaKey: "pep.programs.bookReview" },
+  { icon: Flame, name: "Tesofensine", useCaseKey: "pep.tesofensine.useCase", benefitKey: "pep.tesofensine.benefit", bulletKeys: ["pep.tesofensine.b1", "pep.tesofensine.b2", "pep.tesofensine.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Zap, name: "MOTS-c", useCaseKey: "pep.motsc.useCase", benefitKey: "pep.motsc.benefit", bulletKeys: ["pep.motsc.b1", "pep.motsc.b2", "pep.motsc.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Flame, name: "Tesamorelin", useCaseKey: "pep.tesamorelin.useCase", benefitKey: "pep.tesamorelin.benefit", bulletKeys: ["pep.tesamorelin.b1", "pep.tesamorelin.b2", "pep.tesamorelin.b3"], ctaKey: "pep.programs.bookReview" },
+  { icon: Zap, name: "SLU-PP-332", useCaseKey: "pep.slupp.useCase", benefitKey: "pep.slupp.benefit", bulletKeys: ["pep.slupp.b1", "pep.slupp.b2", "pep.slupp.b3"], ctaKey: "pep.programs.talkDoctor" },
+];
 
-            {/* Desktop table */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-secondary/40">
-                    <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
-                    <th className="px-6 py-3 text-left font-semibold text-foreground">Main Benefits</th>
-                    <th className="px-6 py-3 text-left font-semibold text-foreground">Route</th>
-                    <th className="px-6 py-3 text-left font-semibold text-foreground">How Often</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cat.peptides.map((p, i) => (
-                    <tr key={p.name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
-                      <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{p.name}</td>
-                      <td className="px-6 py-4 text-muted-foreground">{p.benefits}</td>
-                      <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{p.route}</td>
-                      <td className="px-6 py-4 text-muted-foreground">{p.frequency}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+const recoveryPeptides = [
+  { icon: HeartPulse, name: "BPC-157", useCaseKey: "pep.bpc157.useCase", benefitKey: "pep.bpc157.benefit", bulletKeys: ["pep.bpc157.b1", "pep.bpc157.b2", "pep.bpc157.b3"], ctaKey: "pep.programs.talkToUs" },
+  { icon: HeartPulse, name: "BPC-157 (Oral)", useCaseKey: "pep.bpc157oral.useCase", benefitKey: "pep.bpc157oral.benefit", bulletKeys: ["pep.bpc157oral.b1", "pep.bpc157oral.b2", "pep.bpc157oral.b3"], ctaKey: "pep.programs.talkToUs" },
+  { icon: Dumbbell, name: "CJC-1295", useCaseKey: "pep.cjc1295.useCase", benefitKey: "pep.cjc1295.benefit", bulletKeys: ["pep.cjc1295.b1", "pep.cjc1295.b2", "pep.cjc1295.b3"], ctaKey: "pep.programs.bookReview" },
+  { icon: HeartPulse, name: "TB-500", useCaseKey: "pep.tb500.useCase", benefitKey: "pep.tb500.benefit", bulletKeys: ["pep.tb500.b1", "pep.tb500.b2", "pep.tb500.b3"], ctaKey: "pep.programs.talkToUs" },
+  { icon: Dumbbell, name: "Ipamorelin", useCaseKey: "pep.ipamorelin.useCase", benefitKey: "pep.ipamorelin.benefit", bulletKeys: ["pep.ipamorelin.b1", "pep.ipamorelin.b2", "pep.ipamorelin.b3"], ctaKey: "pep.programs.bookReview" },
+  { icon: Sparkles, name: "GHK-Cu", useCaseKey: "pep.ghkcu.useCase", benefitKey: "pep.ghkcu.benefit", bulletKeys: ["pep.ghkcu.b1", "pep.ghkcu.b2", "pep.ghkcu.b3"], ctaKey: "pep.programs.talkDoctor" },
+];
 
-            {/* Mobile cards */}
-            <div className="md:hidden divide-y divide-border">
-              {cat.peptides.map((p) => (
-                <div key={p.name} className="p-4 space-y-2">
-                  <h4 className="font-semibold text-foreground">{p.name}</h4>
-                  <p className="text-sm text-muted-foreground">{p.benefits}</p>
-                  <div className="flex flex-wrap gap-2 text-xs">
-                    <Badge variant="secondary">{p.route}</Badge>
-                    <Badge variant="outline">{p.frequency}</Badge>
-                  </div>
-                </div>
-              ))}
-            </div>
+const longevityPeptides = [
+  { icon: Zap, name: "Epithalon", useCaseKey: "pep.epithalon.useCase", benefitKey: "pep.epithalon.benefit", bulletKeys: ["pep.epithalon.b1", "pep.epithalon.b2", "pep.epithalon.b3"], ctaKey: "pep.programs.bookReview" },
+  { icon: Shield, name: "SS-31", useCaseKey: "pep.ss31.useCase", benefitKey: "pep.ss31.benefit", bulletKeys: ["pep.ss31.b1", "pep.ss31.b2", "pep.ss31.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Brain, name: "Selank", useCaseKey: "pep.selank.useCase", benefitKey: "pep.selank.benefit", bulletKeys: ["pep.selank.b1", "pep.selank.b2", "pep.selank.b3"], ctaKey: "pep.programs.talkToUs" },
+  { icon: Brain, name: "Semax", useCaseKey: "pep.semax.useCase", benefitKey: "pep.semax.benefit", bulletKeys: ["pep.semax.b1", "pep.semax.b2", "pep.semax.b3"], ctaKey: "pep.programs.talkToUs" },
+  { icon: Heart, name: "PT-141", useCaseKey: "pep.pt141.useCase", benefitKey: "pep.pt141.benefit", bulletKeys: ["pep.pt141.b1", "pep.pt141.b2", "pep.pt141.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Heart, name: "PT-141 Nasal Spray", useCaseKey: "pep.pt141nasal.useCase", benefitKey: "pep.pt141nasal.benefit", bulletKeys: ["pep.pt141nasal.b1", "pep.pt141nasal.b2", "pep.pt141nasal.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: HeartPulse, name: "Kisspeptin", useCaseKey: "pep.kisspeptin.useCase", benefitKey: "pep.kisspeptin.benefit", bulletKeys: ["pep.kisspeptin.b1", "pep.kisspeptin.b2", "pep.kisspeptin.b3"], ctaKey: "pep.programs.talkDoctor" },
+];
 
-            {/* CTA row */}
-            <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
-              <span className="text-sm text-muted-foreground italic">Program on Demand — Contact us for a personalized protocol</span>
-              <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.category.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-                <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4 mr-1" />
-                  Talk to Us
-                </a>
-              </Button>
+// ─── SERVICES / PROGRAMS ─────────────────────────────────
+const programKeys = [
+  { icon: Brain, progNum: 1, priceKey: "From 40,000 THB" },
+  { icon: HeartPulse, progNum: 2, priceKey: "From 40,000 THB" },
+  { icon: Flame, progNum: 3, priceKey: "From 40,000 THB" },
+  { icon: Dumbbell, progNum: 4, priceKey: "From 40,000 THB" },
+];
+
+const PeptidePrograms = () => {
+  const { t } = useLanguage();
+
+  return (
+    <section id="services" className="py-16 md:py-24 bg-background">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        {/* Individual Peptide Cards */}
+        <div className="mb-16 md:mb-20">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">{t("pep.programs.peptidesUsed")}</h3>
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">{t("pep.programs.peptidesUsedDesc")}</p>
+
+          {/* Section 1: Metabolic */}
+          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+            <Flame className="h-6 w-6 text-primary" />
+            {t("pep.cat.metabolic")}
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {metabolicPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
+          </div>
+
+          {/* Dr First Quote */}
+          <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-12 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+            <img
+              src={drFirstPortrait}
+              alt="Dr First - Napat Hunsajarupan, Healthi-Life"
+              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <blockquote className="text-lg md:text-xl font-semibold text-foreground italic mb-3">
+                {t("pep.drfirst.quote")}
+              </blockquote>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                {t("pep.drfirst.desc")}
+              </p>
+              <p className="text-sm font-bold text-primary">{t("pep.drfirst.title")}</p>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
+          {/* Section 2: Recovery */}
+          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+            <HeartPulse className="h-6 w-6 text-primary" />
+            {t("pep.cat.recovery")}
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {recoveryPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
+          </div>
 
-// ─── CTA SECTION ─────────────────────────────────────────
-const PeptideCTA = () => (
-  <section className="py-12 md:py-16 bg-secondary/20">
-    <div className="container px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto text-center bg-card rounded-2xl border border-border p-8 md:p-12 shadow-sm">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-          Not Sure Which Peptide Program is Right for You?
-        </h2>
-        <p className="text-muted-foreground mb-8">
-          Our medical team will help you choose the right peptide protocol based on your goals, health profile, and biomarkers.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-book')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5 mr-2" />
-              Book Your Medical Review
-            </a>
-          </Button>
-          <Button size="lg" variant="outline" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-concierge')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5 mr-2" />
-              Speak With Our Medical Concierge
-            </a>
-          </Button>
+          {/* Section 3: Longevity */}
+          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+            <Brain className="h-6 w-6 text-primary" />
+            {t("pep.cat.longevity")}
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {longevityPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
+          </div>
+        </div>
+
+        {/* Programs Section */}
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            {t("pep.prog.title")}
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            {t("pep.prog.subtitle")}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {programKeys.map((pk) => {
+            const n = pk.progNum;
+            const PIcon = pk.icon;
+            return (
+              <Card key={n} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden">
+                <div className="bg-secondary/70 px-6 py-3 flex items-center gap-2">
+                  <PIcon className="h-4 w-4 text-primary" />
+                  <span className="text-sm text-muted-foreground">{t(`pep.prog${n}.subtitle`)}</span>
+                </div>
+                <CardContent className="flex-grow p-6 space-y-5">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{t(`pep.prog${n}.title`)}</h3>
+                    <p className="text-sm font-medium bg-gradient-medical bg-clip-text text-transparent">{t(`pep.prog${n}.tagline`)}</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t(`pep.prog${n}.desc`)}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <Badge key={i} variant="secondary" className="text-xs font-normal">
+                        <Sparkles className="h-3 w-3 mr-1 text-primary" />
+                        {t(`pep.prog${n}.tag${i}`)}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-4 border border-border">
+                    <div className="flex items-center gap-2 mb-3">
+                      <CheckCircle2 className="h-4 w-4 text-primary" />
+                      <span className="text-sm font-bold text-foreground">{t("pep.prog.clientsReport")}</span>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {[1, 2, 3, 4].map((i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <span className="text-primary mt-1">•</span>
+                          {t(`pep.prog${n}.report${i}`)}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground mb-2">{t("pep.prog.includes")}</h4>
+                    <ul className="space-y-1.5">
+                      {[1, 2, 3, 4].map((i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <ShieldCheck className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                          {t(`pep.prog${n}.inc${i}`)}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="pt-2">
+                    <p className="text-2xl font-bold text-foreground">{pk.priceKey}</p>
+                    <p className="text-xs text-muted-foreground">{t(`pep.prog${n}.subtitle`).split(' — ')[0]} · {t("pep.prog.pricingNote")}</p>
+                  </div>
+                  <Button className="w-full group" size="lg" onClick={() => trackButtonClick(`ivclick-peptide-prog${n}`)} asChild>
+                    <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-5 w-5 mr-2" />
+                      {t("pep.prog.bookReview")}
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-sm text-muted-foreground italic">
+            {t("pep.prog.startingNote")}
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
+// ─── PEPTIDE CATALOG ─────────────────────────────────────
+const catalogCategoryKeys = [
+  { key: "antiAging", icon: Sparkles, peptides: ["Epithalon", "NMN", "MOTS-c", "SS-31 (Elamipretide)"] },
+  { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin", "Tesamorelin"] },
+  { key: "weightLoss", icon: Flame, peptides: ["MOTS-c", "SLU-PP-332", "Tesofensine", "Retatrutide"] },
+  { key: "healing", icon: HeartPulse, peptides: ["BPC-157", "Thymosin Beta-4 (TB-500)", "BPC-157 (Oral)", "GHK-Cu"] },
+  { key: "sleep", icon: Moon, peptides: ["Epithalon", "DSIP"] },
+  { key: "neuro", icon: Brain, peptides: ["Selank", "Semax"] },
+  { key: "libido", icon: Heart, peptides: ["PT-141", "PT-141 Nasal Spray", "Oxytocin"] },
+  { key: "fertility", icon: HeartPulse, peptides: ["Kisspeptin"] },
+];
 
+// Catalog benefits/route/frequency stay in English (medical terms)
+const peptideCatalogData: Record<string, { benefits: string; route: string; frequency: string }> = {
+  "Epithalon": { benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
+  "NMN": { benefits: "Boosts NAD⁺, enhances energy, metabolism, and longevity", route: "Oral capsule", frequency: "1 tab daily (500 mg)" },
+  "MOTS-c": { benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly (10 mg) for 3–4 months, pause for 2 months" },
+  "SS-31 (Elamipretide)": { benefits: "Protects mitochondria, reduces oxidative stress, improves muscle strength & endurance", route: "Subcutaneous injection", frequency: "Once daily (5–10 mg) for 3–4 months, pause for 2 months" },
+  "CJC-1295": { benefits: "Stimulates natural growth hormone release, improves fat loss, recovery, sleep quality, and lean muscle support", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
+  "Ipamorelin": { benefits: "Selective GH secretagogue, enhances recovery, improves sleep, supports fat loss with minimal cortisol impact", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
+  "Tesamorelin": { benefits: "Reduces visceral fat, improves body composition, supports metabolic health and GH axis", route: "Subcutaneous injection", frequency: "5 days/week (1 mg), fasting 2–3 hours prior" },
+  "SLU-PP-332": { benefits: "Enhances mitochondrial efficiency, reduces oxidative stress, supports anti-aging and neuroprotection", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
+  "Tesofensine": { benefits: "Potent appetite suppression, improves satiety control, supports significant fat loss and metabolic regulation", route: "Oral capsule", frequency: "1–2 tab daily (500 mcg)" },
+  "Retatrutide": { benefits: "Triple agonist (GLP-1/GIP/Glucagon), supports significant fat loss, appetite regulation, insulin sensitivity, and metabolic optimization", route: "Subcutaneous injection", frequency: "Start 0.5 mg once weekly, titrate monthly based on response" },
+  "BPC-157": { benefits: "Accelerates tendon/ligament/muscle healing, gut repair, reduces inflammation, pain", route: "Subcutaneous injection", frequency: "Once daily (1 mg) for 3–4 months, pause for 2 months" },
+  "Thymosin Beta-4 (TB-500)": { benefits: "Enhances tissue regeneration, improves muscle, tendon and ligament recovery", route: "Subcutaneous injection", frequency: "Once daily (0.5 mg) for 2–3 months, pause for 2 months" },
+  "BPC-157 (Oral)": { benefits: "Supports gut lining repair, reduces GI inflammation, and improves nutrient absorption", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
+  "GHK-Cu": { benefits: "Skin rejuvenation, hair growth stimulation, wound healing, anti-inflammatory", route: "Subcutaneous injection", frequency: "Once daily (2 mg) for 3–4 months, pause for 2 months" },
+  "DSIP": { benefits: "Improves sleep quality, reduces nighttime stress, provides stress-protective effects on brain and body", route: "Subcutaneous injection", frequency: "2–12 hours before bedtime (250–500 mcg)" },
+  "Selank": { benefits: "Anti-anxiety, mood stabilizer, enhances focus & reduces stress without sedation", route: "Intranasal spray", frequency: "1 spray in each nostril 1–2 times daily (Night time)" },
+  "Semax": { benefits: "Cognitive enhancer, neuroprotection, boosts memory, focus & recovery after stress or stroke", route: "Intranasal spray", frequency: "1 spray in each nostril 1–2 times daily (Day time)" },
+  "PT-141": { benefits: "Enhances libido and sexual function", route: "Subcutaneous injection", frequency: "As needed, up to 3 times/week, 1–2 hours prior to desired effect (1–2 mg)" },
+  "PT-141 Nasal Spray": { benefits: "Enhances libido and sexual function", route: "Intranasal spray", frequency: "1 spray in each nostril once daily" },
+  "Oxytocin": { benefits: "Enhances bonding, intimacy, social connection, reduces stress, supports sexual health", route: "Intranasal spray", frequency: "1 spray in each nostril once daily" },
+  "Kisspeptin": { benefits: "Stimulates natural release of LH & FSH, boosts testosterone/estrogen balance, supports fertility & libido", route: "Subcutaneous injection", frequency: "Once daily (100–200 mcg) for 3–4 months" },
+};
+
+const PeptideCatalog = () => {
+  const { t } = useLanguage();
+
+  return (
+    <section className="py-16 md:py-24 bg-secondary/30">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            {t("pep.catalog.title")}
+          </h2>
+          <p className="text-lg text-muted-foreground mb-4">
+            {t("pep.catalog.subtitle")}
+          </p>
+          <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-sm font-medium">
+            {t("pep.catalog.onDemand")}
+          </Badge>
+        </div>
+
+        <div className="space-y-8">
+          {catalogCategoryKeys.map((cat) => (
+            <div key={cat.key} className="border border-border rounded-xl overflow-hidden bg-card">
+              <div className="px-6 py-5 flex items-center gap-3 border-b border-border">
+                <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0">
+                  <cat.icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-foreground">{t(`pep.catName.${cat.key}`)}</h3>
+                <Badge variant="secondary" className="ml-2 text-xs">
+                  {cat.peptides.length} {cat.peptides.length > 1 ? t("pep.catalog.peptides") : t("pep.catalog.peptide")}
+                </Badge>
+              </div>
+
+              {/* Desktop table */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-secondary/40">
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.benefits")}</th>
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.route")}</th>
+                      <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.frequency")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cat.peptides.map((name, i) => {
+                      const data = peptideCatalogData[name];
+                      if (!data) return null;
+                      return (
+                        <tr key={name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
+                          <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{name}</td>
+                          <td className="px-6 py-4 text-muted-foreground">{data.benefits}</td>
+                          <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{data.route}</td>
+                          <td className="px-6 py-4 text-muted-foreground">{data.frequency}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="md:hidden divide-y divide-border">
+                {cat.peptides.map((name) => {
+                  const data = peptideCatalogData[name];
+                  if (!data) return null;
+                  return (
+                    <div key={name} className="p-4 space-y-2">
+                      <h4 className="font-semibold text-foreground">{name}</h4>
+                      <p className="text-sm text-muted-foreground">{data.benefits}</p>
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        <Badge variant="secondary">{data.route}</Badge>
+                        <Badge variant="outline">{data.frequency}</Badge>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
+                <span className="text-sm text-muted-foreground italic">{t("pep.catalog.onDemand")}</span>
+                <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.key}`)} asChild>
+                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-4 w-4 mr-1" />
+                    {t("pep.programs.talkToUs")}
+                  </a>
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ─── CTA SECTION ─────────────────────────────────────────
+const PeptideCTA = () => {
+  const { t } = useLanguage();
+  return (
+    <section className="py-12 md:py-16 bg-secondary/20">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center bg-card rounded-2xl border border-border p-8 md:p-12 shadow-sm">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            {t("pep.cta.title")}
+          </h2>
+          <p className="text-muted-foreground mb-8">
+            {t("pep.cta.subtitle")}
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-book')} asChild>
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 mr-2" />
+                {t("pep.prog.bookReview")}
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-concierge')} asChild>
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 mr-2" />
+                {t("pep.cta.whatsapp")}
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ─── CLINIC PRESENTATION ─────────────────────────────────
 const ClinicPresentation = () => {
+  const { t } = useLanguage();
   const points = [
-    { icon: Stethoscope, title: "Physician-Supervised Programs", desc: "All peptide therapies are prescribed and monitored by our medical team to ensure safety, effectiveness, and proper dosing." },
-    { icon: UserCheck, title: "Personalized Protocols", desc: "Each program is tailored after consultation and lab analysis to match your metabolism, health goals, and recovery needs." },
-    { icon: RefreshCw, title: "Structured Treatment Phases", desc: "Protocols are delivered in monitored phases with adjustments based on your progress and biomarker response." },
-    { icon: Heart, title: "Integrated Longevity Approach", desc: "Peptide therapy is combined with nutrition, recovery strategies, and lifestyle guidance to maximize long-term results." },
-    { icon: ShieldCheck, title: "Premium Medical Care", desc: "Receive high-touch medical support with individualized follow-up and physician oversight throughout your program." },
+    { icon: Stethoscope, titleKey: "pep.clinic.p1.title", descKey: "pep.clinic.p1.desc" },
+    { icon: UserCheck, titleKey: "pep.clinic.p2.title", descKey: "pep.clinic.p2.desc" },
+    { icon: RefreshCw, titleKey: "pep.clinic.p3.title", descKey: "pep.clinic.p3.desc" },
+    { icon: Heart, titleKey: "pep.clinic.p4.title", descKey: "pep.clinic.p4.desc" },
+    { icon: ShieldCheck, titleKey: "pep.clinic.p5.title", descKey: "pep.clinic.p5.desc" },
   ];
 
   return (
@@ -716,15 +570,13 @@ const ClinicPresentation = () => {
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            A Medical Approach to Peptide Therapy
+            {t("pep.clinic.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Peptide therapy at Healthi Life is delivered through structured medical programs designed to improve metabolism, recovery, and healthy aging. Each protocol is personalized based on medical consultation, biomarker testing, and continuous physician supervision.
+            {t("pep.clinic.subtitle")}
           </p>
         </div>
-
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Clinic photo */}
           <div className="rounded-2xl overflow-hidden shadow-lg sticky top-24">
             <img
               src={clinicTreatmentRoom}
@@ -733,17 +585,15 @@ const ClinicPresentation = () => {
               loading="lazy"
             />
           </div>
-
-          {/* Points */}
           <div className="space-y-6">
             {points.map((p) => (
-              <div key={p.title} className="flex items-start gap-4">
+              <div key={p.titleKey} className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0 mt-0.5">
                   <p.icon className="h-5 w-5 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground mb-1">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-1">{t(p.titleKey)}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t(p.descKey)}</p>
                 </div>
               </div>
             ))}
@@ -754,32 +604,32 @@ const ClinicPresentation = () => {
   );
 };
 
-
 // ─── WHY PATIENTS CHOOSE ─────────────────────────────────
 const PeptideWhyUs = () => {
+  const { t } = useLanguage();
   const points = [
-    { icon: Stethoscope, title: "Physician-Led Care", desc: "Every program begins with a medical consultation and health assessment, ensuring the right treatment strategy for your biology." },
-    { icon: UserCheck, title: "Personalized Protocols", desc: "Your program is tailored to your biomarkers, health history, and goals, with adjustments based on your progress." },
-    { icon: Microscope, title: "Lab-Guided Monitoring", desc: "We use biomarker testing and clinical follow-up to guide decisions and optimize your results safely." },
-    { icon: Sparkles, title: "Premium Medical Experience", desc: "Enjoy online or in-clinic consultations, concierge-style support, and a comfortable, private treatment environment." },
-    { icon: Heart, title: "Integrated Longevity Approach", desc: "Peptide therapy is combined with nutrition, recovery strategies, and lifestyle guidance to maximize long-term outcomes." },
-    { icon: ShieldCheck, title: "Medical Oversight", desc: "All treatment pathways are supervised and reviewed by experienced physicians to ensure safety and effectiveness." },
+    { icon: Stethoscope, titleKey: "pep.why.p1.title", descKey: "pep.why.p1.desc" },
+    { icon: UserCheck, titleKey: "pep.why.p2.title", descKey: "pep.why.p2.desc" },
+    { icon: Microscope, titleKey: "pep.why.p3.title", descKey: "pep.why.p3.desc" },
+    { icon: Sparkles, titleKey: "pep.why.p4.title", descKey: "pep.why.p4.desc" },
+    { icon: Heart, titleKey: "pep.why.p5.title", descKey: "pep.why.p5.desc" },
+    { icon: ShieldCheck, titleKey: "pep.why.p6.title", descKey: "pep.why.p6.desc" },
   ];
 
   return (
     <section id="why-us" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Patients Choose Healthi Life</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("pep.why.title")}</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {points.map((p) => (
-            <Card key={p.title} className="border-border text-center p-6 hover:shadow-md transition-shadow">
+            <Card key={p.titleKey} className="border-border text-center p-6 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 mx-auto rounded-full bg-gradient-medical flex items-center justify-center mb-4">
                 <p.icon className="h-7 w-7 text-primary-foreground" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{p.title}</h3>
-              <p className="text-sm text-muted-foreground">{p.desc}</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">{t(p.titleKey)}</h3>
+              <p className="text-sm text-muted-foreground">{t(p.descKey)}</p>
             </Card>
           ))}
         </div>
@@ -789,29 +639,15 @@ const PeptideWhyUs = () => {
 };
 
 // ─── PATIENT EXPERIENCE (VIDEO TESTIMONIALS) ─────────────
-const patientVideos = [
-  {
-    id: "0q0ht-nms4w",
-    title: "Dr. Petch - Founder & Lifestyle Medicine",
-    subtitle: "Meet Our Founder",
-    description: "Dr. Petch introduces our holistic approach to regenerative medicine and longevity.",
-  },
-  {
-    id: "acuxB5dBjqw",
-    title: "Blake from USA - Human Performance Enhancement",
-    subtitle: "Human Performance",
-    description: "Patient testimonial: Enhancing athletic performance with regenerative medicine at Healthi-Life Bangkok.",
-  },
-  {
-    id: "Q0-FuK5CViA",
-    title: "Angelica from Philippines - Stem Cell Knee Treatment",
-    subtitle: "Stem Cell Knee Treatment",
-    description: "Patient testimonial: Recovery journey with stem cell therapy for knee pain at Healthi-Life Longevity Center Bangkok.",
-  },
-];
-
 const PeptideVideoTestimonials = () => {
+  const { t } = useLanguage();
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
+  const patientVideos = [
+    { id: "0q0ht-nms4w", titleKey: "pep.video.v1.title", subtitleKey: "pep.video.v1.subtitle", descKey: "pep.video.v1.desc" },
+    { id: "acuxB5dBjqw", titleKey: "pep.video.v2.title", subtitleKey: "pep.video.v2.subtitle", descKey: "pep.video.v2.desc" },
+    { id: "Q0-FuK5CViA", titleKey: "pep.video.v3.title", subtitleKey: "pep.video.v3.subtitle", descKey: "pep.video.v3.desc" },
+  ];
 
   return (
     <>
@@ -819,12 +655,10 @@ const PeptideVideoTestimonials = () => {
         <div className="container px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              Patient Experience
+              {t("pep.video.badge")}
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Real Stories. Real Results.</h2>
-            <p className="text-lg text-muted-foreground">
-              Hear from patients who chose Healthi-Life for medically guided recovery, longevity, and metabolic optimization.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("pep.video.title")}</h2>
+            <p className="text-lg text-muted-foreground">{t("pep.video.subtitle")}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {patientVideos.map((video) => (
@@ -834,17 +668,11 @@ const PeptideVideoTestimonials = () => {
                 onClick={() => setSelectedVideo(video.id)}
                 role="button"
                 tabIndex={0}
-                aria-label={`Play video: ${video.title}`}
+                aria-label={`Play video: ${t(video.titleKey)}`}
                 onKeyDown={(e) => e.key === 'Enter' && setSelectedVideo(video.id)}
               >
                 <div className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 group-hover:scale-[1.02]">
-                  <img
-                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-                    alt={video.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  <img src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} alt={t(video.titleKey)} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
@@ -854,15 +682,13 @@ const PeptideVideoTestimonials = () => {
                   <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
                     <span className="inline-block px-2 py-0.5 bg-primary text-primary-foreground rounded text-xs font-medium mb-2">
-                      {video.subtitle}
+                      {t(video.subtitleKey)}
                     </span>
-                    <h3 className="font-bold text-white text-sm md:text-base line-clamp-2">
-                      {video.title}
-                    </h3>
+                    <h3 className="font-bold text-white text-sm md:text-base line-clamp-2">{t(video.titleKey)}</h3>
                   </div>
                 </div>
                 <div className="mt-4 text-center">
-                  <p className="text-sm text-muted-foreground line-clamp-2">{video.description}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{t(video.descKey)}</p>
                 </div>
               </div>
             ))}
@@ -870,7 +696,6 @@ const PeptideVideoTestimonials = () => {
         </div>
       </section>
 
-      {/* Lightbox */}
       {selectedVideo && (
         <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={() => setSelectedVideo(null)}>
           <button onClick={() => setSelectedVideo(null)} className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center" aria-label="Close video">
@@ -893,62 +718,58 @@ const PeptideVideoTestimonials = () => {
 
 // ─── HOW THE PROGRAM WORKS ───────────────────────────────
 const PeptideProcess = () => {
+  const { t } = useLanguage();
   const mainSteps = [
-    { icon: CalendarCheck, title: "Book Your Consultation", desc: "Choose an online or onsite consultation with a Healthi-Life doctor to discuss your health goals." },
-    { icon: Microscope, title: "Blood Tests & Baseline Review", desc: "Relevant labs and health markers are assessed to build an accurate picture of your biology." },
-    { icon: Monitor, title: "Follow-Up & Monitoring", desc: "You receive structured check-ins, medical review, and plan adjustments based on your progress." },
+    { icon: CalendarCheck, titleKey: "pep.process.step1.title", descKey: "pep.process.step1.desc" },
+    { icon: Microscope, titleKey: "pep.process.step2.title", descKey: "pep.process.step2.desc" },
+    { icon: Monitor, titleKey: "pep.process.step3.title", descKey: "pep.process.step3.desc" },
   ];
 
   const additionalSteps = [
-    { icon: ClipboardCheck, title: "Medical Assessment", desc: "We review your health history, symptoms, goals, and treatment suitability." },
-    { icon: FlaskConical, title: "Personalized 3, 6, or 12-Month Plan", desc: "Your doctor builds a tailored treatment roadmap based on your profile and objectives." },
-    { icon: RefreshCw, title: "Review & Renew", desc: "At the end of the program cycle, your results are reviewed and your next phase is decided with the doctor." },
+    { icon: ClipboardCheck, titleKey: "pep.process.add1.title", descKey: "pep.process.add1.desc" },
+    { icon: FlaskConical, titleKey: "pep.process.add2.title", descKey: "pep.process.add2.desc" },
+    { icon: RefreshCw, titleKey: "pep.process.add3.title", descKey: "pep.process.add3.desc" },
   ];
 
   return (
     <section id="process" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How the Program Works</h2>
-          <p className="text-lg text-muted-foreground">From consultation to results — a clear, medically guided pathway.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("pep.process.title")}</h2>
+          <p className="text-lg text-muted-foreground">{t("pep.process.subtitle")}</p>
         </div>
-
-        {/* 3 Main Steps */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {mainSteps.map((step, i) => (
-            <Card key={step.title} className="relative border-border p-6 hover:shadow-lg transition-shadow bg-card">
+            <Card key={step.titleKey} className="relative border-border p-6 hover:shadow-lg transition-shadow bg-card">
               <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm shadow-md">
                 {String(i + 1).padStart(2, '0')}
               </div>
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <step.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-              <p className="text-sm text-muted-foreground">{step.desc}</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">{t(step.titleKey)}</h3>
+              <p className="text-sm text-muted-foreground">{t(step.descKey)}</p>
             </Card>
           ))}
         </div>
-
-        {/* Additional Steps */}
         <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
-          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">What Happens Next</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">{t("pep.process.next")}</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {additionalSteps.map((step) => (
-              <div key={step.title} className="flex items-start gap-3">
+              <div key={step.titleKey} className="flex items-start gap-3">
                 <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
                   <step.icon className="h-4 w-4 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-foreground mb-1">{step.title}</h4>
-                  <p className="text-xs text-muted-foreground">{step.desc}</p>
+                  <h4 className="text-sm font-bold text-foreground mb-1">{t(step.titleKey)}</h4>
+                  <p className="text-xs text-muted-foreground">{t(step.descKey)}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
         <p className="mt-8 text-center text-sm text-muted-foreground italic max-w-2xl mx-auto">
-          Please note that peptide therapies are prepared through certified partner pharmacies and laboratories. Advance notice is required before treatment scheduling.
+          {t("pep.process.disclaimer")}
         </p>
       </div>
     </section>
@@ -957,32 +778,24 @@ const PeptideProcess = () => {
 
 // ─── FAQ ─────────────────────────────────────────────────
 const PeptideFAQ = () => {
-  const faqs = [
-    { q: "Is peptide therapy suitable for everyone?", a: "No. Suitability depends on your medical history, health goals, lab findings, and physician review." },
-    { q: "Do I need a consultation before starting?", a: "Yes. All peptide programs begin with an online or onsite consultation with a doctor." },
-    { q: "Are programs standardized or personalized?", a: "Programs are personalized. Treatment decisions are based on medical review, biomarkers, and your goals." },
-    { q: "How long does a peptide program last?", a: "Programs may be structured over 3, 6, or 12 months depending on the clinical objective and physician recommendation." },
-    { q: "Will I need blood tests?", a: "In many cases, yes. Baseline and follow-up labs help guide personalization and monitoring." },
-    { q: "Are the detailed protocol formulas published online?", a: "No. Healthi-Life does not publicly disclose its complete medical protocol architecture." },
-    { q: "Are these treatments intended to diagnose or cure disease?", a: "No. These therapies are intended to support health, wellness, and quality of life under medical supervision. They are not intended to diagnose, treat, cure, or prevent any disease." },
-    { q: "Are peptide products stocked onsite?", a: "No. Peptides are prepared and shipped through certified partner pharmacies and laboratories. Please allow a minimum of 5 working days before scheduled therapy." },
-  ];
+  const { t } = useLanguage();
+  const faqKeys = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
     <section id="faq" className="py-16 md:py-24 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("pep.faq.title")}</h2>
         </div>
         <div className="max-w-3xl mx-auto space-y-4">
-          {faqs.map((faq) => (
-            <details key={faq.q} className="group bg-card border border-border rounded-xl overflow-hidden">
+          {faqKeys.map((n) => (
+            <details key={n} className="group bg-card border border-border rounded-xl overflow-hidden">
               <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-secondary/30 transition-colors">
-                <span className="font-semibold text-foreground text-left pr-4">{faq.q}</span>
+                <span className="font-semibold text-foreground text-left pr-4">{t(`pep.faq.q${n}`)}</span>
                 <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 transition-transform group-open:rotate-90" />
               </summary>
               <div className="px-5 pb-5">
-                <p className="text-muted-foreground">{faq.a}</p>
+                <p className="text-muted-foreground">{t(`pep.faq.a${n}`)}</p>
               </div>
             </details>
           ))}
@@ -994,23 +807,23 @@ const PeptideFAQ = () => {
 
 // ─── CLIENT FEEDBACK ─────────────────────────────────────
 const PeptideTestimonials = () => {
+  const { t } = useLanguage();
   const reviews = [
-    { initials: "RM", text: "I started a 6-month peptide program for metabolic optimization. The doctor consultations, blood work, and personalized protocol made me feel in safe hands. After 4 months, my energy and body composition changed noticeably.", name: "Richard M.", location: "London, UK" },
-    { initials: "SY", text: "I was skeptical at first, but the 3-month recovery protocol exceeded my expectations. The follow-ups and lab monitoring gave me confidence. My knee inflammation improved significantly and I'm back to training.", name: "Soo-Yeon K.", location: "Seoul, South Korea" },
-    { initials: "TW", text: "The 12-month longevity program has been transformative. Better sleep, sharper focus, and improved metabolic markers. Dr. First personally reviewed my progress every month. Truly premium medical care.", name: "Thomas W.", location: "Sydney, Australia" },
-    { initials: "AL", text: "After struggling with weight management for years, the metabolic reset protocol with peptides finally gave me sustainable results. The personalized approach based on my blood work made all the difference.", name: "Anna L.", location: "Munich, Germany" },
-    { initials: "JC", text: "I chose Healthi-Life for a 6-month performance optimization program. The combination of peptides, nutrition guidance, and regular monitoring helped me reach a level of fitness I hadn't seen in years.", name: "James C.", location: "New York, USA" },
+    { initials: "RM", textKey: "pep.reviews.r1", name: "Richard M.", location: "London, UK" },
+    { initials: "SY", textKey: "pep.reviews.r2", name: "Soo-Yeon K.", location: "Seoul, South Korea" },
+    { initials: "TW", textKey: "pep.reviews.r3", name: "Thomas W.", location: "Sydney, Australia" },
+    { initials: "AL", textKey: "pep.reviews.r4", name: "Anna L.", location: "Munich, Germany" },
+    { initials: "JC", textKey: "pep.reviews.r5", name: "James C.", location: "New York, USA" },
   ];
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 uppercase tracking-wide">
-            Recognition
+            {t("pep.reviews.badge")}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">Client Feedback</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">{t("pep.reviews.title")}</h2>
           <div className="flex items-center justify-center gap-3 flex-wrap">
             <span className="text-3xl font-bold text-foreground">5</span>
             <div className="flex">
@@ -1018,31 +831,26 @@ const PeptideTestimonials = () => {
                 <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <span className="text-muted-foreground">+250 reviews</span>
+            <span className="text-muted-foreground">{t("pep.reviews.count")}</span>
             <Badge variant="outline" className="border-border gap-1.5 px-3 py-1.5">
               <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
-              Private Clients
+              {t("pep.reviews.privateClients")}
             </Badge>
           </div>
         </div>
-
-        {/* Reviews Grid */}
         <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-7xl mx-auto">
           {reviews.map((r, i) => (
             <Card key={i} className="relative border-border p-5 flex flex-col">
-              {/* Quote icon */}
               <div className="text-primary/20 text-4xl font-serif leading-none mb-2">"</div>
-              {/* Initials badge */}
               <div className="absolute -top-3 right-4 w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold shadow-md">
                 {r.initials}
               </div>
-              {/* Stars */}
               <div className="flex mb-3">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">"{r.text}"</p>
+              <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">"{t(r.textKey)}"</p>
               <div className="border-t border-border pt-3 mt-auto">
                 <p className="text-sm font-bold text-foreground">{r.name}</p>
                 <p className="text-xs text-muted-foreground">{r.location}</p>
@@ -1056,139 +864,137 @@ const PeptideTestimonials = () => {
 };
 
 // ─── CONTACT / CTA ───────────────────────────────────────
-const PeptideContact = () => (
-  <section id="contact" className="py-16 md:py-24 bg-background">
-    <div className="container px-4 sm:px-6 lg:px-8">
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Book Your Peptide Consultation</h2>
-        <p className="text-lg text-muted-foreground">
-          Speak with our medical team to assess your goals and determine whether a personalized peptide program is appropriate for you.
-        </p>
-      </div>
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-        {/* Contact CTAs */}
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <Button size="lg" className="w-full group" onClick={() => trackButtonClick('ivclick-peptide-contact-whatsapp')} asChild>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                WhatsApp Us
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="w-full" onClick={() => trackButtonClick('ivclick-peptide-contact-book')} asChild>
-              <a href="https://wa.me/66919991744?text=I%27d%20like%20to%20book%20a%20peptide%20consultation" target="_blank" rel="noopener noreferrer">
-                <CalendarCheck className="h-5 w-5 mr-2" />
-                Book Consultation
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="w-full" onClick={() => trackButtonClick('ivclick-peptide-contact-callback')} asChild>
-              <a href="https://wa.me/66919991744?text=Please%20call%20me%20back%20about%20peptide%20programs" target="_blank" rel="noopener noreferrer">
-                <Phone className="h-5 w-5 mr-2" />
-                Request Call Back
-              </a>
-            </Button>
-          </div>
-          <div className="p-6 bg-secondary/50 rounded-xl border border-border">
-            <div className="flex items-center gap-3 mb-3">
-              <MapPin className="h-5 w-5 text-primary" />
-              <span className="font-medium text-foreground">94 Ekkamai 10 Alley, Watthana, Bangkok</span>
-            </div>
-            <div className="flex items-center gap-3 mb-3">
-              <Clock className="h-5 w-5 text-primary" />
-              <span className="text-muted-foreground">Mon–Sat: 11 AM – 7 PM</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-primary" />
-              <span className="text-muted-foreground">info@healthi-life.com</span>
-            </div>
-          </div>
+const PeptideContact = () => {
+  const { t } = useLanguage();
+  return (
+    <section id="contact" className="py-16 md:py-24 bg-background">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("pep.contact.title")}</h2>
+          <p className="text-lg text-muted-foreground">{t("pep.contact.subtitle")}</p>
         </div>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <Button size="lg" className="w-full group" onClick={() => trackButtonClick('ivclick-peptide-contact-whatsapp')} asChild>
+                <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  {t("pep.contact.whatsapp")}
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="w-full" onClick={() => trackButtonClick('ivclick-peptide-contact-book')} asChild>
+                <a href="https://wa.me/66919991744?text=I%27d%20like%20to%20book%20a%20peptide%20consultation" target="_blank" rel="noopener noreferrer">
+                  <CalendarCheck className="h-5 w-5 mr-2" />
+                  {t("pep.contact.book")}
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="w-full" onClick={() => trackButtonClick('ivclick-peptide-contact-callback')} asChild>
+                <a href="https://wa.me/66919991744?text=Please%20call%20me%20back%20about%20peptide%20programs" target="_blank" rel="noopener noreferrer">
+                  <Phone className="h-5 w-5 mr-2" />
+                  {t("pep.contact.callback")}
+                </a>
+              </Button>
+            </div>
+            <div className="p-6 bg-secondary/50 rounded-xl border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="h-5 w-5 text-primary" />
+                <span className="font-medium text-foreground">{t("pep.contact.address")}</span>
+              </div>
+              <div className="flex items-center gap-3 mb-3">
+                <Clock className="h-5 w-5 text-primary" />
+                <span className="text-muted-foreground">{t("pep.contact.hours")}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-primary" />
+                <span className="text-muted-foreground">{t("pep.contact.email")}</span>
+              </div>
+            </div>
+          </div>
 
-        {/* Inquiry Form */}
-        <Card className="border-border">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const form = e.currentTarget;
-              const data = new FormData(form);
-              const fullName = data.get('fullName') || '';
-              const country = data.get('country') || '';
-              const whatsapp = data.get('whatsapp') || '';
-              const email = data.get('email') || '';
-              const goal = data.get('goal') || '';
-              const consultType = data.get('consultType') || 'online';
-              const time = data.get('time') || '';
-              const notes = data.get('notes') || '';
-              
-              const subject = encodeURIComponent(`Peptide Inquiry — ${fullName}`);
-              const body = encodeURIComponent(
-                `Name: ${fullName}\nCountry: ${country}\nWhatsApp: ${whatsapp}\nEmail: ${email}\nGoal: ${goal}\nConsultation: ${consultType}\nPreferred Time: ${time}\nNotes: ${notes}`
-              );
-              
-              trackButtonClick('ivclick-peptide-form-submit');
-              window.location.href = `mailto:contact@healthi-life.com?subject=${subject}&body=${body}`;
-            }}
-          >
-          <CardContent className="p-6 space-y-4">
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
-                <Input id="fullName" name="fullName" placeholder="Your full name" required />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="country">Country</Label>
-                <Input id="country" name="country" placeholder="Your country" />
-              </div>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="whatsapp">WhatsApp Number</Label>
-                <Input id="whatsapp" name="whatsapp" placeholder="+66..." />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" type="email" placeholder="you@example.com" required />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="goal">Primary Goal</Label>
-              <Input id="goal" name="goal" placeholder="e.g. Longevity, Recovery, Weight Optimization..." />
-            </div>
-            <div className="space-y-2">
-              <Label>Preferred Consultation Type</Label>
-              <RadioGroup defaultValue="online" name="consultType" className="flex gap-6">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="online" id="online" />
-                  <Label htmlFor="online" className="font-normal">Online</Label>
+          <Card className="border-border">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const data = new FormData(form);
+                const fullName = data.get('fullName') || '';
+                const country = data.get('country') || '';
+                const whatsapp = data.get('whatsapp') || '';
+                const email = data.get('email') || '';
+                const goal = data.get('goal') || '';
+                const consultType = data.get('consultType') || 'online';
+                const time = data.get('time') || '';
+                const notes = data.get('notes') || '';
+                const subject = encodeURIComponent(`Peptide Inquiry — ${fullName}`);
+                const body = encodeURIComponent(
+                  `Name: ${fullName}\nCountry: ${country}\nWhatsApp: ${whatsapp}\nEmail: ${email}\nGoal: ${goal}\nConsultation: ${consultType}\nPreferred Time: ${time}\nNotes: ${notes}`
+                );
+                trackButtonClick('ivclick-peptide-form-submit');
+                window.location.href = `mailto:contact@healthi-life.com?subject=${subject}&body=${body}`;
+              }}
+            >
+              <CardContent className="p-6 space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="fullName">{t("pep.contact.fullName")}</Label>
+                    <Input id="fullName" name="fullName" placeholder={t("pep.contact.fullNamePh")} required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="country">{t("pep.contact.country")}</Label>
+                    <Input id="country" name="country" placeholder={t("pep.contact.countryPh")} />
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="onsite" id="onsite" />
-                  <Label htmlFor="onsite" className="font-normal">Onsite</Label>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="whatsapp">{t("pep.contact.whatsappNum")}</Label>
+                    <Input id="whatsapp" name="whatsapp" placeholder="+66..." />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">{t("pep.contact.emailLabel")}</Label>
+                    <Input id="email" name="email" type="email" placeholder={t("pep.contact.emailPh")} required />
+                  </div>
                 </div>
-              </RadioGroup>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="time">Preferred Time</Label>
-              <Input id="time" name="time" placeholder="e.g. Weekday mornings, Afternoon..." />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="notes">Notes</Label>
-              <Textarea id="notes" name="notes" placeholder="Any additional information..." rows={3} />
-            </div>
-            <Button type="submit" className="w-full" size="lg">
-              <Mail className="h-5 w-5 mr-2" />
-              Submit Inquiry
-            </Button>
-          </CardContent>
-          </form>
-        </Card>
+                <div className="space-y-2">
+                  <Label htmlFor="goal">{t("pep.contact.goal")}</Label>
+                  <Input id="goal" name="goal" placeholder={t("pep.contact.goalPh")} />
+                </div>
+                <div className="space-y-2">
+                  <Label>{t("pep.contact.consultType")}</Label>
+                  <RadioGroup defaultValue="online" name="consultType" className="flex gap-6">
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="online" id="online" />
+                      <Label htmlFor="online" className="font-normal">{t("pep.contact.online")}</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="onsite" id="onsite" />
+                      <Label htmlFor="onsite" className="font-normal">{t("pep.contact.onsite")}</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="time">{t("pep.contact.time")}</Label>
+                  <Input id="time" name="time" placeholder={t("pep.contact.timePh")} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="notes">{t("pep.contact.notes")}</Label>
+                  <Textarea id="notes" name="notes" placeholder={t("pep.contact.notesPh")} rows={3} />
+                </div>
+                <Button type="submit" className="w-full" size="lg">
+                  <Mail className="h-5 w-5 mr-2" />
+                  {t("pep.contact.submit")}
+                </Button>
+              </CardContent>
+            </form>
+          </Card>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // ─── FOOTER ──────────────────────────────────────────────
 const PeptideFooter = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-foreground text-background py-12">
@@ -1196,12 +1002,10 @@ const PeptideFooter = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <img src={logoWhite} alt="Healthi-Life" className="h-8 w-auto mb-4" />
-            <p className="text-background/80 text-sm">
-              Bangkok's premium longevity center for doctor-supervised peptide therapy, IV drips, and regenerative medicine.
-            </p>
+            <p className="text-background/80 text-sm">{t("pep.footer.desc")}</p>
           </div>
           <div>
-            <h4 className="font-semibold mb-3">Contact</h4>
+            <h4 className="font-semibold mb-3">{t("pep.footer.contact")}</h4>
             <div className="space-y-2 text-sm text-background/70">
               <p className="flex items-center gap-2"><MapPin className="h-4 w-4" /> 94 Ekkamai 10, Watthana, Bangkok</p>
               <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> +66 91 999 1744</p>
@@ -1209,23 +1013,23 @@ const PeptideFooter = () => {
             </div>
           </div>
           <div>
-            <h4 className="font-semibold mb-3">Quick Links</h4>
+            <h4 className="font-semibold mb-3">{t("pep.footer.quickLinks")}</h4>
             <div className="space-y-2 text-sm text-background/70">
-              <Link to="/" className="block hover:text-background transition-colors">Home — IV Therapy</Link>
-              <Link to="/peptides" className="block hover:text-background transition-colors">Peptide Programs</Link>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Book a Consultation</a>
+              <Link to="/" className="block hover:text-background transition-colors">{t("pep.footer.home")}</Link>
+              <Link to="/peptides" className="block hover:text-background transition-colors">{t("pep.footer.peptides")}</Link>
+              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">{t("pep.footer.bookConsult")}</a>
             </div>
           </div>
         </div>
         <div className="border-t border-background/20 pt-6">
           <p className="text-xs text-background/50 mb-4 leading-relaxed max-w-4xl">
-            <strong>Medical Disclaimer:</strong> Peptide therapies offered at Healthi-Life Longevity Center are intended to support health, wellness, and quality of life. These therapies are not intended to diagnose, treat, cure, or prevent any disease, and should not replace medical advice from your primary care physician or specialist. Results may vary depending on individual health status, age, and compliance with lifestyle recommendations. We do not stock peptide medications on-site. All peptides are prepared and shipped from certified partner pharmacies and laboratories. Please allow a minimum of 5 working days for ordering and delivery before your scheduled therapy.
+            <strong>{t("pep.footer.disclaimer")}</strong> {t("pep.footer.disclaimerText")}
           </p>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-background/50">
-            <p>© {currentYear} Healthi-Life. All rights reserved.</p>
+            <p>© {currentYear} {t("pep.footer.rights")}</p>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-background transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-background transition-colors">Terms</a>
+              <a href="#" className="hover:text-background transition-colors">{t("pep.footer.privacy")}</a>
+              <a href="#" className="hover:text-background transition-colors">{t("pep.footer.terms")}</a>
             </div>
           </div>
         </div>
@@ -1236,32 +1040,100 @@ const PeptideFooter = () => {
 
 // ─── SEO ─────────────────────────────────────────────────
 const PeptideSEO = () => {
+  const { language } = useLanguage();
+
   useEffect(() => {
-    document.title = "Peptide Therapy Bangkok | Doctor-Supervised Longevity Programs | Healthi-Life";
+    const titles: Record<string, string> = {
+      en: "Peptide Therapy Bangkok | Doctor-Supervised Longevity Programs | Healthi-Life",
+      th: "เปปไทด์บำบัดกรุงเทพ | โปรแกรมอายุยืนดูแลโดยแพทย์ | Healthi-Life",
+      ja: "ペプチド療法バンコク | 医師監督の長寿プログラム | Healthi-Life",
+    };
+    const descriptions: Record<string, string> = {
+      en: "Discover doctor-supervised peptide therapy programs in Bangkok for longevity, recovery, metabolic optimization, and performance. Personalized consultation required.",
+      th: "ค้นพบโปรแกรมบำบัดเปปไทด์ภายใต้การดูแลของแพทย์ในกรุงเทพ สำหรับอายุยืน การฟื้นตัว เพิ่มประสิทธิภาพการเผาผลาญ และสมรรถภาพ ต้องปรึกษาแพทย์",
+      ja: "バンコクで医師監督のペプチド療法プログラムを発見。長寿、回復、代謝最適化、パフォーマンスのために。パーソナライズされた診察が必要です。",
+    };
+
+    document.title = titles[language] || titles.en;
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Discover doctor-supervised peptide therapy programs in Bangkok for longevity, recovery, metabolic optimization, and performance. Personalized consultation required.');
+      metaDescription.setAttribute('content', descriptions[language] || descriptions.en);
     }
 
-    // FAQ Schema
-    const faqSchema = {
+    // Peptide-specific schemas
+    const peptideSchema = {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Is peptide therapy suitable for everyone?", "acceptedAnswer": { "@type": "Answer", "text": "No. Suitability depends on your medical history, health goals, lab findings, and physician review." } },
-        { "@type": "Question", "name": "Do I need a consultation before starting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All peptide programs begin with an online or onsite consultation with a doctor." } },
-        { "@type": "Question", "name": "How long does a peptide program last?", "acceptedAnswer": { "@type": "Answer", "text": "Programs may be structured over 3, 6, or 12 months depending on the clinical objective and physician recommendation." } },
-        { "@type": "Question", "name": "Are peptide products stocked onsite?", "acceptedAnswer": { "@type": "Answer", "text": "No. Peptides are prepared and shipped through certified partner pharmacies and laboratories. Please allow a minimum of 5 working days before scheduled therapy." } },
-      ]
+      "@graph": [
+        {
+          "@type": "MedicalWebPage",
+          "@id": "https://ivtherapyhealthilife.com/peptides#page",
+          "url": "https://ivtherapyhealthilife.com/peptides",
+          "name": titles[language] || titles.en,
+          "description": descriptions[language] || descriptions.en,
+          "inLanguage": language,
+          "isPartOf": { "@id": "https://ivtherapyhealthilife.com/#website" },
+          "about": { "@id": "https://ivtherapyhealthilife.com/#clinic" },
+          "breadcrumb": { "@id": "https://ivtherapyhealthilife.com/peptides#breadcrumb" },
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ivtherapyhealthilife.com/peptides#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ivtherapyhealthilife.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Peptide Therapy Programs", "item": "https://ivtherapyhealthilife.com/peptides" },
+          ],
+        },
+        {
+          "@type": "MedicalBusiness",
+          "@id": "https://ivtherapyhealthilife.com/peptides#service",
+          "name": "Peptide Therapy Programs — Healthi-Life",
+          "url": "https://ivtherapyhealthilife.com/peptides",
+          "description": "Doctor-supervised peptide therapy programs for longevity, recovery, weight management, and performance optimization.",
+          "provider": { "@id": "https://ivtherapyhealthilife.com/#clinic" },
+          "medicalSpecialty": ["Peptide Therapy", "Regenerative Medicine", "Longevity Medicine"],
+          "availableService": [
+            { "@type": "MedicalProcedure", "name": "Cellular Longevity Protocol", "description": "6-12 month program for healthy aging & metabolic resilience", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+            { "@type": "MedicalProcedure", "name": "Recovery & Regeneration Protocol", "description": "3-6 month recovery program for tissue resilience & inflammation management", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+            { "@type": "MedicalProcedure", "name": "Metabolic Reset & Weight Optimization", "description": "6-12 month program for fat reduction & metabolic flexibility", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+            { "@type": "MedicalProcedure", "name": "Lean Muscle & Performance Optimization", "description": "6-12 month program for lean muscle & training recovery", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Peptide Programs",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peptide Therapy Program" }, "price": "40000", "priceCurrency": "THB", "availability": "https://schema.org/InStock" },
+            ],
+          },
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Is peptide therapy suitable for everyone?", "acceptedAnswer": { "@type": "Answer", "text": "No. Suitability depends on your medical history, health goals, lab findings, and physician review." } },
+            { "@type": "Question", "name": "Do I need a consultation before starting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All peptide programs begin with an online or onsite consultation with a doctor." } },
+            { "@type": "Question", "name": "How long does a peptide program last?", "acceptedAnswer": { "@type": "Answer", "text": "Programs may be structured over 3, 6, or 12 months depending on the clinical objective and physician recommendation." } },
+            { "@type": "Question", "name": "Are peptide products stocked onsite?", "acceptedAnswer": { "@type": "Answer", "text": "No. Peptides are prepared and shipped through certified partner pharmacies and laboratories. Please allow a minimum of 5 working days before scheduled therapy." } },
+            { "@type": "Question", "name": "What peptides are available at Healthi-Life Bangkok?", "acceptedAnswer": { "@type": "Answer", "text": "Healthi-Life offers 18+ medical peptides including GLP-1, BPC-157, NAD+, Epithalon, CJC-1295, Ipamorelin, Selank, Semax, PT-141, and more. All are prescribed by physicians based on medical assessment." } },
+            { "@type": "Question", "name": "How much does peptide therapy cost in Bangkok?", "acceptedAnswer": { "@type": "Answer", "text": "Peptide programs at Healthi-Life start from 40,000 THB. Final pricing depends on program duration, medical evaluation, and personalization level. Detailed pricing is provided after doctor consultation." } },
+          ],
+        },
+      ],
     };
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(faqSchema);
+    script.id = 'schema-peptide';
+    script.textContent = JSON.stringify(peptideSchema);
     document.head.appendChild(script);
 
+    // Update og:locale
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) {
+      const localeMap: Record<string, string> = { en: 'en_US', th: 'th_TH', ja: 'ja_JP' };
+      ogLocale.setAttribute('content', localeMap[language] || 'en_US');
+    }
+
     return () => { script.remove(); };
-  }, []);
+  }, [language]);
 
   return null;
 };
