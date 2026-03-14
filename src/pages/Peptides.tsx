@@ -12,8 +12,15 @@ import {
   FlaskConical, Activity, Dumbbell, Flame, Heart, Users, Globe,
   Phone, Mail, ArrowRight, CheckCircle2, Play, Timer, Microscope,
   CalendarCheck, RefreshCw, ClipboardCheck, UserCheck, Beaker,
-  Sparkles, Brain, Zap, HeartPulse, ShieldCheck, Monitor
+  Sparkles, Brain, Zap, HeartPulse, ShieldCheck, Monitor, ChevronDown,
+  Moon, Syringe, Pill, Eye
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { trackButtonClick } from "@/lib/tracking";
 import heroImage from "@/assets/clinic-exterior.webp";
 import clinicInterior from "@/assets/clinic-interior.jpg";
