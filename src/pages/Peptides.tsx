@@ -241,15 +241,21 @@ const PeptidePrograms = () => (
     <div className="container px-4 sm:px-6 lg:px-8">
       {/* Individual Peptide Cards */}
       <div className="mb-16 md:mb-20">
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">Key Peptides Used in Our Programs</h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">Key Peptides Used in Our Programs</h3>
+
+        {/* Section 1: Metabolic & Weight Loss */}
+        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+          <Flame className="h-6 w-6 text-primary" />
+          Metabolic & Weight Loss Peptides
+        </h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {[
             { icon: Flame, name: "GLP-1", useCase: "Weight Loss", benefit: "Appetite control, fat loss", bullets: ["Appetite suppression", "Sustainable fat loss", "Metabolic regulation"], cta: "Talk with Doctor" },
-            { icon: Dumbbell, name: "CJC-1295 + Ipamorelin", useCase: "Muscle / Anti-Aging", benefit: "Growth hormone stimulation", bullets: ["Lean muscle support", "Anti-aging benefits", "Recovery enhancement"], cta: "Book Your Medical Review" },
-            { icon: HeartPulse, name: "BPC-157", useCase: "Recovery", benefit: "Tissue repair", bullets: ["Tissue regeneration", "Gut healing support", "Inflammation reduction"], cta: "Talk to Us" },
-            { icon: Shield, name: "Thymosin Alpha-1", useCase: "Immune / Longevity", benefit: "Immune modulation", bullets: ["Immune system support", "Longevity optimization", "Systemic resilience"], cta: "Talk with Doctor" },
-            { icon: Zap, name: "Epithalon", useCase: "Anti-Aging", benefit: "Telomere support", bullets: ["Telomere lengthening", "Cellular longevity", "DNA repair support"], cta: "Book Your Medical Review" },
-            { icon: Brain, name: "Selank / Semax", useCase: "Brain Optimization", benefit: "Cognition & stress", bullets: ["Cognitive enhancement", "Stress reduction", "Mental clarity"], cta: "Talk to Us" },
+            { icon: Flame, name: "Retatrutide", useCase: "Triple Agonist", benefit: "Next-generation metabolic therapy targeting GLP-1, GIP, and glucagon pathways for advanced weight loss support.", bullets: ["Significant fat loss support", "Appetite regulation", "Metabolic improvement"], cta: "Book Your Medical Review" },
+            { icon: Flame, name: "Tesofensine", useCase: "Weight Management", benefit: "Helps regulate appetite and satiety while supporting effective fat loss and metabolic regulation.", bullets: ["Appetite suppression", "Fat loss support", "Metabolic optimization"], cta: "Talk with Doctor" },
+            { icon: Zap, name: "MOTS-c", useCase: "Metabolic Optimization", benefit: "Boosts metabolism, mimics the effects of exercise, and supports energy production at the cellular level.", bullets: ["Metabolic optimization", "Weight loss support", "Energy & endurance"], cta: "Talk with Doctor" },
+            { icon: Flame, name: "Tesamorelin", useCase: "Metabolic Health", benefit: "Supports reduction of visceral fat while improving metabolic health and body composition.", bullets: ["Visceral fat reduction", "Metabolic health support", "Body composition improvement"], cta: "Book Your Medical Review" },
+            { icon: Zap, name: "SLU-PP-332", useCase: "Longevity", benefit: "Enhances mitochondrial efficiency and supports cellular resilience for healthy aging and metabolic balance.", bullets: ["Mitochondrial efficiency", "Anti-aging support", "Cellular energy"], cta: "Talk with Doctor" },
           ].map((peptide) => (
             <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
               <CardContent className="p-6 flex flex-col flex-grow">
@@ -269,7 +275,102 @@ const PeptidePrograms = () => (
                     </li>
                   ))}
                 </ul>
-                {/* Program available badge */}
+                <div className="mb-4">
+                  <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
+                    Program Available on Demand
+                  </Badge>
+                </div>
+                <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    {peptide.cta}
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Section 2: Recovery & Performance */}
+        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+          <HeartPulse className="h-6 w-6 text-primary" />
+          Recovery & Performance
+        </h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {[
+            { icon: HeartPulse, name: "BPC-157", useCase: "Recovery", benefit: "Supports healing of tendons, ligaments, and muscles while reducing inflammation and promoting tissue repair.", bullets: ["Tissue repair", "Reduced inflammation", "Recovery support"], cta: "Talk to Us" },
+            { icon: HeartPulse, name: "BPC-157 (Oral)", useCase: "Gut Support", benefit: "Supports gut lining repair and digestive health while reducing gastrointestinal inflammation.", bullets: ["Gut lining repair", "Reduced GI inflammation", "Improved nutrient absorption"], cta: "Talk to Us" },
+            { icon: Dumbbell, name: "CJC-1295", useCase: "Growth Hormone", benefit: "Stimulates natural growth hormone release to support recovery, fat metabolism, and lean muscle development.", bullets: ["Fat loss support", "Muscle recovery", "Better sleep quality"], cta: "Book Your Medical Review" },
+            { icon: Dumbbell, name: "Ipamorelin", useCase: "GH Secretagogue", benefit: "Selective growth hormone stimulation that enhances recovery, sleep, and fat metabolism with minimal hormonal disruption.", bullets: ["Recovery optimization", "Fat metabolism support", "Deep sleep improvement"], cta: "Book Your Medical Review" },
+            { icon: Sparkles, name: "GHK-Cu", useCase: "Regeneration", benefit: "Promotes skin regeneration, hair growth, and wound healing while supporting anti-inflammatory processes.", bullets: ["Skin rejuvenation", "Hair growth support", "Tissue repair"], cta: "Talk with Doctor" },
+          ].map((peptide) => (
+            <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
+              <CardContent className="p-6 flex flex-col flex-grow">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
+                    <peptide.icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <span className="text-sm font-semibold text-primary">{peptide.useCase}</span>
+                </div>
+                <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
+                <p className="text-sm text-muted-foreground mb-4">{peptide.benefit}</p>
+                <ul className="space-y-2 mb-4 flex-grow">
+                  {peptide.bullets.map((b) => (
+                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary">•</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mb-4">
+                  <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
+                    Program Available on Demand
+                  </Badge>
+                </div>
+                <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    {peptide.cta}
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Section 3: Longevity & Brain Optimization */}
+        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+          <Brain className="h-6 w-6 text-primary" />
+          Longevity & Brain Optimization
+        </h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { icon: Zap, name: "Epithalon", useCase: "Anti-Aging", benefit: "Supports healthy aging through telomere protection while improving sleep quality and immune function.", bullets: ["Telomere protection", "Improved sleep quality", "Longevity support"], cta: "Book Your Medical Review" },
+            { icon: Shield, name: "SS-31", useCase: "Mitochondrial", benefit: "Protects mitochondria, reduces oxidative stress, and supports muscle performance and cellular energy.", bullets: ["Mitochondrial protection", "Muscle strength & endurance", "Anti-aging support"], cta: "Talk with Doctor" },
+            { icon: Brain, name: "Selank", useCase: "Cognitive", benefit: "Helps reduce anxiety and stress while improving mental clarity and emotional balance.", bullets: ["Anxiety reduction", "Improved focus", "Stress resilience"], cta: "Talk to Us" },
+            { icon: Brain, name: "Semax", useCase: "Nootropic", benefit: "Enhances cognitive performance and neuroprotection while supporting memory and focus.", bullets: ["Memory support", "Mental clarity", "Neuroprotection"], cta: "Talk to Us" },
+            { icon: Heart, name: "PT-141", useCase: "Libido", benefit: "Supports sexual health by enhancing libido and improving sexual response.", bullets: ["Libido enhancement", "Sexual performance support", "Hormonal balance"], cta: "Talk with Doctor" },
+            { icon: Heart, name: "PT-141 Nasal Spray", useCase: "Nasal Therapy", benefit: "Convenient nasal peptide therapy designed to support libido and sexual function.", bullets: ["Libido support", "Fast-acting delivery", "Sexual performance enhancement"], cta: "Talk with Doctor" },
+            { icon: HeartPulse, name: "Kisspeptin", useCase: "Hormonal", benefit: "Stimulates natural hormone signaling to support testosterone balance, fertility, and libido.", bullets: ["Hormone balance", "Fertility support", "Libido optimization"], cta: "Talk with Doctor" },
+          ].map((peptide) => (
+            <Card key={peptide.name} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col">
+              <CardContent className="p-6 flex flex-col flex-grow">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-medical flex items-center justify-center">
+                    <peptide.icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <span className="text-sm font-semibold text-primary">{peptide.useCase}</span>
+                </div>
+                <h4 className="text-lg font-bold text-foreground mb-2">{peptide.name}</h4>
+                <p className="text-sm text-muted-foreground mb-4">{peptide.benefit}</p>
+                <ul className="space-y-2 mb-4 flex-grow">
+                  {peptide.bullets.map((b) => (
+                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary">•</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
                 <div className="mb-4">
                   <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
                     Program Available on Demand
