@@ -13,6 +13,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const Install = lazy(() => import("./pages/Install"));
 const PriceList = lazy(() => import("./pages/PriceList"));
+const Peptides = lazy(() => import("./pages/Peptides"));
 
 const queryClient = new QueryClient();
 
