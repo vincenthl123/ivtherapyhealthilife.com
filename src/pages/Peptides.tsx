@@ -871,14 +871,17 @@ const PeptideVideoTestimonials = () => {
   );
 };
 
-// ─── PROCESS ─────────────────────────────────────────────
+// ─── HOW THE PROGRAM WORKS ───────────────────────────────
 const PeptideProcess = () => {
-  const steps = [
-    { icon: CalendarCheck, title: "Book Your Consultation", desc: "Choose an online or onsite consultation with a Healthi-Life doctor." },
+  const mainSteps = [
+    { icon: CalendarCheck, title: "Book Your Consultation", desc: "Choose an online or onsite consultation with a Healthi-Life doctor to discuss your health goals." },
+    { icon: Microscope, title: "Blood Tests & Baseline Review", desc: "Relevant labs and health markers are assessed to build an accurate picture of your biology." },
+    { icon: Monitor, title: "Follow-Up & Monitoring", desc: "You receive structured check-ins, medical review, and plan adjustments based on your progress." },
+  ];
+
+  const additionalSteps = [
     { icon: ClipboardCheck, title: "Medical Assessment", desc: "We review your health history, symptoms, goals, and treatment suitability." },
-    { icon: Microscope, title: "Blood Tests & Baseline Review", desc: "Relevant labs and health markers are assessed to personalize your program." },
     { icon: FlaskConical, title: "Personalized 3, 6, or 12-Month Plan", desc: "Your doctor builds a tailored treatment roadmap based on your profile and objectives." },
-    { icon: Monitor, title: "Follow-Up & Monitoring", desc: "You receive structured check-ins, medical review, and plan adjustments where appropriate." },
     { icon: RefreshCw, title: "Review & Renew", desc: "At the end of the program cycle, your results are reviewed and your next phase is decided with the doctor." },
   ];
 
@@ -887,21 +890,43 @@ const PeptideProcess = () => {
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How the Program Works</h2>
+          <p className="text-lg text-muted-foreground">From consultation to results — a clear, medically guided pathway.</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {steps.map((step, i) => (
-            <div key={step.title} className="relative bg-card rounded-xl border border-border p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm">
-                  {i + 1}
-                </div>
-                <step.icon className="h-5 w-5 text-primary" />
+
+        {/* 3 Main Steps */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {mainSteps.map((step, i) => (
+            <Card key={step.title} className="relative border-border p-6 hover:shadow-lg transition-shadow bg-card">
+              <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm shadow-md">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <step.icon className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
               <p className="text-sm text-muted-foreground">{step.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
+
+        {/* Additional Steps */}
+        <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">What Happens Next</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {additionalSteps.map((step) => (
+              <div key={step.title} className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <step.icon className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-foreground mb-1">{step.title}</h4>
+                  <p className="text-xs text-muted-foreground">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <p className="mt-8 text-center text-sm text-muted-foreground italic max-w-2xl mx-auto">
           Please note that peptide therapies are prepared through certified partner pharmacies and laboratories. Advance notice is required before treatment scheduling.
         </p>
