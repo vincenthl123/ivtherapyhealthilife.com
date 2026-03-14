@@ -972,30 +972,61 @@ const PeptideFAQ = () => {
   );
 };
 
-// ─── TESTIMONIALS ────────────────────────────────────────
+// ─── CLIENT FEEDBACK ─────────────────────────────────────
 const PeptideTestimonials = () => {
-  const testimonials = [
-    { text: "The process felt structured, medical, and highly personalized.", author: "Patient" },
-    { text: "I appreciated the doctor supervision and follow-up rather than a generic wellness approach.", author: "Patient" },
-    { text: "Healthi-Life made the entire experience feel premium, clear, and safe.", author: "Patient" },
+  const reviews = [
+    { initials: "RM", text: "I started a 6-month peptide program for metabolic optimization. The doctor consultations, blood work, and personalized protocol made me feel in safe hands. After 4 months, my energy and body composition changed noticeably.", name: "Richard M.", location: "London, UK" },
+    { initials: "SY", text: "I was skeptical at first, but the 3-month recovery protocol exceeded my expectations. The follow-ups and lab monitoring gave me confidence. My knee inflammation improved significantly and I'm back to training.", name: "Soo-Yeon K.", location: "Seoul, South Korea" },
+    { initials: "TW", text: "The 12-month longevity program has been transformative. Better sleep, sharper focus, and improved metabolic markers. Dr. First personally reviewed my progress every month. Truly premium medical care.", name: "Thomas W.", location: "Sydney, Australia" },
+    { initials: "AL", text: "After struggling with weight management for years, the metabolic reset protocol with peptides finally gave me sustainable results. The personalized approach based on my blood work made all the difference.", name: "Anna L.", location: "Munich, Germany" },
+    { initials: "JC", text: "I chose Healthi-Life for a 6-month performance optimization program. The combination of peptides, nutrition guidance, and regular monitoring helped me reach a level of fitness I hadn't seen in years.", name: "James C.", location: "New York, USA" },
   ];
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What Patients Say</h2>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 uppercase tracking-wide">
+            Recognition
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">Client Feedback</h2>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <span className="text-3xl font-bold text-foreground">5</span>
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <span className="text-muted-foreground">+250 reviews</span>
+            <Badge variant="outline" className="border-border gap-1.5 px-3 py-1.5">
+              <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
+              Private Clients
+            </Badge>
+          </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {testimonials.map((t, i) => (
-            <Card key={i} className="border-border p-6 text-center">
-              <div className="flex justify-center mb-4">
+
+        {/* Reviews Grid */}
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-7xl mx-auto">
+          {reviews.map((r, i) => (
+            <Card key={i} className="relative border-border p-5 flex flex-col">
+              {/* Quote icon */}
+              <div className="text-primary/20 text-4xl font-serif leading-none mb-2">"</div>
+              {/* Initials badge */}
+              <div className="absolute -top-3 right-4 w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold shadow-md">
+                {r.initials}
+              </div>
+              {/* Stars */}
+              <div className="flex mb-3">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <p className="text-muted-foreground italic mb-4">"{t.text}"</p>
-              <p className="text-sm font-medium text-foreground">— Verified {t.author}</p>
+              <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">"{r.text}"</p>
+              <div className="border-t border-border pt-3 mt-auto">
+                <p className="text-sm font-bold text-foreground">{r.name}</p>
+                <p className="text-xs text-muted-foreground">{r.location}</p>
+              </div>
             </Card>
           ))}
         </div>
