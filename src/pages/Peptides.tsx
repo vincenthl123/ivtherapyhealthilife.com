@@ -58,14 +58,19 @@ const PeptideHero = () => (
         </div>
 
         <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-[1.15]">
-          Personalized Peptide Programs for{" "}
+          Medical Peptide Therapy Programs to{" "}
           <span className="bg-gradient-medical bg-clip-text text-transparent">
-            Longevity, Recovery & Metabolic Optimization
+            Restore Energy, Metabolism & Recovery
           </span>
         </h1>
-        <p className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
-          Structured 3, 6, or 12-month medical programs designed by doctors, guided by lab data, and personalized to your health goals.
-        </p>
+        <div className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
+          <p className="mb-3">Doctor-supervised peptide protocols designed to support:</p>
+          <ul className="space-y-1.5">
+            <li>• fat loss & metabolic health</li>
+            <li>• muscle recovery & performance</li>
+            <li>• healthy aging & longevity</li>
+          </ul>
+        </div>
 
         {/* Trust Signals */}
         <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-8">
