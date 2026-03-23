@@ -216,7 +216,7 @@ const metabolicPeptides = [
   { icon: Flame, name: "Retatrutide", useCaseKey: "pep.retatrutide.useCase", benefitKey: "pep.retatrutide.benefit", bulletKeys: ["pep.retatrutide.b1", "pep.retatrutide.b2", "pep.retatrutide.b3"], ctaKey: "pep.programs.bookReview" },
   { icon: Flame, name: "Tesofensine", useCaseKey: "pep.tesofensine.useCase", benefitKey: "pep.tesofensine.benefit", bulletKeys: ["pep.tesofensine.b1", "pep.tesofensine.b2", "pep.tesofensine.b3"], ctaKey: "pep.programs.talkDoctor" },
   { icon: Zap, name: "MOTS-c", useCaseKey: "pep.motsc.useCase", benefitKey: "pep.motsc.benefit", bulletKeys: ["pep.motsc.b1", "pep.motsc.b2", "pep.motsc.b3"], ctaKey: "pep.programs.talkDoctor" },
-  { icon: Flame, name: "Tesamorelin", useCaseKey: "pep.tesamorelin.useCase", benefitKey: "pep.tesamorelin.benefit", bulletKeys: ["pep.tesamorelin.b1", "pep.tesamorelin.b2", "pep.tesamorelin.b3"], ctaKey: "pep.programs.bookReview" },
+  
   { icon: Zap, name: "SLU-PP-332", useCaseKey: "pep.slupp.useCase", benefitKey: "pep.slupp.benefit", bulletKeys: ["pep.slupp.b1", "pep.slupp.b2", "pep.slupp.b3"], ctaKey: "pep.programs.talkDoctor" },
 ];
 
