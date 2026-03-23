@@ -216,7 +216,7 @@ const metabolicPeptides = [
   { icon: Flame, name: "Retatrutide", useCaseKey: "pep.retatrutide.useCase", benefitKey: "pep.retatrutide.benefit", bulletKeys: ["pep.retatrutide.b1", "pep.retatrutide.b2", "pep.retatrutide.b3"], ctaKey: "pep.programs.bookReview" },
   { icon: Flame, name: "Tesofensine", useCaseKey: "pep.tesofensine.useCase", benefitKey: "pep.tesofensine.benefit", bulletKeys: ["pep.tesofensine.b1", "pep.tesofensine.b2", "pep.tesofensine.b3"], ctaKey: "pep.programs.talkDoctor" },
   { icon: Zap, name: "MOTS-c", useCaseKey: "pep.motsc.useCase", benefitKey: "pep.motsc.benefit", bulletKeys: ["pep.motsc.b1", "pep.motsc.b2", "pep.motsc.b3"], ctaKey: "pep.programs.talkDoctor" },
-  { icon: Flame, name: "Tesamorelin", useCaseKey: "pep.tesamorelin.useCase", benefitKey: "pep.tesamorelin.benefit", bulletKeys: ["pep.tesamorelin.b1", "pep.tesamorelin.b2", "pep.tesamorelin.b3"], ctaKey: "pep.programs.bookReview" },
+  
   { icon: Zap, name: "SLU-PP-332", useCaseKey: "pep.slupp.useCase", benefitKey: "pep.slupp.benefit", bulletKeys: ["pep.slupp.b1", "pep.slupp.b2", "pep.slupp.b3"], ctaKey: "pep.programs.talkDoctor" },
 ];
 
@@ -393,7 +393,7 @@ const PeptidePrograms = () => {
 // ─── PEPTIDE CATALOG ─────────────────────────────────────
 const catalogCategoryKeys = [
   { key: "antiAging", icon: Sparkles, peptides: ["Epithalon", "NMN", "MOTS-c", "SS-31 (Elamipretide)"] },
-  { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin", "Tesamorelin"] },
+  { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin"] },
   { key: "weightLoss", icon: Flame, peptides: ["MOTS-c", "SLU-PP-332", "Tesofensine", "Retatrutide"] },
   { key: "healing", icon: HeartPulse, peptides: ["BPC-157", "Thymosin Beta-4 (TB-500)", "BPC-157 (Oral)", "GHK-Cu"] },
   { key: "sleep", icon: Moon, peptides: ["Epithalon", "DSIP"] },
@@ -410,7 +410,7 @@ const peptideCatalogData: Record<string, { benefits: string; route: string; freq
   "SS-31 (Elamipretide)": { benefits: "Protects mitochondria, reduces oxidative stress, improves muscle strength & endurance", route: "Subcutaneous injection", frequency: "Once daily (5–10 mg) for 3–4 months, pause for 2 months" },
   "CJC-1295": { benefits: "Stimulates natural growth hormone release, improves fat loss, recovery, sleep quality, and lean muscle support", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
   "Ipamorelin": { benefits: "Selective GH secretagogue, enhances recovery, improves sleep, supports fat loss with minimal cortisol impact", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
-  "Tesamorelin": { benefits: "Reduces visceral fat, improves body composition, supports metabolic health and GH axis", route: "Subcutaneous injection", frequency: "5 days/week (1 mg), fasting 2–3 hours prior" },
+  
   "SLU-PP-332": { benefits: "Enhances mitochondrial efficiency, reduces oxidative stress, supports anti-aging and neuroprotection", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
   "Tesofensine": { benefits: "Potent appetite suppression, improves satiety control, supports significant fat loss and metabolic regulation", route: "Oral capsule", frequency: "1–2 tab daily (500 mcg)" },
   "Retatrutide": { benefits: "Triple agonist (GLP-1/GIP/Glucagon), supports significant fat loss, appetite regulation, insulin sensitivity, and metabolic optimization", route: "Subcutaneous injection", frequency: "Start 0.5 mg once weekly, titrate monthly based on response" },
