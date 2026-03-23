@@ -49,7 +49,7 @@ export const peptideTranslations = {
     "pep.glp1.b3": "Metabolic regulation",
 
     "pep.retatrutide.useCase": "Triple Agonist",
-    "pep.retatrutide.benefit": "Next-generation metabolic therapy targeting GLP-1, GIP, and glucagon pathways for advanced weight loss support.",
+    "pep.retatrutide.benefit": "Next-generation metabolic therapy targeting multiple pathways for advanced weight loss support.",
     "pep.retatrutide.b1": "Significant fat loss support",
     "pep.retatrutide.b2": "Appetite regulation",
     "pep.retatrutide.b3": "Metabolic improvement",
