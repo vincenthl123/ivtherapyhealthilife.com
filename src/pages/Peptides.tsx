@@ -393,7 +393,7 @@ const PeptidePrograms = () => {
 // ─── PEPTIDE CATALOG ─────────────────────────────────────
 const catalogCategoryKeys = [
   { key: "antiAging", icon: Sparkles, peptides: ["Epithalon", "NMN", "MOTS-c", "SS-31 (Elamipretide)"] },
-  { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin", "Tesamorelin"] },
+  { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin"] },
   { key: "weightLoss", icon: Flame, peptides: ["MOTS-c", "SLU-PP-332", "Tesofensine", "Retatrutide"] },
   { key: "healing", icon: HeartPulse, peptides: ["BPC-157", "Thymosin Beta-4 (TB-500)", "BPC-157 (Oral)", "GHK-Cu"] },
   { key: "sleep", icon: Moon, peptides: ["Epithalon", "DSIP"] },
