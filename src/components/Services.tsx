@@ -339,6 +339,31 @@ const Services = () => {
           ))}
         </div>
 
+        {/* Peptide Therapy Vignette */}
+        <div className="mb-16">
+          <a
+            href="/therapy-bangkok"
+            className="block group rounded-2xl overflow-hidden bg-gradient-to-r from-primary/10 via-secondary/30 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-medium"
+          >
+            <div className="flex flex-col md:flex-row items-center gap-6 p-6 md:p-10">
+              <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-medical flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Activity className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                  Peptide Therapy
+                </h3>
+                <p className="text-muted-foreground">
+                  Doctor-supervised peptide protocols for weight loss, metabolism, recovery & longevity. Tailored to your biomarkers.
+                </p>
+              </div>
+              <Button variant="default" className="whitespace-nowrap">
+                Learn More →
+              </Button>
+            </div>
+          </a>
+        </div>
+
         {/* Wellness Packages Section */}
         <div className="mb-16">
           <div className="text-center mb-8">
