@@ -5,7 +5,7 @@ export const peptideTranslations = {
   en: {
     // Hero
     "pep.hero.badge": "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
-    "pep.hero.title": "Peptide Therapy Programs",
+    "pep.hero.title": "What is Peptide therapy?",
     "pep.hero.subtitle": "Restore Energy, Metabolism & Recovery",
     "pep.hero.intro": "Protocols designed by",
     "pep.hero.doctorName": "Doctor First",
