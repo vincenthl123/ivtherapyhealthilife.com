@@ -195,12 +195,7 @@ const PeptideCard = ({ peptide, t }: { peptide: { icon: any; name: string; useCa
           </li>
         ))}
       </ul>
-      <div className="mb-4">
-        <Badge className="bg-gradient-medical text-primary-foreground px-3 py-1.5 text-xs font-medium">
-          {t("pep.programs.programAvailable")}
-        </Badge>
-      </div>
-      <Button variant="outline" className="w-full group" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
+      <Button variant="outline" className="w-full group mt-4" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
         <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
           <MessageCircle className="h-4 w-4 mr-2" />
           {t(peptide.ctaKey)}
@@ -239,13 +234,7 @@ const longevityPeptides = [
   { icon: HeartPulse, name: "Kisspeptin", useCaseKey: "pep.kisspeptin.useCase", benefitKey: "pep.kisspeptin.benefit", bulletKeys: ["pep.kisspeptin.b1", "pep.kisspeptin.b2", "pep.kisspeptin.b3"], ctaKey: "pep.programs.talkDoctor" },
 ];
 
-// ─── SERVICES / PROGRAMS ─────────────────────────────────
-const programKeys = [
-  { icon: Brain, progNum: 1, priceKey: "From 40,000 THB" },
-  { icon: HeartPulse, progNum: 2, priceKey: "From 40,000 THB" },
-  { icon: Flame, progNum: 3, priceKey: "From 40,000 THB" },
-  { icon: Dumbbell, progNum: 4, priceKey: "From 40,000 THB" },
-];
+// ─── SERVICES ─────────────────────────────────────────────
 
 const PeptidePrograms = () => {
   const { t } = useLanguage();
@@ -305,86 +294,6 @@ const PeptidePrograms = () => {
           </div>
         </div>
 
-        {/* Programs Section */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            {t("pep.prog.title")}
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            {t("pep.prog.subtitle")}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {programKeys.map((pk) => {
-            const n = pk.progNum;
-            const PIcon = pk.icon;
-            return (
-              <Card key={n} className="border-border hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden">
-                <div className="bg-secondary/70 px-6 py-3 flex items-center gap-2">
-                  <PIcon className="h-4 w-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">{t(`pep.prog${n}.subtitle`)}</span>
-                </div>
-                <CardContent className="flex-grow p-6 space-y-5">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{t(`pep.prog${n}.title`)}</h3>
-                    <p className="text-sm font-medium bg-gradient-medical bg-clip-text text-transparent">{t(`pep.prog${n}.tagline`)}</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t(`pep.prog${n}.desc`)}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <Badge key={i} variant="secondary" className="text-xs font-normal">
-                        <Sparkles className="h-3 w-3 mr-1 text-primary" />
-                        {t(`pep.prog${n}.tag${i}`)}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="bg-secondary/50 rounded-lg p-4 border border-border">
-                    <div className="flex items-center gap-2 mb-3">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-bold text-foreground">{t("pep.prog.clientsReport")}</span>
-                    </div>
-                    <ul className="space-y-1.5">
-                      {[1, 2, 3, 4].map((i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="text-primary mt-1">•</span>
-                          {t(`pep.prog${n}.report${i}`)}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-foreground mb-2">{t("pep.prog.includes")}</h4>
-                    <ul className="space-y-1.5">
-                      {[1, 2, 3, 4].map((i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <ShieldCheck className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                          {t(`pep.prog${n}.inc${i}`)}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="pt-2">
-                    <p className="text-2xl font-bold text-foreground">{pk.priceKey}</p>
-                    <p className="text-xs text-muted-foreground">{t(`pep.prog${n}.subtitle`).split(' — ')[0]} · {t("pep.prog.pricingNote")}</p>
-                  </div>
-                  <Button className="w-full group" size="lg" onClick={() => trackButtonClick(`ivclick-peptide-prog${n}`)} asChild>
-                    <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      {t("pep.prog.bookReview")}
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        <div className="mt-10 text-center">
-          <p className="text-sm text-muted-foreground italic">
-            {t("pep.prog.startingNote")}
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -1080,28 +989,28 @@ const PeptideSEO = () => {
           "@id": "https://ivtherapyhealthilife.com/peptides-therapy#breadcrumb",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ivtherapyhealthilife.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Peptide Therapy Programs", "item": "https://ivtherapyhealthilife.com/peptides-therapy" },
+            { "@type": "ListItem", "position": 2, "name": "Peptide Therapy", "item": "https://ivtherapyhealthilife.com/peptides-therapy" },
           ],
         },
         {
           "@type": "MedicalBusiness",
           "@id": "https://ivtherapyhealthilife.com/peptides-therapy#service",
-          "name": "Peptide Therapy Programs — Healthi-Life",
+          "name": "Peptide Therapy — Healthi-Life",
           "url": "https://ivtherapyhealthilife.com/peptides-therapy",
-          "description": "Doctor-supervised peptide therapy programs for longevity, recovery, weight management, and performance optimization.",
+          "description": "Doctor-supervised peptide therapy for longevity, recovery, weight management, and performance optimization.",
           "provider": { "@id": "https://ivtherapyhealthilife.com/#clinic" },
           "medicalSpecialty": ["Peptide Therapy", "Regenerative Medicine", "Longevity Medicine"],
           "availableService": [
-            { "@type": "MedicalProcedure", "name": "Cellular Longevity Protocol", "description": "6-12 month program for healthy aging & metabolic resilience", "procedureType": "https://schema.org/NoninvasiveProcedure" },
-            { "@type": "MedicalProcedure", "name": "Recovery & Regeneration Protocol", "description": "3-6 month recovery program for tissue resilience & inflammation management", "procedureType": "https://schema.org/NoninvasiveProcedure" },
-            { "@type": "MedicalProcedure", "name": "Metabolic Reset & Weight Optimization", "description": "6-12 month program for fat reduction & metabolic flexibility", "procedureType": "https://schema.org/NoninvasiveProcedure" },
-            { "@type": "MedicalProcedure", "name": "Lean Muscle & Performance Optimization", "description": "6-12 month program for lean muscle & training recovery", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+            { "@type": "MedicalProcedure", "name": "Cellular Longevity Protocol", "description": "6-12 month protocol for healthy aging & metabolic resilience", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+            { "@type": "MedicalProcedure", "name": "Recovery & Regeneration Protocol", "description": "3-6 month recovery protocol for tissue resilience & inflammation management", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+            { "@type": "MedicalProcedure", "name": "Metabolic Reset & Weight Optimization", "description": "6-12 month protocol for fat reduction & metabolic flexibility", "procedureType": "https://schema.org/NoninvasiveProcedure" },
+            { "@type": "MedicalProcedure", "name": "Lean Muscle & Performance Optimization", "description": "6-12 month protocol for lean muscle & training recovery", "procedureType": "https://schema.org/NoninvasiveProcedure" },
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Peptide Programs",
+            "name": "Peptide Therapy",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peptide Therapy Program" }, "price": "40000", "priceCurrency": "THB", "availability": "https://schema.org/InStock" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peptide Therapy" }, "price": "40000", "priceCurrency": "THB", "availability": "https://schema.org/InStock" },
             ],
           },
         },
@@ -1109,11 +1018,11 @@ const PeptideSEO = () => {
           "@type": "FAQPage",
           "mainEntity": [
             { "@type": "Question", "name": "Is peptide therapy suitable for everyone?", "acceptedAnswer": { "@type": "Answer", "text": "No. Suitability depends on your medical history, health goals, lab findings, and physician review." } },
-            { "@type": "Question", "name": "Do I need a consultation before starting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All peptide programs begin with an online or onsite consultation with a doctor." } },
-            { "@type": "Question", "name": "How long does a peptide program last?", "acceptedAnswer": { "@type": "Answer", "text": "Programs may be structured over 3, 6, or 12 months depending on the clinical objective and physician recommendation." } },
+            { "@type": "Question", "name": "Do I need a consultation before starting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All peptide therapies begin with an online or onsite consultation with a doctor." } },
+            { "@type": "Question", "name": "How long does peptide therapy last?", "acceptedAnswer": { "@type": "Answer", "text": "Treatments may be structured over 3, 6, or 12 months depending on the clinical objective and physician recommendation." } },
             { "@type": "Question", "name": "Are peptide products stocked onsite?", "acceptedAnswer": { "@type": "Answer", "text": "No. Peptides are prepared and shipped through certified partner pharmacies and laboratories. Please allow a minimum of 5 working days before scheduled therapy." } },
             { "@type": "Question", "name": "What peptides are available at Healthi-Life Bangkok?", "acceptedAnswer": { "@type": "Answer", "text": "Healthi-Life offers 18+ medical peptides including GLP-1, BPC-157, NAD+, Epithalon, CJC-1295, Ipamorelin, Selank, Semax, PT-141, and more. All are prescribed by physicians based on medical assessment." } },
-            { "@type": "Question", "name": "How much does peptide therapy cost in Bangkok?", "acceptedAnswer": { "@type": "Answer", "text": "Peptide programs at Healthi-Life start from 40,000 THB. Final pricing depends on program duration, medical evaluation, and personalization level. Detailed pricing is provided after doctor consultation." } },
+            { "@type": "Question", "name": "How much does peptide therapy cost in Bangkok?", "acceptedAnswer": { "@type": "Answer", "text": "Peptide therapy at Healthi-Life starts from 40,000 THB. Final pricing depends on treatment duration, medical evaluation, and personalization level. Detailed pricing is provided after doctor consultation." } },
           ],
         },
       ],

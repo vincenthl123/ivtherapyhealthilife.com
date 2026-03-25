@@ -29,9 +29,9 @@ export const peptideTranslations = {
     "pep.trust.bestClinicLabel": "2025 Asia-Pacific",
 
     // Programs Section
-    "pep.programs.peptidesUsed": "Medical Peptides Used in Our Programs",
+    "pep.programs.peptidesUsed": "Medical Peptides Used in Our Protocols",
     "pep.programs.peptidesUsedDesc": "Each peptide is selected by our physicians based on your metabolic profile, health goals, and clinical evaluation.",
-    "pep.programs.programAvailable": "Program Available on Demand",
+    "pep.programs.programAvailable": "Available on Demand",
     "pep.programs.talkDoctor": "Talk with Doctor",
     "pep.programs.bookReview": "Book Your Medical Review",
     "pep.programs.talkToUs": "Talk to Us",
@@ -159,19 +159,19 @@ export const peptideTranslations = {
     "pep.kisspeptin.b3": "Libido optimization",
 
     // Program Cards
-    "pep.prog.title": "Peptide Therapy Programs",
+    "pep.prog.title": "Peptide Therapy Protocols",
     "pep.prog.subtitle": "Restore energy, support metabolism, and improve recovery with doctor-supervised peptide protocols designed by Dr First.",
     "pep.prog.clientsReport": "What Most Clients Report",
-    "pep.prog.includes": "Program Includes",
+    "pep.prog.includes": "Protocol Includes",
     "pep.prog.pricingNote": "Pricing confirmed after doctor consultation",
     "pep.prog.bookReview": "Book Your Medical Review",
-    "pep.prog.startingNote": "Starting from 40,000 THB depending on program duration, medical evaluation, and personalization level. Detailed treatment recommendations and pricing are provided after doctor consultation.",
+    "pep.prog.startingNote": "Starting from 40,000 THB depending on protocol duration, medical evaluation, and personalization level. Detailed treatment recommendations and pricing are provided after doctor consultation.",
 
     // Program 1: Cellular Longevity
     "pep.prog1.subtitle": "6–12 Months — Healthy Aging — Mitochondrial Support",
     "pep.prog1.title": "CELLULAR LONGEVITY PROTOCOL",
     "pep.prog1.tagline": "Healthy Aging & Metabolic Resilience",
-    "pep.prog1.desc": "A structured longevity program designed to support biological aging markers, mitochondrial performance, and metabolic resilience through personalized peptide protocols.",
+    "pep.prog1.desc": "A structured longevity protocol designed to support biological aging markers, mitochondrial performance, and metabolic resilience through personalized peptide protocols.",
     "pep.prog1.tag1": "Healthy aging support",
     "pep.prog1.tag2": "Mitochondrial performance",
     "pep.prog1.tag3": "Recovery quality",
@@ -189,7 +189,7 @@ export const peptideTranslations = {
     "pep.prog2.subtitle": "3–6 Months — Recovery — Tissue Resilience",
     "pep.prog2.title": "RECOVERY & REGENERATION PROTOCOL",
     "pep.prog2.tagline": "Recovery Support & Movement Restoration",
-    "pep.prog2.desc": "A doctor-guided recovery program focused on tissue resilience, inflammation management, and structured return-to-performance capacity.",
+    "pep.prog2.desc": "A doctor-guided recovery protocol focused on tissue resilience, inflammation management, and structured return-to-performance capacity.",
     "pep.prog2.tag1": "Recovery support",
     "pep.prog2.tag2": "Inflammation management",
     "pep.prog2.tag3": "Tissue resilience",
@@ -225,7 +225,7 @@ export const peptideTranslations = {
     "pep.prog4.subtitle": "6–12 Months — Lean Mass — Performance Capacity",
     "pep.prog4.title": "LEAN MUSCLE & PERFORMANCE OPTIMIZATION",
     "pep.prog4.tagline": "Performance Support & Body Recomposition",
-    "pep.prog4.desc": "A performance-oriented peptide program designed to support lean muscle, training recovery, and optimized body composition under medical supervision.",
+    "pep.prog4.desc": "A performance-oriented peptide protocol designed to support lean muscle, training recovery, and optimized body composition under medical supervision.",
     "pep.prog4.tag1": "Lean muscle support",
     "pep.prog4.tag2": "Training recovery",
     "pep.prog4.tag3": "Injury risk reduction",
@@ -242,7 +242,7 @@ export const peptideTranslations = {
     // Peptide Catalog
     "pep.catalog.title": "Peptide Therapy",
     "pep.catalog.subtitle": "Discover our full range of peptides organized by therapeutic category",
-    "pep.catalog.onDemand": "Program on Demand",
+    "pep.catalog.onDemand": "Available on Demand",
     "pep.catalog.peptide": "peptide",
     "pep.catalog.peptides": "peptides",
     "pep.catalog.benefits": "Benefits",
@@ -261,30 +261,30 @@ export const peptideTranslations = {
 
     // CTA Section
     "pep.cta.title": "Ready to Start?",
-    "pep.cta.subtitle": "All programs begin with a doctor consultation. Start your journey toward better health today.",
+    "pep.cta.subtitle": "All peptide therapies begin with a doctor consultation. Start your journey toward better health today.",
     "pep.cta.whatsapp": "Start on WhatsApp",
     "pep.cta.scroll": "See How It Works",
 
     // Clinic Presentation
     "pep.clinic.title": "A Medical Approach to Peptide Therapy",
-    "pep.clinic.subtitle": "Peptide therapy at Healthi Life is delivered through structured medical programs designed to improve metabolism, recovery, and healthy aging. Each protocol is personalized based on medical consultation, biomarker testing, and continuous physician supervision.",
-    "pep.clinic.p1.title": "Physician-Supervised Programs",
+    "pep.clinic.subtitle": "Peptide therapy at Healthi Life is delivered through structured medical protocols designed to improve metabolism, recovery, and healthy aging. Each protocol is personalized based on medical consultation, biomarker testing, and continuous physician supervision.",
+    "pep.clinic.p1.title": "Physician-Supervised Protocols",
     "pep.clinic.p1.desc": "All peptide therapies are prescribed and monitored by our medical team to ensure safety, effectiveness, and proper dosing.",
     "pep.clinic.p2.title": "Personalized Protocols",
-    "pep.clinic.p2.desc": "Each program is tailored after consultation and lab analysis to match your metabolism, health goals, and recovery needs.",
+    "pep.clinic.p2.desc": "Each protocol is tailored after consultation and lab analysis to match your metabolism, health goals, and recovery needs.",
     "pep.clinic.p3.title": "Structured Treatment Phases",
     "pep.clinic.p3.desc": "Protocols are delivered in monitored phases with adjustments based on your progress and biomarker response.",
     "pep.clinic.p4.title": "Integrated Longevity Approach",
     "pep.clinic.p4.desc": "Peptide therapy is combined with nutrition, recovery strategies, and lifestyle guidance to maximize long-term results.",
     "pep.clinic.p5.title": "Premium Medical Care",
-    "pep.clinic.p5.desc": "Receive high-touch medical support with individualized follow-up and physician oversight throughout your program.",
+    "pep.clinic.p5.desc": "Receive high-touch medical support with individualized follow-up and physician oversight throughout your treatment.",
 
     // Why Patients Choose
     "pep.why.title": "Why Patients Choose Healthi Life",
     "pep.why.p1.title": "Physician-Led Care",
-    "pep.why.p1.desc": "Every program begins with a medical consultation and health assessment, ensuring the right treatment strategy for your biology.",
+    "pep.why.p1.desc": "Every treatment begins with a medical consultation and health assessment, ensuring the right strategy for your biology.",
     "pep.why.p2.title": "Personalized Protocols",
-    "pep.why.p2.desc": "Your program is tailored to your biomarkers, health history, and goals, with adjustments based on your progress.",
+    "pep.why.p2.desc": "Your protocol is tailored to your biomarkers, health history, and goals, with adjustments based on your progress.",
     "pep.why.p3.title": "Lab-Guided Monitoring",
     "pep.why.p3.desc": "We use biomarker testing and clinical follow-up to guide decisions and optimize your results safely.",
     "pep.why.p4.title": "Premium Medical Experience",
@@ -309,7 +309,7 @@ export const peptideTranslations = {
     "pep.video.v3.desc": "Patient testimonial: Recovery journey with stem cell therapy for knee pain at Healthi-Life Longevity Center Bangkok.",
 
     // How Program Works
-    "pep.process.title": "How the Program Works",
+    "pep.process.title": "How It Works",
     "pep.process.subtitle": "From consultation to results — a clear, medically guided pathway.",
     "pep.process.step1.title": "Book Your Consultation",
     "pep.process.step1.desc": "Choose an online or onsite consultation with a Healthi-Life doctor to discuss your health goals.",
@@ -323,7 +323,7 @@ export const peptideTranslations = {
     "pep.process.add2.title": "Personalized 3, 6, or 12-Month Plan",
     "pep.process.add2.desc": "Your doctor builds a tailored treatment roadmap based on your profile and objectives.",
     "pep.process.add3.title": "Review & Renew",
-    "pep.process.add3.desc": "At the end of the program cycle, your results are reviewed and your next phase is decided with the doctor.",
+    "pep.process.add3.desc": "At the end of the treatment cycle, your results are reviewed and your next phase is decided with the doctor.",
     "pep.process.disclaimer": "Please note that peptide therapies are prepared through certified partner pharmacies and laboratories. Advance notice is required before treatment scheduling.",
 
     // FAQ
@@ -331,11 +331,11 @@ export const peptideTranslations = {
     "pep.faq.q1": "Is peptide therapy suitable for everyone?",
     "pep.faq.a1": "No. Suitability depends on your medical history, health goals, lab findings, and physician review.",
     "pep.faq.q2": "Do I need a consultation before starting?",
-    "pep.faq.a2": "Yes. All peptide programs begin with an online or onsite consultation with a doctor.",
-    "pep.faq.q3": "Are programs standardized or personalized?",
-    "pep.faq.a3": "Programs are personalized. Treatment decisions are based on medical review, biomarkers, and your goals.",
-    "pep.faq.q4": "How long does a peptide program last?",
-    "pep.faq.a4": "Programs may be structured over 3, 6, or 12 months depending on the clinical objective and physician recommendation.",
+    "pep.faq.a2": "Yes. All peptide therapies begin with an online or onsite consultation with a doctor.",
+    "pep.faq.q3": "Are treatments standardized or personalized?",
+    "pep.faq.a3": "Personalized. Treatment decisions are based on medical review, biomarkers, and your goals.",
+    "pep.faq.q4": "How long does a peptide treatment last?",
+    "pep.faq.a4": "Treatments may be structured over 3, 6, or 12 months depending on the clinical objective and physician recommendation.",
     "pep.faq.q5": "Will I need blood tests?",
     "pep.faq.a5": "In many cases, yes. Baseline and follow-up labs help guide personalization and monitoring.",
     "pep.faq.q6": "Are the detailed protocol formulas published online?",
@@ -358,7 +358,7 @@ export const peptideTranslations = {
 
     // Contact
     "pep.contact.title": "Book Your Peptide Consultation",
-    "pep.contact.subtitle": "Speak with our medical team to assess your goals and determine whether a personalized peptide program is appropriate for you.",
+    "pep.contact.subtitle": "Speak with our medical team to assess your goals and determine whether a personalized peptide therapy is appropriate for you.",
     "pep.contact.whatsapp": "WhatsApp Us",
     "pep.contact.book": "Book Consultation",
     "pep.contact.callback": "Request Call Back",
@@ -385,15 +385,15 @@ export const peptideTranslations = {
 
     // Dr First Quote
     "pep.drfirst.quote": "\"Our goal is not simply treatment — it is measurable transformation.\"",
-    "pep.drfirst.desc": "Dr First believes that medicine should not only treat disease, but help patients restore energy, improve resilience, and unlock their full health potential through personalized, science-based programs.",
-    "pep.drfirst.title": "Dr First — Peptide Program Director",
+    "pep.drfirst.desc": "Dr First believes that medicine should not only treat disease, but help patients restore energy, improve resilience, and unlock their full health potential through personalized, science-based protocols.",
+    "pep.drfirst.title": "Dr First — Peptide Therapy Director",
 
     // Footer
     "pep.footer.desc": "Bangkok's premium longevity center for doctor-supervised peptide therapy, IV drips, and regenerative medicine.",
     "pep.footer.contact": "Contact",
     "pep.footer.quickLinks": "Quick Links",
     "pep.footer.home": "Home — IV Therapy",
-    "pep.footer.peptides": "Peptide Programs",
+    "pep.footer.peptides": "Peptide Therapy",
     "pep.footer.bookConsult": "Book a Consultation",
     "pep.footer.disclaimer": "Medical Disclaimer:",
     "pep.footer.disclaimerText": "Peptide therapies offered at Healthi-Life Longevity Center are intended to support health, wellness, and quality of life. These therapies are not intended to diagnose, treat, cure, or prevent any disease, and should not replace medical advice from your primary care physician or specialist. Results may vary depending on individual health status, age, and compliance with lifestyle recommendations. We do not stock peptide medications on-site. All peptides are prepared and shipped from certified partner pharmacies and laboratories. Please allow a minimum of 5 working days for ordering and delivery before your scheduled therapy.",
@@ -435,9 +435,9 @@ export const peptideTranslations = {
     "pep.trust.bestClinicLabel": "2025 เอเชียแปซิฟิก",
 
     // Programs Section
-    "pep.programs.peptidesUsed": "เปปไทด์ทางการแพทย์ที่ใช้ในโปรแกรมของเรา",
+    "pep.programs.peptidesUsed": "เปปไทด์ทางการแพทย์ที่ใช้ในโปรโตคอลของเรา",
     "pep.programs.peptidesUsedDesc": "เปปไทด์แต่ละตัวถูกเลือกโดยแพทย์ตามโปรไฟล์การเผาผลาญ เป้าหมายสุขภาพ และการประเมินทางคลินิกของคุณ",
-    "pep.programs.programAvailable": "โปรแกรมตามความต้องการ",
+    "pep.programs.programAvailable": "พร้อมให้บริการตามความต้องการ",
     "pep.programs.talkDoctor": "พูดคุยกับแพทย์",
     "pep.programs.bookReview": "จองการตรวจประเมิน",
     "pep.programs.talkToUs": "พูดคุยกับเรา",
@@ -565,13 +565,13 @@ export const peptideTranslations = {
     "pep.kisspeptin.b3": "เพิ่มความต้องการทางเพศ",
 
     // Program Cards
-    "pep.prog.title": "โปรแกรมบำบัดเปปไทด์",
+    "pep.prog.title": "โปรโตคอลบำบัดเปปไทด์",
     "pep.prog.subtitle": "ฟื้นฟูพลังงาน สนับสนุนการเผาผลาญ และปรับปรุงการฟื้นตัวด้วยโปรโตคอลเปปไทด์ภายใต้การดูแลของแพทย์ ออกแบบโดยหมอเฟิร์ส",
     "pep.prog.clientsReport": "สิ่งที่ลูกค้าส่วนใหญ่รายงาน",
-    "pep.prog.includes": "โปรแกรมรวม",
+    "pep.prog.includes": "โปรโตคอลรวม",
     "pep.prog.pricingNote": "ยืนยันราคาหลังปรึกษาแพทย์",
     "pep.prog.bookReview": "จองการตรวจประเมิน",
-    "pep.prog.startingNote": "เริ่มต้นที่ 40,000 บาท ขึ้นอยู่กับระยะเวลาโปรแกรม การประเมินทางการแพทย์ และระดับการปรับแต่ง คำแนะนำการรักษาโดยละเอียดและราคาจะได้รับหลังปรึกษาแพทย์",
+    "pep.prog.startingNote": "เริ่มต้นที่ 40,000 บาท ขึ้นอยู่กับระยะเวลาการรักษา การประเมินทางการแพทย์ และระดับการปรับแต่ง คำแนะนำการรักษาโดยละเอียดและราคาจะได้รับหลังปรึกษาแพทย์",
 
     // Program 1
     "pep.prog1.subtitle": "6–12 เดือน — สุขภาพดีตามวัย — สนับสนุนไมโตคอนเดรีย",
@@ -648,7 +648,7 @@ export const peptideTranslations = {
     // Catalog
     "pep.catalog.title": "บำบัดเปปไทด์",
     "pep.catalog.subtitle": "ค้นพบเปปไทด์ทั้งหมดจัดตามหมวดหมู่การรักษา",
-    "pep.catalog.onDemand": "โปรแกรมตามความต้องการ",
+    "pep.catalog.onDemand": "พร้อมให้บริการตามความต้องการ",
     "pep.catalog.peptide": "เปปไทด์",
     "pep.catalog.peptides": "เปปไทด์",
     "pep.catalog.benefits": "ประโยชน์",
@@ -667,14 +667,14 @@ export const peptideTranslations = {
 
     // CTA
     "pep.cta.title": "พร้อมเริ่มต้นหรือยัง?",
-    "pep.cta.subtitle": "ทุกโปรแกรมเริ่มต้นด้วยการปรึกษาแพทย์ เริ่มต้นเส้นทางสู่สุขภาพที่ดีขึ้นวันนี้",
+    "pep.cta.subtitle": "การบำบัดเปปไทด์ทั้งหมดเริ่มต้นด้วยการปรึกษาแพทย์ เริ่มต้นเส้นทางสู่สุขภาพที่ดีขึ้นวันนี้",
     "pep.cta.whatsapp": "เริ่มทาง WhatsApp",
     "pep.cta.scroll": "ดูขั้นตอนการทำงาน",
 
     // Clinic
     "pep.clinic.title": "แนวทางทางการแพทย์สู่การบำบัดเปปไทด์",
     "pep.clinic.subtitle": "การบำบัดเปปไทด์ที่ Healthi Life ดำเนินการผ่านโปรแกรมทางการแพทย์ที่มีโครงสร้าง ออกแบบมาเพื่อปรับปรุงการเผาผลาญ การฟื้นตัว และสุขภาพดีตามวัย โปรโตคอลแต่ละอันถูกปรับแต่งตามการปรึกษาแพทย์ การตรวจไบโอมาร์คเกอร์ และการดูแลของแพทย์อย่างต่อเนื่อง",
-    "pep.clinic.p1.title": "โปรแกรมภายใต้การดูแลของแพทย์",
+    "pep.clinic.p1.title": "โปรโตคอลภายใต้การดูแลของแพทย์",
     "pep.clinic.p1.desc": "การบำบัดเปปไทด์ทั้งหมดถูกสั่งและติดตามโดยทีมแพทย์เพื่อความปลอดภัย ประสิทธิผล และการให้ยาที่เหมาะสม",
     "pep.clinic.p2.title": "โปรโตคอลเฉพาะบุคคล",
     "pep.clinic.p2.desc": "แต่ละโปรแกรมปรับแต่งหลังปรึกษาและวิเคราะห์แลป เพื่อให้ตรงกับการเผาผลาญ เป้าหมายสุขภาพ และความต้องการฟื้นตัวของคุณ",
@@ -715,7 +715,7 @@ export const peptideTranslations = {
     "pep.video.v3.desc": "รีวิวจากผู้ป่วย: เส้นทางการฟื้นตัวด้วยสเต็มเซลล์สำหรับอาการปวดเข่าที่ Healthi-Life กรุงเทพฯ",
 
     // Process
-    "pep.process.title": "โปรแกรมทำงานอย่างไร",
+    "pep.process.title": "ขั้นตอนการทำงาน",
     "pep.process.subtitle": "จากการปรึกษาสู่ผลลัพธ์ — เส้นทางที่ชัดเจนภายใต้การนำของแพทย์",
     "pep.process.step1.title": "จองปรึกษาแพทย์",
     "pep.process.step1.desc": "เลือกปรึกษาออนไลน์หรือที่คลินิกกับแพทย์ Healthi-Life เพื่อพูดคุยเป้าหมายสุขภาพของคุณ",
@@ -970,13 +970,13 @@ export const peptideTranslations = {
     "pep.kisspeptin.b3": "リビドー最適化",
 
     // Program Cards
-    "pep.prog.title": "ペプチドセラピープログラム",
+    "pep.prog.title": "ペプチドセラピープロトコル",
     "pep.prog.subtitle": "ドクターファーストが設計した医師監督のペプチドプロトコルでエネルギーを回復し、代謝をサポートし、回復力を改善。",
     "pep.prog.clientsReport": "多くのクライアントが報告すること",
-    "pep.prog.includes": "プログラム内容",
+    "pep.prog.includes": "プロトコル内容",
     "pep.prog.pricingNote": "医師の診察後に価格確定",
     "pep.prog.bookReview": "医療レビューを予約",
-    "pep.prog.startingNote": "40,000バーツから。プログラム期間、医療評価、パーソナライズのレベルにより異なります。詳細な治療推奨と価格は医師の診察後に提供されます。",
+    "pep.prog.startingNote": "40,000バーツから。治療期間、医療評価、パーソナライズのレベルにより異なります。詳細な治療推奨と価格は医師の診察後に提供されます。",
 
     // Program 1
     "pep.prog1.subtitle": "6〜12ヶ月 — 健康的な加齢 — ミトコンドリアサポート",
@@ -1053,7 +1053,7 @@ export const peptideTranslations = {
     // Catalog
     "pep.catalog.title": "ペプチドセラピー",
     "pep.catalog.subtitle": "治療カテゴリー別に整理されたペプチドの全範囲をご覧ください",
-    "pep.catalog.onDemand": "オンデマンドプログラム",
+    "pep.catalog.onDemand": "オンデマンドで利用可能",
     "pep.catalog.peptide": "ペプチド",
     "pep.catalog.peptides": "ペプチド",
     "pep.catalog.benefits": "効果",
@@ -1072,14 +1072,14 @@ export const peptideTranslations = {
 
     // CTA
     "pep.cta.title": "始める準備はできましたか？",
-    "pep.cta.subtitle": "すべてのプログラムは医師の診察から始まります。今日、より健康的な生活への旅を始めましょう。",
+    "pep.cta.subtitle": "すべてのペプチド療法は医師の診察から始まります。今日、より健康的な生活への旅を始めましょう。",
     "pep.cta.whatsapp": "WhatsAppで始める",
     "pep.cta.scroll": "仕組みを見る",
 
     // Clinic
     "pep.clinic.title": "ペプチド療法への医学的アプローチ",
     "pep.clinic.subtitle": "Healthi Lifeでのペプチド療法は、代謝、回復、健康的な加齢を改善するために設計された構造化された医療プログラムを通じて提供されます。各プロトコルは、医師の診察、バイオマーカー検査、継続的な医師の監督に基づいてパーソナライズされます。",
-    "pep.clinic.p1.title": "医師監督プログラム",
+    "pep.clinic.p1.title": "医師監督プロトコル",
     "pep.clinic.p1.desc": "すべてのペプチド療法は、安全性、有効性、適切な投与量を確保するために医療チームによって処方・監視されます。",
     "pep.clinic.p2.title": "パーソナライズされたプロトコル",
     "pep.clinic.p2.desc": "各プログラムは、あなたの代謝、健康目標、回復ニーズに合わせて診察とラボ分析後に調整されます。",
@@ -1120,7 +1120,7 @@ export const peptideTranslations = {
     "pep.video.v3.desc": "患者の証言：Healthi-Lifeでの幹細胞療法による膝痛の回復の旅。",
 
     // Process
-    "pep.process.title": "プログラムの仕組み",
+    "pep.process.title": "仕組み",
     "pep.process.subtitle": "診察から結果まで — 明確な医学的ガイドによる道筋。",
     "pep.process.step1.title": "診察を予約",
     "pep.process.step1.desc": "Healthi-Lifeの医師とオンラインまたは対面診察を選択し、健康目標について話し合います。",
