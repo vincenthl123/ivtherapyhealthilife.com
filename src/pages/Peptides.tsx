@@ -1016,7 +1016,7 @@ const PeptideFooter = () => {
             <h4 className="font-semibold mb-3">{t("pep.footer.quickLinks")}</h4>
             <div className="space-y-2 text-sm text-background/70">
               <Link to="/" className="block hover:text-background transition-colors">{t("pep.footer.home")}</Link>
-              <Link to="/peptides" className="block hover:text-background transition-colors">{t("pep.footer.peptides")}</Link>
+              <Link to="/peptides-therapy" className="block hover:text-background transition-colors">{t("pep.footer.peptides")}</Link>
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">{t("pep.footer.bookConsult")}</a>
             </div>
           </div>
@@ -1066,28 +1066,28 @@ const PeptideSEO = () => {
       "@graph": [
         {
           "@type": "MedicalWebPage",
-          "@id": "https://ivtherapyhealthilife.com/peptides#page",
-          "url": "https://ivtherapyhealthilife.com/peptides",
+          "@id": "https://ivtherapyhealthilife.com/peptides-therapy#page",
+          "url": "https://ivtherapyhealthilife.com/peptides-therapy",
           "name": titles[language] || titles.en,
           "description": descriptions[language] || descriptions.en,
           "inLanguage": language,
           "isPartOf": { "@id": "https://ivtherapyhealthilife.com/#website" },
           "about": { "@id": "https://ivtherapyhealthilife.com/#clinic" },
-          "breadcrumb": { "@id": "https://ivtherapyhealthilife.com/peptides#breadcrumb" },
+          "breadcrumb": { "@id": "https://ivtherapyhealthilife.com/peptides-therapy#breadcrumb" },
         },
         {
           "@type": "BreadcrumbList",
-          "@id": "https://ivtherapyhealthilife.com/peptides#breadcrumb",
+          "@id": "https://ivtherapyhealthilife.com/peptides-therapy#breadcrumb",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ivtherapyhealthilife.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Peptide Therapy Programs", "item": "https://ivtherapyhealthilife.com/peptides" },
+            { "@type": "ListItem", "position": 2, "name": "Peptide Therapy Programs", "item": "https://ivtherapyhealthilife.com/peptides-therapy" },
           ],
         },
         {
           "@type": "MedicalBusiness",
-          "@id": "https://ivtherapyhealthilife.com/peptides#service",
+          "@id": "https://ivtherapyhealthilife.com/peptides-therapy#service",
           "name": "Peptide Therapy Programs — Healthi-Life",
-          "url": "https://ivtherapyhealthilife.com/peptides",
+          "url": "https://ivtherapyhealthilife.com/peptides-therapy",
           "description": "Doctor-supervised peptide therapy programs for longevity, recovery, weight management, and performance optimization.",
           "provider": { "@id": "https://ivtherapyhealthilife.com/#clinic" },
           "medicalSpecialty": ["Peptide Therapy", "Regenerative Medicine", "Longevity Medicine"],
