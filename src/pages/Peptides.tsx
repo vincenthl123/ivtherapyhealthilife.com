@@ -1016,7 +1016,7 @@ const PeptideFooter = () => {
             <h4 className="font-semibold mb-3">{t("pep.footer.quickLinks")}</h4>
             <div className="space-y-2 text-sm text-background/70">
               <Link to="/" className="block hover:text-background transition-colors">{t("pep.footer.home")}</Link>
-              <Link to="/peptides" className="block hover:text-background transition-colors">{t("pep.footer.peptides")}</Link>
+              <Link to="/peptides-therapy" className="block hover:text-background transition-colors">{t("pep.footer.peptides")}</Link>
               <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">{t("pep.footer.bookConsult")}</a>
             </div>
           </div>
