@@ -1065,7 +1065,7 @@ const Peptides = () => (
       
       <PeptideFAQ />
       <PeptideTestimonials />
-      <PeptideContact />
+      
     </main>
     <PeptideFooter />
     <Suspense fallback={null}>
