@@ -1055,7 +1055,7 @@ const Peptides = () => (
     <main className="flex-grow">
       <PeptideHero />
       <PeptideTrustBanner />
-      <PeptidePrograms />
+      {/* <PeptidePrograms /> */}
       <PeptideCatalog />
       <PeptideCTA />
       
