@@ -970,13 +970,13 @@ export const peptideTranslations = {
     "pep.kisspeptin.b3": "リビドー最適化",
 
     // Program Cards
-    "pep.prog.title": "ペプチドセラピープログラム",
+    "pep.prog.title": "ペプチドセラピープロトコル",
     "pep.prog.subtitle": "ドクターファーストが設計した医師監督のペプチドプロトコルでエネルギーを回復し、代謝をサポートし、回復力を改善。",
     "pep.prog.clientsReport": "多くのクライアントが報告すること",
-    "pep.prog.includes": "プログラム内容",
+    "pep.prog.includes": "プロトコル内容",
     "pep.prog.pricingNote": "医師の診察後に価格確定",
     "pep.prog.bookReview": "医療レビューを予約",
-    "pep.prog.startingNote": "40,000バーツから。プログラム期間、医療評価、パーソナライズのレベルにより異なります。詳細な治療推奨と価格は医師の診察後に提供されます。",
+    "pep.prog.startingNote": "40,000バーツから。治療期間、医療評価、パーソナライズのレベルにより異なります。詳細な治療推奨と価格は医師の診察後に提供されます。",
 
     // Program 1
     "pep.prog1.subtitle": "6〜12ヶ月 — 健康的な加齢 — ミトコンドリアサポート",
@@ -1053,7 +1053,7 @@ export const peptideTranslations = {
     // Catalog
     "pep.catalog.title": "ペプチドセラピー",
     "pep.catalog.subtitle": "治療カテゴリー別に整理されたペプチドの全範囲をご覧ください",
-    "pep.catalog.onDemand": "オンデマンドプログラム",
+    "pep.catalog.onDemand": "オンデマンドで利用可能",
     "pep.catalog.peptide": "ペプチド",
     "pep.catalog.peptides": "ペプチド",
     "pep.catalog.benefits": "効果",
@@ -1072,14 +1072,14 @@ export const peptideTranslations = {
 
     // CTA
     "pep.cta.title": "始める準備はできましたか？",
-    "pep.cta.subtitle": "すべてのプログラムは医師の診察から始まります。今日、より健康的な生活への旅を始めましょう。",
+    "pep.cta.subtitle": "すべてのペプチド療法は医師の診察から始まります。今日、より健康的な生活への旅を始めましょう。",
     "pep.cta.whatsapp": "WhatsAppで始める",
     "pep.cta.scroll": "仕組みを見る",
 
     // Clinic
     "pep.clinic.title": "ペプチド療法への医学的アプローチ",
     "pep.clinic.subtitle": "Healthi Lifeでのペプチド療法は、代謝、回復、健康的な加齢を改善するために設計された構造化された医療プログラムを通じて提供されます。各プロトコルは、医師の診察、バイオマーカー検査、継続的な医師の監督に基づいてパーソナライズされます。",
-    "pep.clinic.p1.title": "医師監督プログラム",
+    "pep.clinic.p1.title": "医師監督プロトコル",
     "pep.clinic.p1.desc": "すべてのペプチド療法は、安全性、有効性、適切な投与量を確保するために医療チームによって処方・監視されます。",
     "pep.clinic.p2.title": "パーソナライズされたプロトコル",
     "pep.clinic.p2.desc": "各プログラムは、あなたの代謝、健康目標、回復ニーズに合わせて診察とラボ分析後に調整されます。",
@@ -1120,7 +1120,7 @@ export const peptideTranslations = {
     "pep.video.v3.desc": "患者の証言：Healthi-Lifeでの幹細胞療法による膝痛の回復の旅。",
 
     // Process
-    "pep.process.title": "プログラムの仕組み",
+    "pep.process.title": "仕組み",
     "pep.process.subtitle": "診察から結果まで — 明確な医学的ガイドによる道筋。",
     "pep.process.step1.title": "診察を予約",
     "pep.process.step1.desc": "Healthi-Lifeの医師とオンラインまたは対面診察を選択し、健康目標について話し合います。",
