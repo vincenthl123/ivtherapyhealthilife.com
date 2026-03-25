@@ -12,7 +12,7 @@ Sitemap: https://ivtherapyhealthilife.com/sitemap-news.xml
 LLMs: https://ivtherapyhealthilife.com/llms.txt
 
 # Peptide Therapy Page
-# https://ivtherapyhealthilife.com/peptides
+# https://ivtherapyhealthilife.com/peptides-therapy
 
 # AI Plugin (OpenAI GPT Actions)
 AI-Plugin: https://ivtherapyhealthilife.com/.well-known/ai-plugin.json
