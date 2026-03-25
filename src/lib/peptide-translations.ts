@@ -6,10 +6,10 @@ export const peptideTranslations = {
     // Hero
     "pep.hero.badge": "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
     "pep.hero.title": "What is Peptide therapy?",
-    "pep.hero.subtitle": "Restore Energy, Metabolism & Recovery",
-    "pep.hero.intro": "Protocols designed by",
-    "pep.hero.doctorName": "Doctor First",
-    "pep.hero.introEnd": "to support:",
+    "pep.hero.subtitle": " Energy, Metabolism & Recovery",
+    "pep.hero.intro": "\n",
+    "pep.hero.doctorName": "",
+    "pep.hero.introEnd": "",
     "pep.hero.bullet1": "fat loss & metabolic health",
     "pep.hero.bullet2": "muscle recovery & performance",
     "pep.hero.bullet3": "healthy aging & longevity",
@@ -261,7 +261,7 @@ export const peptideTranslations = {
 
     // CTA Section
     "pep.cta.title": "Ready to Start?",
-    "pep.cta.subtitle": "All peptide therapies begin with a doctor consultation. Start your journey toward better health today.",
+    "pep.cta.subtitle": "\n",
     "pep.cta.whatsapp": "Start on WhatsApp",
     "pep.cta.scroll": "See How It Works",
 
