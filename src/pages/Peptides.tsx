@@ -78,7 +78,6 @@ const PeptideHero = () => {
             </span>
           </h3>
           <div className="animate-fade-in-up text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl">
-            <p className="mb-3">{t("pep.hero.intro")} <strong className="text-foreground">{t("pep.hero.doctorName")}</strong> {t("pep.hero.introEnd")}</p>
             <ul className="space-y-1.5">
               <li>• {t("pep.hero.bullet1")}</li>
               <li>• {t("pep.hero.bullet2")}</li>
