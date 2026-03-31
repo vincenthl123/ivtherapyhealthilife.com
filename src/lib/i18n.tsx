@@ -47,7 +47,7 @@ const translations = {
     "whatsapp.online": "Online",
     "whatsapp.greeting": "Hi 👋",
     "whatsapp.welcome": "Welcome to Healthi Life.",
-    "whatsapp.message": "Our doctor-supervised peptide programs are designed to support:\n\n• weight loss & metabolism\n• recovery & performance\n• energy & longevity\n\nHow can we help you optimize your health today?",
+    "whatsapp.message": "Our doctor-supervised IV drip programs are designed to support:\n\n• energy & immunity boost\n• hydration & recovery\n• anti-aging & skin glow\n• detox & wellness\n\nHow can we help you feel your best today?",
     "whatsapp.startChat": "Start Chat",
     "whatsapp.enterMessage": "Enter Your Message...",
     "whatsapp.concierge.name": "Anna - Medical Concierge",
