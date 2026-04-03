@@ -278,53 +278,48 @@ const PeptidePrograms = () => {
         {/* Individual Peptide Cards */}
         <div className="mb-16 md:mb-20">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">{t("pep.programs.peptidesUsed")}</h3>
-          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">{t("pep.programs.peptidesUsedDesc")}</p>
-
-          {/* Section 1: Metabolic */}
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <Flame className="h-6 w-6 text-primary" />
-            {t("pep.cat.metabolic")}
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {metabolicPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-4">{t("pep.programs.peptidesUsedDesc")}</p>
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-sm">
+              {t("pep.catalog.onDemand")}
+            </Badge>
+            <Badge variant="outline" className="border-primary/30 text-primary px-4 py-2 text-sm">
+              Designed Program Available
+            </Badge>
           </div>
 
-          {/* Dr First Quote */}
-          <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-12 flex flex-col md:flex-row items-center gap-6 md:gap-8">
-            <img
-              src={drFirstPortrait}
-              alt="Dr First - Napat Hunsajarupan, Healthi-Life"
-              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
-              loading="lazy"
-            />
-            <div>
-              <blockquote className="text-lg md:text-xl font-semibold text-foreground italic mb-3">
-                {t("pep.drfirst.quote")}
-              </blockquote>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                {t("pep.drfirst.desc")}
-              </p>
-              <p className="text-sm font-bold text-primary">{t("pep.drfirst.title")}</p>
+          {peptideCategories.map((cat, catIndex) => (
+            <div key={cat.key} className={catIndex < peptideCategories.length - 1 ? "mb-12" : ""}>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                <cat.icon className="h-6 w-6 text-primary" />
+                {t(cat.titleKey)}
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {cat.peptides.map((p) => <PeptideCard key={`${cat.key}-${p.name}`} peptide={p} t={t} />)}
+              </div>
+
+              {/* Dr First Quote after first category */}
+              {catIndex === 0 && (
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mt-12 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                  <img
+                    src={drFirstPortrait}
+                    alt="Dr First - Napat Hunsajarupan, Healthi-Life"
+                    className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
+                    loading="lazy"
+                  />
+                  <div>
+                    <blockquote className="text-lg md:text-xl font-semibold text-foreground italic mb-3">
+                      {t("pep.drfirst.quote")}
+                    </blockquote>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      {t("pep.drfirst.desc")}
+                    </p>
+                    <p className="text-sm font-bold text-primary">{t("pep.drfirst.title")}</p>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-
-          {/* Section 2: Recovery */}
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <HeartPulse className="h-6 w-6 text-primary" />
-            {t("pep.cat.recovery")}
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {recoveryPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
-          </div>
-
-          {/* Section 3: Longevity */}
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <Brain className="h-6 w-6 text-primary" />
-            {t("pep.cat.longevity")}
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {longevityPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
-          </div>
+          ))}
         </div>
 
       </div>
