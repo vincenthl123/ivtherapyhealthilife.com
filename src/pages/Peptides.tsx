@@ -341,6 +341,7 @@ const catalogCategoryKeys = [
 
 // Catalog benefits/route/frequency stay in English (medical terms)
 const peptideCatalogData: Record<string, { benefits: string; route: string; frequency: string }> = {
+  "Semaglutide (GLP-1)": { benefits: "Appetite control, sustainable fat loss, metabolic regulation, insulin sensitivity", route: "Subcutaneous injection", frequency: "Once weekly, titrate based on response" },
   "Epithalon": { benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
   "NMN": { benefits: "Boosts NAD⁺, enhances energy, metabolism, and longevity", route: "Oral capsule", frequency: "1 tab daily (500 mg)" },
   "MOTS-c": { benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly (10 mg) for 3–4 months, pause for 2 months" },
