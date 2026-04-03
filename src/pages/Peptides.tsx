@@ -451,7 +451,6 @@ const PeptideCatalog = () => {
                   </a>
                 </Button>
               </div>
-              </div>
 
               {/* Dr First Quote after Weight Loss category */}
               {cat.key === "weightLoss" && (
@@ -470,6 +469,9 @@ const PeptideCatalog = () => {
                   </div>
                 </div>
               )}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </section>
   );
