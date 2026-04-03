@@ -205,32 +205,66 @@ const PeptideCard = ({ peptide, t }: { peptide: { icon: any; name: string; useCa
 );
 
 // ─── PEPTIDE DATA ────────────────────────────────────────
-const metabolicPeptides = [
-  { icon: Flame, name: "GLP-1", useCaseKey: "pep.glp1.useCase", benefitKey: "pep.glp1.benefit", bulletKeys: ["pep.glp1.b1", "pep.glp1.b2", "pep.glp1.b3"], ctaKey: "pep.programs.talkDoctor" },
+// 1. Weight Loss / Sport Performance & Men Health
+const weightLossPeptides = [
+  { icon: Flame, name: "Semaglutide (GLP-1)", useCaseKey: "pep.glp1.useCase", benefitKey: "pep.glp1.benefit", bulletKeys: ["pep.glp1.b1", "pep.glp1.b2", "pep.glp1.b3"], ctaKey: "pep.programs.talkDoctor" },
   { icon: Flame, name: "Retatrutide", useCaseKey: "pep.retatrutide.useCase", benefitKey: "pep.retatrutide.benefit", bulletKeys: ["pep.retatrutide.b1", "pep.retatrutide.b2", "pep.retatrutide.b3"], ctaKey: "pep.programs.bookReview" },
-  { icon: Flame, name: "Tesofensine", useCaseKey: "pep.tesofensine.useCase", benefitKey: "pep.tesofensine.benefit", bulletKeys: ["pep.tesofensine.b1", "pep.tesofensine.b2", "pep.tesofensine.b3"], ctaKey: "pep.programs.talkDoctor" },
-  { icon: Zap, name: "MOTS-c", useCaseKey: "pep.motsc.useCase", benefitKey: "pep.motsc.benefit", bulletKeys: ["pep.motsc.b1", "pep.motsc.b2", "pep.motsc.b3"], ctaKey: "pep.programs.talkDoctor" },
-  
   { icon: Zap, name: "SLU-PP-332", useCaseKey: "pep.slupp.useCase", benefitKey: "pep.slupp.benefit", bulletKeys: ["pep.slupp.b1", "pep.slupp.b2", "pep.slupp.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Zap, name: "MOTS-c", useCaseKey: "pep.motsc.useCase", benefitKey: "pep.motsc.benefit", bulletKeys: ["pep.motsc.b1", "pep.motsc.b2", "pep.motsc.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Flame, name: "Tesofensine", useCaseKey: "pep.tesofensine.useCase", benefitKey: "pep.tesofensine.benefit", bulletKeys: ["pep.tesofensine.b1", "pep.tesofensine.b2", "pep.tesofensine.b3"], ctaKey: "pep.programs.talkDoctor" },
 ];
 
-const recoveryPeptides = [
+// 2. Growth Hormones
+const growthHormonePeptides = [
+  { icon: Dumbbell, name: "CJC-1295", useCaseKey: "pep.cjc1295.useCase", benefitKey: "pep.cjc1295.benefit", bulletKeys: ["pep.cjc1295.b1", "pep.cjc1295.b2", "pep.cjc1295.b3"], ctaKey: "pep.programs.bookReview" },
+  { icon: Dumbbell, name: "Ipamorelin", useCaseKey: "pep.ipamorelin.useCase", benefitKey: "pep.ipamorelin.benefit", bulletKeys: ["pep.ipamorelin.b1", "pep.ipamorelin.b2", "pep.ipamorelin.b3"], ctaKey: "pep.programs.bookReview" },
+];
+
+// 3. Healing, Gut Health & Skin Repair
+const healingPeptides = [
   { icon: HeartPulse, name: "BPC-157", useCaseKey: "pep.bpc157.useCase", benefitKey: "pep.bpc157.benefit", bulletKeys: ["pep.bpc157.b1", "pep.bpc157.b2", "pep.bpc157.b3"], ctaKey: "pep.programs.talkToUs" },
   { icon: HeartPulse, name: "BPC-157 (Oral)", useCaseKey: "pep.bpc157oral.useCase", benefitKey: "pep.bpc157oral.benefit", bulletKeys: ["pep.bpc157oral.b1", "pep.bpc157oral.b2", "pep.bpc157oral.b3"], ctaKey: "pep.programs.talkToUs" },
-  { icon: Dumbbell, name: "CJC-1295", useCaseKey: "pep.cjc1295.useCase", benefitKey: "pep.cjc1295.benefit", bulletKeys: ["pep.cjc1295.b1", "pep.cjc1295.b2", "pep.cjc1295.b3"], ctaKey: "pep.programs.bookReview" },
   { icon: HeartPulse, name: "TB-500", useCaseKey: "pep.tb500.useCase", benefitKey: "pep.tb500.benefit", bulletKeys: ["pep.tb500.b1", "pep.tb500.b2", "pep.tb500.b3"], ctaKey: "pep.programs.talkToUs" },
-  { icon: Dumbbell, name: "Ipamorelin", useCaseKey: "pep.ipamorelin.useCase", benefitKey: "pep.ipamorelin.benefit", bulletKeys: ["pep.ipamorelin.b1", "pep.ipamorelin.b2", "pep.ipamorelin.b3"], ctaKey: "pep.programs.bookReview" },
   { icon: Sparkles, name: "GHK-Cu", useCaseKey: "pep.ghkcu.useCase", benefitKey: "pep.ghkcu.benefit", bulletKeys: ["pep.ghkcu.b1", "pep.ghkcu.b2", "pep.ghkcu.b3"], ctaKey: "pep.programs.talkDoctor" },
 ];
 
-const longevityPeptides = [
+// 4. Anti-Aging
+const antiAgingPeptides = [
   { icon: Zap, name: "Epithalon", useCaseKey: "pep.epithalon.useCase", benefitKey: "pep.epithalon.benefit", bulletKeys: ["pep.epithalon.b1", "pep.epithalon.b2", "pep.epithalon.b3"], ctaKey: "pep.programs.bookReview" },
   { icon: Shield, name: "SS-31", useCaseKey: "pep.ss31.useCase", benefitKey: "pep.ss31.benefit", bulletKeys: ["pep.ss31.b1", "pep.ss31.b2", "pep.ss31.b3"], ctaKey: "pep.programs.talkDoctor" },
+];
+
+// 5. Sleep Disorder
+const sleepPeptides = [
+  { icon: Moon, name: "Epithalon", useCaseKey: "pep.epithalon.useCase", benefitKey: "pep.epithalon.benefit", bulletKeys: ["pep.epithalon.b1", "pep.epithalon.b2", "pep.epithalon.b3"], ctaKey: "pep.programs.bookReview" },
+];
+
+// 6. Focus / Neuro Function
+const neuroPeptides = [
   { icon: Brain, name: "Selank", useCaseKey: "pep.selank.useCase", benefitKey: "pep.selank.benefit", bulletKeys: ["pep.selank.b1", "pep.selank.b2", "pep.selank.b3"], ctaKey: "pep.programs.talkToUs" },
   { icon: Brain, name: "Semax", useCaseKey: "pep.semax.useCase", benefitKey: "pep.semax.benefit", bulletKeys: ["pep.semax.b1", "pep.semax.b2", "pep.semax.b3"], ctaKey: "pep.programs.talkToUs" },
+];
+
+// 7. Libido
+const libidoPeptides = [
   { icon: Heart, name: "PT-141", useCaseKey: "pep.pt141.useCase", benefitKey: "pep.pt141.benefit", bulletKeys: ["pep.pt141.b1", "pep.pt141.b2", "pep.pt141.b3"], ctaKey: "pep.programs.talkDoctor" },
   { icon: Heart, name: "PT-141 Nasal Spray", useCaseKey: "pep.pt141nasal.useCase", benefitKey: "pep.pt141nasal.benefit", bulletKeys: ["pep.pt141nasal.b1", "pep.pt141nasal.b2", "pep.pt141nasal.b3"], ctaKey: "pep.programs.talkDoctor" },
+];
+
+// 8. Boost Fertility
+const fertilityPeptides = [
   { icon: HeartPulse, name: "Kisspeptin", useCaseKey: "pep.kisspeptin.useCase", benefitKey: "pep.kisspeptin.benefit", bulletKeys: ["pep.kisspeptin.b1", "pep.kisspeptin.b2", "pep.kisspeptin.b3"], ctaKey: "pep.programs.talkDoctor" },
+];
+
+const peptideCategories = [
+  { key: "weightLoss", icon: Flame, titleKey: "pep.catName.weightLoss", peptides: weightLossPeptides },
+  { key: "growthHormone", icon: Dumbbell, titleKey: "pep.catName.growthHormone", peptides: growthHormonePeptides },
+  { key: "healing", icon: HeartPulse, titleKey: "pep.catName.healing", peptides: healingPeptides },
+  { key: "antiAging", icon: Sparkles, titleKey: "pep.catName.antiAging", peptides: antiAgingPeptides },
+  { key: "sleep", icon: Moon, titleKey: "pep.catName.sleep", peptides: sleepPeptides },
+  { key: "neuro", icon: Brain, titleKey: "pep.catName.neuro", peptides: neuroPeptides },
+  { key: "libido", icon: Heart, titleKey: "pep.catName.libido", peptides: libidoPeptides },
+  { key: "fertility", icon: HeartPulse, titleKey: "pep.catName.fertility", peptides: fertilityPeptides },
 ];
 
 // ─── SERVICES ─────────────────────────────────────────────
@@ -244,53 +278,48 @@ const PeptidePrograms = () => {
         {/* Individual Peptide Cards */}
         <div className="mb-16 md:mb-20">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">{t("pep.programs.peptidesUsed")}</h3>
-          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">{t("pep.programs.peptidesUsedDesc")}</p>
-
-          {/* Section 1: Metabolic */}
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <Flame className="h-6 w-6 text-primary" />
-            {t("pep.cat.metabolic")}
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {metabolicPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-4">{t("pep.programs.peptidesUsedDesc")}</p>
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <Badge className="bg-gradient-medical text-primary-foreground px-4 py-2 text-sm">
+              {t("pep.catalog.onDemand")}
+            </Badge>
+            <Badge variant="outline" className="border-primary/30 text-primary px-4 py-2 text-sm">
+              Designed Program Available
+            </Badge>
           </div>
 
-          {/* Dr First Quote */}
-          <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-12 flex flex-col md:flex-row items-center gap-6 md:gap-8">
-            <img
-              src={drFirstPortrait}
-              alt="Dr First - Napat Hunsajarupan, Healthi-Life"
-              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
-              loading="lazy"
-            />
-            <div>
-              <blockquote className="text-lg md:text-xl font-semibold text-foreground italic mb-3">
-                {t("pep.drfirst.quote")}
-              </blockquote>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                {t("pep.drfirst.desc")}
-              </p>
-              <p className="text-sm font-bold text-primary">{t("pep.drfirst.title")}</p>
+          {peptideCategories.map((cat, catIndex) => (
+            <div key={cat.key} className={catIndex < peptideCategories.length - 1 ? "mb-12" : ""}>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                <cat.icon className="h-6 w-6 text-primary" />
+                {t(cat.titleKey)}
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {cat.peptides.map((p) => <PeptideCard key={`${cat.key}-${p.name}`} peptide={p} t={t} />)}
+              </div>
+
+              {/* Dr First Quote after first category */}
+              {catIndex === 0 && (
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mt-12 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                  <img
+                    src={drFirstPortrait}
+                    alt="Dr First - Napat Hunsajarupan, Healthi-Life"
+                    className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
+                    loading="lazy"
+                  />
+                  <div>
+                    <blockquote className="text-lg md:text-xl font-semibold text-foreground italic mb-3">
+                      {t("pep.drfirst.quote")}
+                    </blockquote>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      {t("pep.drfirst.desc")}
+                    </p>
+                    <p className="text-sm font-bold text-primary">{t("pep.drfirst.title")}</p>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-
-          {/* Section 2: Recovery */}
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <HeartPulse className="h-6 w-6 text-primary" />
-            {t("pep.cat.recovery")}
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {recoveryPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
-          </div>
-
-          {/* Section 3: Longevity */}
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <Brain className="h-6 w-6 text-primary" />
-            {t("pep.cat.longevity")}
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {longevityPeptides.map((p) => <PeptideCard key={p.name} peptide={p} t={t} />)}
-          </div>
+          ))}
         </div>
 
       </div>
@@ -300,10 +329,10 @@ const PeptidePrograms = () => {
 
 // ─── PEPTIDE CATALOG ─────────────────────────────────────
 const catalogCategoryKeys = [
-  { key: "antiAging", icon: Sparkles, peptides: ["Epithalon", "NMN", "MOTS-c", "SS-31 (Elamipretide)"] },
+  { key: "weightLoss", icon: Flame, peptides: ["Semaglutide (GLP-1)", "Retatrutide", "SLU-PP-332", "MOTS-c", "Tesofensine"] },
   { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin"] },
-  { key: "weightLoss", icon: Flame, peptides: ["MOTS-c", "SLU-PP-332", "Tesofensine", "Retatrutide"] },
   { key: "healing", icon: HeartPulse, peptides: ["BPC-157", "Thymosin Beta-4 (TB-500)", "BPC-157 (Oral)", "GHK-Cu"] },
+  { key: "antiAging", icon: Sparkles, peptides: ["Epithalon", "NMN", "SS-31 (Elamipretide)"] },
   { key: "sleep", icon: Moon, peptides: ["Epithalon", "DSIP"] },
   { key: "neuro", icon: Brain, peptides: ["Selank", "Semax"] },
   { key: "libido", icon: Heart, peptides: ["PT-141", "PT-141 Nasal Spray", "Oxytocin"] },
@@ -312,6 +341,7 @@ const catalogCategoryKeys = [
 
 // Catalog benefits/route/frequency stay in English (medical terms)
 const peptideCatalogData: Record<string, { benefits: string; route: string; frequency: string }> = {
+  "Semaglutide (GLP-1)": { benefits: "Appetite control, sustainable fat loss, metabolic regulation, insulin sensitivity", route: "Subcutaneous injection", frequency: "Once weekly, titrate based on response" },
   "Epithalon": { benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
   "NMN": { benefits: "Boosts NAD⁺, enhances energy, metabolism, and longevity", route: "Oral capsule", frequency: "1 tab daily (500 mg)" },
   "MOTS-c": { benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly (10 mg) for 3–4 months, pause for 2 months" },
