@@ -10,29 +10,11 @@ const MedicalTeam = () => {
 
   const doctors = [
     {
-      nameKey: "team.drPetch.name",
-      titleKey: "team.drPetch.role",
-      image: drPetchImage,
-      specialtyKey: "team.drPetch.specialty",
-      education: [
-        "team.drPetch.edu1",
-        "team.drPetch.edu2",
-        "team.drPetch.edu3"
-      ],
-      certifications: [
-        "team.drPetch.cert1",
-        "team.drPetch.cert2",
-        "team.drPetch.cert3",
-        "team.drPetch.cert4",
-        "team.drPetch.cert5",
-        "team.drPetch.cert6"
-      ]
-    },
-    {
       nameKey: "team.drFirst.name",
       titleKey: "team.drFirst.role",
       image: drFirstImage,
       specialtyKey: "team.drFirst.specialty",
+      boardKey: null,
       education: [
         "team.drFirst.edu1",
         "team.drFirst.edu2",
@@ -47,7 +29,27 @@ const MedicalTeam = () => {
         "team.drFirst.cert5",
         "team.drFirst.cert6"
       ]
-    }
+    },
+    {
+      nameKey: "team.drPetch.name",
+      titleKey: "team.drPetch.role",
+      image: drPetchImage,
+      specialtyKey: "team.drPetch.specialty",
+      boardKey: "team.drPetch.board",
+      education: [
+        "team.drPetch.edu1",
+        "team.drPetch.edu2",
+        "team.drPetch.edu3"
+      ],
+      certifications: [
+        "team.drPetch.cert1",
+        "team.drPetch.cert2",
+        "team.drPetch.cert3",
+        "team.drPetch.cert4",
+        "team.drPetch.cert5",
+        "team.drPetch.cert6"
+      ]
+    },
   ];
 
   return (
