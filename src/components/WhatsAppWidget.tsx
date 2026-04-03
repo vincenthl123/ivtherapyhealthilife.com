@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import conciergeAvatar from "@/assets/concierge-anna.jpg";
