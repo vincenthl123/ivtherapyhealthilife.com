@@ -451,9 +451,25 @@ const PeptideCatalog = () => {
                   </a>
                 </Button>
               </div>
-            </div>
-          ))}
-        </div>
+              </div>
+
+              {/* Dr First Quote after Weight Loss category */}
+              {cat.key === "weightLoss" && (
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mt-8 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                  <img
+                    src={drFirstImage}
+                    alt="Dr. Napat Hunsajarupan (First) - Founder & Chief Medical Officer, Healthi-Life"
+                    className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
+                    loading="lazy"
+                  />
+                  <div>
+                    <blockquote className="text-base md:text-lg font-medium text-foreground italic mb-3 leading-relaxed">
+                      {t("pep.drfirst.quote")}
+                    </blockquote>
+                    <p className="text-sm font-bold text-primary">{t("pep.drfirst.title")}</p>
+                  </div>
+                </div>
+              )}
       </div>
     </section>
   );
