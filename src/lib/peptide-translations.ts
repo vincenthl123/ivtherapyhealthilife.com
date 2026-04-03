@@ -384,9 +384,9 @@ export const peptideTranslations = {
     "pep.contact.submit": "Submit Inquiry",
 
     // Dr First Quote
-    "pep.drfirst.quote": "\"Our goal is not simply treatment — it is measurable transformation.\"",
-    "pep.drfirst.desc": "Dr First believes that medicine should not only treat disease, but help patients restore energy, improve resilience, and unlock their full health potential through personalized, science-based protocols.",
-    "pep.drfirst.title": "Dr First — Peptide Therapy Director",
+    "pep.drfirst.quote": "\"When I co-founded Healthi Life, I saw patients arriving with months of self-research and no protocol — so I built one: a physician-designed peptide program that replaces guesswork with precision, and information with results.\"",
+    "pep.drfirst.desc": "",
+    "pep.drfirst.title": "Dr. Napat Hunsajarupan (First) — Founder & Chief Medical Officer",
 
     // Footer
     "pep.footer.desc": "Bangkok's premium longevity center for doctor-supervised peptide therapy, IV drips, and regenerative medicine.",
@@ -790,9 +790,9 @@ export const peptideTranslations = {
     "pep.contact.submit": "ส่งคำถาม",
 
     // Dr First
-    "pep.drfirst.quote": "\"เป้าหมายของเราไม่ใช่เพียงแค่การรักษา — แต่เป็นการเปลี่ยนแปลงที่วัดผลได้\"",
-    "pep.drfirst.desc": "หมอเฟิร์สเชื่อว่าการแพทย์ไม่ควรเพียงรักษาโรค แต่ควรช่วยให้ผู้ป่วยฟื้นฟูพลังงาน ปรับปรุงความยืดหยุ่น และปลดปล่อยศักยภาพสุขภาพเต็มที่ผ่านโปรแกรมวิทยาศาสตร์เฉพาะบุคคล",
-    "pep.drfirst.title": "หมอเฟิร์ส — ผู้อำนวยการโปรแกรมเปปไทด์",
+    "pep.drfirst.quote": "\"เมื่อผมร่วมก่อตั้ง Healthi Life ผมเห็นผู้ป่วยมาพร้อมกับการค้นคว้าด้วยตัวเองหลายเดือนแต่ไม่มีโปรโตคอล — ผมจึงสร้างขึ้นมา: โปรแกรมเปปไทด์ที่ออกแบบโดยแพทย์ ที่แทนที่การคาดเดาด้วยความแม่นยำ และแทนที่ข้อมูลด้วยผลลัพธ์\"",
+    "pep.drfirst.desc": "",
+    "pep.drfirst.title": "นพ. ณภัทร หุ่นสะจิระพันธุ์ (เฟิร์ส) — ผู้ก่อตั้ง & ผู้อำนวยการแพทย์",
 
     // Footer
     "pep.footer.desc": "ศูนย์อายุยืนระดับพรีเมียมของกรุงเทพฯ สำหรับการบำบัดเปปไทด์ภายใต้การดูแลของแพทย์ IV Drip และเวชศาสตร์ฟื้นฟู",
@@ -1195,9 +1195,9 @@ export const peptideTranslations = {
     "pep.contact.submit": "お問い合わせ送信",
 
     // Dr First
-    "pep.drfirst.quote": "「私たちの目標は単なる治療ではなく、測定可能な変革です。」",
-    "pep.drfirst.desc": "ドクターファーストは、医療は病気を治療するだけでなく、パーソナライズされた科学に基づくプログラムを通じて、患者がエネルギーを回復し、回復力を改善し、健康の可能性を最大限に引き出すのを助けるべきだと信じています。",
-    "pep.drfirst.title": "ドクターファースト — ペプチドプログラムディレクター",
+    "pep.drfirst.quote": "「Healthi Lifeを共同設立した時、何ヶ月も自分で調べてもプロトコルがない患者さんを見ました。だから私が作りました：推測を精密さに、情報を結果に置き換える、医師が設計したペプチドプログラムを。」",
+    "pep.drfirst.desc": "",
+    "pep.drfirst.title": "ドクター・ナパット・フンサジャルパン（ファースト）— 創設者 & 最高医療責任者",
 
     // Footer
     "pep.footer.desc": "バンコクのプレミアム長寿センター。医師監督のペプチド療法、IV点滴、再生医療。",

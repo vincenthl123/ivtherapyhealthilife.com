@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import MedicalTeam from "@/components/MedicalTeam";
 import { Button } from "@/components/ui/button";
@@ -385,73 +385,93 @@ const PeptideCatalog = () => {
 
         <div className="space-y-8">
           {catalogCategoryKeys.map((cat) => (
-            <div key={cat.key} className="border border-border rounded-xl overflow-hidden bg-card">
-              <div className="px-6 py-5 flex items-center gap-3 border-b border-border">
-                <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0">
-                  <cat.icon className="h-5 w-5 text-primary-foreground" />
+            <React.Fragment key={cat.key}>
+              <div className="border border-border rounded-xl overflow-hidden bg-card">
+                <div className="px-6 py-5 flex items-center gap-3 border-b border-border">
+                  <div className="w-10 h-10 rounded-full bg-gradient-medical flex items-center justify-center flex-shrink-0">
+                    <cat.icon className="h-5 w-5 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-foreground">{t(`pep.catName.${cat.key}`)}</h3>
+                  <Badge variant="secondary" className="ml-2 text-xs">
+                    {cat.peptides.length} {cat.peptides.length > 1 ? t("pep.catalog.peptides") : t("pep.catalog.peptide")}
+                  </Badge>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-foreground">{t(`pep.catName.${cat.key}`)}</h3>
-                <Badge variant="secondary" className="ml-2 text-xs">
-                  {cat.peptides.length} {cat.peptides.length > 1 ? t("pep.catalog.peptides") : t("pep.catalog.peptide")}
-                </Badge>
-              </div>
 
-              {/* Desktop table */}
-              <div className="hidden md:block overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="bg-secondary/40">
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.benefits")}</th>
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.route")}</th>
-                      <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.frequency")}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cat.peptides.map((name, i) => {
-                      const data = peptideCatalogData[name];
-                      if (!data) return null;
-                      return (
-                        <tr key={name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
-                          <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{name}</td>
-                          <td className="px-6 py-4 text-muted-foreground">{data.benefits}</td>
-                          <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{data.route}</td>
-                          <td className="px-6 py-4 text-muted-foreground">{data.frequency}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                {/* Desktop table */}
+                <div className="hidden md:block overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-secondary/40">
+                        <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
+                        <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.benefits")}</th>
+                        <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.route")}</th>
+                        <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.frequency")}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cat.peptides.map((name, i) => {
+                        const data = peptideCatalogData[name];
+                        if (!data) return null;
+                        return (
+                          <tr key={name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
+                            <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{name}</td>
+                            <td className="px-6 py-4 text-muted-foreground">{data.benefits}</td>
+                            <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{data.route}</td>
+                            <td className="px-6 py-4 text-muted-foreground">{data.frequency}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
 
-              {/* Mobile cards */}
-              <div className="md:hidden divide-y divide-border">
-                {cat.peptides.map((name) => {
-                  const data = peptideCatalogData[name];
-                  if (!data) return null;
-                  return (
-                    <div key={name} className="p-4 space-y-2">
-                      <h4 className="font-semibold text-foreground">{name}</h4>
-                      <p className="text-sm text-muted-foreground">{data.benefits}</p>
-                      <div className="flex flex-wrap gap-2 text-xs">
-                        <Badge variant="secondary">{data.route}</Badge>
-                        <Badge variant="outline">{data.frequency}</Badge>
+                {/* Mobile cards */}
+                <div className="md:hidden divide-y divide-border">
+                  {cat.peptides.map((name) => {
+                    const data = peptideCatalogData[name];
+                    if (!data) return null;
+                    return (
+                      <div key={name} className="p-4 space-y-2">
+                        <h4 className="font-semibold text-foreground">{name}</h4>
+                        <p className="text-sm text-muted-foreground">{data.benefits}</p>
+                        <div className="flex flex-wrap gap-2 text-xs">
+                          <Badge variant="secondary">{data.route}</Badge>
+                          <Badge variant="outline">{data.frequency}</Badge>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
+
+                <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground italic">{t("pep.catalog.onDemand")}</span>
+                  <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.key}`)} asChild>
+                    <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-4 w-4 mr-1" />
+                      {t("pep.programs.talkToUs")}
+                    </a>
+                  </Button>
+                </div>
               </div>
 
-              <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
-                <span className="text-sm text-muted-foreground italic">{t("pep.catalog.onDemand")}</span>
-                <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.key}`)} asChild>
-                  <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4 mr-1" />
-                    {t("pep.programs.talkToUs")}
-                  </a>
-                </Button>
-              </div>
-            </div>
+              {/* Dr First Quote after Weight Loss category */}
+              {cat.key === "weightLoss" && (
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                  <img
+                    src={drFirstImage}
+                    alt="Dr. Napat Hunsajarupan (First) - Founder & Chief Medical Officer, Healthi-Life"
+                    className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top shadow-lg flex-shrink-0"
+                    loading="lazy"
+                  />
+                  <div>
+                    <blockquote className="text-base md:text-lg font-medium text-foreground italic mb-3 leading-relaxed">
+                      {t("pep.drfirst.quote")}
+                    </blockquote>
+                    <p className="text-sm font-bold text-primary">{t("pep.drfirst.title")}</p>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>
