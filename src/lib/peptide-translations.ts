@@ -384,9 +384,9 @@ export const peptideTranslations = {
     "pep.contact.submit": "Submit Inquiry",
 
     // Dr First Quote
-    "pep.drfirst.quote": "\"Our goal is not simply treatment — it is measurable transformation.\"",
-    "pep.drfirst.desc": "Dr First believes that medicine should not only treat disease, but help patients restore energy, improve resilience, and unlock their full health potential through personalized, science-based protocols.",
-    "pep.drfirst.title": "Dr First — Peptide Therapy Director",
+    "pep.drfirst.quote": "\"When I co-founded Healthi Life, I saw patients arriving with months of self-research and no protocol — so I built one: a physician-designed peptide program that replaces guesswork with precision, and information with results.\"",
+    "pep.drfirst.desc": "",
+    "pep.drfirst.title": "Dr. Napat Hunsajarupan (First) — Founder & Chief Medical Officer",
 
     // Footer
     "pep.footer.desc": "Bangkok's premium longevity center for doctor-supervised peptide therapy, IV drips, and regenerative medicine.",
