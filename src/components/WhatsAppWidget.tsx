@@ -7,6 +7,8 @@ import conciergeAvatar from "@/assets/concierge-anna.jpg";
 
 const WhatsAppWidget = () => {
   const { t } = useLanguage();
+  const location = useLocation();
+  const isPeptides = location.pathname === "/therapy-bangkok" || location.pathname === "/peptides-therapy";
   const [showPopup, setShowPopup] = useState(false);
   const [dismissCount, setDismissCount] = useState(0);
 
