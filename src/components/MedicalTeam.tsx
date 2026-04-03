@@ -105,6 +105,12 @@ const MedicalTeam = () => {
                     <p className="text-primary font-medium text-sm">
                       {t(doctor.titleKey)}
                     </p>
+                    {doctor.boardKey && (
+                      <Badge className="mt-1 bg-primary/10 text-primary text-[10px] font-semibold">
+                        <Shield className="w-3 h-3 mr-1" />
+                        {t(doctor.boardKey)}
+                      </Badge>
+                    )}
                   </div>
 
                   {/* Education */}
