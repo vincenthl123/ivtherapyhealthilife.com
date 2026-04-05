@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PeptideSEO from "@/components/PeptideSEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
