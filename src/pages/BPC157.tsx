@@ -58,9 +58,6 @@ const BPCHero = () => (
         <p className="animate-fade-in-up text-base md:text-lg text-muted-foreground mb-4 max-w-2xl">
           BPC-157 exists. What's rare is the medical intelligence to prescribe it correctly — at the right dose, for the right indication, under physician oversight.
         </p>
-        <p className="animate-fade-in-up text-sm md:text-base text-muted-foreground/80 italic mb-8 max-w-2xl">
-          "Not a supplement. A physician-prescribed peptide protocol — biomarker-driven, monitored, and calibrated to your biology."
-        </p>
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4 mb-10">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-hero-whatsapp')} asChild>
@@ -77,22 +74,6 @@ const BPCHero = () => (
           </Button>
         </div>
 
-        {/* Dr. First Card */}
-        <div className="animate-fade-in-up bg-card/80 backdrop-blur-sm border border-border rounded-xl p-5 flex items-start gap-4 max-w-xl">
-          <img
-            src={drFirstImage}
-            alt="Dr. Napat Hunsajarupan (First)"
-            className="w-16 h-16 rounded-full object-cover border-2 border-primary/30"
-            loading="eager"
-          />
-          <div>
-            <h3 className="font-bold text-foreground text-sm">Dr. Napat Hunsajarupan — Co-Founder & CMO</h3>
-            <p className="text-xs text-muted-foreground">Dermatologist · Peptides Expert</p>
-            <p className="text-xs text-muted-foreground mt-1">
-              Specialist in peptide therapy, regenerative medicine, and cosmetic anti-aging protocols. Every BPC-157 prescription at Healthi Life is reviewed and supervised personally.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -130,8 +111,8 @@ const WhatIsBPC = () => (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
           {[
             { label: "Amino Acids", value: "15" },
-            { label: "Protocol Type", value: "Rx Prescription" },
-            { label: "Routes", value: "SC / PO" },
+            { label: "Protocol Type", value: "Physician Prescription" },
+            { label: "Routes Available", value: "Injection / Oral" },
             { label: "Standard Cycle", value: "4–8 weeks" },
           ].map((stat, i) => (
             <div key={i} className="bg-card border border-border rounded-lg p-4 text-center shadow-soft">
@@ -252,7 +233,7 @@ const WhyDoctor = () => (
           Why a doctor must prescribe this.
         </h2>
 
-        <blockquote className="border-l-4 border-destructive/60 pl-6 py-3 mb-8 bg-destructive/5 rounded-r-lg">
+        <blockquote className="border-l-4 border-accent/60 pl-6 py-3 mb-8 bg-accent/5 rounded-r-lg">
           <p className="text-foreground font-medium italic">
             "Self-administering BPC-157 is like performing surgery with a YouTube tutorial. The compound is real. The risk is in the hands holding it."
           </p>
@@ -271,8 +252,8 @@ const WhyDoctor = () => (
           {risks.map((r, i) => (
             <Card key={i} className="border-border">
               <CardContent className="p-5 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center shrink-0">
-                  <r.icon className="h-5 w-5 text-destructive" />
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <r.icon className="h-5 w-5 text-accent" />
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground text-sm mb-1">{r.title}</h4>
@@ -382,7 +363,7 @@ const ProtocolSection = () => (
       <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
         <Badge variant="outline" className="mb-4 text-primary border-primary/30">The Process</Badge>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          What happens when you book.
+          Program Journey Available
         </h2>
         <p className="text-lg text-muted-foreground">
           Four steps. No ambiguity. You know exactly what to expect from first contact to active protocol.
