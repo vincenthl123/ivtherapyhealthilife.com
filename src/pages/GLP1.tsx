@@ -75,9 +75,6 @@ const GLP1Hero = () => (
           ))}
         </div>
 
-        <blockquote className="animate-fade-in-up border-l-4 border-primary pl-4 py-2 mb-8 text-sm md:text-base text-foreground/80 italic max-w-2xl">
-          "The most consequential class of metabolic drugs in a generation — now available as a physician-led longevity tool."
-        </blockquote>
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-hero-whatsapp')} asChild>
