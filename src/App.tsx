@@ -16,6 +16,7 @@ const PriceList = lazy(() => import("./pages/PriceList"));
 const Peptides = lazy(() => import("./pages/Peptides"));
 const BPC157 = lazy(() => import("./pages/BPC157"));
 const GLP1 = lazy(() => import("./pages/GLP1"));
+const CJC1295Ipamorelin = lazy(() => import("./pages/CJC1295Ipamorelin"));
 
 const queryClient = new QueryClient();
 
