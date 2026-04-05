@@ -76,11 +76,6 @@ const CJCHero = () => (
           ))}
         </div>
 
-        <blockquote className="animate-fade-in-up border-l-4 border-primary pl-6 py-3 mb-6 bg-secondary/30 rounded-r-lg">
-          <p className="text-foreground font-medium italic text-sm md:text-base">
-            "Not synthetic HGH. A signal that tells your own pituitary to produce more — naturally, in pulse, the way biology intended."
-          </p>
-        </blockquote>
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-hero-whatsapp')} asChild>
