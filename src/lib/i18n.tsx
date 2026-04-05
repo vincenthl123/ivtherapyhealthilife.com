@@ -52,6 +52,7 @@ const translations = {
     "whatsapp.message.bpc157": "Interested in BPC-157?\n\nOur physician-prescribed BPC-157 protocols support:\n\n• tendon, joint & muscle repair\n• gut lining & digestive healing\n• brain, mood & nervous system\n• longevity & systemic recovery\n\nBook a consultation with Dr. First to get started.",
     "whatsapp.message.glp1": "Interested in GLP-1 therapy?\n\nOur physician-prescribed GLP-1 protocols support:\n\n• metabolic reset & weight management\n• cardiovascular protection (SELECT trial data)\n• longevity & anti-inflammatory optimization\n• semaglutide & tirzepatide — physician-selected\n\nBook a consultation with Dr. First to get started.",
     "whatsapp.message.cjc": "Interested in CJC-1295 + Ipamorelin?\n\nOur physician-prescribed GH secretagogue protocols support:\n\n• anti-aging & biological age reduction\n• deep sleep & recovery optimization\n• lean muscle preservation & body composition\n• IGF-1 restoration — physician-monitored\n\nBook a consultation with Dr. First to get started.",
+    "whatsapp.message.sema": "Interested in Semaglutide?\n\nOur physician-prescribed semaglutide protocols support:\n\n• metabolic reset & sustained weight management\n• muscle preservation — InBody tracked\n• cardiovascular protection (SELECT trial data)\n• full metabolic workup before first dose\n\nBook a consultation with Dr. First to get started.",
     "whatsapp.startChat": "Start Chat",
     "whatsapp.enterMessage": "Enter Your Message...",
     "whatsapp.concierge.name": "Anna - Medical Concierge",
