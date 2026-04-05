@@ -363,7 +363,7 @@ const ProtocolSection = () => (
       <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
         <Badge variant="outline" className="mb-4 text-primary border-primary/30">The Process</Badge>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          What happens when you book.
+          Program Journey Available
         </h2>
         <p className="text-lg text-muted-foreground">
           Four steps. No ambiguity. You know exactly what to expect from first contact to active protocol.
