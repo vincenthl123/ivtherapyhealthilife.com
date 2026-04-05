@@ -1274,6 +1274,7 @@ const translations = {
     "whatsapp.message.bpc157": "BPC-157にご興味がありますか？\n\n医師処方のBPC-157プロトコルは以下をサポートします：\n\n• 腱・関節・筋肉の修復\n• 腸粘膜・消化器の回復\n• 脳・気分・神経系\n• 長寿・全身回復\n\nDr. Firstとの相談をご予約ください。",
     "whatsapp.message.glp1": "GLP-1療法にご興味がありますか？\n\n医師処方のGLP-1プロトコルは以下をサポートします：\n\n• 代謝リセット & 体重管理\n• 心血管保護（SELECTトライアルデータ）\n• 長寿 & 抗炎症最適化\n• セマグルチド & チルゼパチド — 医師が選択\n\nDr. Firstとの相談をご予約ください。",
     "whatsapp.message.cjc": "CJC-1295 + Ipamorelinにご興味がありますか？\n\n医師処方の成長ホルモン分泌促進プロトコルは以下をサポートします：\n\n• アンチエイジング & 生物学的年齢の低下\n• 深い睡眠 & 回復の最適化\n• 除脂肪体重維持 & 体組成\n• IGF-1回復 — 医師モニタリング\n\nDr. Firstとの相談をご予約ください。",
+    "whatsapp.message.sema": "セマグルチドにご興味がありますか？\n\n医師処方のセマグルチドプロトコルは以下をサポートします：\n\n• 代謝リセット & 持続的な体重管理\n• 筋肉量維持 — InBodyトラッキング\n• 心血管保護（SELECTトライアルデータ）\n• 初回投与前の完全な代謝検査\n\nDr. Firstとの相談をご予約ください。",
     "whatsapp.startChat": "チャットを開始",
     "whatsapp.enterMessage": "メッセージを入力...",
     "whatsapp.concierge.name": "アンナ - メディカルコンシェルジュ",
