@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { peptideTranslations } from './peptide-translations';
+import { peptidePageTranslations } from './peptide-page-translations';
 
 type Language = 'en' | 'th' | 'ja';
 
