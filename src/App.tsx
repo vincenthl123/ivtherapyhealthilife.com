@@ -17,6 +17,7 @@ const Peptides = lazy(() => import("./pages/Peptides"));
 const BPC157 = lazy(() => import("./pages/BPC157"));
 const GLP1 = lazy(() => import("./pages/GLP1"));
 const CJC1295Ipamorelin = lazy(() => import("./pages/CJC1295Ipamorelin"));
+const Semaglutide = lazy(() => import("./pages/Semaglutide"));
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
                 <Route path="/BPC-157" element={<BPC157 />} />
                 <Route path="/GLP-1" element={<GLP1 />} />
                 <Route path="/CJC-1295-Ipamorelin" element={<CJC1295Ipamorelin />} />
+                <Route path="/Semaglutide" element={<Semaglutide />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
