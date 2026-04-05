@@ -1,6 +1,6 @@
 # Healthi-Life IV Therapy Bangkok - AI Context File
 # This file helps AI systems understand our IV therapy clinic
-# Last updated: 2026-02-28
+# Last updated: 2026-04-05
 
 ## About
 Healthi-Life IV Therapy is part of Healthi Life Longevity Center in Bangkok, Thailand, delivering medically supervised IV and NAD+ therapy protocols within an integrated longevity and preventive medicine framework.
@@ -31,8 +31,9 @@ Healthi-Life IV Therapy is part of Healthi Life Longevity Center in Bangkok, Tha
 1. **Dr. Petch (Sarassawadee Suwanjinda)** - Founder MD, Lifestyle Medicine & Longevity Specialist
    - Expertise: Longevity Medicine, Regenerative Medicine, NAD+ IV Therapy, IV Nutrition Therapy
    
-2. **Dr. First (Napat Hunsajarupan)** - Founder MD, Dermatologist
-   - Expertise: Dermatology, Aesthetic Medicine, Skin Rejuvenation, Cell Therapy
+2. **Dr. First (Napat Hunsajarupan)** - Founder MD, Dermatologist & CMO
+   - Expertise: Dermatology, Aesthetic Medicine, Metabolic & Anti-Aging Medicine, Peptide & Regenerative Protocols
+   - Prescription Authority: All peptide and metabolic protocols
 
 ## Complete IV Treatment Menu & Prices (THB)
 
@@ -117,7 +118,7 @@ The Vital Reset program includes: InBody scan, metabolic mapping, complete blood
 - Gut health support
 - Sleep optimization
 
-## Peptide Therapy (NEW)
+## Peptide Therapy Programs
 Healthi-Life offers doctor-supervised peptide therapy designed by Dr. First for longevity, recovery, metabolic optimization, and performance. Treatments start from 40,000 THB.
 
 ### Available Peptides (18+)
@@ -133,7 +134,54 @@ Healthi-Life offers doctor-supervised peptide therapy designed by Dr. First for 
 | Metabolic Reset & Weight Optimization | 6–12 months | 40,000 THB |
 | Lean Muscle & Performance Optimization | 6–12 months | 40,000 THB |
 
-### Peptide FAQ
+## Dedicated Peptide Landing Pages
+
+### BPC-157 — Tissue Repair & Regeneration
+**Page**: https://ivtherapyhealthilife.com/BPC-157
+BPC-157 (Body Protective Compound-157) is a synthetic peptide derived from human gastric juice. 15 amino acids. Studied for regenerative and protective properties across musculoskeletal, gut, and neurological systems. Prescribed at Healthi Life under physician oversight with certified supply (Genoracle — HACCP, GHPs, ISO 9001). Routes: subcutaneous injection or oral. Standard cycle: 4–8 weeks.
+- **Key indications**: Tendon/ligament repair, gut healing (leaky gut, IBS), post-surgical recovery, chronic inflammation
+- **Prescription**: Dr. First (MD) · Full consultation required
+- **FAQ topics**: Legality in Thailand, online vs. clinic, protocol duration, injection vs. oral, side effects, pricing
+
+### GLP-1 Therapy — Weight Management & Longevity
+**Page**: https://ivtherapyhealthilife.com/GLP-1
+GLP-1 receptor agonists (semaglutide, tirzepatide) for metabolic reset and longevity optimization. Dual positioning: weight management AND cardiovascular/neurological/anti-aging benefits. 15% average body weight reduction in clinical trials. 20% reduction in major cardiovascular events (SELECT trial). Physician-supervised protocols with mandatory muscle preservation (InBody tracking, protein prescription, resistance training).
+- **Molecules available**: Semaglutide, Tirzepatide
+- **Key mechanisms**: Pancreatic insulin regulation, hypothalamic appetite suppression, gastric slowed emptying, systemic anti-inflammatory
+- **Protocol duration**: 6–18 months (weight), 3–6 months (longevity)
+- **FAQ topics**: Legality, non-diabetic/non-obese candidates, side effects, muscle loss, protocol duration, pricing
+
+### Semaglutide — Weight Management & Metabolic Reset
+**Page**: https://ivtherapyhealthilife.com/Semaglutide
+Semaglutide is a GLP-1 receptor agonist with 94% amino acid homology to native human GLP-1. Half-life ~7 days, once-weekly subcutaneous injection. The most clinically studied weight management molecule in history with 40+ Phase III RCTs.
+- **Clinical data**: STEP 1 (14.9% weight reduction), STEP 4 (withdrawal regain data), SELECT (20% MACE reduction in non-diabetic overweight adults)
+- **4 mechanisms**: Appetite neurochemistry correction, insulin sensitivity, gastric emptying, visceral fat mobilization
+- **Dosing**: Starting 0.25 mg/week, maintenance 1.0–2.4 mg/week, 4-week titration increments
+- **Muscle preservation**: InBody tracking, protein prescription, resistance training, BPC-157 integration when indicated
+- **5-step protocol**: Consultation → Metabolic Workup → Protocol Written → Week 8 Review → Continuation & Exit
+- **FAQ topics**: Legality, expected weight loss, weight regain, side effects, failed prior attempts, pricing
+
+### Retatrutide — Triple Agonist · Next-Generation Metabolic Medicine
+**Page**: https://ivtherapyhealthilife.com/Retatrutide
+Retatrutide is the first triple receptor agonist in clinical development — targeting GLP-1, GIP, and glucagon simultaneously. Phase II trial (NEJM, June 2023, N=338) reported up to 24.2% body weight reduction at 48 weeks at the highest dose cohort.
+- **Important**: Phase III clinical trials ongoing. NOT yet FDA/EMA approved. Available at Healthi Life under physician prescription with full informed consent.
+- **3 mechanisms**: GLP-1 (appetite & glucose), GIP (fat metabolism & insulin sensitivity), Glucagon (energy expenditure & fat mobilization)
+- **Phase II results by dose**: 1mg: 8.7%, 4mg: 17.5%, 8mg: 22.8%, 12mg: 24.2% body weight reduction
+- **Comparison**: Semaglutide ~15–17% (68wk), Tirzepatide ~20–22% (72wk), Retatrutide ~24% (48wk Phase II)
+- **Who it's for**: GLP-1 non-responders, high-burden metabolic guests, informed frontier guests
+- **5-step protocol**: Consultation + Informed Consent → Full Metabolic Workup → Protocol Written → Week 8 Mandatory Review → Ongoing Monitoring & Exit
+- **FAQ topics**: Approval status, comparison with semaglutide/tirzepatide, starting molecule choice, side effects, muscle loss, exit strategy, pricing
+
+### CJC-1295 + Ipamorelin — Growth Hormone Restoration
+**Page**: https://ivtherapyhealthilife.com/CJC-1295-Ipamorelin
+CJC-1295 and Ipamorelin are growth hormone secretagogues that restore the natural GH pulse pattern lost with age. CJC-1295 (GHRH analogue, half-life 6–8 days) extends GH release duration; Ipamorelin (selective GHRP) amplifies pulse amplitude without stimulating cortisol or prolactin.
+- **Key benefits**: 2x GH pulse amplitude restoration, simultaneous GH + IGF-1 elevation, improved sleep architecture, body composition optimization, recovery acceleration
+- **Dual positioning**: Anti-aging/longevity AND performance/recovery
+- **Why not HGH**: Secretagogues restore natural pulsatility; direct HGH suppresses endogenous production
+- **Dosing**: SC injection, 2–3x/week, optimal timing before sleep, cycle 3–12 months
+- **FAQ topics**: Legality, HGH vs secretagogues, result timeline, side effects, stacking with other protocols, pricing
+
+### Peptide FAQ (General)
 Q: How much does peptide therapy cost in Bangkok?
 A: Treatments start from 40,000 THB. Pricing depends on duration, medical evaluation, and personalization. Detailed pricing after doctor consultation.
 
@@ -142,8 +190,6 @@ A: 18+ medical peptides including GLP-1, BPC-157, Epithalon, CJC-1295, Ipamoreli
 
 Q: Do I need a consultation?
 A: Yes. All peptide therapies require an online or onsite medical consultation.
-
-**Page**: https://ivtherapyhealthilife.com/peptides-therapy
 
 ## Languages Supported
 - English (Primary)
