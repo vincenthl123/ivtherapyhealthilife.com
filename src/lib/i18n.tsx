@@ -1265,6 +1265,7 @@ const translations = {
     "whatsapp.welcome": "Healthi Lifeへようこそ — バンコクの医師主導のIVセラピーセンターです。",
     "whatsapp.message": "当院のIVプロトコルは医師の監督のもと、お客様のニーズに合わせて調整されます。本日はどのようにお手伝いできますか？",
     "whatsapp.message.peptides": "医師監修のペプチドプロトコルで以下をサポートします：\n\n• 減量 & スポーツパフォーマンス\n• 成長ホルモン & アンチエイジング\n• 修復、腸の健康 & 肌再生\n• 睡眠、集中力 & 神経機能\n• リビドー & 妊活\n\n本日はどのようにお手伝いできますか？",
+    "whatsapp.message.bpc157": "BPC-157にご興味がありますか？\n\n医師処方のBPC-157プロトコルは以下をサポートします：\n\n• 腱・関節・筋肉の修復\n• 腸粘膜・消化器の回復\n• 脳・気分・神経系\n• 長寿・全身回復\n\nDr. Firstとの相談をご予約ください。",
     "whatsapp.startChat": "チャットを開始",
     "whatsapp.enterMessage": "メッセージを入力...",
     "whatsapp.concierge.name": "アンナ - メディカルコンシェルジュ",
