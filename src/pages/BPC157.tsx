@@ -74,22 +74,6 @@ const BPCHero = () => (
           </Button>
         </div>
 
-        {/* Dr. First Card */}
-        <div className="animate-fade-in-up bg-card/80 backdrop-blur-sm border border-border rounded-xl p-5 flex items-start gap-4 max-w-xl">
-          <img
-            src={drFirstImage}
-            alt="Dr. Napat Hunsajarupan (First)"
-            className="w-16 h-16 rounded-full object-cover border-2 border-primary/30"
-            loading="eager"
-          />
-          <div>
-            <h3 className="font-bold text-foreground text-sm">Dr. Napat Hunsajarupan — Co-Founder & CMO</h3>
-            <p className="text-xs text-muted-foreground">Dermatologist · Peptides Expert</p>
-            <p className="text-xs text-muted-foreground mt-1">
-              Specialist in peptide therapy, regenerative medicine, and cosmetic anti-aging protocols. Every BPC-157 prescription at Healthi Life is reviewed and supervised personally.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
