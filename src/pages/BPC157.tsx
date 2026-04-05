@@ -196,6 +196,19 @@ const BPCBenefits = () => (
           </Card>
         ))}
       </div>
+
+      {/* CTA 1 — Post-education intent capture */}
+      <div className="max-w-2xl mx-auto mt-14 text-center">
+        <p className="text-muted-foreground mb-5 text-base">
+          Not sure which indication applies to you? Let our medical team assess your case personally.
+        </p>
+        <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-1')} asChild>
+          <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+            Talk to Your Medical Concierge
+          </a>
+        </Button>
+      </div>
     </div>
   </section>
 );
@@ -262,6 +275,22 @@ const WhyDoctor = () => (
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* CTA 2 — Post-risk urgency */}
+        <div className="mt-12 p-6 md:p-8 rounded-2xl border border-primary/20 bg-primary/5 text-center">
+          <p className="text-foreground font-semibold text-lg mb-2">
+            Don't self-prescribe. Talk to a physician who knows peptides.
+          </p>
+          <p className="text-muted-foreground text-sm mb-5">
+            One WhatsApp message. Direct access to our medical concierge.
+          </p>
+          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-2')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+              Talk Now
+            </a>
+          </Button>
         </div>
       </div>
     </div>
@@ -390,6 +419,19 @@ const ProtocolSection = () => (
             )}
           </Card>
         ))}
+      </div>
+
+      {/* CTA 3 — Post-clarity conversion */}
+      <div className="max-w-2xl mx-auto mt-14 text-center">
+        <p className="text-muted-foreground mb-5 text-base">
+          Your journey starts with a single conversation. No commitment — just clarity.
+        </p>
+        <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-3')} asChild>
+          <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+            Talk to Your Medical Concierge
+          </a>
+        </Button>
       </div>
     </div>
   </section>
