@@ -276,6 +276,22 @@ const WhyDoctor = () => (
             </Card>
           ))}
         </div>
+
+        {/* CTA 2 — Post-risk urgency */}
+        <div className="mt-12 p-6 md:p-8 rounded-2xl border border-primary/20 bg-primary/5 text-center">
+          <p className="text-foreground font-semibold text-lg mb-2">
+            Don't self-prescribe. Talk to a physician who knows peptides.
+          </p>
+          <p className="text-muted-foreground text-sm mb-5">
+            One WhatsApp message. Direct access to our medical concierge.
+          </p>
+          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-2')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+              Talk Now
+            </a>
+          </Button>
+        </div>
       </div>
     </div>
   </section>
