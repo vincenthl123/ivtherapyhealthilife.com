@@ -58,9 +58,6 @@ const BPCHero = () => (
         <p className="animate-fade-in-up text-base md:text-lg text-muted-foreground mb-4 max-w-2xl">
           BPC-157 exists. What's rare is the medical intelligence to prescribe it correctly — at the right dose, for the right indication, under physician oversight.
         </p>
-        <p className="animate-fade-in-up text-sm md:text-base text-muted-foreground/80 italic mb-8 max-w-2xl">
-          "Not a supplement. A physician-prescribed peptide protocol — biomarker-driven, monitored, and calibrated to your biology."
-        </p>
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4 mb-10">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-hero-whatsapp')} asChild>
