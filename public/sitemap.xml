@@ -3,7 +3,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://ivtherapyhealthilife.com/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,43 +21,81 @@
   <!-- Sections -->
   <url>
     <loc>https://ivtherapyhealthilife.com/#services</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/#why-us</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/#doctors</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/#process</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/#testimonials</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/#faq</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/#contact</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Peptide Therapy Pages -->
+  <url>
+    <loc>https://ivtherapyhealthilife.com/peptides-therapy</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/BPC-157</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/GLP-1</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/Semaglutide</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/Retatrutide</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ivtherapyhealthilife.com/CJC-1295-Ipamorelin</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -65,65 +103,57 @@
   <!-- Popular IV Services -->
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#fat-burner-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#nad-plus-100mg</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#nad-plus-250mg</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#glow-revive</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#resveratrol-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#curcumin-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#hangover-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  
-  <!-- Peptide Therapy Page -->
-  <url>
-    <loc>https://ivtherapyhealthilife.com/peptides-therapy</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   
   <!-- Body Booster IV Services -->
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#vital-boost-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#athlete-max-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -131,13 +161,13 @@
   <!-- Brain Booster IV Services -->
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#neuro-boost-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#stress-ease-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -145,13 +175,13 @@
   <!-- Skin Booster IV Services -->
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#glow-vita-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ivtherapyhealthilife.com/sitemap#glow-restore-iv</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
