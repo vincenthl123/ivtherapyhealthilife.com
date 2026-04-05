@@ -233,7 +233,7 @@ const WhyDoctor = () => (
           Why a doctor must prescribe this.
         </h2>
 
-        <blockquote className="border-l-4 border-accent/60 pl-6 py-3 mb-8 bg-accent/5 rounded-r-lg">
+        <blockquote className="border-l-4 border-primary/40 pl-6 py-3 mb-8 rounded-r-lg" style={{ backgroundColor: '#F5EDDC' }}>
           <p className="text-foreground font-medium italic">
             "Self-administering BPC-157 is like performing surgery with a YouTube tutorial. The compound is real. The risk is in the hands holding it."
           </p>
@@ -252,8 +252,8 @@ const WhyDoctor = () => (
           {risks.map((r, i) => (
             <Card key={i} className="border-border">
               <CardContent className="p-5 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                  <r.icon className="h-5 w-5 text-accent" />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: '#F5EDDC' }}>
+                  <r.icon className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground text-sm mb-1">{r.title}</h4>
