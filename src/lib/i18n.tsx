@@ -1277,6 +1277,7 @@ const translations = {
     "whatsapp.message.glp1": "GLP-1療法にご興味がありますか？\n\n医師処方のGLP-1プロトコルは以下をサポートします：\n\n• 代謝リセット & 体重管理\n• 心血管保護（SELECTトライアルデータ）\n• 長寿 & 抗炎症最適化\n• セマグルチド & チルゼパチド — 医師が選択\n\nDr. Firstとの相談をご予約ください。",
     "whatsapp.message.cjc": "CJC-1295 + Ipamorelinにご興味がありますか？\n\n医師処方の成長ホルモン分泌促進プロトコルは以下をサポートします：\n\n• アンチエイジング & 生物学的年齢の低下\n• 深い睡眠 & 回復の最適化\n• 除脂肪体重維持 & 体組成\n• IGF-1回復 — 医師モニタリング\n\nDr. Firstとの相談をご予約ください。",
     "whatsapp.message.sema": "セマグルチドにご興味がありますか？\n\n医師処方のセマグルチドプロトコルは以下をサポートします：\n\n• 代謝リセット & 持続的な体重管理\n• 筋肉量維持 — InBodyトラッキング\n• 心血管保護（SELECTトライアルデータ）\n• 初回投与前の完全な代謝検査\n\nDr. Firstとの相談をご予約ください。",
+    "whatsapp.message.reta": "レタトルチドにご興味がありますか？\n\n最先端のトリプルアゴニスト（GLP-1/GIP）：\n\n• 24.2%の体重減少（Phase IIデータ）\n• 3つの受容体を同時活性化 — 次世代プロトコル\n• 筋肉量維持 & InBodyトラッキング\n• 医師のインフォームドコンセント必須\n\nDr. Firstとの相談をご予約ください。",
     "whatsapp.startChat": "チャットを開始",
     "whatsapp.enterMessage": "メッセージを入力...",
     "whatsapp.concierge.name": "アンナ - メディカルコンシェルジュ",
