@@ -13,6 +13,7 @@ const WhatsAppWidget = () => {
   const isGLP1 = location.pathname === "/GLP-1";
   const isCJC = location.pathname === "/CJC-1295-Ipamorelin";
   const isSema = location.pathname === "/Semaglutide";
+  const isReta = location.pathname === "/Retatrutide";
   const [showPopup, setShowPopup] = useState(false);
   const [dismissCount, setDismissCount] = useState(0);
 
