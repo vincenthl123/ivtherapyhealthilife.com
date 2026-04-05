@@ -420,6 +420,19 @@ const ProtocolSection = () => (
           </Card>
         ))}
       </div>
+
+      {/* CTA 3 — Post-clarity conversion */}
+      <div className="max-w-2xl mx-auto mt-14 text-center">
+        <p className="text-muted-foreground mb-5 text-base">
+          Your journey starts with a single conversation. No commitment — just clarity.
+        </p>
+        <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-3')} asChild>
+          <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+            Talk to Your Medical Concierge
+          </a>
+        </Button>
+      </div>
     </div>
   </section>
 );
