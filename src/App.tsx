@@ -14,6 +14,7 @@ const Sitemap = lazy(() => import("./pages/Sitemap"));
 const Install = lazy(() => import("./pages/Install"));
 const PriceList = lazy(() => import("./pages/PriceList"));
 const Peptides = lazy(() => import("./pages/Peptides"));
+const BPC157 = lazy(() => import("./pages/BPC157"));
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
                 <Route path="/price-list" element={<PriceList />} />
                 <Route path="/peptides-therapy" element={<Peptides />} />
                 <Route path="/therapy-bangkok" element={<Peptides />} />
+                <Route path="/BPC-157" element={<BPC157 />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
