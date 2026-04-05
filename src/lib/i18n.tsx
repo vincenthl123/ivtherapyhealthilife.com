@@ -50,6 +50,7 @@ const translations = {
     "whatsapp.message": "Our doctor-supervised IV drip programs are designed to support:\n\n• energy & immunity boost\n• hydration & recovery\n• anti-aging & skin glow\n• detox & wellness\n\nHow can we help you feel your best today?",
     "whatsapp.message.peptides": "Our doctor-supervised peptide protocols are designed to support:\n\n• weight loss & sport performance\n• growth hormones & anti-aging\n• healing, gut health & skin repair\n• sleep, focus & neuro function\n• libido & fertility\n\nHow can we help you feel your best today?",
     "whatsapp.message.bpc157": "Interested in BPC-157?\n\nOur physician-prescribed BPC-157 protocols support:\n\n• tendon, joint & muscle repair\n• gut lining & digestive healing\n• brain, mood & nervous system\n• longevity & systemic recovery\n\nBook a consultation with Dr. First to get started.",
+    "whatsapp.message.glp1": "Interested in GLP-1 therapy?\n\nOur physician-prescribed GLP-1 protocols support:\n\n• metabolic reset & weight management\n• cardiovascular protection (SELECT trial data)\n• longevity & anti-inflammatory optimization\n• semaglutide & tirzepatide — physician-selected\n\nBook a consultation with Dr. First to get started.",
     "whatsapp.startChat": "Start Chat",
     "whatsapp.enterMessage": "Enter Your Message...",
     "whatsapp.concierge.name": "Anna - Medical Concierge",
