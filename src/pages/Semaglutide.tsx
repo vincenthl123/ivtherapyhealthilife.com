@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PeptideSEO from "@/components/PeptideSEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -858,6 +859,14 @@ const Disclaimer = () => (
 const Semaglutide = () => (
   <div className="min-h-screen flex flex-col">
     <Header />
+    <PeptideSEO
+      title="Semaglutide Bangkok | Weight Loss & Metabolic Reset – Healthi Life"
+      description="Semaglutide therapy in Bangkok. 15–17% avg weight reduction (STEP trials). Physician-supervised with muscle preservation. Full metabolic workup. Book consultation."
+      path="/Semaglutide"
+      peptideName="Semaglutide"
+      procedureDescription="Semaglutide GLP-1 receptor agonist therapy for weight management, metabolic reset, cardiovascular protection, and insulin resistance correction."
+      faqs={faqs}
+    />
     <main className="flex-grow">
       <SemaHero />
       <WhatIsSemaglutide />

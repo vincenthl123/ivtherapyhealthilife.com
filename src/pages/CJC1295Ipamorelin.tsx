@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PeptideSEO from "@/components/PeptideSEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -771,6 +772,14 @@ const Disclaimer = () => (
 const CJC1295Ipamorelin = () => (
   <div className="min-h-screen flex flex-col">
     <Header />
+    <PeptideSEO
+      title="CJC-1295 + Ipamorelin Bangkok | Growth Hormone – Healthi Life"
+      description="CJC-1295 & Ipamorelin growth hormone restoration in Bangkok. 2x GH pulse amplitude. Anti-aging, recovery, sleep optimization. Dr. First supervised. Book now."
+      path="/CJC-1295-Ipamorelin"
+      peptideName="CJC-1295 + Ipamorelin"
+      procedureDescription="CJC-1295 and Ipamorelin growth hormone secretagogue therapy for GH restoration, anti-aging, body composition optimization, sleep improvement, and recovery."
+      faqs={faqs}
+    />
     <main className="flex-grow">
       <CJCHero />
       <WhatIsCJC />

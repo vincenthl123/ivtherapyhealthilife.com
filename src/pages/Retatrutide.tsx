@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PeptideSEO from "@/components/PeptideSEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -912,6 +913,14 @@ const RetaDisclaimer = () => (
 const Retatrutide = () => (
   <div className="min-h-screen flex flex-col">
     <Header />
+    <PeptideSEO
+      title="Retatrutide Bangkok | Triple Agonist Weight Loss – Healthi Life"
+      description="Retatrutide triple receptor agonist therapy in Bangkok. 24.2% weight reduction (Phase II). GLP-1+GIP+Glucagon. Physician-supervised. Full informed consent."
+      path="/Retatrutide"
+      peptideName="Retatrutide"
+      procedureDescription="Retatrutide triple receptor agonist (GLP-1/GIP/Glucagon) therapy for advanced weight management, metabolic reset, and fat mobilization."
+      faqs={faqs}
+    />
     <main className="flex-grow">
       <RetaHero />
       <ClinicalContext />

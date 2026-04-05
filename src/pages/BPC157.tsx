@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PeptideSEO from "@/components/PeptideSEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -558,6 +559,14 @@ const Disclaimer = () => (
 const BPC157 = () => (
   <div className="min-h-screen flex flex-col">
     <Header />
+    <PeptideSEO
+      title="BPC-157 Peptide Therapy Bangkok | Healthi Life – Tissue Repair"
+      description="Physician-prescribed BPC-157 peptide therapy in Bangkok. Tissue repair, gut healing, and recovery protocols. Dr. First supervised. Certified supply. Book via WhatsApp."
+      path="/BPC-157"
+      peptideName="BPC-157"
+      procedureDescription="BPC-157 (Body Protective Compound-157) peptide therapy for tissue repair, gut healing, musculoskeletal recovery, and chronic inflammation management."
+      faqs={faqs}
+    />
     <main className="flex-grow">
       <BPCHero />
       <WhatIsBPC />

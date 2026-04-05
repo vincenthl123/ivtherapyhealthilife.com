@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PeptideSEO from "@/components/PeptideSEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -760,6 +761,14 @@ const Disclaimer = () => (
 const GLP1 = () => (
   <div className="min-h-screen flex flex-col">
     <Header />
+    <PeptideSEO
+      title="GLP-1 Therapy Bangkok | Semaglutide & Tirzepatide – Healthi Life"
+      description="Physician-led GLP-1 receptor agonist therapy in Bangkok. Semaglutide & tirzepatide for weight management and longevity. 15% avg weight reduction. Book now."
+      path="/GLP-1"
+      peptideName="GLP-1 Receptor Agonist"
+      procedureDescription="GLP-1 receptor agonist therapy (semaglutide, tirzepatide) for metabolic reset, weight management, cardiovascular protection, and longevity optimization."
+      faqs={faqs}
+    />
     <main className="flex-grow">
       <GLP1Hero />
       <WhatIsGLP1 />

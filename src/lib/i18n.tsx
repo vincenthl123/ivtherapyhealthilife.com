@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { peptideTranslations } from './peptide-translations';
+import { peptidePageTranslations } from './peptide-page-translations';
 
 type Language = 'en' | 'th' | 'ja';
 
@@ -1849,9 +1850,9 @@ const translations = {
 
 // Merge peptide translations into main translations
 const mergedTranslations: Record<Language, Record<string, string>> = {
-  en: { ...translations.en, ...peptideTranslations.en } as Record<string, string>,
-  th: { ...translations.th, ...peptideTranslations.th } as Record<string, string>,
-  ja: { ...translations.ja, ...peptideTranslations.ja } as Record<string, string>,
+  en: { ...translations.en, ...peptideTranslations.en, ...peptidePageTranslations.en } as Record<string, string>,
+  th: { ...translations.th, ...peptideTranslations.th, ...peptidePageTranslations.th } as Record<string, string>,
+  ja: { ...translations.ja, ...peptideTranslations.ja, ...peptidePageTranslations.ja } as Record<string, string>,
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
