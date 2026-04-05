@@ -763,9 +763,48 @@ const GLP1 = () => (
     <main className="flex-grow">
       <GLP1Hero />
       <WhatIsGLP1 />
+      {/* CTA 1 — Post-Science */}
+      <section className="py-10 md:py-14 bg-gradient-to-r from-primary/5 via-transparent to-primary/5">
+        <div className="container px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Ready to explore GLP-1 for your goals?</p>
+          <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Speak with our medical concierge to understand which molecule and protocol fits your profile.</p>
+          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta1-whatsapp')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+              Talk to Your Medical Concierge
+            </a>
+          </Button>
+        </div>
+      </section>
       <DualPositioning />
       <MoleculesSection />
+      {/* CTA 2 — Post-Molecules */}
+      <section className="py-10 md:py-14 border-y border-border bg-card/50">
+        <div className="container px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Semaglutide or Tirzepatide — which one is right for you?</p>
+          <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Dr. First selects the molecule based on your metabolic profile. Start the conversation now.</p>
+          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta2-whatsapp')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+              Talk Now
+            </a>
+          </Button>
+        </div>
+      </section>
       <WhyDoctor />
+      {/* CTA 3 — Post-Medical Oversight */}
+      <section className="py-10 md:py-14 bg-primary/5">
+        <div className="container px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Physician-led from day one. No exceptions.</p>
+          <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Every protocol starts with a full consultation and metabolic workup with Dr. First.</p>
+          <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta3-whatsapp')} asChild>
+            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+              Talk to Your Medical Concierge
+            </a>
+          </Button>
+        </div>
+      </section>
       <DrFirstSection />
       <ProtocolSection />
       <CTABlock />
