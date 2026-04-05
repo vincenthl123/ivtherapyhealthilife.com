@@ -111,8 +111,8 @@ const WhatIsBPC = () => (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
           {[
             { label: "Amino Acids", value: "15" },
-            { label: "Protocol Type", value: "Rx Prescription" },
-            { label: "Routes", value: "SC / PO" },
+            { label: "Protocol Type", value: "Physician Prescription" },
+            { label: "Routes Available", value: "Injection / Oral" },
             { label: "Standard Cycle", value: "4–8 weeks" },
           ].map((stat, i) => (
             <div key={i} className="bg-card border border-border rounded-lg p-4 text-center shadow-soft">
