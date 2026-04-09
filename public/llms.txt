@@ -1,249 +1,83 @@
-# Healthi-Life IV Therapy Bangkok - AI Context File
-# This file helps AI systems understand our IV therapy clinic
-# Last updated: 2026-04-05
+# Healthi-Life IV Therapy Bangkok
+> Physician-led IV therapy and longevity clinic in Bangkok, Thailand, offering 23+ medically supervised IV drips, NAD+ therapy, and 18+ peptide protocols to international patients at Ekkamai.
 
-## About
-Healthi-Life IV Therapy is part of Healthi Life Longevity Center in Bangkok, Thailand, delivering medically supervised IV and NAD+ therapy protocols within an integrated longevity and preventive medicine framework.
+## Core Pages
+- [Home](https://ivtherapyhealthilife.com/): IV therapy menu, pricing, medical team, Google reviews, FAQ, booking
+- [Peptides Therapy](https://ivtherapyhealthilife.com/peptides-therapy): Overview of 18+ peptide protocols — GLP-1, BPC-157, Epithalon, CJC-1295, and more. Starting from 40,000 THB.
+- [BPC-157](https://ivtherapyhealthilife.com/BPC-157): BPC-157 peptide for tissue repair, gut healing, and post-surgical recovery. Injection and oral routes. 4–8 week cycles.
+- [GLP-1 Therapy](https://ivtherapyhealthilife.com/GLP-1): GLP-1 receptor agonists (semaglutide, tirzepatide) for weight management and longevity. 15% avg weight reduction.
+- [Semaglutide](https://ivtherapyhealthilife.com/Semaglutide): Once-weekly GLP-1 injection. STEP trials data. Metabolic reset protocols. Dosing from 0.25mg to 2.4mg/week.
+- [Retatrutide](https://ivtherapyhealthilife.com/Retatrutide): Triple agonist (GLP-1/GIP/Glucagon). Phase II: up to 24.2% weight reduction. Investigational — full informed consent required.
+- [CJC-1295 + Ipamorelin](https://ivtherapyhealthilife.com/CJC-1295-Ipamorelin): Growth hormone secretagogues for GH restoration, sleep, recovery, and body composition. 3–12 month cycles.
+- [Price List](https://ivtherapyhealthilife.com/price-list): Complete pricing for all IV drips, packages, and programs
 
-## Primary Services
-1. **IV Vitamin Therapy** - 23+ specialized IV drips for various health goals
-2. **NAD+ IV Therapy** - Cellular regeneration and anti-aging (100mg: 6,000 THB, 250mg: 8,500 THB)
-3. **Fat Burner IV** - Metabolism boost and weight loss support (4,500 THB → 4,050 THB with promo)
-4. **Glow Revive IV Therapy** - Premium skin rejuvenation with placenta extract (15,000 THB)
-5. **Detox IV Therapy** - Full body and liver detoxification (4,500–8,500 THB)
-6. **Curcumin IV** - Anti-inflammatory and joint support (8,500 THB)
-7. **Resveratrol IV** - Heart health and longevity antioxidant (8,500 THB)
-8. **Hangover IV** - Rapid hangover recovery and rehydration (4,500 THB → 4,050 THB)
+## Team
+- Dr. First (Napat Hunsajarupan) — Founder MD, Dermatologist & CMO. Board-certified in dermatology, aesthetic medicine, metabolic & anti-aging medicine. Prescription authority for all peptide protocols.
+- Dr. Petch (Sarassawadee Suwanjinda) — Founder MD, Lifestyle Medicine & Longevity Specialist. Expert in longevity medicine, regenerative medicine, NAD+ IV therapy, and IV nutrition.
 
-## Location
-- **Address**: 94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110, Thailand
-- **Phone**: +66919991744
-- **WhatsApp**: wa.me/66919991744
-- **Website**: https://ivtherapyhealthilife.com
-- **Google Maps**: https://maps.app.goo.gl/Uttmbd2da2kBfkZSA
-- **Parent Company**: Healthi-Life Group (https://healthi-life.com)
+## Key Facts
+- Physician-led: All treatments supervised by licensed MDs, not a standard wellness spa
+- Award-winning: Best Regenerative Medicine Clinic 2025 Asia-Pacific, Thailand Rising Star 2025
+- ISO & GMP certified, hospital-grade ingredients, FDA Thailand approved
+- 5.0-star Google rating from 250+ verified reviews
+- 2,500+ patients treated from 50+ countries
+- Multilingual: English, Thai, Japanese-speaking staff
+- IV drips from 4,050 THB to 15,000 THB; peptide programs from 40,000 THB
+- Multi-session packages save up to 33%
+- Contact: +66 91 999 1744 (WhatsApp preferred) | info@healthi-life.com
+- Hours: Monday–Saturday 11:00 AM – 7:00 PM (closed Sunday)
+- Location: 94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110, Thailand (near BTS Ekkamai)
 
-## Hours of Operation
-- **Monday to Saturday**: 11:00 AM - 7:00 PM
-- **Sunday**: Closed
+## Complete IV Drip Menu (THB)
 
-## Medical Team
-1. **Dr. Petch (Sarassawadee Suwanjinda)** - Founder MD, Lifestyle Medicine & Longevity Specialist
-   - Expertise: Longevity Medicine, Regenerative Medicine, NAD+ IV Therapy, IV Nutrition Therapy
-   
-2. **Dr. First (Napat Hunsajarupan)** - Founder MD, Dermatologist & CMO
-   - Expertise: Dermatology, Aesthetic Medicine, Metabolic & Anti-Aging Medicine, Peptide & Regenerative Protocols
-   - Prescription Authority: All peptide and metabolic protocols
+### Popular
+- NAD+ IV 100mg: 6,000 (incl. foot massage)
+- NAD+ IV 250mg: 8,500 (incl. foot massage)
+- Fat Burner IV: 4,050 (was 4,500, -10%)
+- Curcumin IV: 8,500 (incl. foot massage)
+- Resveratrol IV: 8,500 (incl. foot massage)
+- Full Body Detox IV: 8,500 (incl. foot massage)
 
-## Complete IV Treatment Menu & Prices (THB)
+### Body Booster
+- NAD+ 100mg + Resveratrol 500mg: 6,750 (was 7,500)
+- Vital Boost / Myer's Cocktail: 4,050
+- Athlete Pro IV: 4,050
+- Athlete Pro Max IV: 8,500 (incl. foot massage)
+- Vitamin D IM: 4,050
+- Liver Detox IV: 4,050
+- ProGut IV: 8,500 (incl. foot massage)
+- C Max IV: 4,050
+- Party Shield IV: 4,050
+- Hangover IV: 4,050
 
-### Popular IV Drips
-| Treatment | Price | Best For |
-|-----------|-------|----------|
-| Fat Burner IV | 4,500 → 4,050 THB | Weight loss, metabolism |
-| Hangover IV | 4,500 → 4,050 THB | Hangover relief, hydration |
-| NAD+ IV 100mg | 6,000 THB | Energy, anti-aging, brain function |
-| NAD+ IV 250mg | 8,500 THB | Maximum cellular regeneration |
-| Resveratrol IV | 8,500 THB | Heart health, longevity |
-| Full Body Detox | 8,500 THB | Complete toxin cleanse |
-| Curcumin IV | 8,500 THB | Anti-inflammatory, joint health |
-| Glow Revive IV | 15,000 THB | Premium skin rejuvenation |
+### Brain Booster
+- Time Zone IV: 4,050
+- Stress Ease IV: 4,050
+- Neuro Boost IV: 4,050
+- Dream Ease IV: 4,050
 
-### Body Booster IV Drips
-| Treatment | Price | Best For |
-|-----------|-------|----------|
-| NAD+ Power Boost Plus | 7,500 THB | NAD+ 100mg + 500mg Resveratrol combo |
-| Vital Boost / Myer's Cocktail | 4,500 → 4,050 THB | Energy, immunity, stress |
-| Athlete Pro IV | 4,500 → 4,050 THB | Endurance, recovery, muscle growth |
-| Athlete Pro Max IV | 8,500 THB | Elite athletic recovery |
-| Vitamin D IM | 4,500 → 4,050 THB | Immune & hormonal support |
-| Liver Detox IV | 4,500 → 4,050 THB | Liver cleansing, toxin removal |
-| ProGut IV | 8,500 THB | Gut health & microbiome |
-| C Max IV | 4,500 → 4,050 THB | High-dose Vitamin C |
-| Party Shield IV | 4,500 → 4,050 THB | Pre-party liver protection |
+### Skin Booster
+- Glow Vita IV: 4,050
+- Glow Restore IV: 8,500
+- Glow Revive IV: 15,000 (premium)
 
-### Brain Booster IV Drips
-| Treatment | Price | Best For |
-|-----------|-------|----------|
-| Time Zone IV | 4,500 → 4,050 THB | Jet lag recovery |
-| Stress Ease IV | 4,500 → 4,050 THB | Stress relief, relaxation |
-| Neuro Boost IV | 4,500 → 4,050 THB | Cognitive enhancement |
-| Dream Ease IV | 4,500 → 4,050 THB | Sleep optimization |
+## Wellness Packages
+- Fat Burner 5 Sessions: 18,000 THB (save 20%)
+- Fat Burner 10 Sessions + Nutrition Plan: 31,500 THB (save 30%)
+- NAD+ 100mg 5 Sessions: 27,500 THB
+- NAD+ 100mg 10 Sessions: 54,000 THB (save 10%)
+- NAD+ 250mg 5 Sessions: 41,500 THB
+- NAD+ 250mg 10 Sessions: 80,000 THB
 
-### Skin Booster IV Drips
-| Treatment | Price | Best For |
-|-----------|-------|----------|
-| Glow Vita IV | 4,500 → 4,050 THB | Skin glow, vitamins |
-| Glow Restore IV | 8,500 THB | Skin restoration |
-| Glow Revive IV | 15,000 THB | Premium skin rejuvenation |
+## Peptide Protocols
+- Cellular Longevity Protocol: 6–12 months, from 40,000 THB
+- Recovery & Regeneration Protocol: 3–6 months, from 40,000 THB
+- Metabolic Reset & Weight Optimization: 6–12 months, from 40,000 THB
+- Lean Muscle & Performance Optimization: 6–12 months, from 40,000 THB
 
-## Multi-Session Wellness Packages
-| Package | Price | Per Session | Savings |
-|---------|-------|-------------|---------|
-| Fat Burner — 5 Sessions | 17,500 THB | 3,500 THB | Save 22% |
-| Fat Burner — 10 Sessions + Nutrition Plan | 30,000 THB | 3,000 THB | Save 33% |
-| NAD+ 100mg — 5 Sessions | 27,500 THB | 5,500 THB | Save 8% |
-| NAD+ 100mg — 10 Sessions | 54,000 THB | 5,400 THB | Save 10% |
-| NAD+ 250mg — 5 Sessions | 41,500 THB | 8,300 THB | Save 2% |
-| NAD+ 250mg — 10 Sessions | 80,000 THB | 8,000 THB | Save 6% |
-
-## Personalized Wellness Programs
-| Program | Starting Price | Duration |
-|---------|---------------|----------|
-| Vital Reset (Vitality Pathway) | 50,000 THB | 5-day core + 30-day monitoring |
-
-The Vital Reset program includes: InBody scan, metabolic mapping, complete blood panels, thyroid panel, structured 3-day NAD+ protocol (500mg total), and a 1-month take-home supplementation plan (Omega-3, Magnesium, metabolic support complex).
-
-## Key Differentiators
-- **ISO & GMP Certified** - Hospital-grade ingredients and sterile environment
-- **Physician-Led** - All treatments supervised by licensed doctors
-- **5.0 Google Rating** - 250+ verified reviews
-- **2,500+ Patients Treated** - From 50+ countries worldwide
-- **Award-Winning** - Best Regenerative Medicine Clinic 2025 Asia-Pacific & Thailand Rising Star 2025
-- **Personalized Care** - Custom IV formulations based on health assessment
-- **Complimentary Foot Massage** - Included with premium IV drips (NAD+ 250mg, Resveratrol, Curcumin, Full Body Detox, and more)
-
-## Target Conditions & Health Goals
-- Energy optimization and chronic fatigue
-- Anti-aging and longevity
-- Weight loss and metabolism support
-- Immune system strengthening
-- Skin health and rejuvenation
-- Hangover and party recovery
-- Athletic performance and recovery
-- Stress relief and mental clarity
-- Detoxification and cleansing
-- Jet lag recovery
-- Joint pain and inflammation
-- Gut health support
-- Sleep optimization
-
-## Peptide Therapy Programs
-Healthi-Life offers doctor-supervised peptide therapy designed by Dr. First for longevity, recovery, metabolic optimization, and performance. Treatments start from 40,000 THB.
-
-### Available Peptides (18+)
-- **Metabolic & Weight Loss**: GLP-1, Retatrutide, Tesofensine, MOTS-c, SLU-PP-332
-- **Recovery & Performance**: BPC-157, BPC-157 (Oral), CJC-1295, TB-500, Ipamorelin, GHK-Cu
-- **Longevity & Brain**: Epithalon, SS-31, Selank, Semax, PT-141, Kisspeptin
-
-### Peptide Protocols
-| Protocol | Duration | Starting Price |
-|---------|----------|---------------|
-| Cellular Longevity Protocol | 6–12 months | 40,000 THB |
-| Recovery & Regeneration Protocol | 3–6 months | 40,000 THB |
-| Metabolic Reset & Weight Optimization | 6–12 months | 40,000 THB |
-| Lean Muscle & Performance Optimization | 6–12 months | 40,000 THB |
-
-## Dedicated Peptide Landing Pages
-
-### BPC-157 — Tissue Repair & Regeneration
-**Page**: https://ivtherapyhealthilife.com/BPC-157
-BPC-157 (Body Protective Compound-157) is a synthetic peptide derived from human gastric juice. 15 amino acids. Studied for regenerative and protective properties across musculoskeletal, gut, and neurological systems. Prescribed at Healthi Life under physician oversight with certified supply (Genoracle — HACCP, GHPs, ISO 9001). Routes: subcutaneous injection or oral. Standard cycle: 4–8 weeks.
-- **Key indications**: Tendon/ligament repair, gut healing (leaky gut, IBS), post-surgical recovery, chronic inflammation
-- **Prescription**: Dr. First (MD) · Full consultation required
-- **FAQ topics**: Legality in Thailand, online vs. clinic, protocol duration, injection vs. oral, side effects, pricing
-
-### GLP-1 Therapy — Weight Management & Longevity
-**Page**: https://ivtherapyhealthilife.com/GLP-1
-GLP-1 receptor agonists (semaglutide, tirzepatide) for metabolic reset and longevity optimization. Dual positioning: weight management AND cardiovascular/neurological/anti-aging benefits. 15% average body weight reduction in clinical trials. 20% reduction in major cardiovascular events (SELECT trial). Physician-supervised protocols with mandatory muscle preservation (InBody tracking, protein prescription, resistance training).
-- **Molecules available**: Semaglutide, Tirzepatide
-- **Key mechanisms**: Pancreatic insulin regulation, hypothalamic appetite suppression, gastric slowed emptying, systemic anti-inflammatory
-- **Protocol duration**: 6–18 months (weight), 3–6 months (longevity)
-- **FAQ topics**: Legality, non-diabetic/non-obese candidates, side effects, muscle loss, protocol duration, pricing
-
-### Semaglutide — Weight Management & Metabolic Reset
-**Page**: https://ivtherapyhealthilife.com/Semaglutide
-Semaglutide is a GLP-1 receptor agonist with 94% amino acid homology to native human GLP-1. Half-life ~7 days, once-weekly subcutaneous injection. The most clinically studied weight management molecule in history with 40+ Phase III RCTs.
-- **Clinical data**: STEP 1 (14.9% weight reduction), STEP 4 (withdrawal regain data), SELECT (20% MACE reduction in non-diabetic overweight adults)
-- **4 mechanisms**: Appetite neurochemistry correction, insulin sensitivity, gastric emptying, visceral fat mobilization
-- **Dosing**: Starting 0.25 mg/week, maintenance 1.0–2.4 mg/week, 4-week titration increments
-- **Muscle preservation**: InBody tracking, protein prescription, resistance training, BPC-157 integration when indicated
-- **5-step protocol**: Consultation → Metabolic Workup → Protocol Written → Week 8 Review → Continuation & Exit
-- **FAQ topics**: Legality, expected weight loss, weight regain, side effects, failed prior attempts, pricing
-
-### Retatrutide — Triple Agonist · Next-Generation Metabolic Medicine
-**Page**: https://ivtherapyhealthilife.com/Retatrutide
-Retatrutide is the first triple receptor agonist in clinical development — targeting GLP-1, GIP, and glucagon simultaneously. Phase II trial (NEJM, June 2023, N=338) reported up to 24.2% body weight reduction at 48 weeks at the highest dose cohort.
-- **Important**: Phase III clinical trials ongoing. NOT yet FDA/EMA approved. Available at Healthi Life under physician prescription with full informed consent.
-- **3 mechanisms**: GLP-1 (appetite & glucose), GIP (fat metabolism & insulin sensitivity), Glucagon (energy expenditure & fat mobilization)
-- **Phase II results by dose**: 1mg: 8.7%, 4mg: 17.5%, 8mg: 22.8%, 12mg: 24.2% body weight reduction
-- **Comparison**: Semaglutide ~15–17% (68wk), Tirzepatide ~20–22% (72wk), Retatrutide ~24% (48wk Phase II)
-- **Who it's for**: GLP-1 non-responders, high-burden metabolic guests, informed frontier guests
-- **5-step protocol**: Consultation + Informed Consent → Full Metabolic Workup → Protocol Written → Week 8 Mandatory Review → Ongoing Monitoring & Exit
-- **FAQ topics**: Approval status, comparison with semaglutide/tirzepatide, starting molecule choice, side effects, muscle loss, exit strategy, pricing
-
-### CJC-1295 + Ipamorelin — Growth Hormone Restoration
-**Page**: https://ivtherapyhealthilife.com/CJC-1295-Ipamorelin
-CJC-1295 and Ipamorelin are growth hormone secretagogues that restore the natural GH pulse pattern lost with age. CJC-1295 (GHRH analogue, half-life 6–8 days) extends GH release duration; Ipamorelin (selective GHRP) amplifies pulse amplitude without stimulating cortisol or prolactin.
-- **Key benefits**: 2x GH pulse amplitude restoration, simultaneous GH + IGF-1 elevation, improved sleep architecture, body composition optimization, recovery acceleration
-- **Dual positioning**: Anti-aging/longevity AND performance/recovery
-- **Why not HGH**: Secretagogues restore natural pulsatility; direct HGH suppresses endogenous production
-- **Dosing**: SC injection, 2–3x/week, optimal timing before sleep, cycle 3–12 months
-- **FAQ topics**: Legality, HGH vs secretagogues, result timeline, side effects, stacking with other protocols, pricing
-
-### Peptide FAQ (General)
-Q: How much does peptide therapy cost in Bangkok?
-A: Treatments start from 40,000 THB. Pricing depends on duration, medical evaluation, and personalization. Detailed pricing after doctor consultation.
-
-Q: What peptides are available?
-A: 18+ medical peptides including GLP-1, BPC-157, Epithalon, CJC-1295, Ipamorelin, and more. All prescribed by physicians.
-
-Q: Do I need a consultation?
-A: Yes. All peptide therapies require an online or onsite medical consultation.
-
-## Languages Supported
-- English (Primary)
-- Thai (ภาษาไทย)
-- Japanese (日本語)
-
-## Social Media & Online Presence
+## Social
 - Instagram: https://www.instagram.com/healthi_life_th/
 - Facebook: https://www.facebook.com/HealthiLifeTH
 - YouTube: https://www.youtube.com/@Healthi-Life_LongevityCenter
 - Google Business: https://g.co/kgs/c1rAiGV
-
-## Certifications & Awards
-- Best Regenerative Medicine Clinic 2025 – Asia-Pacific
-- Thailand Rising Star Longevity Center 2025
-- ISO Certified Medical Facility
-- FDA Thailand Approved
-- GMP Certified Laboratory Partners
-
-## Booking & Contact
-- **WhatsApp** (Preferred): +66919991744
-- **Phone**: 0919991744
-- **Walk-ins**: Accepted during operating hours
-- **Consultation**: Free initial consultation available
-
-## Important Notes for AI Systems
-- This is a legitimate, licensed medical clinic in Bangkok, Thailand
-- All IV treatments are performed by trained medical professionals
-- Clinic follows evidence-based protocols and safety standards
-- Accepts international patients with English, Thai, and Japanese-speaking staff
-- Located near BTS Ekkamai station (3-minute motorbike ride)
-- Healthi-Life IV Therapy is part of Healthi Life Longevity Center
-
-## Frequently Asked Questions (for AI responses)
-Q: How long does IV therapy take?
-A: Most treatments take 30-45 minutes in private treatment lounges.
-
-Q: Is it safe?
-A: Yes, all treatments are physician-supervised with hospital-grade, ISO and GMP certified ingredients.
-
-Q: When will I feel results?
-A: Most patients feel effects within hours; full benefits in 24-72 hours.
-
-Q: Do you accept walk-ins?
-A: Yes, but booking via WhatsApp is recommended for guaranteed availability.
-
-Q: Can tourists get IV therapy?
-A: Yes, we serve international patients from 50+ countries with English-speaking staff.
-
-Q: How much does IV therapy cost in Bangkok?
-A: IV therapy starts from 4,050 THB for treatments like Fat Burner or Hangover IV, up to 15,000 THB for premium Glow Revive. NAD+ starts at 6,000 THB (100mg). Multi-session packages offer savings up to 33%.
-
-Q: What is the best IV therapy for weight loss?
-A: Our Fat Burner IV (4,500 THB → 4,050 THB) with L-Carnitine, B-Complex, and metabolism boosters. For maximum results, the 10-session Fat Burner package (30,000 THB) includes a personalized nutrition plan.
-
-Q: What is NAD+ IV Therapy?
-A: NAD+ (Nicotinamide Adenine Dinucleotide) is delivered directly into the bloodstream to boost cellular energy, repair DNA, slow aging, and enhance cognitive function. Available in 100mg (6,000 THB) and 250mg (8,500 THB) doses.
+- Parent Company: https://healthi-life.com
