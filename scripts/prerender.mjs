@@ -207,18 +207,19 @@ for (const route of routes) {
     `<meta name="twitter:description" content="${route.description}">`
   );
 
-  // Inject route-specific noscript content before <div id="root">
-  // Replace existing noscript block or inject before root
-  const noscriptBlock = `
-    <!-- Prerendered content for ${route.path} -->
-    <noscript>
-      <div>${route.content}</div>
-    </noscript>`;
+  // Inject prerendered content directly into <div id="root"> for crawlers
+  // React will hydrate over this content on load
+  const prerenderedContent = `<div style="max-width:960px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif">${route.content}</div>`;
 
-  // Replace the existing noscript with the route-specific one
+  html = html.replace(
+    /<div id="root"><\/div>/,
+    `<div id="root">${prerenderedContent}</div>`
+  );
+
+  // Also keep noscript as fallback
   html = html.replace(
     /<!-- Static content for crawlers[\s\S]*?<\/noscript>/,
-    `<!-- Static content for crawlers (${route.path}) -->${noscriptBlock}`
+    `<!-- Prerendered route: ${route.path} -->`
   );
 
   writeFileSync(join(dir, 'index.html'), html, 'utf-8');
