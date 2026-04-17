@@ -633,7 +633,7 @@ const CTABlock = () => (
 const faqs = [
   {
     q: "Is GLP-1 therapy legal in Thailand?",
-    a: "Yes. Semaglutide and tirzepatide are legal in Thailand when prescribed by a licensed physician. Neither molecule is a controlled substance. At Healthi Life, all GLP-1 protocols are written exclusively by Dr. First (MD), ensuring full regulatory compliance. We do not dispense these medications without a prior medical consultation, contraindication screening, and formal prescription.",
+    a: "Yes. Tirzepatide is legal in Thailand when prescribed by a licensed physician. It is not a controlled substance. At Healthi Life, all GLP-1 protocols are written exclusively by Dr. First (MD), ensuring full regulatory compliance. We do not dispense this medication without a prior medical consultation, contraindication screening, and formal prescription.",
   },
   {
     q: "I am not diabetic and not obese. Can I still benefit from GLP-1 therapy?",
