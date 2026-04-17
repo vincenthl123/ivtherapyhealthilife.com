@@ -284,51 +284,18 @@ const DualPositioning = () => (
   </section>
 );
 
-// ─── THE MOLECULES ───────────────────────────────────────
+// ─── THE MOLECULE ────────────────────────────────────────
 const MoleculesSection = () => (
   <section className="py-16 md:py-24 bg-background">
     <div className="container px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
-        <Badge variant="outline" className="mb-4 text-primary border-primary/30">The Molecules</Badge>
+        <Badge variant="outline" className="mb-4 text-primary border-primary/30">The Molecule</Badge>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          Semaglutide & Tirzepatide.
+          Tirzepatide.
         </h2>
-        <p className="text-lg text-muted-foreground mb-10">What's the difference?</p>
+        <p className="text-lg text-muted-foreground mb-10">The next generation of incretin therapy.</p>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Semaglutide */}
-          <Card className="border-border overflow-hidden hover:shadow-medium transition-all duration-300">
-            <div className="bg-primary/5 p-4 border-b border-border">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Syringe className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-foreground">SEMAGLUTIDE</h3>
-                  <p className="text-xs text-muted-foreground">GLP-1 Agonist · Weekly SC injection</p>
-                </div>
-              </div>
-            </div>
-            <CardContent className="p-6">
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                Semaglutide is the most studied GLP-1 receptor agonist in history. It binds selectively to GLP-1 receptors with approximately 94% amino acid homology to native human GLP-1. Its extended half-life (~7 days) allows once-weekly dosing. Clinical trials have demonstrated 15–17% average body weight reduction and landmark cardiovascular outcome data.
-              </p>
-              <div className="space-y-2">
-                {[
-                  { label: "Receptor", value: "GLP-1 receptor (selective)" },
-                  { label: "Half-life", value: "~7 days" },
-                  { label: "Weight reduction", value: "~15–17% average" },
-                  { label: "Cardio data", value: "SELECT trial — 20% MACE reduction" },
-                ].map((spec, i) => (
-                  <div key={i} className="flex justify-between text-xs border-b border-border/50 pb-1.5">
-                    <span className="text-muted-foreground">{spec.label}</span>
-                    <span className="font-semibold text-foreground text-right">{spec.value}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
+        <div className="grid md:grid-cols-1 gap-6">
           {/* Tirzepatide */}
           <Card className="border-border overflow-hidden hover:shadow-medium transition-all duration-300">
             <div className="bg-primary/5 p-4 border-b border-border">
@@ -365,7 +332,7 @@ const MoleculesSection = () => (
 
         <blockquote className="mt-8 border-l-4 border-primary pl-6 py-4 bg-secondary/30 rounded-r-lg">
           <p className="text-foreground font-medium italic text-sm">
-            <strong>Note — Molecule Selection:</strong> The choice between semaglutide and tirzepatide is a clinical decision — not a preference. Dr. First selects the molecule based on your metabolic profile, starting biomarkers, primary indication, and tolerance history. Both are available at Healthi Life under physician prescription.
+            <strong>Note — Clinical Decision:</strong> Dr. First prescribes tirzepatide based on your metabolic profile, starting biomarkers, primary indication, and tolerance history. Available at Healthi Life under physician prescription.
           </p>
         </blockquote>
       </div>
