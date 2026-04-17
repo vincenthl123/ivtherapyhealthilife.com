@@ -757,8 +757,8 @@ const GLP1 = () => (
       {/* CTA 2 — Post-Molecules */}
       <section className="py-10 md:py-14 border-y border-border bg-card/50">
         <div className="container px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Semaglutide or Tirzepatide — which one is right for you?</p>
-          <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Dr. First selects the molecule based on your metabolic profile. Start the conversation now.</p>
+          <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Is tirzepatide right for you?</p>
+          <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Dr. First evaluates your metabolic profile to design the right protocol. Start the conversation now.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta2-whatsapp')} asChild>
             <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
