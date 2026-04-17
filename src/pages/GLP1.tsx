@@ -729,11 +729,11 @@ const GLP1 = () => (
   <div className="min-h-screen flex flex-col">
     <Header />
     <PeptideSEO
-      title="GLP-1 Therapy Bangkok | Semaglutide & Tirzepatide – Healthi Life"
-      description="Physician-led GLP-1 receptor agonist therapy in Bangkok. Semaglutide & tirzepatide for weight management and longevity. 15% avg weight reduction. Book now."
+      title="GLP-1 Therapy Bangkok | Tirzepatide – Healthi Life"
+      description="Physician-led GLP-1 receptor agonist therapy in Bangkok with tirzepatide for weight management and longevity. 20–22% avg weight reduction. Book now."
       path="/GLP-1"
       peptideName="GLP-1 Receptor Agonist"
-      procedureDescription="GLP-1 receptor agonist therapy (semaglutide, tirzepatide) for metabolic reset, weight management, cardiovascular protection, and longevity optimization."
+      procedureDescription="GLP-1 receptor agonist therapy (tirzepatide) for metabolic reset, weight management, cardiovascular protection, and longevity optimization."
       faqs={faqs}
     />
     <main className="flex-grow">
