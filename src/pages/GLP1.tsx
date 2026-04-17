@@ -164,7 +164,7 @@ const WhatIsGLP1 = () => (
           {[
             { label: "Class", value: "Incretin Mimetic" },
             { label: "Route", value: "Subcutaneous (Weekly)" },
-            { label: "Molecules", value: "Semaglutide · Tirzepatide" },
+            { label: "Molecule", value: "Tirzepatide" },
             { label: "Cycle", value: "3–12 months" },
           ].map((stat, i) => (
             <div key={i} className="bg-card border border-border rounded-lg p-4 text-center shadow-soft">
