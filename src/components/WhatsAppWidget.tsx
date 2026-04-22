@@ -29,7 +29,7 @@ const WhatsAppWidget = () => {
 
   const handleOpenChat = () => {
     trackButtonClick('ivclick-whatsapp-widget');
-    window.open('https://wa.me/66919991744', '_blank');
+    window.open('https://wa.me/66919991744?text=IV%20Therapy%20Enquiry', '_blank');
     setShowPopup(false);
   };
 
