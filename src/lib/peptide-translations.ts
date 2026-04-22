@@ -42,17 +42,6 @@ export const peptideTranslations = {
     "pep.cat.longevity": "Longevity & Brain Optimization",
 
     // Metabolic Peptides
-    "pep.glp1.useCase": "Weight Loss",
-    "pep.glp1.benefit": "Appetite control, fat loss",
-    "pep.glp1.b1": "Appetite suppression",
-    "pep.glp1.b2": "Sustainable fat loss",
-    "pep.glp1.b3": "Metabolic regulation",
-
-    "pep.retatrutide.useCase": "Triple Agonist",
-    "pep.retatrutide.benefit": "Next-generation metabolic therapy targeting multiple pathways for advanced weight loss support.",
-    "pep.retatrutide.b1": "Significant fat loss support",
-    "pep.retatrutide.b2": "Appetite regulation",
-    "pep.retatrutide.b3": "Metabolic improvement",
 
     "pep.tesofensine.useCase": "Weight Management",
     "pep.tesofensine.benefit": "Helps regulate appetite and satiety while supporting effective fat loss and metabolic regulation.",
@@ -454,17 +443,6 @@ export const peptideTranslations = {
     "pep.cat.longevity": "อายุยืนและการเพิ่มประสิทธิภาพสมอง",
 
     // Metabolic Peptides
-    "pep.glp1.useCase": "ลดน้ำหนัก",
-    "pep.glp1.benefit": "ควบคุมความอยากอาหาร ลดไขมัน",
-    "pep.glp1.b1": "ลดความอยากอาหาร",
-    "pep.glp1.b2": "ลดไขมันอย่างยั่งยืน",
-    "pep.glp1.b3": "ควบคุมการเผาผลาญ",
-
-    "pep.retatrutide.useCase": "Triple Agonist",
-    "pep.retatrutide.benefit": "การบำบัดเผาผลาญรุ่นใหม่ที่กำหนดเป้าหมาย GLP-1, GIP และกลูคากอนเพื่อสนับสนุนการลดน้ำหนักขั้นสูง",
-    "pep.retatrutide.b1": "สนับสนุนการลดไขมันอย่างมีนัยสำคัญ",
-    "pep.retatrutide.b2": "ควบคุมความอยากอาหาร",
-    "pep.retatrutide.b3": "ปรับปรุงการเผาผลาญ",
 
     "pep.tesofensine.useCase": "จัดการน้ำหนัก",
     "pep.tesofensine.benefit": "ช่วยควบคุมความอยากอาหารและความอิ่ม พร้อมสนับสนุนการลดไขมันและการควบคุมการเผาผลาญ",
@@ -865,17 +843,6 @@ export const peptideTranslations = {
     "pep.cat.longevity": "長寿＆脳の最適化",
 
     // Metabolic Peptides
-    "pep.glp1.useCase": "減量",
-    "pep.glp1.benefit": "食欲制御、脂肪減少",
-    "pep.glp1.b1": "食欲抑制",
-    "pep.glp1.b2": "持続的な脂肪減少",
-    "pep.glp1.b3": "代謝調整",
-
-    "pep.retatrutide.useCase": "トリプルアゴニスト",
-    "pep.retatrutide.benefit": "GLP-1、GIP、グルカゴン経路を標的とする次世代代謝療法で、高度な体重減少をサポート。",
-    "pep.retatrutide.b1": "大幅な脂肪減少サポート",
-    "pep.retatrutide.b2": "食欲調整",
-    "pep.retatrutide.b3": "代謝改善",
 
     "pep.tesofensine.useCase": "体重管理",
     "pep.tesofensine.benefit": "食欲と満腹感を調整し、効果的な脂肪減少と代謝調整をサポート。",
