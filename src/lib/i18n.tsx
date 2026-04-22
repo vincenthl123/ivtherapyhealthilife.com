@@ -50,37 +50,10 @@ const translations = {
     "whatsapp.message": "Our doctor-supervised IV drip programs are designed to support:\n\n• energy & immunity boost\n• hydration & recovery\n• anti-aging & skin glow\n• detox & wellness\n\nHow can we help you feel your best today?",
     "whatsapp.message.peptides": "Our doctor-supervised peptide protocols are designed to support:\n\n• weight loss & sport performance\n• growth hormones & anti-aging\n• healing, gut health & skin repair\n• sleep, focus & neuro function\n• libido & fertility\n\nHow can we help you feel your best today?",
     "whatsapp.message.bpc157": "Interested in BPC-157?\n\nOur physician-prescribed BPC-157 protocols support:\n\n• tendon, joint & muscle repair\n• gut lining & digestive healing\n• brain, mood & nervous system\n• longevity & systemic recovery\n\nBook a consultation with Dr. First to get started.",
-    "whatsapp.message.glp1": "metabolic regulationサポートにご興味がありますか？
-
-医師処方のmetabolic regulationプロトコルは以下をサポートします：
-
-• 代謝リセット & 体重管理
-• 心血管サポート（SELECTトライアルデータ）
-• 長寿 & 抗炎症最適化
-• 医師が代謝経路を個別選択
-
-Dr. Firstとの相談をご予約ください。",
+    "whatsapp.message.glp1": "Interested in metabolic regulation support?\n\nOur physician-prescribed metabolic protocols support:\n\n• metabolic reset & weight management\n• cardiovascular support\n• longevity & anti-inflammatory optimization\n• physician-selected metabolic pathways\n\nBook a consultation with Dr. First to get started.",
     "whatsapp.message.cjc": "Interested in CJC-1295 + Ipamorelin?\n\nOur physician-prescribed GH secretagogue protocols support:\n\n• anti-aging & biological age reduction\n• deep sleep & recovery optimization\n• lean muscle preservation & body composition\n• IGF-1 restoration — physician-monitored\n\nBook a consultation with Dr. First to get started.",
-    "whatsapp.message.sema": "Metabolic Optimization Peptideにご興味がありますか？
-
-医師処方のmetabolic optimizationプロトコルは以下をサポートします：
-
-• 代謝リセット & 持続的な体重管理
-• 筋肉量維持 — InBodyトラッキング
-• 心血管サポート（SELECTトライアルデータ）
-• 初回投与前の完全な代謝検査
-
-Dr. Firstとの相談をご予約ください。",
-    "whatsapp.message.reta": "Advanced Metabolic Support Peptideにご興味がありますか？
-
-医師主導ケアにおけるmulti-pathway metabolic support：
-
-• 臨床データに基づく体組成サポート
-• 複数経路の代謝サポート — 次世代プロトコル
-• 筋肉量維持 & InBodyトラッキング
-• 医師による十分な説明とモニタリングが必須
-
-Dr. Firstとの相談をご予約ください。",
+    "whatsapp.message.sema": "Interested in our Metabolic Optimization Peptide?\n\nOur physician-prescribed metabolic optimization protocols support:\n\n• metabolic reset & sustainable weight management\n• muscle preservation — InBody tracking\n• cardiovascular support\n• complete metabolic workup before first dose\n\nBook a consultation with Dr. First to get started.",
+    "whatsapp.message.reta": "Interested in our Advanced Metabolic Support Peptide?\n\nMulti-pathway metabolic support under physician-led care:\n\n• body composition support based on clinical data\n• multi-pathway metabolic support — next-generation protocols\n• muscle preservation & InBody tracking\n• thorough physician explanation and monitoring required\n\nBook a consultation with Dr. First to get started.",
     "whatsapp.startChat": "Start Chat",
     "whatsapp.enterMessage": "Enter Your Message...",
     "whatsapp.concierge.name": "Anna - Medical Concierge",
