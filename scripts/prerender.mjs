@@ -21,13 +21,13 @@ const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
 const routes = [
   {
     path: '/peptides-therapy',
-    title: 'Peptide Therapy Bangkok | Healthi-Life – GLP-1, BPC-157, NAD+',
-    description: 'Doctor-supervised peptide therapy in Bangkok. GLP-1, BPC-157, Retatrutide, CJC-1295 & 18+ peptides. Award-winning clinic at Ekkamai. Book now.',
+    title: 'Peptide Therapy Bangkok | Healthi-Life – BPC-157, CJC-1295, NAD+',
+    description: 'Doctor-supervised peptide therapy in Bangkok. BPC-157, TB-500, NAD+, CJC-1295, Ipamorelin and Epithalon. Award-winning clinic at Ekkamai. Book now.',
     content: `
       <h1>Peptide Therapy Bangkok — Healthi-Life Longevity Center</h1>
       <p>Doctor-supervised peptide therapy programs starting from 40,000 THB. 18+ medical peptides prescribed by Dr. First (MD).</p>
       <h2>Available Peptides</h2>
-      <p>GLP-1 (Semaglutide, Tirzepatide) · BPC-157 · Retatrutide · CJC-1295 + Ipamorelin · TB-500 · Epithalon · SS-31 · Selank · Semax · PT-141 · Kisspeptin · MOTS-c · GHK-Cu · SLU-PP-332 · Tesofensine.</p>
+      <p>BPC-157 · TB-500 · NAD+ · CJC-1295 · Ipamorelin · Epithalon · SS-31 · Selank · Semax · PT-141 · Kisspeptin · MOTS-c · GHK-Cu · SLU-PP-332 · Tesofensine.</p>
       <h2>Protocols</h2>
       <p>Cellular Longevity Protocol (6–12 months, from ฿40,000) · Recovery & Regeneration (3–6 months) · Metabolic Reset & Weight Optimization (6–12 months) · Lean Muscle & Performance (6–12 months).</p>
       <h2>Medical Team</h2>
