@@ -404,8 +404,12 @@ const PeptideCatalog = () => {
                       <tr className="bg-secondary/40">
                         <th className="px-6 py-3 text-left font-semibold text-foreground">Peptide</th>
                         <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.benefits")}</th>
-                        <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.route")}</th>
-                        <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.frequency")}</th>
+                        {cat.key !== "weightLoss" && (
+                          <>
+                            <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.route")}</th>
+                            <th className="px-6 py-3 text-left font-semibold text-foreground">{t("pep.catalog.frequency")}</th>
+                          </>
+                        )}
                       </tr>
                     </thead>
                     <tbody>
@@ -416,8 +420,12 @@ const PeptideCatalog = () => {
                           <tr key={name} className={`border-t border-border ${i % 2 === 0 ? 'bg-card' : 'bg-secondary/20'}`}>
                             <td className="px-6 py-4 font-semibold text-foreground whitespace-nowrap">{name}</td>
                             <td className="px-6 py-4 text-muted-foreground">{data.benefits}</td>
-                            <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{data.route}</td>
-                            <td className="px-6 py-4 text-muted-foreground">{data.frequency}</td>
+                            {cat.key !== "weightLoss" && (
+                              <>
+                                <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">{data.route}</td>
+                                <td className="px-6 py-4 text-muted-foreground">{data.frequency}</td>
+                              </>
+                            )}
                           </tr>
                         );
                       })}
@@ -434,14 +442,24 @@ const PeptideCatalog = () => {
                       <div key={name} className="p-4 space-y-2">
                         <h4 className="font-semibold text-foreground">{name}</h4>
                         <p className="text-sm text-muted-foreground">{data.benefits}</p>
-                        <div className="flex flex-wrap gap-2 text-xs">
-                          <Badge variant="secondary">{data.route}</Badge>
-                          <Badge variant="outline">{data.frequency}</Badge>
-                        </div>
+                        {cat.key !== "weightLoss" && (
+                          <div className="flex flex-wrap gap-2 text-xs">
+                            <Badge variant="secondary">{data.route}</Badge>
+                            <Badge variant="outline">{data.frequency}</Badge>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
                 </div>
+
+                {cat.key === "weightLoss" && (
+                  <div className="px-6 py-4 border-t border-border bg-secondary/20">
+                    <p className="text-sm text-muted-foreground italic">
+                      Protocols and dosages are determined individually by our doctors during consultation.
+                    </p>
+                  </div>
+                )}
 
                 <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
                   <span className="text-sm text-muted-foreground italic">{t("pep.catalog.onDemand")}</span>

@@ -66,6 +66,12 @@ export const peptideTranslations = {
     "pep.motsc.b2": "Weight loss support",
     "pep.motsc.b3": "Energy & endurance",
 
+    "pep.nad.useCase": "Cellular Energy",
+    "pep.nad.benefit": "Supports mitochondrial function, cellular energy metabolism, and metabolic resilience.",
+    "pep.nad.b1": "Cellular energy support",
+    "pep.nad.b2": "Mitochondrial function",
+    "pep.nad.b3": "Metabolic resilience",
+
     "pep.tesamorelin.useCase": "Metabolic Health",
     "pep.tesamorelin.benefit": "Supports reduction of visceral fat while improving metabolic health and body composition.",
     "pep.tesamorelin.b1": "Visceral fat reduction",
@@ -472,6 +478,12 @@ export const peptideTranslations = {
     "pep.motsc.b2": "สนับสนุนการลดน้ำหนัก",
     "pep.motsc.b3": "พลังงานและความทนทาน",
 
+    "pep.nad.useCase": "พลังงานระดับเซลล์",
+    "pep.nad.benefit": "สนับสนุนการทำงานของไมโตคอนเดรีย การเผาผลาญพลังงานระดับเซลล์ และความยืดหยุ่นของระบบเผาผลาญ",
+    "pep.nad.b1": "สนับสนุนพลังงานระดับเซลล์",
+    "pep.nad.b2": "การทำงานของไมโตคอนเดรีย",
+    "pep.nad.b3": "ความยืดหยุ่นของระบบเผาผลาญ",
+
     "pep.tesamorelin.useCase": "สุขภาพเมตาบอลิก",
     "pep.tesamorelin.benefit": "สนับสนุนการลดไขมันในช่องท้อง พร้อมปรับปรุงสุขภาพการเผาผลาญและองค์ประกอบร่างกาย",
     "pep.tesamorelin.b1": "ลดไขมันในช่องท้อง",
@@ -876,6 +888,12 @@ export const peptideTranslations = {
     "pep.motsc.b1": "代謝最適化",
     "pep.motsc.b2": "体重減少サポート",
     "pep.motsc.b3": "エネルギー＆持久力",
+
+    "pep.nad.useCase": "細胞エネルギー",
+    "pep.nad.benefit": "ミトコンドリア機能、細胞エネルギー代謝、代謝の回復力をサポート。",
+    "pep.nad.b1": "細胞エネルギーのサポート",
+    "pep.nad.b2": "ミトコンドリア機能",
+    "pep.nad.b3": "代謝の回復力",
 
     "pep.tesamorelin.useCase": "代謝の健康",
     "pep.tesamorelin.benefit": "内臓脂肪の減少をサポートし、代謝の健康と体組成を改善。",
