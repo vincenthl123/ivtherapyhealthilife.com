@@ -348,7 +348,6 @@ const peptideCatalogData: Record<string, { benefits: string; route: string; freq
   
   "SLU-PP-332": { benefits: "Enhances mitochondrial efficiency, reduces oxidative stress, supports anti-aging and neuroprotection", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
   "Tesofensine": { benefits: "Potent appetite suppression, improves satiety control, supports significant fat loss and metabolic regulation", route: "Oral capsule", frequency: "1–2 tab daily (500 mcg)" },
-  "Retatrutide": { benefits: "Triple agonist (GLP-1/GIP), supports significant fat loss, appetite regulation, insulin sensitivity, and metabolic optimization", route: "Subcutaneous injection", frequency: "Start 0.5 mg once weekly, titrate monthly based on response" },
   "BPC-157": { benefits: "Accelerates tendon/ligament/muscle healing, gut repair, reduces inflammation, pain", route: "Subcutaneous injection", frequency: "Once daily (1 mg) for 3–4 months, pause for 2 months" },
   "Thymosin Beta-4 (TB-500)": { benefits: "Enhances tissue regeneration, improves muscle, tendon and ligament recovery", route: "Subcutaneous injection", frequency: "Once daily (0.5 mg) for 2–3 months, pause for 2 months" },
   "BPC-157 (Oral)": { benefits: "Supports gut lining repair, reduces GI inflammation, and improves nutrient absorption", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
