@@ -207,9 +207,12 @@ const PeptideCard = ({ peptide, t }: { peptide: { icon: any; name: string; useCa
 // ─── PEPTIDE DATA ────────────────────────────────────────
 // 1. Weight Loss / Sport Performance & Men Health
 const weightLossPeptides = [
-  { icon: Zap, name: "SLU-PP-332", useCaseKey: "pep.slupp.useCase", benefitKey: "pep.slupp.benefit", bulletKeys: ["pep.slupp.b1", "pep.slupp.b2", "pep.slupp.b3"], ctaKey: "pep.programs.talkDoctor" },
-  { icon: Zap, name: "MOTS-c", useCaseKey: "pep.motsc.useCase", benefitKey: "pep.motsc.benefit", bulletKeys: ["pep.motsc.b1", "pep.motsc.b2", "pep.motsc.b3"], ctaKey: "pep.programs.talkDoctor" },
-  { icon: Flame, name: "Tesofensine", useCaseKey: "pep.tesofensine.useCase", benefitKey: "pep.tesofensine.benefit", bulletKeys: ["pep.tesofensine.b1", "pep.tesofensine.b2", "pep.tesofensine.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: HeartPulse, name: "BPC-157", useCaseKey: "pep.bpc157.useCase", benefitKey: "pep.bpc157.benefit", bulletKeys: ["pep.bpc157.b1", "pep.bpc157.b2", "pep.bpc157.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: HeartPulse, name: "TB-500", useCaseKey: "pep.tb500.useCase", benefitKey: "pep.tb500.benefit", bulletKeys: ["pep.tb500.b1", "pep.tb500.b2", "pep.tb500.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Brain, name: "NAD+", useCaseKey: "pep.nad.useCase", benefitKey: "pep.nad.benefit", bulletKeys: ["pep.nad.b1", "pep.nad.b2", "pep.nad.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Dumbbell, name: "CJC-1295", useCaseKey: "pep.cjc1295.useCase", benefitKey: "pep.cjc1295.benefit", bulletKeys: ["pep.cjc1295.b1", "pep.cjc1295.b2", "pep.cjc1295.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Dumbbell, name: "Ipamorelin", useCaseKey: "pep.ipamorelin.useCase", benefitKey: "pep.ipamorelin.benefit", bulletKeys: ["pep.ipamorelin.b1", "pep.ipamorelin.b2", "pep.ipamorelin.b3"], ctaKey: "pep.programs.talkDoctor" },
+  { icon: Sparkles, name: "Epithalon", useCaseKey: "pep.epithalon.useCase", benefitKey: "pep.epithalon.benefit", bulletKeys: ["pep.epithalon.b1", "pep.epithalon.b2", "pep.epithalon.b3"], ctaKey: "pep.programs.talkDoctor" },
 ];
 
 // 2. Growth Hormones
@@ -327,7 +330,7 @@ const PeptidePrograms = () => {
 
 // ─── PEPTIDE CATALOG ─────────────────────────────────────
 const catalogCategoryKeys = [
-  { key: "weightLoss", icon: Flame, peptides: ["SLU-PP-332", "MOTS-c", "Tesofensine"] },
+  { key: "weightLoss", icon: Flame, peptides: ["BPC-157", "Thymosin Beta-4 (TB-500)", "NAD+", "CJC-1295", "Ipamorelin", "Epithalon"] },
   { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin"] },
   { key: "healing", icon: HeartPulse, peptides: ["BPC-157", "Thymosin Beta-4 (TB-500)", "BPC-157 (Oral)", "GHK-Cu"] },
   { key: "antiAging", icon: Sparkles, peptides: ["Epithalon", "NMN", "SS-31 (Elamipretide)"] },
@@ -337,19 +340,20 @@ const catalogCategoryKeys = [
   { key: "fertility", icon: HeartPulse, peptides: ["Kisspeptin"] },
 ];
 
-// Catalog benefits/route/frequency stay in English (medical terms)
-const peptideCatalogData: Record<string, { benefits: string; route: string; frequency: string }> = {
-  "Epithalon": { benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
+// Catalog benefits stay in English (medical terms)
+const peptideCatalogData: Record<string, { benefits: string; route?: string; frequency?: string }> = {
+  "Epithalon": { benefits: "Research suggests it may support healthy aging, sleep quality, and cellular resilience.", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
   "NMN": { benefits: "Boosts NAD⁺, enhances energy, metabolism, and longevity", route: "Oral capsule", frequency: "1 tab daily (500 mg)" },
   "MOTS-c": { benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly (10 mg) for 3–4 months, pause for 2 months" },
   "SS-31 (Elamipretide)": { benefits: "Protects mitochondria, reduces oxidative stress, improves muscle strength & endurance", route: "Subcutaneous injection", frequency: "Once daily (5–10 mg) for 3–4 months, pause for 2 months" },
-  "CJC-1295": { benefits: "Stimulates natural growth hormone release, improves fat loss, recovery, sleep quality, and lean muscle support", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
-  "Ipamorelin": { benefits: "Selective GH secretagogue, enhances recovery, improves sleep, supports fat loss with minimal cortisol impact", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
+  "CJC-1295": { benefits: "May help support natural growth hormone signaling, recovery, sleep quality, and lean muscle maintenance.", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
+  "Ipamorelin": { benefits: "May help support recovery, sleep quality, and metabolic regulation with selective GH signaling.", route: "Subcutaneous injection", frequency: "5 days/week (100–200 mcg), fasting 2–3 hours prior" },
   
   "SLU-PP-332": { benefits: "Enhances mitochondrial efficiency, reduces oxidative stress, supports anti-aging and neuroprotection", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
   "Tesofensine": { benefits: "Potent appetite suppression, improves satiety control, supports significant fat loss and metabolic regulation", route: "Oral capsule", frequency: "1–2 tab daily (500 mcg)" },
-  "BPC-157": { benefits: "Accelerates tendon/ligament/muscle healing, gut repair, reduces inflammation, pain", route: "Subcutaneous injection", frequency: "Once daily (1 mg) for 3–4 months, pause for 2 months" },
-  "Thymosin Beta-4 (TB-500)": { benefits: "Enhances tissue regeneration, improves muscle, tendon and ligament recovery", route: "Subcutaneous injection", frequency: "Once daily (0.5 mg) for 2–3 months, pause for 2 months" },
+  "BPC-157": { benefits: "Research suggests it may support tendon, ligament, muscle, and gut recovery while helping modulate inflammation.", route: "Subcutaneous injection", frequency: "Once daily (1 mg) for 3–4 months, pause for 2 months" },
+  "Thymosin Beta-4 (TB-500)": { benefits: "Research suggests it may support tissue recovery and muscle or tendon resilience.", route: "Subcutaneous injection", frequency: "Once daily (0.5 mg) for 2–3 months, pause for 2 months" },
+  "NAD+": { benefits: "Supports cellular energy metabolism and healthy mitochondrial function.", route: "Intravenous infusion", frequency: "Determined individually during consultation" },
   "BPC-157 (Oral)": { benefits: "Supports gut lining repair, reduces GI inflammation, and improves nutrient absorption", route: "Oral capsule", frequency: "1–2 tab daily (500–1000 mcg)" },
   "GHK-Cu": { benefits: "Skin rejuvenation, hair growth stimulation, wound healing, anti-inflammatory", route: "Subcutaneous injection", frequency: "Once daily (2 mg) for 3–4 months, pause for 2 months" },
   "DSIP": { benefits: "Improves sleep quality, reduces nighttime stress, provides stress-protective effects on brain and body", route: "Subcutaneous injection", frequency: "2–12 hours before bedtime (250–500 mcg)" },
