@@ -207,8 +207,6 @@ const PeptideCard = ({ peptide, t }: { peptide: { icon: any; name: string; useCa
 // ─── PEPTIDE DATA ────────────────────────────────────────
 // 1. Weight Loss / Sport Performance & Men Health
 const weightLossPeptides = [
-  { icon: Flame, name: "Semaglutide (GLP-1)", useCaseKey: "pep.glp1.useCase", benefitKey: "pep.glp1.benefit", bulletKeys: ["pep.glp1.b1", "pep.glp1.b2", "pep.glp1.b3"], ctaKey: "pep.programs.talkDoctor" },
-  { icon: Flame, name: "Retatrutide", useCaseKey: "pep.retatrutide.useCase", benefitKey: "pep.retatrutide.benefit", bulletKeys: ["pep.retatrutide.b1", "pep.retatrutide.b2", "pep.retatrutide.b3"], ctaKey: "pep.programs.bookReview" },
   { icon: Zap, name: "SLU-PP-332", useCaseKey: "pep.slupp.useCase", benefitKey: "pep.slupp.benefit", bulletKeys: ["pep.slupp.b1", "pep.slupp.b2", "pep.slupp.b3"], ctaKey: "pep.programs.talkDoctor" },
   { icon: Zap, name: "MOTS-c", useCaseKey: "pep.motsc.useCase", benefitKey: "pep.motsc.benefit", bulletKeys: ["pep.motsc.b1", "pep.motsc.b2", "pep.motsc.b3"], ctaKey: "pep.programs.talkDoctor" },
   { icon: Flame, name: "Tesofensine", useCaseKey: "pep.tesofensine.useCase", benefitKey: "pep.tesofensine.benefit", bulletKeys: ["pep.tesofensine.b1", "pep.tesofensine.b2", "pep.tesofensine.b3"], ctaKey: "pep.programs.talkDoctor" },
@@ -329,7 +327,7 @@ const PeptidePrograms = () => {
 
 // ─── PEPTIDE CATALOG ─────────────────────────────────────
 const catalogCategoryKeys = [
-  { key: "weightLoss", icon: Flame, peptides: ["Semaglutide (GLP-1)", "Retatrutide", "SLU-PP-332", "MOTS-c", "Tesofensine"] },
+  { key: "weightLoss", icon: Flame, peptides: ["SLU-PP-332", "MOTS-c", "Tesofensine"] },
   { key: "growthHormone", icon: Dumbbell, peptides: ["CJC-1295", "Ipamorelin"] },
   { key: "healing", icon: HeartPulse, peptides: ["BPC-157", "Thymosin Beta-4 (TB-500)", "BPC-157 (Oral)", "GHK-Cu"] },
   { key: "antiAging", icon: Sparkles, peptides: ["Epithalon", "NMN", "SS-31 (Elamipretide)"] },
@@ -341,7 +339,6 @@ const catalogCategoryKeys = [
 
 // Catalog benefits/route/frequency stay in English (medical terms)
 const peptideCatalogData: Record<string, { benefits: string; route: string; frequency: string }> = {
-  "Semaglutide (GLP-1)": { benefits: "Appetite control, sustainable fat loss, metabolic regulation, insulin sensitivity", route: "Subcutaneous injection", frequency: "Once weekly, titrate based on response" },
   "Epithalon": { benefits: "Telomere protection, anti-aging, improved sleep, immune support", route: "Subcutaneous injection", frequency: "Every 2–3 days × 15 injections (per cycle), every 6 months" },
   "NMN": { benefits: "Boosts NAD⁺, enhances energy, metabolism, and longevity", route: "Oral capsule", frequency: "1 tab daily (500 mg)" },
   "MOTS-c": { benefits: "Boosts metabolism, mimics exercise, supports weight loss & energy", route: "Subcutaneous injection", frequency: "Once weekly (10 mg) for 3–4 months, pause for 2 months" },
