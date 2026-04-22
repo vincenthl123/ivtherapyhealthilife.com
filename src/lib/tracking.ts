@@ -84,6 +84,39 @@ export const trackButtonClick = (buttonId: string) => {
   });
 };
 
+// Delegated click tracking for WhatsApp & tel links
+// Fires gtag events on every wa.me / tel: anchor click anywhere in the app
+let linkTrackingInit = false;
+export const initLinkClickTracking = () => {
+  if (typeof document === 'undefined' || linkTrackingInit) return;
+  linkTrackingInit = true;
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement | null;
+    if (!target) return;
+    const anchor = target.closest('a') as HTMLAnchorElement | null;
+    if (!anchor) return;
+    const href = anchor.getAttribute('href') || '';
+
+    const win = window as TrackingWindow;
+    if (!win.gtag) return;
+
+    if (href.includes('wa.me/')) {
+      win.gtag('event', 'whatsapp_click', {
+        event_category: 'engagement',
+        event_label: 'iv_therapy',
+        page_source: 'iv_therapy',
+      });
+    } else if (href.startsWith('tel:')) {
+      win.gtag('event', 'phone_click', {
+        event_category: 'engagement',
+        event_label: 'iv_therapy',
+        page_source: 'iv_therapy',
+      });
+    }
+  }, { capture: true, passive: true });
+};
+
 // SEO: Track scroll depth for engagement metrics
 let maxScrollDepth = 0;
 let scrollTracked = false;

@@ -106,13 +106,13 @@ const PeptideHero = () => {
 
           <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-hero-whatsapp')} asChild>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
                 {t("pep.hero.cta1")}
               </a>
             </Button>
             <Button size="lg" variant="outline" onClick={() => trackButtonClick('ivclick-peptide-hero-book')} asChild>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {t("pep.hero.cta2")}
               </a>
@@ -195,7 +195,7 @@ const PeptideCard = ({ peptide, t }: { peptide: { icon: any; name: string; useCa
         ))}
       </ul>
       <Button variant="outline" className="w-full group mt-4" onClick={() => trackButtonClick(`ivclick-peptide-${peptide.name.toLowerCase().replace(/\s+/g, '-')}`)} asChild>
-        <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
           <MessageCircle className="h-4 w-4 mr-2" />
           {t(peptide.ctaKey)}
         </a>
@@ -446,7 +446,7 @@ const PeptideCatalog = () => {
                 <div className="px-6 py-4 border-t border-border bg-secondary/30 flex items-center justify-between">
                   <span className="text-sm text-muted-foreground italic">{t("pep.catalog.onDemand")}</span>
                   <Button size="sm" className="group" onClick={() => trackButtonClick(`ivclick-peptide-catalog-${cat.key}`)} asChild>
-                    <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="h-4 w-4 mr-1" />
                       {t("pep.programs.talkToUs")}
                     </a>
@@ -494,13 +494,13 @@ const PeptideCTA = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-book')} asChild>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {t("pep.prog.bookReview")}
               </a>
             </Button>
             <Button size="lg" variant="outline" className="group" onClick={() => trackButtonClick('ivclick-peptide-cta-concierge')} asChild>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {t("pep.cta.whatsapp")}
               </a>
@@ -835,7 +835,7 @@ const PeptideContact = () => {
           <div className="space-y-6">
             <div className="space-y-4">
               <Button size="lg" className="w-full group" onClick={() => trackButtonClick('ivclick-peptide-contact-whatsapp')} asChild>
-                <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5 mr-2" />
                   {t("pep.contact.whatsapp")}
                 </a>
@@ -975,7 +975,7 @@ const PeptideFooter = () => {
             <div className="space-y-2 text-sm text-background/70">
               <Link to="/" className="block hover:text-background transition-colors">{t("pep.footer.home")}</Link>
               <Link to="/peptides-therapy" className="block hover:text-background transition-colors">{t("pep.footer.peptides")}</Link>
-              <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">{t("pep.footer.bookConsult")}</a>
+              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">{t("pep.footer.bookConsult")}</a>
             </div>
           </div>
         </div>

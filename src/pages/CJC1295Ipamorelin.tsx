@@ -80,7 +80,7 @@ const CJCHero = () => (
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-hero-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book a Consultation
             </a>
@@ -293,7 +293,7 @@ const DualPositioning = () => (
             Not sure which indication applies to you? Let our physician assess your hormonal profile personally.
           </p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-mid-cta-1')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>
@@ -469,7 +469,7 @@ const WhyDoctor = () => (
             One WhatsApp message. Direct access to our medical concierge.
           </p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-mid-cta-2')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk Now
             </a>
@@ -615,7 +615,7 @@ const ProtocolSection = () => (
           Your journey starts with a single conversation. No commitment — just clarity.
         </p>
         <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-mid-cta-3')} asChild>
-          <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
             Talk to Your Medical Concierge
           </a>
@@ -656,7 +656,7 @@ const CTABlock = () => (
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-cta-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book via WhatsApp
             </a>
@@ -789,7 +789,7 @@ const CJC1295Ipamorelin = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Ready to restore your growth hormone axis?</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Speak with our medical concierge to understand if CJC-1295 + Ipamorelin is right for your goals.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-cta1-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>
@@ -804,7 +804,7 @@ const CJC1295Ipamorelin = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Restoration, not replacement. The smarter path to GH optimization.</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Dr. First designs your protocol based on your IGF-1 baseline. Start the conversation now.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-cta2-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk Now
             </a>
@@ -818,7 +818,7 @@ const CJC1295Ipamorelin = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Physician-led from day one. IGF-1 baseline mandatory.</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Every protocol starts with a full hormonal workup with Dr. First.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-cjc-cta3-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>

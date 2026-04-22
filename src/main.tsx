@@ -2,6 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { initLinkClickTracking } from "./lib/tracking";
+
+// Initialize delegated click tracking for WhatsApp & tel links
+initLinkClickTracking();
 
 // SEO: Hydrate immediately for faster FCP/LCP
 const rootElement = document.getElementById("root");

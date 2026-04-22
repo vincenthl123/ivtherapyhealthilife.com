@@ -79,7 +79,7 @@ const GLP1Hero = () => (
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-hero-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book a Consultation
             </a>
@@ -273,7 +273,7 @@ const DualPositioning = () => (
             Not sure which indication applies to you? Let our physician assess your metabolic profile personally.
           </p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-mid-cta-1')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>
@@ -425,7 +425,7 @@ const WhyDoctor = () => (
             One WhatsApp message. Direct access to our medical concierge.
           </p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-mid-cta-2')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk Now
             </a>
@@ -571,7 +571,7 @@ const ProtocolSection = () => (
           Your journey starts with a single conversation. No commitment — just clarity.
         </p>
         <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-mid-cta-3')} asChild>
-          <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
             Talk to Your Medical Concierge
           </a>
@@ -612,7 +612,7 @@ const CTABlock = () => (
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book via WhatsApp
             </a>
@@ -745,7 +745,7 @@ const GLP1 = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Ready to explore GLP-1 for your goals?</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Speak with our medical concierge to understand which molecule and protocol fits your profile.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta1-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>
@@ -760,7 +760,7 @@ const GLP1 = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Is tirzepatide right for you?</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Dr. First evaluates your metabolic profile to design the right protocol. Start the conversation now.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta2-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk Now
             </a>
@@ -774,7 +774,7 @@ const GLP1 = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Physician-led from day one. No exceptions.</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Every protocol starts with a full consultation and metabolic workup with Dr. First.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-glp1-cta3-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>

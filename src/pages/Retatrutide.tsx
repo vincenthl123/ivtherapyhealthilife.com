@@ -86,7 +86,7 @@ const RetaHero = () => (
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-reta-hero-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book a Consultation
             </a>
@@ -793,7 +793,7 @@ const CTABlock = () => (
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-reta-cta-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book via WhatsApp
             </a>
@@ -931,7 +931,7 @@ const Retatrutide = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">Ready to explore the most advanced option in metabolic medicine?</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Speak with our medical concierge to understand if retatrutide is right for your profile.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-reta-cta1-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>
@@ -946,7 +946,7 @@ const Retatrutide = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">24.2% body weight reduction. Phase II. 48 weeks. The data is clear.</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Dr. First will assess your candidacy and design your protocol based on a full metabolic workup.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-reta-cta2-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk Now
             </a>
@@ -962,7 +962,7 @@ const Retatrutide = () => (
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">The most powerful molecule. The most rigorous oversight.</p>
           <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">Every retatrutide protocol starts with a comprehensive workup with Dr. First.</p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-reta-cta3-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk to Your Medical Concierge
             </a>
