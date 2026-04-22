@@ -38,7 +38,7 @@ const WhatsAppWidget = () => {
     if (cmp) parts.push(`cmp:${cmp}`);
     parts.push(`pg:${pg}`);
     const text = encodeURIComponent('[' + parts.join('|') + ']');
-    document.querySelectorAll('a[href*="wa.me"]').forEach((el) => {
+    document.querySelectorAll<HTMLAnchorElement>('a[href*="wa.me"]').forEach((el) => {
       el.href = el.href.split('?')[0] + '?text=' + text;
     });
   }, []);
