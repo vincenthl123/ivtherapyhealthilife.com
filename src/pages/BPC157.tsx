@@ -62,7 +62,7 @@ const BPCHero = () => (
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4 mb-10">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-hero-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book via WhatsApp
             </a>
@@ -204,7 +204,7 @@ const BPCBenefits = () => (
           Not sure which indication applies to you? Let our medical team assess your case personally.
         </p>
         <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-1')} asChild>
-          <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
             Talk to Your Medical Concierge
           </a>
@@ -287,7 +287,7 @@ const WhyDoctor = () => (
             One WhatsApp message. Direct access to our medical concierge.
           </p>
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-2')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Talk Now
             </a>
@@ -428,7 +428,7 @@ const ProtocolSection = () => (
           Your journey starts with a single conversation. No commitment — just clarity.
         </p>
         <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-mid-cta-3')} asChild>
-          <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
             Talk to Your Medical Concierge
           </a>
@@ -467,7 +467,7 @@ const CTABlock = () => (
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="group" onClick={() => trackButtonClick('ivclick-bpc-cta-whatsapp')} asChild>
-            <a href="https://wa.me/66919991744" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
               Book via WhatsApp
             </a>
