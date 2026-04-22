@@ -27,6 +27,22 @@ const WhatsAppWidget = () => {
     return () => clearTimeout(timer);
   }, [dismissCount]);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const src = params.get('utm_source') || 'organic';
+    const med = params.get('utm_medium') || '';
+    const cmp = params.get('utm_campaign') || '';
+    const pg = 'iv_therapy';
+    const parts: string[] = [`src:${src}`];
+    if (med) parts.push(`med:${med}`);
+    if (cmp) parts.push(`cmp:${cmp}`);
+    parts.push(`pg:${pg}`);
+    const text = encodeURIComponent('[' + parts.join('|') + ']');
+    document.querySelectorAll('a[href*="wa.me"]').forEach((el) => {
+      el.href = el.href.split('?')[0] + '?text=' + text;
+    });
+  }, []);
+
   const handleOpenChat = () => {
     trackButtonClick('ivclick-whatsapp-widget');
     const w = window as Window & { gtag?: (...args: unknown[]) => void };
