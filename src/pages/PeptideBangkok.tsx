@@ -240,6 +240,10 @@ const MoleculesSection = () => (
           </Card>
         ))}
       </div>
+
+      <p className="mt-8 text-center text-sm text-muted-foreground italic max-w-3xl mx-auto">
+        Protocols and dosages are determined individually by our doctors during consultation.
+      </p>
     </div>
   </section>
 );
