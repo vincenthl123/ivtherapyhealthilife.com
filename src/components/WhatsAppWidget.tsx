@@ -29,6 +29,14 @@ const WhatsAppWidget = () => {
 
   const handleOpenChat = () => {
     trackButtonClick('ivclick-whatsapp-widget');
+    const w = window as Window & { gtag?: (...args: unknown[]) => void };
+    if (w.gtag) {
+      w.gtag('event', 'whatsapp_click', {
+        event_category: 'engagement',
+        event_label: 'iv_therapy',
+        page_source: 'iv_therapy',
+      });
+    }
     window.open('https://wa.me/66919991744?text=IV%20Therapy%20Enquiry', '_blank');
     setShowPopup(false);
   };
