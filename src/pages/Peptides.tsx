@@ -1,3 +1,4 @@
+// v2 clean build
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import MedicalTeam from "@/components/MedicalTeam";
