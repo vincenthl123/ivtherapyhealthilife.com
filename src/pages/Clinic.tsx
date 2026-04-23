@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { MapPin, Clock, Phone, MessageCircle, Mail, Star } from "lucide-react";
@@ -13,18 +14,65 @@ const PHONE = "+66 91 999 1744";
 const ADDRESS = "94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110";
 const MAPS_URL = "https://maps.google.com/?q=Healthi-Life+Ekkamai+Bangkok";
 
+const CLINIC_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "HealthiLife Clinic Bangkok",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana",
+    "addressLocality": "Bangkok",
+    "postalCode": "10110",
+    "addressCountry": "TH",
+  },
+  "telephone": "+66 91 999 1744",
+  "openingHours": "Mo-Sa 11:00-19:00",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "250",
+    "bestRating": "5",
+  },
+};
+
 const Clinic = () => {
+  useEffect(() => {
+    // Suppress all global JSON-LD (from index.html and other components) on /clinic
+    const removed: { node: HTMLScriptElement; parent: Node; next: Node | null }[] = [];
+    document.querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]').forEach((s) => {
+      if (s.dataset.clinicSafe === "true") return;
+      removed.push({ node: s, parent: s.parentNode!, next: s.nextSibling });
+      s.remove();
+    });
+
+    // Inject minimal, ad-policy-safe LocalBusiness schema
+    const safe = document.createElement("script");
+    safe.type = "application/ld+json";
+    safe.dataset.clinicSafe = "true";
+    safe.id = "clinic-safe-jsonld";
+    safe.textContent = JSON.stringify(CLINIC_JSONLD);
+    document.head.appendChild(safe);
+
+    return () => {
+      safe.remove();
+      // Restore previously removed schema for other routes
+      removed.forEach(({ node, parent, next }) => {
+        if (next && next.parentNode === parent) parent.insertBefore(node, next);
+        else parent.appendChild(node);
+      });
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Helmet>
-        <title>HealthiLife Clinic Bangkok – Ekkamai Wellness Center</title>
+        <title>HealthiLife Clinic Bangkok | Wellness Center in Ekkamai</title>
         <meta
           name="description"
-          content="HealthiLife Clinic in Bangkok (Ekkamai). Visit our wellness center for consultations and IV wellness services. Open Mon–Sat, 11 AM – 7 PM."
+          content="HealthiLife wellness center in Ekkamai, Bangkok. Speak with our team to book a consultation. Open Mon–Sat 11AM–7PM."
         />
         <link rel="canonical" href="https://ivtherapyhealthilife.com/clinic" />
         <meta name="robots" content="index, follow" />
-        {/* No aggressive claims; brand-only landing for paid search */}
       </Helmet>
 
       {/* Simple Header */}
