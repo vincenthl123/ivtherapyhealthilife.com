@@ -107,7 +107,62 @@ const Clinic = () => {
     safe.textContent = JSON.stringify(CLINIC_JSONLD);
     document.head.appendChild(safe);
 
+    // MutationObserver: re-apply our values whenever anything (Helmet, global SEO
+    // component, etc.) tries to mutate title / meta / canonical after mount.
+    let reapplying = false;
+    const ensureMeta = (selector: string, attrName: string, attrValue: string, value: string) => {
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attrName, attrValue);
+        document.head.appendChild(el);
+      }
+      if (el.getAttribute("content") !== value) el.setAttribute("content", value);
+    };
+    const reapply = () => {
+      if (reapplying) return;
+      reapplying = true;
+      try {
+        if (document.title !== CLINIC_TITLE) document.title = CLINIC_TITLE;
+        ensureMeta('meta[name="description"]', "name", "description", CLINIC_DESCRIPTION);
+        ensureMeta('meta[property="og:title"]', "property", "og:title", CLINIC_TITLE);
+        ensureMeta('meta[property="og:description"]', "property", "og:description", CLINIC_DESCRIPTION);
+        ensureMeta('meta[name="twitter:title"]', "name", "twitter:title", CLINIC_TITLE);
+        ensureMeta('meta[name="twitter:description"]', "name", "twitter:description", CLINIC_DESCRIPTION);
+        let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+        if (!c) {
+          c = document.createElement("link");
+          c.setAttribute("rel", "canonical");
+          document.head.appendChild(c);
+        }
+        if (c.getAttribute("href") !== "https://ivtherapyhealthilife.com/clinic") {
+          c.setAttribute("href", "https://ivtherapyhealthilife.com/clinic");
+        }
+      } finally {
+        reapplying = false;
+      }
+    };
+    const observer = new MutationObserver(() => reapply());
+    observer.observe(document.head, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["content", "href"],
+      characterData: true,
+    });
+    // Also observe <title> text changes
+    const titleEl = document.querySelector("title");
+    if (titleEl) {
+      observer.observe(titleEl, { childList: true, characterData: true, subtree: true });
+    }
+    // Run once more on next tick in case Helmet flushes after mount
+    const raf = requestAnimationFrame(reapply);
+    const timeout = window.setTimeout(reapply, 100);
+
     return () => {
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+      window.clearTimeout(timeout);
       document.title = originalTitle;
       const restore = (m: { el: HTMLMetaElement | null; prev: string | null; created: boolean }) => {
         if (!m.el) return;
