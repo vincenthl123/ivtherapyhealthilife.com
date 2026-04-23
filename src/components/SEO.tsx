@@ -23,6 +23,12 @@ const SEO = () => {
   const faqSchemaRef = useRef<HTMLScriptElement | null>(null);
 
   useEffect(() => {
+    // This component owns the homepage SEO only.
+    // Do not let it override direct-URL landing pages like /clinic.
+    if (window.location.pathname === '/clinic') {
+      return;
+    }
+
     // Update HTML lang attribute
     document.documentElement.lang = language;
     
