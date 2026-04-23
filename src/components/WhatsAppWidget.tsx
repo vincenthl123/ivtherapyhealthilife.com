@@ -1,19 +1,11 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
-import { useLocation } from "react-router-dom";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import conciergeAvatar from "@/assets/concierge-anna.jpg";
 
 const WhatsAppWidget = () => {
   const { t } = useLanguage();
-  const location = useLocation();
-  const isPeptides = location.pathname === "/therapy-bangkok" || location.pathname === "/peptides-therapy";
-  const isBPC157 = location.pathname === "/BPC-157";
-  const isGLP1 = location.pathname === "/GLP-1";
-  const isCJC = location.pathname === "/CJC-1295-Ipamorelin";
-  const isSema = location.pathname === "/Semaglutide";
-  const isReta = location.pathname === "/Retatrutide";
   const [showPopup, setShowPopup] = useState(false);
   const [dismissCount, setDismissCount] = useState(0);
 
@@ -103,7 +95,7 @@ const WhatsAppWidget = () => {
               <div className="absolute -left-2 top-0 w-0 h-0 border-t-8 border-t-card border-r-8 border-r-transparent" />
               <p className="text-foreground text-sm mb-2">{t("whatsapp.greeting")}</p>
               <p className="text-foreground text-sm mb-2">{t("whatsapp.welcome")}</p>
-              <p className="text-muted-foreground text-sm whitespace-pre-line">{t(isReta ? "whatsapp.message.reta" : isSema ? "whatsapp.message.sema" : isCJC ? "whatsapp.message.cjc" : isGLP1 ? "whatsapp.message.glp1" : isBPC157 ? "whatsapp.message.bpc157" : isPeptides ? "whatsapp.message.peptides" : "whatsapp.message")}</p>
+              <p className="text-muted-foreground text-sm whitespace-pre-line">{t("whatsapp.message")}</p>
               <p className="text-muted-foreground/60 text-[10px] text-right mt-2">{currentTime}</p>
             </div>
           </div>
