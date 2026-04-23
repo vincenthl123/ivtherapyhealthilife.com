@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/lib/i18n";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense } from "react";
@@ -13,13 +13,6 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const Install = lazy(() => import("./pages/Install"));
 const PriceList = lazy(() => import("./pages/PriceList"));
-const Peptides = lazy(() => import("./pages/Peptides"));
-const BPC157 = lazy(() => import("./pages/BPC157"));
-const GLP1 = lazy(() => import("./pages/GLP1"));
-const CJC1295Ipamorelin = lazy(() => import("./pages/CJC1295Ipamorelin"));
-const Semaglutide = lazy(() => import("./pages/Semaglutide"));
-const Retatrutide = lazy(() => import("./pages/Retatrutide"));
-const PeptideBangkok = lazy(() => import("./pages/PeptideBangkok"));
 const Clinic = lazy(() => import("./pages/Clinic"));
 
 const queryClient = new QueryClient();
@@ -46,15 +39,16 @@ const App = () => (
                 <Route path="/sitemap" element={<Sitemap />} />
                 <Route path="/install" element={<Install />} />
                 <Route path="/price-list" element={<PriceList />} />
-                <Route path="/peptides-therapy" element={<Peptides />} />
-                <Route path="/therapy-bangkok" element={<Peptides />} />
-                <Route path="/BPC-157" element={<BPC157 />} />
-                <Route path="/GLP-1" element={<GLP1 />} />
-                <Route path="/CJC-1295-Ipamorelin" element={<CJC1295Ipamorelin />} />
-                <Route path="/Semaglutide" element={<Semaglutide />} />
-                <Route path="/Retatrutide" element={<Retatrutide />} />
-                <Route path="/peptide/bangkok" element={<PeptideBangkok />} />
                 <Route path="/clinic" element={<Clinic />} />
+                {/* Legacy peptide routes — 301 redirect to home */}
+                <Route path="/peptides-therapy" element={<Navigate to="/" replace />} />
+                <Route path="/therapy-bangkok" element={<Navigate to="/" replace />} />
+                <Route path="/peptide/bangkok" element={<Navigate to="/" replace />} />
+                <Route path="/BPC-157" element={<Navigate to="/" replace />} />
+                <Route path="/GLP-1" element={<Navigate to="/" replace />} />
+                <Route path="/CJC-1295-Ipamorelin" element={<Navigate to="/" replace />} />
+                <Route path="/Semaglutide" element={<Navigate to="/" replace />} />
+                <Route path="/Retatrutide" element={<Navigate to="/" replace />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

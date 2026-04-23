@@ -1,18 +1,14 @@
 # Healthi-Life IV Therapy Bangkok
-> Physician-led IV therapy and longevity clinic in Bangkok, Thailand, offering 23+ medically supervised IV drips, NAD+ therapy, and 18+ peptide protocols to international patients at Ekkamai.
+> Physician-led IV therapy and longevity clinic in Bangkok, Thailand, offering 23+ medically supervised IV drips and NAD+ therapy to international patients at Ekkamai.
 
 ## Core Pages
 - [Home](https://ivtherapyhealthilife.com/): IV therapy menu, pricing, medical team, Google reviews, FAQ, booking
-- [Peptides Therapy](https://ivtherapyhealthilife.com/peptides-therapy): Overview of 18+ peptide protocols — GLP-1, BPC-157, Epithalon, CJC-1295, and more. Starting from 40,000 THB.
-- [BPC-157](https://ivtherapyhealthilife.com/BPC-157): BPC-157 peptide for tissue repair, gut healing, and post-surgical recovery. Injection and oral routes. 4–8 week cycles.
-- [GLP-1 Therapy](https://ivtherapyhealthilife.com/GLP-1): GLP-1 receptor agonists (semaglutide, tirzepatide) for weight management and longevity. 15% avg weight reduction.
-- [Semaglutide](https://ivtherapyhealthilife.com/Semaglutide): Once-weekly GLP-1 injection. STEP trials data. Metabolic reset protocols. Dosing from 0.25mg to 2.4mg/week.
-- [Retatrutide](https://ivtherapyhealthilife.com/Retatrutide): Triple agonist (GLP-1/GIP/Glucagon). Phase II: up to 24.2% weight reduction. Investigational — full informed consent required.
-- [CJC-1295 + Ipamorelin](https://ivtherapyhealthilife.com/CJC-1295-Ipamorelin): Growth hormone secretagogues for GH restoration, sleep, recovery, and body composition. 3–12 month cycles.
-- [Price List](https://ivtherapyhealthilife.com/price-list): Complete pricing for all IV drips, packages, and programs
+- [Price List](https://ivtherapyhealthilife.com/price-list): Complete pricing for all IV drips and packages
+- [Sitemap](https://ivtherapyhealthilife.com/sitemap): Visual sitemap of all IV services
+- [Clinic](https://ivtherapyhealthilife.com/clinic): HealthiLife wellness center in Ekkamai, Bangkok
 
 ## Team
-- Dr. First (Napat Hunsajarupan) — Founder MD, Dermatologist & CMO. Board-certified in dermatology, aesthetic medicine, metabolic & anti-aging medicine. Prescription authority for all peptide protocols.
+- Dr. First (Napat Hunsajarupan) — Founder MD, Dermatologist & CMO. Board-certified in dermatology and aesthetic medicine.
 - Dr. Petch (Sarassawadee Suwanjinda) — Founder MD, Lifestyle Medicine & Longevity Specialist. Expert in longevity medicine, regenerative medicine, NAD+ IV therapy, and IV nutrition.
 
 ## Key Facts
@@ -22,7 +18,7 @@
 - 5.0-star Google rating from 250+ verified reviews
 - 2,500+ patients treated from 50+ countries
 - Multilingual: English, Thai, Japanese-speaking staff
-- IV drips from 4,050 THB to 15,000 THB; peptide programs from 40,000 THB
+- IV drips from 4,050 THB to 15,000 THB
 - Multi-session packages save up to 33%
 - Contact: +66 91 999 1744 (WhatsApp preferred) | info@healthi-life.com
 - Hours: Monday–Saturday 11:00 AM – 7:00 PM (closed Sunday)
@@ -68,12 +64,6 @@
 - NAD+ 100mg 10 Sessions: 54,000 THB (save 10%)
 - NAD+ 250mg 5 Sessions: 41,500 THB
 - NAD+ 250mg 10 Sessions: 80,000 THB
-
-## Peptide Protocols
-- Cellular Longevity Protocol: 6–12 months, from 40,000 THB
-- Recovery & Regeneration Protocol: 3–6 months, from 40,000 THB
-- Metabolic Reset & Weight Optimization: 6–12 months, from 40,000 THB
-- Lean Muscle & Performance Optimization: 6–12 months, from 40,000 THB
 
 ## Social
 - Instagram: https://www.instagram.com/healthi_life_th/
