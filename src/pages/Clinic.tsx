@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -14,6 +13,10 @@ const PHONE = "+66 91 999 1744";
 const ADDRESS = "94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110";
 const MAPS_URL = "https://maps.google.com/?q=Healthi-Life+Ekkamai+Bangkok";
 
+const CLINIC_TITLE = "HealthiLife Clinic Bangkok | Wellness Center in Ekkamai";
+const CLINIC_DESCRIPTION =
+  "HealthiLife wellness center in Ekkamai, Bangkok. Speak with our team to book a consultation. Open Mon–Sat 11AM–7PM.";
+
 const CLINIC_JSONLD = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -25,7 +28,7 @@ const CLINIC_JSONLD = {
     "postalCode": "10110",
     "addressCountry": "TH",
   },
-  "telephone": "+66 91 999 1744",
+  "telephone": "+66919991744",
   "openingHours": "Mo-Sa 11:00-19:00",
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -35,27 +38,92 @@ const CLINIC_JSONLD = {
   },
 };
 
+const setMetaContent = (
+  selector: string,
+  value: string,
+  create?: () => HTMLMetaElement,
+) => {
+  let el = document.head.querySelector<HTMLMetaElement>(selector);
+  let created = false;
+  if (!el && create) {
+    el = create();
+    document.head.appendChild(el);
+    created = true;
+  }
+  const prev = el?.getAttribute("content") ?? null;
+  el?.setAttribute("content", value);
+  return { el, prev, created };
+};
+
 const Clinic = () => {
   useEffect(() => {
-    // Suppress all global JSON-LD (from index.html and other components) on /clinic
-    const removed: { node: HTMLScriptElement; parent: Node; next: Node | null }[] = [];
-    document.querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]').forEach((s) => {
-      if (s.dataset.clinicSafe === "true") return;
-      removed.push({ node: s, parent: s.parentNode!, next: s.nextSibling });
-      s.remove();
+    const originalTitle = document.title;
+    document.title = CLINIC_TITLE;
+
+    const desc = setMetaContent('meta[name="description"]', CLINIC_DESCRIPTION, () => {
+      const m = document.createElement("meta");
+      m.setAttribute("name", "description");
+      return m;
     });
+    const ogTitle = setMetaContent('meta[property="og:title"]', CLINIC_TITLE, () => {
+      const m = document.createElement("meta");
+      m.setAttribute("property", "og:title");
+      return m;
+    });
+    const ogDesc = setMetaContent('meta[property="og:description"]', CLINIC_DESCRIPTION, () => {
+      const m = document.createElement("meta");
+      m.setAttribute("property", "og:description");
+      return m;
+    });
+    const twTitle = setMetaContent('meta[name="twitter:title"]', CLINIC_TITLE);
+    const twDesc = setMetaContent('meta[name="twitter:description"]', CLINIC_DESCRIPTION);
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    let canonicalCreated = false;
+    let canonicalPrev: string | null = null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+      canonicalCreated = true;
+    } else {
+      canonicalPrev = canonical.getAttribute("href");
+    }
+    canonical.setAttribute("href", "https://ivtherapyhealthilife.com/clinic");
+
+    // Remove ALL existing JSON-LD scripts (from index.html and other components)
+    const removed: { node: HTMLScriptElement; parent: Node; next: Node | null }[] = [];
+    document
+      .querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]')
+      .forEach((s) => {
+        removed.push({ node: s, parent: s.parentNode!, next: s.nextSibling });
+        s.remove();
+      });
 
     // Inject minimal, ad-policy-safe LocalBusiness schema
     const safe = document.createElement("script");
     safe.type = "application/ld+json";
-    safe.dataset.clinicSafe = "true";
     safe.id = "clinic-safe-jsonld";
     safe.textContent = JSON.stringify(CLINIC_JSONLD);
     document.head.appendChild(safe);
 
     return () => {
+      document.title = originalTitle;
+      const restore = (m: { el: HTMLMetaElement | null; prev: string | null; created: boolean }) => {
+        if (!m.el) return;
+        if (m.created) m.el.remove();
+        else if (m.prev !== null) m.el.setAttribute("content", m.prev);
+      };
+      restore(desc);
+      restore(ogTitle);
+      restore(ogDesc);
+      restore(twTitle);
+      restore(twDesc);
+      if (canonical) {
+        if (canonicalCreated) canonical.remove();
+        else if (canonicalPrev !== null) canonical.setAttribute("href", canonicalPrev);
+      }
       safe.remove();
-      // Restore previously removed schema for other routes
       removed.forEach(({ node, parent, next }) => {
         if (next && next.parentNode === parent) parent.insertBefore(node, next);
         else parent.appendChild(node);
@@ -65,15 +133,6 @@ const Clinic = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>HealthiLife Clinic Bangkok | Wellness Center in Ekkamai</title>
-        <meta
-          name="description"
-          content="HealthiLife wellness center in Ekkamai, Bangkok. Speak with our team to book a consultation. Open Mon–Sat 11AM–7PM."
-        />
-        <link rel="canonical" href="https://ivtherapyhealthilife.com/clinic" />
-        <meta name="robots" content="index, follow" />
-      </Helmet>
 
       {/* Simple Header */}
       <header className="border-b border-border bg-background">
