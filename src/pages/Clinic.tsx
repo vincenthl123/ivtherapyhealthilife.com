@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { MapPin, Clock, Phone, MessageCircle, Mail, Star } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
 import clinicExterior from "@/assets/clinic-exterior.webp";
-import clinicInterior from "@/assets/clinic-interior.jpg";
+import clinicInterior from "@/assets/clinic-room.jpg";
 import treatmentRoom from "@/assets/treatment-room.webp";
 import { trackButtonClick } from "@/lib/tracking";
 
