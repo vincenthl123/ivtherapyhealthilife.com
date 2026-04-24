@@ -14,7 +14,6 @@ const Sitemap = lazy(() => import("./pages/Sitemap"));
 const Install = lazy(() => import("./pages/Install"));
 const PriceList = lazy(() => import("./pages/PriceList"));
 const Clinic = lazy(() => import("./pages/Clinic"));
-const PeptidesIntroduction = lazy(() => import("./pages/PeptidesIntroduction"));
 
 const queryClient = new QueryClient();
 
@@ -41,10 +40,9 @@ const App = () => (
                 <Route path="/install" element={<Install />} />
                 <Route path="/price-list" element={<PriceList />} />
                 <Route path="/clinic" element={<Clinic />} />
-                {/* Educational science library (non-commercial) */}
-                <Route path="/science/peptides-introduction" element={<PeptidesIntroduction />} />
-                <Route path="/science/peptides-introduction/" element={<PeptidesIntroduction />} />
                 {/* Legacy peptide routes — 301 redirect to home */}
+                <Route path="/science/peptides-introduction" element={<Navigate to="/" replace />} />
+                <Route path="/science/peptides-introduction/" element={<Navigate to="/" replace />} />
                 <Route path="/peptides-therapy" element={<Navigate to="/" replace />} />
                 <Route path="/therapy-bangkok" element={<Navigate to="/" replace />} />
                 <Route path="/peptide/bangkok" element={<Navigate to="/" replace />} />
