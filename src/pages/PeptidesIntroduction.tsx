@@ -1,105 +1,291 @@
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/66919991744";
-const CANONICAL = "https://healthi-life.com/science/peptides-introduction/";
+
+const PAGE_TITLE =
+  "Therapeutic Peptides in Longevity Medicine - Educational Overview | Healthi Life";
+const PAGE_DESCRIPTION =
+  "An evidence-based introduction to therapeutic peptides in longevity medicine: what they are, which families are studied, and how they fit into a physician-supervised protocol. Educational only.";
+const CANONICAL_URL =
+  "https://healthi-life.com/science/peptides-introduction/";
+
+const HREFLANGS: { hreflang: string; href: string }[] = [
+  { hreflang: "en", href: "https://healthi-life.com/science/peptides-introduction/" },
+  { hreflang: "th", href: "https://healthi-life.com/th/science/peptides-introduction/" },
+  { hreflang: "ja", href: "https://healthi-life.com/ja/science/peptides-introduction/" },
+  { hreflang: "x-default", href: "https://healthi-life.com/science/peptides-introduction/" },
+];
+
+const ARTICLE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline:
+    "Therapeutic Peptides in Longevity Medicine - An Educational Overview",
+  description:
+    "Educational introduction to therapeutic peptides in longevity medicine.",
+  inLanguage: "en",
+  author: {
+    "@type": "Organization",
+    name: "Healthi Life",
+    url: "https://healthi-life.com",
+  },
+  publisher: {
+    "@type": "MedicalOrganization",
+    name: "Healthi Life",
+    url: "https://healthi-life.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://healthi-life.com/logo.png",
+    },
+  },
+  datePublished: "2026-04-24",
+  dateModified: "2026-04-24",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": CANONICAL_URL,
+  },
+  isAccessibleForFree: true,
+};
 
 const PeptidesIntroduction = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    const originalTitle = document.title;
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline:
-      "Therapeutic Peptides in Longevity Medicine - An Educational Overview",
-    description:
-      "Educational introduction to therapeutic peptides in longevity medicine.",
-    inLanguage: "en",
-    author: {
-      "@type": "Organization",
-      name: "Healthi Life",
-      url: "https://healthi-life.com",
-    },
-    publisher: {
-      "@type": "MedicalOrganization",
-      name: "Healthi Life",
-      url: "https://healthi-life.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://healthi-life.com/logo.png",
-      },
-    },
-    datePublished: "2026-04-24",
-    dateModified: "2026-04-24",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": CANONICAL,
-    },
-    isAccessibleForFree: true,
-  };
+    // ---------- Helpers ----------
+    const ensureMeta = (
+      selector: string,
+      attrName: string,
+      attrValue: string,
+      content: string,
+    ) => {
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      let created = false;
+      let prev: string | null = null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attrName, attrValue);
+        document.head.appendChild(el);
+        created = true;
+      } else {
+        prev = el.getAttribute("content");
+      }
+      if (el.getAttribute("content") !== content) {
+        el.setAttribute("content", content);
+      }
+      return { el, prev, created };
+    };
+
+    const ensureLink = (
+      selector: string,
+      attrs: Record<string, string>,
+    ) => {
+      let el = document.head.querySelector<HTMLLinkElement>(selector);
+      let created = false;
+      const prev: Record<string, string | null> = {};
+      if (!el) {
+        el = document.createElement("link");
+        Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+        document.head.appendChild(el);
+        created = true;
+      } else {
+        Object.keys(attrs).forEach((k) => (prev[k] = el!.getAttribute(k)));
+        Object.entries(attrs).forEach(([k, v]) => {
+          if (el!.getAttribute(k) !== v) el!.setAttribute(k, v);
+        });
+      }
+      return { el, prev, created };
+    };
+
+    // ---------- Apply head ----------
+    document.title = PAGE_TITLE;
+
+    const desc = ensureMeta('meta[name="description"]', "name", "description", PAGE_DESCRIPTION);
+    const robots = ensureMeta('meta[name="robots"]', "name", "robots", "noindex, nofollow");
+    const ogTitle = ensureMeta('meta[property="og:title"]', "property", "og:title", PAGE_TITLE);
+    const ogDesc = ensureMeta('meta[property="og:description"]', "property", "og:description", PAGE_DESCRIPTION);
+    const ogType = ensureMeta('meta[property="og:type"]', "property", "og:type", "article");
+    const ogUrl = ensureMeta('meta[property="og:url"]', "property", "og:url", CANONICAL_URL);
+    const twTitle = ensureMeta('meta[name="twitter:title"]', "name", "twitter:title", PAGE_TITLE);
+    const twDesc = ensureMeta('meta[name="twitter:description"]', "name", "twitter:description", PAGE_DESCRIPTION);
+
+    const canonical = ensureLink('link[rel="canonical"]', {
+      rel: "canonical",
+      href: CANONICAL_URL,
+    });
+
+    // Remove any existing hreflang links so we control them entirely
+    const removedHreflangs: { node: HTMLLinkElement; parent: Node; next: Node | null }[] = [];
+    document
+      .querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]')
+      .forEach((l) => {
+        removedHreflangs.push({ node: l, parent: l.parentNode!, next: l.nextSibling });
+        l.remove();
+      });
+
+    const injectedHreflangs: HTMLLinkElement[] = [];
+    HREFLANGS.forEach(({ hreflang, href }) => {
+      const link = document.createElement("link");
+      link.setAttribute("rel", "alternate");
+      link.setAttribute("hreflang", hreflang);
+      link.setAttribute("href", href);
+      link.setAttribute("data-peptides-intro", "1");
+      document.head.appendChild(link);
+      injectedHreflangs.push(link);
+    });
+
+    // ---------- JSON-LD: strip all existing, inject Article only ----------
+    const removedJsonLd: { node: HTMLScriptElement; parent: Node; next: Node | null }[] = [];
+    document
+      .querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]')
+      .forEach((s) => {
+        removedJsonLd.push({ node: s, parent: s.parentNode!, next: s.nextSibling });
+        s.remove();
+      });
+
+    const articleScript = document.createElement("script");
+    articleScript.type = "application/ld+json";
+    articleScript.id = "peptides-intro-article-jsonld";
+    articleScript.textContent = JSON.stringify(ARTICLE_JSONLD);
+    document.head.appendChild(articleScript);
+
+    // ---------- Re-apply on mutation (defeat Helmet / global SEO overrides) ----------
+    let reapplying = false;
+    const reapply = () => {
+      if (reapplying) return;
+      reapplying = true;
+      try {
+        if (document.title !== PAGE_TITLE) document.title = PAGE_TITLE;
+
+        const setMeta = (sel: string, attrName: string, attrValue: string, content: string) => {
+          let el = document.head.querySelector<HTMLMetaElement>(sel);
+          if (!el) {
+            el = document.createElement("meta");
+            el.setAttribute(attrName, attrValue);
+            document.head.appendChild(el);
+          }
+          if (el.getAttribute("content") !== content) el.setAttribute("content", content);
+        };
+        setMeta('meta[name="description"]', "name", "description", PAGE_DESCRIPTION);
+        setMeta('meta[name="robots"]', "name", "robots", "noindex, nofollow");
+        setMeta('meta[property="og:title"]', "property", "og:title", PAGE_TITLE);
+        setMeta('meta[property="og:description"]', "property", "og:description", PAGE_DESCRIPTION);
+        setMeta('meta[property="og:type"]', "property", "og:type", "article");
+        setMeta('meta[property="og:url"]', "property", "og:url", CANONICAL_URL);
+        setMeta('meta[name="twitter:title"]', "name", "twitter:title", PAGE_TITLE);
+        setMeta('meta[name="twitter:description"]', "name", "twitter:description", PAGE_DESCRIPTION);
+
+        let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+        if (!c) {
+          c = document.createElement("link");
+          c.setAttribute("rel", "canonical");
+          document.head.appendChild(c);
+        }
+        if (c.getAttribute("href") !== CANONICAL_URL) c.setAttribute("href", CANONICAL_URL);
+
+        // Hreflang: remove any not marked by us, ensure ours exist
+        document
+          .querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]')
+          .forEach((l) => {
+            if (l.getAttribute("data-peptides-intro") !== "1") l.remove();
+          });
+        HREFLANGS.forEach(({ hreflang, href }) => {
+          const sel = `link[rel="alternate"][hreflang="${hreflang}"][data-peptides-intro="1"]`;
+          let l = document.head.querySelector<HTMLLinkElement>(sel);
+          if (!l) {
+            l = document.createElement("link");
+            l.setAttribute("rel", "alternate");
+            l.setAttribute("hreflang", hreflang);
+            l.setAttribute("href", href);
+            l.setAttribute("data-peptides-intro", "1");
+            document.head.appendChild(l);
+          } else if (l.getAttribute("href") !== href) {
+            l.setAttribute("href", href);
+          }
+        });
+
+        // JSON-LD: keep only ours
+        document
+          .querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]')
+          .forEach((s) => {
+            if (s.id !== "peptides-intro-article-jsonld") s.remove();
+          });
+        if (!document.getElementById("peptides-intro-article-jsonld")) {
+          const s = document.createElement("script");
+          s.type = "application/ld+json";
+          s.id = "peptides-intro-article-jsonld";
+          s.textContent = JSON.stringify(ARTICLE_JSONLD);
+          document.head.appendChild(s);
+        }
+      } finally {
+        reapplying = false;
+      }
+    };
+
+    const observer = new MutationObserver(() => reapply());
+    observer.observe(document.head, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["content", "href"],
+      characterData: true,
+    });
+    const titleEl = document.querySelector("title");
+    if (titleEl) {
+      observer.observe(titleEl, { childList: true, characterData: true, subtree: true });
+    }
+    const raf = requestAnimationFrame(reapply);
+    const t1 = window.setTimeout(reapply, 100);
+    const t2 = window.setTimeout(reapply, 500);
+
+    window.scrollTo(0, 0);
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+
+      document.title = originalTitle;
+
+      const restoreMeta = (m: { el: HTMLMetaElement | null; prev: string | null; created: boolean }) => {
+        if (!m.el) return;
+        if (m.created) m.el.remove();
+        else if (m.prev !== null) m.el.setAttribute("content", m.prev);
+      };
+      restoreMeta(desc);
+      restoreMeta(robots);
+      restoreMeta(ogTitle);
+      restoreMeta(ogDesc);
+      restoreMeta(ogType);
+      restoreMeta(ogUrl);
+      restoreMeta(twTitle);
+      restoreMeta(twDesc);
+
+      if (canonical.el) {
+        if (canonical.created) canonical.el.remove();
+        else if (canonical.prev.href !== null) canonical.el.setAttribute("href", canonical.prev.href);
+      }
+
+      injectedHreflangs.forEach((l) => l.remove());
+      removedHreflangs.forEach(({ node, parent, next }) => {
+        if (next && next.parentNode === parent) parent.insertBefore(node, next);
+        else parent.appendChild(node);
+      });
+
+      articleScript.remove();
+      removedJsonLd.forEach(({ node, parent, next }) => {
+        if (next && next.parentNode === parent) parent.insertBefore(node, next);
+        else parent.appendChild(node);
+      });
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>
-          Therapeutic Peptides in Longevity Medicine - Educational Overview | Healthi Life
-        </title>
-        <meta
-          name="description"
-          content="An evidence-based introduction to therapeutic peptides in longevity medicine: what they are, which families are studied, and how they fit into a physician-supervised protocol. Educational only."
-        />
-        <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href={CANONICAL} />
-
-        {/* Hreflang */}
-        <link
-          rel="alternate"
-          hrefLang="en"
-          href="https://healthi-life.com/science/peptides-introduction/"
-        />
-        <link
-          rel="alternate"
-          hrefLang="th"
-          href="https://healthi-life.com/th/science/peptides-introduction/"
-        />
-        <link
-          rel="alternate"
-          hrefLang="ja"
-          href="https://healthi-life.com/ja/science/peptides-introduction/"
-        />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href="https://healthi-life.com/science/peptides-introduction/"
-        />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Therapeutic Peptides in Longevity Medicine - Educational Overview | Healthi Life"
-        />
-        <meta
-          property="og:description"
-          content="An evidence-based introduction to therapeutic peptides in longevity medicine: what they are, which families are studied, and how they fit into a physician-supervised protocol. Educational only."
-        />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={CANONICAL} />
-        <meta
-          property="og:image"
-          content="https://healthi-life.com/og-image.jpg"
-        />
-
-        <script type="application/ld+json">
-          {JSON.stringify(articleSchema)}
-        </script>
-      </Helmet>
-
       <Header />
 
       <main className="pt-24 pb-20">
@@ -114,7 +300,6 @@ const PeptidesIntroduction = () => {
             </p>
           </header>
 
-          {/* Intro */}
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-12">
             Peptide therapy sits at the intersection of molecular biology and
             preventive medicine. This overview is intended for individuals who
