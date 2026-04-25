@@ -3,6 +3,7 @@ import { ExternalLink, ChevronRight, MapPin, Phone, Clock, Activity, Brain, Spar
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 // All IV services data for SEO sitemap
 const ivServices = {
@@ -236,7 +237,7 @@ const SitemapPage = () => {
                   <div>
                     <h3 className="font-semibold text-foreground">WhatsApp</h3>
                     <a 
-                      href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" 
+                      href={buildWaUrl("IV Therapy Enquiry")} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-sm text-primary hover:underline"

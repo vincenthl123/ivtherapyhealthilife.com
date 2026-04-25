@@ -4,6 +4,7 @@ import { Star, Award, MapPin, Clock, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/clinic-exterior.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -80,7 +81,7 @@ const Hero = () => {
               onClick={() => trackButtonClick('ivclick-hero-whatsapp')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
                 {t("hero.cta1")}
               </a>
@@ -92,7 +93,7 @@ const Hero = () => {
               onClick={() => trackButtonClick('ivclick-hero-book')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {t("hero.cta2")}
               </a>

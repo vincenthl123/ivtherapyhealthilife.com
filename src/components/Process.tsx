@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Calendar, Stethoscope, Droplets } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 const Process = () => {
   const { t } = useLanguage();
@@ -86,7 +87,7 @@ const Process = () => {
               onClick={() => trackButtonClick('ivclick-process-whatsapp')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 <div className="text-left">
                   <div className="font-bold text-base mb-1">WhatsApp</div>

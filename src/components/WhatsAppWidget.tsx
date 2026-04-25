@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 import conciergeAvatar from "@/assets/concierge-anna.jpg";
 
 const WhatsAppWidget = () => {
@@ -19,21 +20,8 @@ const WhatsAppWidget = () => {
     return () => clearTimeout(timer);
   }, [dismissCount]);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const src = params.get('utm_source') || 'organic';
-    const med = params.get('utm_medium') || '';
-    const cmp = params.get('utm_campaign') || '';
-    const pg = 'iv_therapy';
-    const parts: string[] = [`src:${src}`];
-    if (med) parts.push(`med:${med}`);
-    if (cmp) parts.push(`cmp:${cmp}`);
-    parts.push(`pg:${pg}`);
-    const text = encodeURIComponent('[' + parts.join('|') + ']');
-    document.querySelectorAll<HTMLAnchorElement>('a[href*="wa.me"]').forEach((el) => {
-      el.href = el.href.split('?')[0] + '?text=' + text;
-    });
-  }, []);
+  // wa.me URLs are now built dynamically by buildWaUrl() at click-time.
+  // No DOM mutation needed.
 
   const handleOpenChat = () => {
     trackButtonClick('ivclick-whatsapp-widget');
@@ -45,7 +33,7 @@ const WhatsAppWidget = () => {
         page_source: 'iv_therapy',
       });
     }
-    window.open('https://wa.me/66919991744?text=IV+Therapy+Enquiry', '_blank');
+    window.open(buildWaUrl('IV Therapy Enquiry'), '_blank');
     setShowPopup(false);
   };
 

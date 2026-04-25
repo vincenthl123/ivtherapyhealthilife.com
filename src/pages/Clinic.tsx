@@ -7,8 +7,8 @@ import clinicExterior from "@/assets/clinic-exterior.webp";
 import clinicInterior from "@/assets/clinic-room.jpg";
 import treatmentRoom from "@/assets/treatment-room.webp";
 import { trackButtonClick } from "@/lib/tracking";
+import { buildWaUrl } from "@/lib/whatsapp";
 
-const WHATSAPP_URL = "https://wa.me/66919991744?text=IV+Therapy+Enquiry";
 const PHONE = "+66 91 999 1744";
 const ADDRESS = "94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110";
 const MAPS_URL = "https://maps.google.com/?q=Healthi-Life+Ekkamai+Bangkok";
@@ -214,7 +214,7 @@ const Clinic = () => {
               onClick={() => trackButtonClick("ivclick-clinic-header-whatsapp")}
               asChild
             >
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4 mr-2" />
                 WhatsApp
               </a>
@@ -258,7 +258,7 @@ const Clinic = () => {
                 onClick={() => trackButtonClick("ivclick-clinic-hero-whatsapp")}
                 asChild
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5 mr-2" />
                   Message us on WhatsApp
                 </a>
@@ -413,7 +413,7 @@ const Clinic = () => {
                   <div>
                     <p className="font-medium">Contact</p>
                     <a
-                      href={WHATSAPP_URL}
+                      href={buildWaUrl("IV Therapy Enquiry")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground text-sm hover:text-primary"
@@ -430,7 +430,7 @@ const Clinic = () => {
                 onClick={() => trackButtonClick("ivclick-clinic-visit-whatsapp")}
                 asChild
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5 mr-2" />
                   Get in Touch
                 </a>

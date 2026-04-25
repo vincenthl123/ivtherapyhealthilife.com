@@ -4,6 +4,7 @@ import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 import clinicImage from "@/assets/award-certificate.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -100,7 +101,7 @@ const Contact = () => {
                           asChild
                         >
                           <a
-                            href="https://wa.me/66919991744?text=IV+Therapy+Enquiry"
+                            href={buildWaUrl("IV Therapy Enquiry")}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -151,7 +152,7 @@ const Contact = () => {
             onClick={() => trackButtonClick('ivclick-contact-cta')}
             asChild
           >
-            <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
+            <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2" />
               {t("contact.bookYour")}
             </a>
