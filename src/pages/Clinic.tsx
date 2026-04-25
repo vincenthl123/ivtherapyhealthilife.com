@@ -348,6 +348,10 @@ const Clinic = () => {
                 title: "Cellular Diagnostics",
                 desc: "Understand your body at the cellular level with advanced blood panel analysis.",
               },
+              {
+                title: "Personalized Protocols",
+                desc: "Tailored programs designed around your unique health data and lifestyle goals.",
+              },
             ].map((s) => (
               <Card key={s.title} className="p-6 bg-background border-border">
                 <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
