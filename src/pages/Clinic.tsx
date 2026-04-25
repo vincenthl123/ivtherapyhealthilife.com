@@ -334,7 +334,7 @@ const Clinic = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               {
                 title: "Wellness Consultations",
@@ -343,6 +343,10 @@ const Clinic = () => {
               {
                 title: "Lifestyle & Recovery",
                 desc: "Personalized guidance focused on hydration, recovery, and daily wellness.",
+              },
+              {
+                title: "Cellular Diagnostics",
+                desc: "Understand your body at the cellular level with advanced blood panel analysis.",
               },
             ].map((s) => (
               <Card key={s.title} className="p-6 bg-background border-border">
