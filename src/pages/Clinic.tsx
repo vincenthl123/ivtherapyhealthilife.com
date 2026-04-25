@@ -352,6 +352,10 @@ const Clinic = () => {
                 title: "Personalized Protocols",
                 desc: "Tailored programs designed around your unique health data and lifestyle goals.",
               },
+              {
+                title: "Medical Supervision",
+                desc: "Every protocol supervised by ABLM-certified longevity physicians.",
+              },
             ].map((s) => (
               <Card key={s.title} className="p-6 bg-background border-border">
                 <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
