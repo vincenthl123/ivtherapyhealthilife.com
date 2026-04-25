@@ -25,7 +25,9 @@ const PageLoader = () => (
   </div>
 );
 
-const App = () => (
+const App = () => {
+  useEffect(() => installWaInterceptor(), []);
+  return (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
