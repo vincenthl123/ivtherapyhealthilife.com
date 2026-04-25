@@ -86,7 +86,7 @@ const Process = () => {
               onClick={() => trackButtonClick('ivclick-process-whatsapp')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 <div className="text-left">
                   <div className="font-bold text-base mb-1">WhatsApp</div>
