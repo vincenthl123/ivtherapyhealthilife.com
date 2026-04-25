@@ -6,7 +6,5 @@
  * later via a separate Supabase-based ref ID system.
  */
 export const buildWaUrl = (_prefix?: string): string => {
-  const phone = "66919991744";
-  const message = "Hi! I would like a consultation for IV Therapy at Healthi-Life Bangkok";
-  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  return 'https://wa.me/66919991744?text=' + encodeURIComponent('Hi 👋 #iv');
 };
