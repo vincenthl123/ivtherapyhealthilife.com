@@ -45,7 +45,7 @@ const WhatsAppWidget = () => {
         page_source: 'iv_therapy',
       });
     }
-    window.open('https://wa.me/66919991744?text=IV%20Therapy%20Enquiry', '_blank');
+    window.open('https://wa.me/66919991744?text=IV+Therapy+Enquiry', '_blank');
     setShowPopup(false);
   };
 
