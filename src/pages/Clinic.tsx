@@ -8,7 +8,7 @@ import clinicInterior from "@/assets/clinic-room.jpg";
 import treatmentRoom from "@/assets/treatment-room.webp";
 import { trackButtonClick } from "@/lib/tracking";
 
-const WHATSAPP_URL = "https://wa.me/66919991744?text=HealthiLife%20Clinic%20Enquiry";
+const WHATSAPP_URL = "https://wa.me/66919991744?text=IV+Therapy+Enquiry";
 const PHONE = "+66 91 999 1744";
 const ADDRESS = "94 Ekkamai 10 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110";
 const MAPS_URL = "https://maps.google.com/?q=Healthi-Life+Ekkamai+Bangkok";

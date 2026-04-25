@@ -236,7 +236,7 @@ const SitemapPage = () => {
                   <div>
                     <h3 className="font-semibold text-foreground">WhatsApp</h3>
                     <a 
-                      href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" 
+                      href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-sm text-primary hover:underline"

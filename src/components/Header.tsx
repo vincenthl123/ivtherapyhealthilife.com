@@ -70,7 +70,7 @@ const Header = () => {
               onClick={() => trackButtonClick('ivclick-header-book')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4 mr-2" />
                 {t("nav.bookNow")}
               </a>
@@ -81,7 +81,7 @@ const Header = () => {
               onClick={() => trackButtonClick('ivclick-header-whatsapp')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4 mr-2" />
                 {t("nav.whatsapp")}
               </a>
@@ -123,7 +123,7 @@ const Header = () => {
                 onClick={() => trackButtonClick('ivclick-mobile-book')}
                 asChild
               >
-                <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-4 w-4 mr-2" />
                   {t("nav.bookNow")}
                 </a>
@@ -135,7 +135,7 @@ const Header = () => {
                 onClick={() => trackButtonClick('ivclick-mobile-whatsapp')}
                 asChild
               >
-                <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-4 w-4 mr-2" />
                   {t("nav.whatsapp")}
                 </a>

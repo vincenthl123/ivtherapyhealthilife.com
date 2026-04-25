@@ -329,7 +329,7 @@ const Services = () => {
                   onClick={() => trackButtonClick(`ivclick-popular-${index}`)}
                   asChild
                 >
-                  <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-4 w-4 mr-2" />
                     {drip.cta || t("services.chatWithUs")}
                   </a>
@@ -421,7 +421,7 @@ const Services = () => {
                       onClick={() => trackButtonClick(`ivclick-package-${pkg.id}`)}
                       asChild
                     >
-                      <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+                      <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="h-4 w-4 mr-2" />
                         {t("services.bookMedicalReview")}
                       </a>
@@ -481,7 +481,7 @@ const Services = () => {
                   </div>
                   <p className="text-sm text-muted-foreground mb-6">{t("pathway.vitalReset.duration")}</p>
                   <Button id="ivclick-vital-reset" size="lg" onClick={() => trackButtonClick('ivclick-vital-reset')} asChild>
-                    <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="h-5 w-5 mr-2" />
                       {t("services.bookMedicalReview")}
                     </a>
@@ -591,7 +591,7 @@ const Services = () => {
                   </div>
                   <p className="text-sm text-muted-foreground mb-6">{t("pathway.protocol.duration")}</p>
                   <Button id="ivclick-vitality-protocol" size="lg" onClick={() => trackButtonClick('ivclick-vitality-protocol')} asChild>
-                    <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="h-5 w-5 mr-2" />
                       {t("services.bookMedicalReview")}
                     </a>
@@ -702,7 +702,7 @@ const Services = () => {
                   </div>
                   <p className="text-sm text-muted-foreground mb-6">{t("pathway.intensive.duration")}</p>
                   <Button id="ivclick-vitality-intensive" size="lg" onClick={() => trackButtonClick('ivclick-vitality-intensive')} asChild>
-                    <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="h-5 w-5 mr-2" />
                       {t("services.bookMedicalReview")}
                     </a>
@@ -803,7 +803,7 @@ const Services = () => {
             onClick={() => trackButtonClick('ivclick-services-book')}
             asChild
           >
-            <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2" />
               {t("nav.bookNow")}
             </a>
@@ -825,7 +825,7 @@ const Services = () => {
               onClick={() => trackButtonClick('ivclick-services-book-review')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {t("services.bookMedicalReview")}
               </a>
@@ -837,7 +837,7 @@ const Services = () => {
               onClick={() => trackButtonClick('ivclick-services-concierge')}
               asChild
             >
-              <a href="https://wa.me/66919991744?text=IV%20Therapy%20Enquiry" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/66919991744?text=IV+Therapy+Enquiry" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {t("services.speakConcierge")}
               </a>
