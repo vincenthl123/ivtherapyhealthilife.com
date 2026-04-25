@@ -7,6 +7,6 @@
  */
 export const buildWaUrl = (_prefix?: string): string => {
   const phone = "66919991744";
-  const message = "Hi! I'd like a consultation for IV Therapy at Healthi-Life Bangkok";
+  const message = "Hi! I would like a consultation for IV Therapy at Healthi-Life Bangkok";
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 };
