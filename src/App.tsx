@@ -5,7 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/lib/i18n";
 import { HelmetProvider } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { installWaInterceptor } from "@/lib/wa-interceptor";
 
 // Lazy load pages for better Core Web Vitals
 const Index = lazy(() => import("./pages/Index"));
@@ -24,7 +25,9 @@ const PageLoader = () => (
   </div>
 );
 
-const App = () => (
+const App = () => {
+  useEffect(() => installWaInterceptor(), []);
+  return (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
@@ -60,6 +63,7 @@ const App = () => (
       </LanguageProvider>
     </QueryClientProvider>
   </HelmetProvider>
-);
+  );
+};
 
 export default App;
