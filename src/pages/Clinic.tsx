@@ -302,9 +302,11 @@ const Clinic = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">About HealthiLife</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                HealthiLife is a wellness center based in Ekkamai, Bangkok. Our team
-                provides personalized consultations in a calm, modern environment
-                designed for comfort and privacy.
+                HealthiLife is a wellness center based in Ekkamai, Bangkok, helping
+                executives and high-performers extend their healthspan through
+                data-driven wellness programs. Our team provides personalized
+                consultations in a calm, modern environment designed for comfort
+                and privacy.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We invite you to visit us, meet our team, and discuss how we can support
