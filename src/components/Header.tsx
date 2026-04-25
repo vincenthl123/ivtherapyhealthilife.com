@@ -4,6 +4,7 @@ import { MessageCircle, Menu, X } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {

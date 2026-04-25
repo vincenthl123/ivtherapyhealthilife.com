@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 const FAQ = () => {
   const { t } = useLanguage();

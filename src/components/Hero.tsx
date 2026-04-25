@@ -4,6 +4,7 @@ import { Star, Award, MapPin, Clock, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/clinic-exterior.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 const Hero = () => {
   const { t } = useLanguage();

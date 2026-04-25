@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Calendar, Stethoscope, Droplets } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 const Process = () => {
   const { t } = useLanguage();

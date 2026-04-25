@@ -4,6 +4,7 @@ import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 import clinicImage from "@/assets/award-certificate.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 const Contact = () => {
   const { t } = useLanguage();

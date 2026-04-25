@@ -3,6 +3,7 @@ import { ExternalLink, ChevronRight, MapPin, Phone, Clock, Activity, Brain, Spar
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 // All IV services data for SEO sitemap
 const ivServices = {
