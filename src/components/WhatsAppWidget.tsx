@@ -219,42 +219,73 @@ const WhatsAppWidget = () => {
         </div>
       )}
 
-      {/* Closed-state launcher */}
-      <button
-        onClick={handleToggle}
-        aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
-        className="relative rounded-full flex items-center justify-center transition-transform hover:scale-105"
-        style={{
-          width: 60,
-          height: 60,
-          backgroundColor: CREAM,
-          border: "1.5px solid rgba(180, 150, 90, 0.55)",
-          boxShadow: "0 6px 20px rgba(60, 40, 0, 0.15)",
-          color: WA_GREEN,
-        }}
-      >
-        <WhatsAppIcon className="w-7 h-7" />
-        {/* Pulse ring (re-keyed every 8s for subtle attention) */}
+      {/* Closed-state launcher with concierge label */}
+      <div className="relative flex items-center gap-3 justify-end">
         {!isOpen && (
-          <span
-            key={pulseTick}
-            className="absolute inset-0 rounded-full pointer-events-none"
+          <button
+            onClick={handleToggle}
+            aria-label="Open WhatsApp chat"
+            className="hidden md:flex items-center gap-2 rounded-full pl-2 pr-4 py-1.5 shadow-md border animate-fade-in transition-transform hover:scale-[1.02]"
             style={{
-              boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.45)",
-              animation: "wa-pulse 2.2s ease-out 1",
+              backgroundColor: CREAM,
+              borderColor: "rgba(180, 150, 90, 0.45)",
             }}
-            aria-hidden="true"
-          />
-        )}
-        {!isOpen && autoOpened === false && (
-          <span
-            className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[10px] font-bold flex items-center justify-center text-white border-2"
-            style={{ backgroundColor: WA_GREEN, borderColor: CREAM }}
           >
-            1
-          </span>
+            <span
+              className="w-7 h-7 rounded-full overflow-hidden border block"
+              style={{ borderColor: "rgba(180, 150, 90, 0.45)" }}
+            >
+              <img
+                src={conciergeAvatar}
+                alt="Anna, Medical Concierge"
+                className="w-full h-full object-cover"
+                width={56}
+                height={56}
+                loading="lazy"
+              />
+            </span>
+            <span className="text-sm font-medium text-foreground">
+              Your Medical Concierge
+            </span>
+          </button>
         )}
-      </button>
+
+        <button
+          onClick={handleToggle}
+          aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
+          className="relative rounded-full flex items-center justify-center transition-transform hover:scale-105"
+          style={{
+            width: 60,
+            height: 60,
+            backgroundColor: CREAM,
+            border: "1.5px solid rgba(180, 150, 90, 0.55)",
+            boxShadow: "0 6px 20px rgba(60, 40, 0, 0.15)",
+            color: WA_GREEN,
+          }}
+        >
+          <WhatsAppIcon className="w-7 h-7" />
+          {/* Pulse ring (re-keyed every 8s for subtle attention) */}
+          {!isOpen && (
+            <span
+              key={pulseTick}
+              className="absolute inset-0 rounded-full pointer-events-none"
+              style={{
+                boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.45)",
+                animation: "wa-pulse 2.2s ease-out 1",
+              }}
+              aria-hidden="true"
+            />
+          )}
+          {!isOpen && autoOpened === false && (
+            <span
+              className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[10px] font-bold flex items-center justify-center text-white border-2"
+              style={{ backgroundColor: WA_GREEN, borderColor: CREAM }}
+            >
+              1
+            </span>
+          )}
+        </button>
+      </div>
 
       {/* Local keyframes for the on-demand pulse */}
       <style>{`
