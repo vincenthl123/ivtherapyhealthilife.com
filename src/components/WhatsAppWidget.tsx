@@ -92,9 +92,10 @@ const WhatsAppWidget = () => {
         page_source: "iv_therapy_widget",
       });
     }
-    // data-wa-skip on the anchor itself prevents the global interceptor
-    // from rewriting the source-specific message.
-    setIsOpen(false);
+    // data-wa-skip on the widget root prevents the global interceptor
+    // from rewriting the source-specific message. Defer closing so the
+    // browser's user-gesture for the new tab is not interrupted.
+    window.setTimeout(() => setIsOpen(false), 250);
   };
 
   const handleToggle = () => {
@@ -105,6 +106,7 @@ const WhatsAppWidget = () => {
   return (
     <div
       className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
+      data-wa-skip="1"
       style={{ ["--wa-cream" as string]: CREAM, ["--wa-green" as string]: WA_GREEN }}
     >
       {/* Open card */}

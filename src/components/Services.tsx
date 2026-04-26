@@ -10,7 +10,7 @@ import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Calendar, 
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
-import clinicLoungeMain from "@/assets/clinic-iv-lounge-main.jpg";
+import clinicLoungeMain from "@/assets/clinic-iv-lounge-main.webp";
 import clinicAestheticRoom from "@/assets/clinic-aesthetic-room.jpg";
 import clinicPremiumSuite from "@/assets/clinic-premium-iv-suite.jpg";
 
