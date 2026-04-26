@@ -10,6 +10,9 @@ import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Calendar, 
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
+import clinicLoungeMain from "@/assets/clinic-iv-lounge-main.jpg";
+import clinicAestheticRoom from "@/assets/clinic-aesthetic-room.jpg";
+import clinicPremiumSuite from "@/assets/clinic-premium-iv-suite.jpg";
 
 const DiscountBadge = ({ percent }: { percent: number }) => (
   <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold">
@@ -338,6 +341,71 @@ const Services = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Wellness Packages Section */}
+        <div className="mb-16">
+        {/* Clinic Gallery — visual trust signal above Wellness Packages */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+              Inside Our Ekkamai Center
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground max-w-2xl mx-auto leading-tight">
+              A calm, private space designed for your recovery
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+            {/* Hero image — spans 2 cols on desktop */}
+            <figure className="relative md:col-span-2 md:row-span-2 group overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={clinicLoungeMain}
+                alt="Spacious IV therapy lounge with reclining chairs at Healthi-Life Ekkamai, Bangkok"
+                loading="lazy"
+                decoding="async"
+                width={1200}
+                height={900}
+                className="w-full h-64 md:h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-4 md:p-5">
+                <p className="text-white text-sm md:text-base font-semibold">Main IV Therapy Lounge</p>
+                <p className="text-white/80 text-xs md:text-sm">Natural light · reclining chairs · garden view</p>
+              </div>
+            </figure>
+
+            {/* Secondary image — top right */}
+            <figure className="relative group overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={clinicPremiumSuite}
+                alt="Private premium IV suite with two recliners at Healthi-Life Bangkok"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={600}
+                className="w-full h-48 md:h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-3 md:p-4">
+                <p className="text-white text-xs md:text-sm font-semibold">Premium Private Suite</p>
+              </div>
+            </figure>
+
+            {/* Tertiary image — bottom right */}
+            <figure className="relative group overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={clinicAestheticRoom}
+                alt="Private aesthetic and consultation room at Healthi-Life Bangkok"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={600}
+                className="w-full h-48 md:h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-3 md:p-4">
+                <p className="text-white text-xs md:text-sm font-semibold">Aesthetic Treatment Room</p>
+              </div>
+            </figure>
+          </div>
         </div>
 
         {/* Wellness Packages Section */}
