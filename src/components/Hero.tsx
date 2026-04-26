@@ -81,7 +81,7 @@ const Hero = () => {
               onClick={() => trackButtonClick('ivclick-hero-whatsapp')}
               asChild
             >
-              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
+              <a href={buildWaUrl({ source: "hero" })} target="_blank" rel="noopener noreferrer" data-wa-skip="1">
                 <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
                 {t("hero.cta1")}
               </a>
@@ -93,7 +93,7 @@ const Hero = () => {
               onClick={() => trackButtonClick('ivclick-hero-book')}
               asChild
             >
-              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
+              <a href={buildWaUrl({ source: "hero" })} target="_blank" rel="noopener noreferrer" data-wa-skip="1">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {t("hero.cta2")}
               </a>
