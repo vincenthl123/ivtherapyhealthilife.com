@@ -114,6 +114,12 @@ const findWaAnchor = (start: EventTarget | null): Element | null => {
   let node = start as Node | null;
   while (node && node.nodeType !== 1) node = node.parentNode;
   let el = node as Element | null;
+  // Walk up: if any ancestor opts out via data-wa-skip, abort interception.
+  let cursor = el;
+  while (cursor) {
+    if (cursor.hasAttribute && cursor.hasAttribute("data-wa-skip")) return null;
+    cursor = cursor.parentElement;
+  }
   while (el) {
     if (el.tagName === "A") {
       const href = (el as HTMLAnchorElement).getAttribute("href") || "";

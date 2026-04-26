@@ -101,9 +101,10 @@ const Contact = () => {
                           asChild
                         >
                           <a
-                            href={buildWaUrl("IV Therapy Enquiry")}
+                            href={buildWaUrl({ source: "visit" })}
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-wa-skip="1"
                           >
                             <MessageCircle className="h-4 w-4 mr-2" />
                             WhatsApp
@@ -152,7 +153,7 @@ const Contact = () => {
             onClick={() => trackButtonClick('ivclick-contact-cta')}
             asChild
           >
-            <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
+            <a href={buildWaUrl({ source: "visit" })} target="_blank" rel="noopener noreferrer" data-wa-skip="1">
               <MessageCircle className="h-5 w-5 mr-2" />
               {t("contact.bookYour")}
             </a>

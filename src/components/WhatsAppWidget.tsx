@@ -1,136 +1,269 @@
-import { useState, useEffect } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { X } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
-import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
-import conciergeAvatar from "@/assets/concierge-anna.jpg";
+import conciergeAvatar from "@/assets/concierge-anna-v2.jpg";
+
+const SESSION_KEY = "wa_widget_auto_opened";
+const AUTO_OPEN_DELAY_MS = 10_000;
+const SCROLL_THRESHOLD = 0.5; // 50% of the page
+
+// Official WhatsApp green
+const WA_GREEN = "#25D366";
+// Cream brand background
+const CREAM = "#fff9ef";
+
+const WhatsAppIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg
+    viewBox="0 0 32 32"
+    fill="currentColor"
+    aria-hidden="true"
+    className={className}
+  >
+    <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39-.034 0-.066-.006-.094-.02-.41-.183-3.176-1.71-4.426-4.084-.067-.12-.084-.213-.084-.288 0-.355.756-.86.756-1.246 0-.06-.014-.12-.043-.18-.064-.13-1.05-2.673-1.244-3.114-.143-.343-.32-.555-.69-.555-.094 0-.183 0-.275.012-.37.035-1.99.245-2.59 1.62-.61 1.39-.13 3.69 1.66 6.39 1.79 2.7 4.43 4.93 8.2 6.32 1.04.38 1.84.42 2.45.42.84 0 1.43-.12 1.74-.27.46-.22 1.97-.83 2.27-1.86.3-1.03.3-1.91.21-2.09-.09-.18-.32-.27-.69-.45-.36-.18-2.13-1.05-2.46-1.17-.32-.12-.56-.18-.79-.18zM16.25 4C9.5 4 4 9.5 4 16.25c0 2.34.66 4.53 1.81 6.39L4 28l5.59-1.83a12.18 12.18 0 0 0 6.66 1.96h.01c6.74 0 12.24-5.5 12.24-12.25S22.99 4 16.25 4zm0 22.36h-.01a10.16 10.16 0 0 1-5.18-1.42l-.37-.22-3.86 1.27 1.29-3.76-.24-.39A10.13 10.13 0 0 1 6.13 16.25c0-5.59 4.55-10.13 10.13-10.13 2.71 0 5.25 1.06 7.16 2.97a10.07 10.07 0 0 1 2.97 7.17c0 5.59-4.55 10.13-10.14 10.13z" />
+  </svg>
+);
 
 const WhatsAppWidget = () => {
-  const { t } = useLanguage();
-  const [showPopup, setShowPopup] = useState(false);
-  const [dismissCount, setDismissCount] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [autoOpened, setAutoOpened] = useState(false);
+  const [pulseTick, setPulseTick] = useState(0);
+  const triggeredRef = useRef(false);
 
-  // Initial open after 25s, reopen 30s after each dismiss
+  // Auto-open: 10s timer OR 50% scroll, once per session
   useEffect(() => {
-    const delay = dismissCount === 0 ? 25000 : 30000;
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, delay);
+    if (typeof window === "undefined") return;
+    try {
+      if (sessionStorage.getItem(SESSION_KEY) === "1") {
+        triggeredRef.current = true;
+        return;
+      }
+    } catch {
+      /* sessionStorage may be blocked; fall through to in-memory */
+    }
 
-    return () => clearTimeout(timer);
-  }, [dismissCount]);
+    const trigger = () => {
+      if (triggeredRef.current) return;
+      triggeredRef.current = true;
+      try {
+        sessionStorage.setItem(SESSION_KEY, "1");
+      } catch {
+        /* ignore */
+      }
+      setIsOpen(true);
+      setAutoOpened(true);
+      cleanup();
+    };
 
-  // wa.me URLs are now built dynamically by buildWaUrl() at click-time.
-  // No DOM mutation needed.
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      const ratio = window.scrollY / scrollable;
+      if (ratio >= SCROLL_THRESHOLD) trigger();
+    };
 
-  const handleOpenChat = () => {
-    trackButtonClick('ivclick-whatsapp-widget');
+    const timer = window.setTimeout(trigger, AUTO_OPEN_DELAY_MS);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    function cleanup() {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    }
+    return cleanup;
+  }, []);
+
+  // Subtle pulse every 8s when closed
+  useEffect(() => {
+    if (isOpen) return;
+    const id = window.setInterval(() => setPulseTick((n) => n + 1), 8000);
+    return () => window.clearInterval(id);
+  }, [isOpen]);
+
+  const waUrl = buildWaUrl({ source: "widget" });
+
+  const handleContinue = () => {
+    trackButtonClick("ivclick-whatsapp-widget");
     const w = window as Window & { gtag?: (...args: unknown[]) => void };
     if (w.gtag) {
-      w.gtag('event', 'whatsapp_click', {
-        event_category: 'engagement',
-        event_label: 'iv_therapy',
-        page_source: 'iv_therapy',
+      w.gtag("event", "whatsapp_click", {
+        event_category: "engagement",
+        event_label: "iv_therapy",
+        page_source: "iv_therapy_widget",
       });
     }
-    window.open(buildWaUrl('IV Therapy Enquiry'), '_blank');
-    setShowPopup(false);
+    // data-wa-skip on the anchor itself prevents the global interceptor
+    // from rewriting the source-specific message.
+    setIsOpen(false);
   };
 
-  const closePopup = () => {
-    setShowPopup(false);
-    setDismissCount(prev => prev + 1);
+  const handleToggle = () => {
+    setIsOpen((v) => !v);
+    setAutoOpened(false);
   };
-
-  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
-      {/* Popup Message */}
-      {showPopup && (
-        <div className="absolute bottom-16 md:bottom-20 right-0 w-[calc(100vw-2rem)] max-w-80 bg-card rounded-2xl shadow-2xl border border-border overflow-hidden animate-fade-in-up">
+    <div
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
+      style={{ ["--wa-cream" as string]: CREAM, ["--wa-green" as string]: WA_GREEN }}
+    >
+      {/* Open card */}
+      {isOpen && (
+        <div
+          className="absolute bottom-20 right-0 w-[calc(100vw-2rem)] max-w-[340px] rounded-2xl shadow-2xl border overflow-hidden animate-fade-in"
+          style={{
+            backgroundColor: CREAM,
+            borderColor: "rgba(180, 150, 90, 0.25)",
+          }}
+          role="dialog"
+          aria-label="Chat with Anna, our Medical Concierge"
+        >
           {/* Header */}
-          <div className="bg-success p-4 flex items-center justify-between">
+          <div
+            className="px-4 py-3 flex items-center justify-between border-b"
+            style={{ borderColor: "rgba(180, 150, 90, 0.2)" }}
+          >
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-success-foreground/30">
-                  <img 
+                <div
+                  className="w-11 h-11 rounded-full overflow-hidden border"
+                  style={{ borderColor: "rgba(180, 150, 90, 0.35)" }}
+                >
+                  <img
                     src={conciergeAvatar}
-                    alt="Anna - Medical Concierge"
+                    alt="Anna, Medical Concierge"
                     className="w-full h-full object-cover"
+                    width={88}
+                    height={88}
                     loading="lazy"
                   />
                 </div>
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-accent rounded-full border-2 border-success" />
+                <span
+                  className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2"
+                  style={{ backgroundColor: "#22c55e", borderColor: CREAM }}
+                  aria-hidden="true"
+                />
               </div>
-              <div>
-                <p className="text-success-foreground font-semibold text-sm">Anna - Medical Concierge</p>
-                <p className="text-success-foreground/80 text-xs">{t("whatsapp.online")}</p>
+              <div className="leading-tight">
+                <p className="text-foreground font-semibold text-sm">Anna</p>
+                <p className="text-muted-foreground text-xs">Medical Concierge</p>
+                <p className="text-[11px] mt-0.5 flex items-center gap-1">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full inline-block"
+                    style={{ backgroundColor: "#22c55e" }}
+                  />
+                  <span style={{ color: "#15803d" }}>Available</span>
+                </p>
               </div>
             </div>
-            <button 
-              onClick={closePopup}
-              className="text-success-foreground/80 hover:text-success-foreground transition-colors p-1"
-              aria-label="Close"
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-muted-foreground hover:text-foreground transition-colors p-1 -mr-1"
+              aria-label="Close chat"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
-          
-          {/* Chat Body */}
-          <div className="p-4 bg-secondary min-h-[140px]">
-            <div className="bg-card rounded-lg p-3 shadow-sm max-w-[90%] relative">
-              <div className="absolute -left-2 top-0 w-0 h-0 border-t-8 border-t-card border-r-8 border-r-transparent" />
-              <p className="text-foreground text-sm mb-2">{t("whatsapp.greeting")}</p>
-              <p className="text-foreground text-sm mb-2">{t("whatsapp.welcome")}</p>
-              <p className="text-muted-foreground text-sm whitespace-pre-line">{t("whatsapp.message")}</p>
-              <p className="text-muted-foreground/60 text-[10px] text-right mt-2">{currentTime}</p>
+
+          {/* Message bubble */}
+          <div className="px-4 pt-4 pb-3">
+            <div
+              className="bg-white rounded-xl px-4 py-3 text-sm text-foreground leading-relaxed relative"
+              style={{ boxShadow: "0 2px 10px rgba(60, 40, 0, 0.06)" }}
+            >
+              <span
+                className="absolute -left-1.5 top-3 w-3 h-3 bg-white rotate-45"
+                style={{ boxShadow: "-2px 2px 4px rgba(60, 40, 0, 0.04)" }}
+                aria-hidden="true"
+              />
+              Hi. Welcome to Healthi Life. Our concierge can help you choose the
+              right IV protocol or book a consultation. How may we assist you?
             </div>
           </div>
-          
-          {/* Input Area */}
-          <div className="p-3 bg-muted flex items-center gap-2">
-            <div className="flex-1 bg-card rounded-full px-4 py-2 text-sm text-muted-foreground">
-              Enter Your Message...
-            </div>
-            <button
-              onClick={handleOpenChat}
-              className="w-10 h-10 bg-success rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+
+          {/* Input + CTA */}
+          <div className="px-4 pb-4 space-y-3">
+            <input
+              type="text"
+              placeholder="Type a message..."
+              className="w-full rounded-full border bg-white px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2"
+              style={{
+                borderColor: "rgba(180, 150, 90, 0.3)",
+              }}
+              aria-label="Type a message"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  (
+                    document.getElementById(
+                      "wa-widget-cta",
+                    ) as HTMLAnchorElement | null
+                  )?.click();
+                }
+              }}
+            />
+            <a
+              id="wa-widget-cta"
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-wa-skip="1"
+              onClick={handleContinue}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
+              style={{ backgroundColor: WA_GREEN }}
             >
-              <Send className="w-5 h-5 text-success-foreground" />
-            </button>
+              <WhatsAppIcon className="w-5 h-5" />
+              Continue on WhatsApp
+            </a>
           </div>
         </div>
       )}
 
-      {/* Floating Button */}
-      <div className="relative flex items-center gap-3">
-        {!showPopup && (
-          <div className="hidden md:flex bg-card rounded-full pl-2 pr-4 py-2 shadow-lg border border-border items-center gap-2 animate-fade-in">
-            <div className="w-7 h-7 rounded-full overflow-hidden border border-border">
-              <img 
-                src={conciergeAvatar}
-                alt="Concierge"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <p className="text-sm font-medium text-foreground">{t("whatsapp.concierge")}</p>
-          </div>
+      {/* Closed-state launcher */}
+      <button
+        onClick={handleToggle}
+        aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
+        className="relative rounded-full flex items-center justify-center transition-transform hover:scale-105"
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: CREAM,
+          border: "1.5px solid rgba(180, 150, 90, 0.55)",
+          boxShadow: "0 6px 20px rgba(60, 40, 0, 0.15)",
+          color: WA_GREEN,
+        }}
+      >
+        <WhatsAppIcon className="w-7 h-7" />
+        {/* Pulse ring (re-keyed every 8s for subtle attention) */}
+        {!isOpen && (
+          <span
+            key={pulseTick}
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.45)",
+              animation: "wa-pulse 2.2s ease-out 1",
+            }}
+            aria-hidden="true"
+          />
         )}
-        
-        <button
-          onClick={handleOpenChat}
-          className="group relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-success shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
-          aria-label="Chat on WhatsApp"
-        >
-          <MessageCircle className="w-7 h-7 text-success-foreground" />
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-destructive rounded-full flex items-center justify-center text-destructive-foreground text-xs font-bold border-2 border-card">
+        {!isOpen && autoOpened === false && (
+          <span
+            className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[10px] font-bold flex items-center justify-center text-white border-2"
+            style={{ backgroundColor: WA_GREEN, borderColor: CREAM }}
+          >
             1
           </span>
-          <span className="absolute inset-0 rounded-full bg-success animate-ping opacity-20" />
-        </button>
-      </div>
+        )}
+      </button>
+
+      {/* Local keyframes for the on-demand pulse */}
+      <style>{`
+        @keyframes wa-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+          70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+      `}</style>
     </div>
   );
 };
