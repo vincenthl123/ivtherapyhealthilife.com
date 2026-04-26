@@ -343,8 +343,6 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Wellness Packages Section */}
-        <div className="mb-16">
         {/* Clinic Gallery — visual trust signal above Wellness Packages */}
         <div className="mb-16">
           <div className="text-center mb-8">
