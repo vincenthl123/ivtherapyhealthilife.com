@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { X } from "lucide-react";
-import { trackButtonClick } from "@/lib/tracking";
-import { buildWaUrl } from "@/lib/whatsapp";
+import { trackButtonClick, trackGAEvent } from "@/lib/tracking";
+import { buildWaUrl, trackAndOpenWhatsApp } from "@/lib/whatsapp";
 import conciergeAvatar from "@/assets/concierge-anna-v2.jpg";
 
 const SESSION_KEY = "wa_widget_auto_opened";
@@ -28,7 +28,11 @@ const WhatsAppWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [autoOpened, setAutoOpened] = useState(false);
   const [pulseTick, setPulseTick] = useState(0);
+  const [userMessage, setUserMessage] = useState("");
   const triggeredRef = useRef(false);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const lastFocusRef = useRef<HTMLElement | null>(null);
 
   // Auto-open: 10s timer OR 50% scroll, once per session
   useEffect(() => {
@@ -80,28 +84,107 @@ const WhatsAppWidget = () => {
     return () => window.clearInterval(id);
   }, [isOpen]);
 
-  const waUrl = buildWaUrl({ source: "widget" });
-
   const handleContinue = () => {
     trackButtonClick("ivclick-whatsapp-widget");
-    const w = window as Window & { gtag?: (...args: unknown[]) => void };
-    if (w.gtag) {
-      w.gtag("event", "whatsapp_click", {
-        event_category: "engagement",
-        event_label: "iv_therapy",
-        page_source: "iv_therapy_widget",
-      });
-    }
+    trackGAEvent("whatsapp_popup_submitted", {
+      event_category: "engagement",
+      event_label: "iv_therapy_widget",
+      has_message: userMessage.trim().length > 0 ? 1 : 0,
+      page_path:
+        typeof window !== "undefined" ? window.location.pathname : "",
+    });
+
+    // Build URL with user message + Source/Page so context survives the hop.
     // data-wa-skip on the widget root prevents the global interceptor
-    // from rewriting the source-specific message. Defer closing so the
-    // browser's user-gesture for the new tab is not interrupted.
-    window.setTimeout(() => setIsOpen(false), 250);
+    // from rewriting the source-specific message.
+    trackAndOpenWhatsApp({
+      source: "popup",
+      userMessage: userMessage.trim(),
+      extras: {
+        sourceLabel: "Floating Widget",
+        page:
+          typeof window !== "undefined" ? window.location.pathname : "",
+      },
+    });
+
+    // Defer closing so the browser's user-gesture for the new tab is not
+    // interrupted. Reset textarea on close.
+    window.setTimeout(() => {
+      setIsOpen(false);
+      setUserMessage("");
+    }, 250);
+  };
+
+  const handleSubmitForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleContinue();
   };
 
   const handleToggle = () => {
-    setIsOpen((v) => !v);
+    setIsOpen((v) => {
+      const next = !v;
+      if (next) {
+        trackGAEvent("whatsapp_popup_opened", {
+          event_category: "engagement",
+          event_label: "iv_therapy_widget",
+          page_path:
+            typeof window !== "undefined" ? window.location.pathname : "",
+        });
+      }
+      return next;
+    });
     setAutoOpened(false);
   };
+
+  // ESC to close + autofocus textarea + restore focus on close.
+  useEffect(() => {
+    if (!isOpen) return;
+    lastFocusRef.current = (document.activeElement as HTMLElement) || null;
+    const t = window.setTimeout(() => textareaRef.current?.focus(), 50);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setIsOpen(false);
+      } else if (e.key === "Tab") {
+        // Simple focus trap inside the dialog.
+        const root = dialogRef.current;
+        if (!root) return;
+        const focusables = root.querySelectorAll<HTMLElement>(
+          'button, [href], textarea, input, [tabindex]:not([tabindex="-1"])',
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      window.clearTimeout(t);
+      document.removeEventListener("keydown", onKey);
+      // Restore focus to the launcher / previous element.
+      lastFocusRef.current?.focus?.();
+    };
+  }, [isOpen]);
+
+  // Track auto-open once when it happens.
+  useEffect(() => {
+    if (isOpen && autoOpened) {
+      trackGAEvent("whatsapp_popup_opened", {
+        event_category: "engagement",
+        event_label: "iv_therapy_widget_auto",
+        page_path:
+          typeof window !== "undefined" ? window.location.pathname : "",
+      });
+    }
+  }, [isOpen, autoOpened]);
 
   return (
     <div
