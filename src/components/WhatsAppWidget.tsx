@@ -8,10 +8,12 @@ const SESSION_KEY = "wa_widget_auto_opened";
 const AUTO_OPEN_DELAY_MS = 10_000;
 const SCROLL_THRESHOLD = 0.5; // 50% of the page
 
-// Official WhatsApp green
+// Official WhatsApp green (legacy launcher icon color)
 const WA_GREEN = "#25D366";
 // Cream brand background
 const CREAM = "#fff9ef";
+// Healthi Life gold accent
+const GOLD = "#b8941f";
 
 const WhatsAppIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg
