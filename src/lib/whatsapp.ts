@@ -19,7 +19,8 @@ export type WaSource =
   | "protocol"
   | "visit"
   | "widget"
-  | "consultation";
+  | "consultation"
+  | "popup";
 
 const SOURCE_MESSAGES: Record<Exclude<WaSource, "protocol">, string> = {
   default: "Hi 👋 #iv",
@@ -27,6 +28,8 @@ const SOURCE_MESSAGES: Record<Exclude<WaSource, "protocol">, string> = {
   visit: "Hi Anna, I'd like to book a consultation",
   widget: "Hi Anna, I have a question about your IV protocols",
   consultation: "Hi Anna, I'd like to book a consultation",
+  popup:
+    "Hi 👋 Welcome to Healthi Life! I'd like more info on your IV protocols.",
 };
 
 const messageFor = (source: WaSource, protocolName?: string): string => {
@@ -37,24 +40,63 @@ const messageFor = (source: WaSource, protocolName?: string): string => {
   return SOURCE_MESSAGES[source];
 };
 
+export type BuildWaOptions = {
+  source: WaSource;
+  protocolName?: string;
+  /** Free-form message typed by the user in the popup. Appended after prefix. */
+  userMessage?: string;
+  /** Optional extras stitched into the message for tracking visibility. */
+  extras?: { page?: string; sourceLabel?: string };
+};
+
 /**
  * Build a wa.me URL.
  *
  * Backwards-compatible: existing call sites pass a free-form string label
- * (e.g. "IV Therapy Enquiry") which is ignored and routed through the
- * default message + global interceptor for ref tracking.
+ * (ignored) or a structured options object.
  *
- * New call sites can pass a structured options object to opt into a
- * source-specific pre-filled message.
+ * Final text format when userMessage is provided:
+ *   "<prefix> | Source: <label> | Page: <path> | Message: <userMessage>"
+ *
+ * UTM/GCLID/page tracking on the current URL is preserved by the global
+ * interceptor (wa-interceptor.ts) which POSTs them to the edge function.
+ * For popup submissions we bypass the interceptor (data-wa-skip) and instead
+ * embed Source/Page directly in the WhatsApp text so context is never lost.
  */
 export const buildWaUrl = (
-  arg?: string | { source: WaSource; protocolName?: string },
+  arg?: string | BuildWaOptions,
 ): string => {
-  const source: WaSource =
-    typeof arg === "object" && arg !== null ? arg.source : "default";
-  const protocolName =
-    typeof arg === "object" && arg !== null ? arg.protocolName : undefined;
+  const opts: BuildWaOptions =
+    typeof arg === "object" && arg !== null
+      ? arg
+      : { source: "default" };
 
-  const text = messageFor(source, protocolName);
+  const prefix = messageFor(opts.source, opts.protocolName);
+  const parts: string[] = [prefix];
+
+  if (opts.extras?.sourceLabel) {
+    parts.push(`Source: ${opts.extras.sourceLabel}`);
+  }
+  if (opts.extras?.page) {
+    parts.push(`Page: ${opts.extras.page}`);
+  }
+  const trimmed = (opts.userMessage || "").trim();
+  if (trimmed) {
+    parts.push(`Message: ${trimmed}`);
+  }
+
+  const text = parts.join(" | ");
   return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
+};
+
+/**
+ * Build the URL and open WhatsApp in a new tab. Preserves the user gesture.
+ * Returns the URL that was opened (useful for logging/tests).
+ */
+export const trackAndOpenWhatsApp = (opts: BuildWaOptions): string => {
+  const url = buildWaUrl(opts);
+  if (typeof window !== "undefined") {
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+  return url;
 };
