@@ -192,31 +192,44 @@ const WhatsAppWidget = () => {
       data-wa-skip="1"
       style={{ ["--wa-cream" as string]: CREAM, ["--wa-green" as string]: WA_GREEN }}
     >
+      {/* Backdrop (mobile bottom-sheet feel + click-outside-to-close) */}
+      {isOpen && (
+        <button
+          type="button"
+          aria-label="Close chat"
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/30 md:bg-transparent md:pointer-events-none animate-fade-in"
+          style={{ zIndex: -1 }}
+        />
+      )}
+
       {/* Open card */}
       {isOpen && (
         <div
-          className="absolute bottom-20 right-0 w-[calc(100vw-2rem)] max-w-[340px] rounded-2xl shadow-2xl border overflow-hidden animate-fade-in"
+          ref={dialogRef}
+          className="fixed inset-x-3 bottom-24 md:absolute md:inset-auto md:bottom-20 md:right-0 md:w-[380px] max-w-[420px] md:max-w-[380px] mx-auto md:mx-0 rounded-2xl shadow-2xl border overflow-hidden motion-safe:animate-fade-in"
           style={{
             backgroundColor: CREAM,
-            borderColor: "rgba(180, 150, 90, 0.25)",
+            borderColor: "rgba(184, 148, 31, 0.35)",
           }}
           role="dialog"
-          aria-label="Chat with Anna, our Medical Concierge"
+          aria-modal="true"
+          aria-labelledby="wa-popup-title"
         >
           {/* Header */}
           <div
             className="px-4 py-3 flex items-center justify-between border-b"
-            style={{ borderColor: "rgba(180, 150, 90, 0.2)" }}
+            style={{ borderColor: "rgba(184, 148, 31, 0.25)" }}
           >
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div
-                  className="w-11 h-11 rounded-full overflow-hidden border"
-                  style={{ borderColor: "rgba(180, 150, 90, 0.35)" }}
+                  className="w-11 h-11 rounded-full overflow-hidden border-2"
+                  style={{ borderColor: GOLD }}
                 >
                   <img
                     src={conciergeAvatar}
-                    alt="Anna, Medical Concierge"
+                    alt="Healthi Life concierge"
                     className="w-full h-full object-cover"
                     width={88}
                     height={88}
@@ -230,18 +243,31 @@ const WhatsAppWidget = () => {
                 />
               </div>
               <div className="leading-tight">
-                <p className="text-foreground font-semibold text-sm">Anna</p>
-                <p className="text-muted-foreground text-xs">Medical Concierge</p>
+                <p
+                  id="wa-popup-title"
+                  className="text-foreground font-semibold text-sm uppercase"
+                  style={{
+                    fontFamily:
+                      "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+                    letterSpacing: "0.18em",
+                  }}
+                >
+                  Healthi Life
+                </p>
+                <p className="text-muted-foreground text-xs">
+                  Typically replies within minutes
+                </p>
                 <p className="text-[11px] mt-0.5 flex items-center gap-1">
                   <span
                     className="w-1.5 h-1.5 rounded-full inline-block"
                     style={{ backgroundColor: "#22c55e" }}
                   />
-                  <span style={{ color: "#15803d" }}>Available</span>
+                  <span style={{ color: "#15803d" }}>Online</span>
                 </p>
               </div>
             </div>
             <button
+              type="button"
               onClick={() => setIsOpen(false)}
               className="text-muted-foreground hover:text-foreground transition-colors p-1 -mr-1"
               aria-label="Close chat"
@@ -250,7 +276,7 @@ const WhatsAppWidget = () => {
             </button>
           </div>
 
-          {/* Message bubble */}
+          {/* Welcome bubble */}
           <div className="px-4 pt-4 pb-3">
             <div
               className="bg-white rounded-xl px-4 py-3 text-sm text-foreground leading-relaxed relative"
@@ -261,46 +287,51 @@ const WhatsAppWidget = () => {
                 style={{ boxShadow: "-2px 2px 4px rgba(60, 40, 0, 0.04)" }}
                 aria-hidden="true"
               />
-              Hi. Welcome to Healthi Life. Our concierge can help you choose the
-              right IV protocol or book a consultation. How may we assist you?
+              Hi 👋 Welcome to Healthi Life! Need info on treatments, a
+              consultation, or pricing? Just send us a message — our team will
+              reply shortly.
             </div>
           </div>
 
-          {/* Input + CTA */}
-          <div className="px-4 pb-4 space-y-3">
-            <input
-              type="text"
-              placeholder="Type a message..."
-              className="w-full rounded-full border bg-white px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2"
+          {/* Form: textarea + CTA */}
+          <form
+            onSubmit={handleSubmitForm}
+            className="px-4 pb-4 space-y-3"
+            data-wa-skip="1"
+          >
+            <textarea
+              ref={textareaRef}
+              value={userMessage}
+              onChange={(e) => setUserMessage(e.target.value)}
+              placeholder="Type your message…"
+              rows={3}
+              className="w-full rounded-xl border bg-white px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 resize-none"
               style={{
-                borderColor: "rgba(180, 150, 90, 0.3)",
+                borderColor: "rgba(184, 148, 31, 0.35)",
+                fontFamily: "Inter, system-ui, sans-serif",
               }}
-              aria-label="Type a message"
+              aria-label="Type your message"
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
+                if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
                   e.preventDefault();
-                  (
-                    document.getElementById(
-                      "wa-widget-cta",
-                    ) as HTMLAnchorElement | null
-                  )?.click();
+                  handleContinue();
                 }
               }}
             />
-            <a
+            <button
               id="wa-widget-cta"
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              type="submit"
               data-wa-skip="1"
-              onClick={handleContinue}
-              className="w-full inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
-              style={{ backgroundColor: WA_GREEN }}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2"
+              style={{
+                backgroundColor: GOLD,
+                color: CREAM,
+              }}
             >
               <WhatsAppIcon className="w-5 h-5" />
-              Continue on WhatsApp
-            </a>
-          </div>
+              Open WhatsApp
+            </button>
+          </form>
         </div>
       )}
 
