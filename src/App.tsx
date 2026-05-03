@@ -27,7 +27,10 @@ const PageLoader = () => (
 );
 
 const App = () => {
-  useEffect(() => installWaInterceptor(), []);
+  useEffect(() => {
+    captureAttribution();
+    return installWaInterceptor();
+  }, []);
   return (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
