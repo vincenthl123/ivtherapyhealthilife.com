@@ -99,6 +99,11 @@ const openWa = (text: string, originalOpen: typeof window.open) => {
 };
 
 const handleWaIntent = async (originalOpen: typeof window.open) => {
+  // Fire GA4 conversion event with full funnel attribution.
+  void import("./tracking").then(({ trackWhatsAppClick }) => {
+    trackWhatsAppClick({ source: "interceptor" });
+  });
+
   const tracking = collectTracking();
   let ref: string | null = null;
   if (tracking) {
