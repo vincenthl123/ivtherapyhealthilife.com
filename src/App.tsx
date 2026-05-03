@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/lib/i18n";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense, useEffect } from "react";
 import { installWaInterceptor } from "@/lib/wa-interceptor";
+import { captureAttribution } from "@/lib/attribution";
 
 // Lazy load pages for better Core Web Vitals
 const Index = lazy(() => import("./pages/Index"));
