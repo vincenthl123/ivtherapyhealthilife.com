@@ -85,17 +85,39 @@ export const buildWaUrl = (
     parts.push(`Message: ${trimmed}`);
   }
 
+  // Append compact attribution tag (gclid/fbclid/utm) so the agent can see
+  // the campaign source even after the redirect to WhatsApp.
+  if (typeof window !== "undefined") {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { getAttribution, attributionTag } = require("./attribution") as typeof import("./attribution");
+      const tag = attributionTag(getAttribution());
+      if (tag) parts.push(tag);
+    } catch {
+      /* ignore */
+    }
+  }
+
   const text = parts.join(" | ");
   return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
 };
 
 /**
  * Build the URL and open WhatsApp in a new tab. Preserves the user gesture.
- * Returns the URL that was opened (useful for logging/tests).
+ * Fires the GA4 'whatsapp_click' + 'generate_lead' conversion events with
+ * full funnel attribution (gclid/utm) before opening.
  */
 export const trackAndOpenWhatsApp = (opts: BuildWaOptions): string => {
   const url = buildWaUrl(opts);
   if (typeof window !== "undefined") {
+    // Fire conversion tracking (non-blocking).
+    void import("./tracking").then(({ trackWhatsAppClick }) => {
+      trackWhatsAppClick({
+        source: opts.source,
+        page: opts.extras?.page,
+        hasMessage: !!opts.userMessage?.trim(),
+      });
+    });
     window.open(url, "_blank", "noopener,noreferrer");
   }
   return url;
