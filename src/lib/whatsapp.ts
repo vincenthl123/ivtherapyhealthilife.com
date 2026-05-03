@@ -90,14 +90,8 @@ export const buildWaUrl = (
   // Append compact attribution tag (gclid/fbclid/utm) so the agent can see
   // the campaign source even after the redirect to WhatsApp.
   if (typeof window !== "undefined") {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const { getAttribution, attributionTag } = require("./attribution") as typeof import("./attribution");
-      const tag = attributionTag(getAttribution());
-      if (tag) parts.push(tag);
-    } catch {
-      /* ignore */
-    }
+    const tag = attributionTag(getAttribution());
+    if (tag) parts.push(tag);
   }
 
   const text = parts.join(" | ");
