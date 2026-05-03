@@ -11,6 +11,8 @@
  * should add `data-wa-skip="1"` so the interceptor leaves them alone.
  */
 
+import { getAttribution, attributionTag } from "./attribution";
+
 const WA_PHONE = "66919991744";
 
 export type WaSource =
