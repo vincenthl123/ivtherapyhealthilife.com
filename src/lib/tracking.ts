@@ -71,6 +71,57 @@ export const trackGAEvent = (eventName: string, params?: Record<string, unknown>
   scheduleProcessing();
 };
 
+// WhatsApp click conversion event with full funnel attribution.
+// Fires:
+//   - GA4 'whatsapp_click' (marked as conversion in GA4 → imported to Google Ads)
+//   - GA4 'generate_lead' (recommended event for Enhanced Conversions)
+//   - Meta Pixel 'Lead'
+// All events include gclid/fbclid/utm_* captured on landing (90d window),
+// enabling Enhanced Conversions and offline attribution via the GA4 ↔ Ads link.
+export const trackWhatsAppClick = (params: {
+  source: string;
+  page?: string;
+  hasMessage?: boolean;
+}) => {
+  // Lazy import to keep tracking.ts free of cycles.
+  void import("./attribution").then(({ getAttribution }) => {
+    const attr = getAttribution();
+    const payload = {
+      event_category: "engagement",
+      event_label: params.source,
+      page_source: "iv_therapy",
+      page_path:
+        params.page ||
+        (typeof window !== "undefined" ? window.location.pathname : ""),
+      has_message: params.hasMessage ? 1 : 0,
+      // Funnel attribution
+      gclid: attr.gclid,
+      gbraid: attr.gbraid,
+      wbraid: attr.wbraid,
+      fbclid: attr.fbclid,
+      utm_source: attr.utm_source,
+      utm_medium: attr.utm_medium,
+      utm_campaign: attr.utm_campaign,
+      utm_term: attr.utm_term,
+      utm_content: attr.utm_content,
+      landing_page: attr.landing_page,
+      referrer: attr.referrer,
+    };
+
+    trackGAEvent("whatsapp_click", payload);
+    // Recommended GA4 event (Enhanced Conversions / Ads import).
+    trackGAEvent("generate_lead", {
+      ...payload,
+      currency: "THB",
+      value: 1,
+    });
+    trackMetaEvent("Lead", {
+      content_name: `whatsapp_${params.source}`,
+      content_category: "iv_therapy",
+    });
+  });
+};
+
 // Combined button click tracking - sends to both Meta & GA
 export const trackButtonClick = (buttonId: string) => {
   // Meta Pixel Lead event
