@@ -88,17 +88,9 @@ const WhatsAppWidget = () => {
 
   const handleContinue = () => {
     trackButtonClick("ivclick-whatsapp-widget");
-    trackGAEvent("whatsapp_popup_submitted", {
-      event_category: "engagement",
-      event_label: "iv_therapy_widget",
-      has_message: userMessage.trim().length > 0 ? 1 : 0,
-      page_path:
-        typeof window !== "undefined" ? window.location.pathname : "",
-    });
 
-    // Build URL with user message + Source/Page so context survives the hop.
-    // data-wa-skip on the widget root prevents the global interceptor
-    // from rewriting the source-specific message.
+    // trackAndOpenWhatsApp now fires GA4 'whatsapp_click' + 'generate_lead'
+    // with full funnel attribution (gclid/fbclid/utm) attached.
     trackAndOpenWhatsApp({
       source: "popup",
       userMessage: userMessage.trim(),
