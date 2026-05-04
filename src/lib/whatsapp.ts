@@ -11,9 +11,10 @@
  * should add `data-wa-skip="1"` so the interceptor leaves them alone.
  */
 
-import { getAttribution, attributionTag } from "./attribution";
+import { getAttribution, getSessionId } from "./attribution";
 
 const WA_PHONE = "66919991744";
+const SITE_DOMAIN = "ivtherapyhealthilife.com";
 
 export type WaSource =
   | "default"
@@ -24,22 +25,21 @@ export type WaSource =
   | "consultation"
   | "popup";
 
-const SOURCE_MESSAGES: Record<Exclude<WaSource, "protocol">, string> = {
-  default: "Hi 👋 #iv",
-  hero: "Hi Anna, I'd like to learn more about IV therapy at Healthi Life",
-  visit: "Hi Anna, I'd like to book a consultation",
-  widget: "Hi Anna, I have a question about your IV protocols",
-  consultation: "Hi Anna, I'd like to book a consultation",
-  popup:
-    "Hi 👋 Welcome to Healthi Life! I'd like more info on your IV protocols.",
+/** Human-readable "interest" label per entry point (fills the [page-name] slot). */
+const SOURCE_INTEREST: Record<Exclude<WaSource, "protocol">, string> = {
+  default: "your IV therapy services",
+  hero: "your IV therapy services",
+  visit: "booking a consultation",
+  widget: "your IV protocols",
+  consultation: "booking a consultation",
+  popup: "your IV protocols",
 };
 
-const messageFor = (source: WaSource, protocolName?: string): string => {
+const interestFor = (source: WaSource, protocolName?: string): string => {
   if (source === "protocol") {
-    const name = (protocolName || "your IV protocols").trim();
-    return `Hi Anna, I'm interested in ${name}`;
+    return (protocolName || "your IV protocols").trim();
   }
-  return SOURCE_MESSAGES[source];
+  return SOURCE_INTEREST[source];
 };
 
 export type BuildWaOptions = {
@@ -73,28 +73,34 @@ export const buildWaUrl = (
       ? arg
       : { source: "default" };
 
-  const prefix = messageFor(opts.source, opts.protocolName);
-  const parts: string[] = [prefix];
+  const interest = interestFor(opts.source, opts.protocolName);
+  const path =
+    opts.extras?.page ||
+    (typeof window !== "undefined" ? window.location.pathname : "");
+  const cta = opts.extras?.sourceLabel || opts.source;
+  const attr = typeof window !== "undefined" ? getAttribution() : {};
+  const sid = typeof window !== "undefined" ? getSessionId() : "";
+  const gclid = attr.gclid || "";
+  const ts = new Date().toISOString();
 
-  if (opts.extras?.sourceLabel) {
-    parts.push(`Source: ${opts.extras.sourceLabel}`);
-  }
-  if (opts.extras?.page) {
-    parts.push(`Page: ${opts.extras.page}`);
-  }
-  const trimmed = (opts.userMessage || "").trim();
-  if (trimmed) {
-    parts.push(`Message: ${trimmed}`);
+  const greeting = `[#iv] Hello HealthiLife — I'm interested in ${interest}.`;
+
+  const lines = [
+    greeting,
+    `Source: ${SITE_DOMAIN}`,
+    `Page: ${path}`,
+    `CTA: ${cta}`,
+    `SID: ${sid}`,
+    `GCLID: ${gclid}`,
+    `TS: ${ts}`,
+  ];
+
+  const userMsg = (opts.userMessage || "").trim();
+  if (userMsg) {
+    lines.push("", userMsg);
   }
 
-  // Append compact attribution tag (gclid/fbclid/utm) so the agent can see
-  // the campaign source even after the redirect to WhatsApp.
-  if (typeof window !== "undefined") {
-    const tag = attributionTag(getAttribution());
-    if (tag) parts.push(tag);
-  }
-
-  const text = parts.join(" | ");
+  const text = lines.join("\n");
   return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
 };
 
