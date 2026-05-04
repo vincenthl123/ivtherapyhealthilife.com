@@ -96,6 +96,27 @@ export const captureAttribution = (): Attribution => {
   return existing;
 };
 
+const SID_KEY = "hl_sid";
+
+/** Get or create a stable session id stored in localStorage. */
+export const getSessionId = (): string => {
+  if (typeof window === "undefined") return "";
+  const storage = safeStorage();
+  try {
+    const existing = storage?.getItem(SID_KEY);
+    if (existing) return existing;
+    const sid =
+      "s_" +
+      Date.now().toString(36) +
+      "_" +
+      Math.random().toString(36).slice(2, 8);
+    storage?.setItem(SID_KEY, sid);
+    return sid;
+  } catch {
+    return "";
+  }
+};
+
 export const getAttribution = (): Attribution => {
   if (typeof window === "undefined") return {};
   const storage = safeStorage();

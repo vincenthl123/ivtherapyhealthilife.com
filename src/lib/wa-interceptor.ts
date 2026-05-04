@@ -84,18 +84,18 @@ const fetchRef = async (payload: TrackingPayload): Promise<string | null> => {
   }
 };
 
-const buildText = (ref: string | null): string => {
-  if (ref) {
-    const tail = ref.replace(/^[a-z]+_/, "").replace(/_/g, "-");
-    return `Hi 👋 #iv-${tail}`;
-  }
-  return `Hi 👋 #iv`;
-};
-
-const openWa = (text: string, originalOpen: typeof window.open) => {
-  const url = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
-  // Use the saved original to avoid recursing into our wrapper.
-  originalOpen.call(window, url, "_blank");
+const openWa = (originalOpen: typeof window.open) => {
+  // Build the parser-friendly message with SID/GCLID/TS pulled from localStorage.
+  void import("./whatsapp").then(({ buildWaUrl }) => {
+    const url = buildWaUrl({
+      source: "default",
+      extras: {
+        sourceLabel: "Legacy WA Link",
+        page: location.pathname,
+      },
+    });
+    originalOpen.call(window, url, "_blank");
+  });
 };
 
 const handleWaIntent = async (originalOpen: typeof window.open) => {
@@ -105,11 +105,12 @@ const handleWaIntent = async (originalOpen: typeof window.open) => {
   });
 
   const tracking = collectTracking();
-  let ref: string | null = null;
   if (tracking) {
-    ref = await fetchRef(tracking);
+    // Fire and forget — ref minting is for backend logs only; the WA message
+    // now carries SID/GCLID directly via buildWaUrl.
+    void fetchRef(tracking);
   }
-  openWa(buildText(ref), originalOpen);
+  openWa(originalOpen);
 };
 
 const isWaUrl = (val: unknown): boolean =>
