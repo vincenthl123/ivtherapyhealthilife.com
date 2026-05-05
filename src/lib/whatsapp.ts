@@ -83,24 +83,43 @@ export const buildWaUrl = (
   const gclid = attr.gclid || "";
   const ts = new Date().toISOString();
 
-  const greeting = `[#iv] Hello HealthiLife — I'm interested in ${interest}.`;
-
-  const lines = [
-    greeting,
-    `Source: ${SITE_DOMAIN}`,
-    `Page: ${path}`,
-    `CTA: ${cta}`,
-    `SID: ${sid}`,
-    `GCLID: ${gclid}`,
-    `TS: ${ts}`,
-  ];
-
+  // Customer-visible portion: friendly greeting + their typed message only.
+  const greeting = `Hello HealthiLife — I'm interested in ${interest}.`;
   const userMsg = (opts.userMessage || "").trim();
-  if (userMsg) {
-    lines.push("", userMsg);
+
+  const visibleLines = [greeting];
+  if (userMsg) visibleLines.push("", userMsg);
+
+  // Hidden tracking payload: compact, base64-encoded JSON wrapped in the
+  // [#iv:...] marker so our parser can extract it but it reads as an
+  // opaque reference code to the customer.
+  const payload = {
+    s: SITE_DOMAIN,
+    p: path,
+    c: cta,
+    src: opts.source,
+    sid,
+    gclid,
+    ts,
+  };
+  let token = "";
+  try {
+    const json = JSON.stringify(payload);
+    token =
+      typeof window !== "undefined" && typeof window.btoa === "function"
+        ? window
+            .btoa(unescape(encodeURIComponent(json)))
+            .replace(/=+$/, "")
+        : "";
+  } catch {
+    /* ignore */
   }
 
-  const text = lines.join("\n");
+  // Append after blank lines so it sits visually "below" the message and
+  // looks like a reference code rather than metadata.
+  const text =
+    visibleLines.join("\n") +
+    (token ? `\n\n\nRef: [#iv:${token}]` : "");
   return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
 };
 
