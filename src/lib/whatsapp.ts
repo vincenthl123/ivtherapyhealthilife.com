@@ -87,40 +87,67 @@ export const buildWaUrl = (
   const greeting = `Hello HealthiLife — I'm interested in ${interest}.`;
   const userMsg = (opts.userMessage || "").trim();
 
-  const visibleLines = [greeting];
-  if (userMsg) visibleLines.push("", userMsg);
-
-  // Hidden tracking payload: compact, base64-encoded JSON wrapped in the
-  // [#iv:...] marker so our parser can extract it but it reads as an
-  // opaque reference code to the customer.
-  const payload = {
+  // Short opaque ref code (looks like a support ticket number).
+  // Full attribution is logged server-side via track-click, keyed by this code.
+  const ref = makeShortRef(sid);
+  void logRefMapping(ref, {
     s: SITE_DOMAIN,
     p: path,
     c: cta,
     src: opts.source,
     sid,
     gclid,
+    utm_source: attr.utm_source,
+    utm_medium: attr.utm_medium,
+    utm_campaign: attr.utm_campaign,
+    fbclid: attr.fbclid,
     ts,
-  };
-  let token = "";
+  });
+
+  const visibleLines = [greeting];
+  if (userMsg) visibleLines.push("", userMsg);
+  visibleLines.push("", `Ref: ${ref}`);
+
+  const text = visibleLines.join("\n");
+  return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
+};
+
+/** Generate a short, ticket-like ref code: HL-XXXX (4 base32 chars). */
+const makeShortRef = (seed: string): string => {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no 0/O/1/I
+  let n = Date.now() ^ 0;
+  for (let i = 0; i < seed.length; i++) n = (n * 31 + seed.charCodeAt(i)) | 0;
+  n ^= Math.floor(Math.random() * 0xffffffff);
+  let out = "";
+  for (let i = 0; i < 4; i++) {
+    out += alphabet[Math.abs(n) % alphabet.length];
+    n = Math.floor(n / alphabet.length) || Math.floor(Math.random() * 0xffff);
+  }
+  return `HL-${out}`;
+};
+
+/** Fire-and-forget POST so the ref → attribution mapping is logged server-side. */
+const logRefMapping = async (
+  ref: string,
+  payload: Record<string, unknown>,
+): Promise<void> => {
   try {
-    const json = JSON.stringify(payload);
-    token =
-      typeof window !== "undefined" && typeof window.btoa === "function"
-        ? window
-            .btoa(unescape(encodeURIComponent(json)))
-            .replace(/=+$/, "")
-        : "";
+    const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+    const anon = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+    if (!url || !anon) return;
+    await fetch(`${url}/functions/v1/track-click`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${anon}`,
+        apikey: anon,
+      },
+      body: JSON.stringify({ ref, service: "iv_therapy", ...payload }),
+      keepalive: true,
+    });
   } catch {
     /* ignore */
   }
-
-  // Append after blank lines so it sits visually "below" the message and
-  // looks like a reference code rather than metadata.
-  const text =
-    visibleLines.join("\n") +
-    (token ? `\n\n\nRef: [#iv:${token}]` : "");
-  return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
 };
 
 /**
