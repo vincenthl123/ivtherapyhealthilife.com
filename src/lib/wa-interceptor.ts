@@ -163,14 +163,22 @@ export const installWaInterceptor = (): (() => void) => {
   document.addEventListener("click", onClick, true);
 
   // Wrap window.open to catch direct programmatic calls.
+  // IMPORTANT: if the caller already built a full wa.me URL (e.g. the popup
+  // with the 7-line parser-friendly message), we MUST pass it through
+  // unchanged. We only fire tracking + ref logging as a side effect.
   const wrappedOpen: typeof window.open = ((
     url?: string | URL,
     target?: string,
     features?: string,
   ) => {
     if (isWaUrl(url)) {
-      void handleWaIntent(originalOpen);
-      return null;
+      // Side-effect tracking only — do NOT rebuild/replace the URL.
+      void import("./tracking").then(({ trackWhatsAppClick }) => {
+        trackWhatsAppClick({ source: "interceptor" });
+      });
+      const tracking = collectTracking();
+      if (tracking) void fetchRef(tracking);
+      return originalOpen(url as string, target as string, features as string);
     }
     return originalOpen(url as string, target as string, features as string);
   }) as typeof window.open;
