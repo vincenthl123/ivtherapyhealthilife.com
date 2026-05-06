@@ -135,7 +135,7 @@ const makeRefPayload = (
   path: string,
   cta: string,
   sid: string,
-  attr: Record<string, string | undefined>,
+  attr: ReturnType<typeof getAttribution>,
   ts: string,
 ): Record<string, unknown> => ({
   s: SITE_DOMAIN,
