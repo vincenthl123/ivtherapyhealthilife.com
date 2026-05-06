@@ -126,24 +126,25 @@ const makeShortRef = (seed: string): string => {
   return `HL-${out}`;
 };
 
-/** Fire-and-forget POST so the ref → attribution mapping is logged server-side. */
+/**
+ * Fire-and-forget POST so the ref → attribution mapping is logged in Make.
+ * Make Custom Webhook receives the JSON; downstream modules (Sheets, CRM,
+ * email, etc.) handle storage. No backend / edge function required.
+ */
+const MAKE_WEBHOOK_URL =
+  "https://hook.eu2.make.com/4n31im2g0pua1xa2qls4u9ith13vkhf9";
+
 const logRefMapping = async (
   ref: string,
   payload: Record<string, unknown>,
 ): Promise<void> => {
   try {
-    const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
-    const anon = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
-    if (!url || !anon) return;
-    await fetch(`${url}/functions/v1/track-click`, {
+    await fetch(MAKE_WEBHOOK_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${anon}`,
-        apikey: anon,
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ref, service: "iv_therapy", ...payload }),
       keepalive: true,
+      mode: "no-cors",
     });
   } catch {
     /* ignore */
