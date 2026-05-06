@@ -139,12 +139,12 @@ const logRefMapping = async (
   payload: Record<string, unknown>,
 ): Promise<void> => {
   try {
+    // Use text/plain to avoid CORS preflight; Make parses the JSON body fine.
     await fetch(MAKE_WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
       body: JSON.stringify({ ref, service: "iv_therapy", ...payload }),
       keepalive: true,
-      mode: "no-cors",
     });
   } catch {
     /* ignore */
