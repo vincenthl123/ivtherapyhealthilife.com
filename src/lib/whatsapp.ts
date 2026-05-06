@@ -142,6 +142,7 @@ const makeRefPayload = (
   p: path,
   c: cta,
   src: opts.source,
+  wa_phone: WA_PHONE,
   sid,
   gclid: attr.gclid || "",
   utm_source: attr.utm_source,
