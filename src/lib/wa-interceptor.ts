@@ -86,7 +86,7 @@ const fetchRef = async (payload: TrackingPayload): Promise<string | null> => {
 
 const openWa = (originalOpen: typeof window.open) => {
   // Build the parser-friendly message with SID/GCLID/TS pulled from localStorage.
-  void import("./whatsapp").then(({ buildWaUrl }) => {
+  void import("./whatsapp").then(({ buildWaUrl, logWaUrlRef }) => {
     const url = buildWaUrl({
       source: "default",
       extras: {
@@ -94,6 +94,7 @@ const openWa = (originalOpen: typeof window.open) => {
         page: location.pathname,
       },
     });
+    logWaUrlRef(url);
     originalOpen.call(window, url, "_blank");
   });
 };
@@ -139,6 +140,22 @@ const findWaAnchor = (start: EventTarget | null): Element | null => {
   return null;
 };
 
+const findSkippedWaHref = (start: EventTarget | null): string | null => {
+  let node = start as Node | null;
+  while (node && node.nodeType !== 1) node = node.parentNode;
+  let el = node as Element | null;
+  let skipped = false;
+  while (el) {
+    if (el.hasAttribute && el.hasAttribute("data-wa-skip")) skipped = true;
+    if (skipped && el.tagName === "A") {
+      const href = (el as HTMLAnchorElement).href || "";
+      if (href.includes(WA_MATCH)) return href;
+    }
+    el = el.parentElement;
+  }
+  return null;
+};
+
 export const installWaInterceptor = (): (() => void) => {
   if (typeof window === "undefined" || typeof document === "undefined") {
     return () => {};
@@ -151,6 +168,12 @@ export const installWaInterceptor = (): (() => void) => {
     if (e.defaultPrevented) return;
     if (e.button !== undefined && e.button !== 0) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    const skippedHref = findSkippedWaHref(e.target);
+    if (skippedHref) {
+      void import("./whatsapp").then(({ logWaUrlRef }) => logWaUrlRef(skippedHref));
+      return;
+    }
 
     const match = findWaAnchor(e.target);
     if (!match) return;
@@ -176,6 +199,7 @@ export const installWaInterceptor = (): (() => void) => {
       void import("./tracking").then(({ trackWhatsAppClick }) => {
         trackWhatsAppClick({ source: "interceptor" });
       });
+      void import("./whatsapp").then(({ logWaUrlRef }) => logWaUrlRef(url));
       const tracking = collectTracking();
       if (tracking) void fetchRef(tracking);
       return originalOpen(url as string, target as string, features as string);
