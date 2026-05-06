@@ -86,7 +86,7 @@ const fetchRef = async (payload: TrackingPayload): Promise<string | null> => {
 
 const openWa = (originalOpen: typeof window.open) => {
   // Build the parser-friendly message with SID/GCLID/TS pulled from localStorage.
-  void import("./whatsapp").then(({ buildWaUrl }) => {
+  void import("./whatsapp").then(({ buildWaUrl, logWaUrlRef }) => {
     const url = buildWaUrl({
       source: "default",
       extras: {
@@ -94,6 +94,7 @@ const openWa = (originalOpen: typeof window.open) => {
         page: location.pathname,
       },
     });
+    logWaUrlRef(url);
     originalOpen.call(window, url, "_blank");
   });
 };
@@ -176,6 +177,7 @@ export const installWaInterceptor = (): (() => void) => {
       void import("./tracking").then(({ trackWhatsAppClick }) => {
         trackWhatsAppClick({ source: "interceptor" });
       });
+      void import("./whatsapp").then(({ logWaUrlRef }) => logWaUrlRef(url));
       const tracking = collectTracking();
       if (tracking) void fetchRef(tracking);
       return originalOpen(url as string, target as string, features as string);
