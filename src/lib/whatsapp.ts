@@ -127,6 +127,41 @@ const makeShortRef = (seed: string): string => {
   return `HL-${out}`;
 };
 
+const REF_CACHE_KEY = "hl_wa_ref_payloads";
+const loggedRefs = new Set<string>();
+
+const makeRefPayload = (
+  opts: BuildWaOptions,
+  path: string,
+  cta: string,
+  sid: string,
+  attr: Record<string, string | undefined>,
+  ts: string,
+): Record<string, unknown> => ({
+  s: SITE_DOMAIN,
+  p: path,
+  c: cta,
+  src: opts.source,
+  sid,
+  gclid: attr.gclid || "",
+  utm_source: attr.utm_source,
+  utm_medium: attr.utm_medium,
+  utm_campaign: attr.utm_campaign,
+  fbclid: attr.fbclid,
+  ts,
+});
+
+const rememberRefMapping = (ref: string, payload: Record<string, unknown>): void => {
+  if (typeof window === "undefined") return;
+  try {
+    const cached = JSON.parse(sessionStorage.getItem(REF_CACHE_KEY) || "{}") as Record<string, unknown>;
+    cached[ref] = payload;
+    sessionStorage.setItem(REF_CACHE_KEY, JSON.stringify(cached));
+  } catch {
+    /* ignore */
+  }
+};
+
 /**
  * Fire-and-forget POST so the ref → attribution mapping is logged in Make.
  * Make Custom Webhook receives the JSON; downstream modules (Sheets, CRM,
@@ -139,6 +174,8 @@ const logRefMapping = async (
   ref: string,
   payload: Record<string, unknown>,
 ): Promise<void> => {
+  if (loggedRefs.has(ref)) return;
+  loggedRefs.add(ref);
   try {
     // Use text/plain to avoid CORS preflight; Make parses the JSON body fine.
     await fetch(MAKE_WEBHOOK_URL, {
@@ -150,6 +187,24 @@ const logRefMapping = async (
   } catch {
     /* ignore */
   }
+};
+
+export const logWaUrlRef = (url: string | URL | undefined | null): void => {
+  if (!url || typeof window === "undefined") return;
+  const href = String(url);
+  if (!href.includes(`wa.me/${WA_PHONE}`)) return;
+  const text = new URL(href).searchParams.get("text") || "";
+  const ref = decodeURIComponent(text).match(/Ref:\s*(HL-[A-Z2-9]{4})/)?.[1];
+  if (!ref) return;
+
+  let payload: Record<string, unknown> = { s: SITE_DOMAIN, p: location.pathname, c: "whatsapp", ts: new Date().toISOString() };
+  try {
+    const cached = JSON.parse(sessionStorage.getItem(REF_CACHE_KEY) || "{}") as Record<string, Record<string, unknown>>;
+    payload = cached[ref] || payload;
+  } catch {
+    /* ignore */
+  }
+  void logRefMapping(ref, payload);
 };
 
 /**
@@ -168,6 +223,7 @@ export const trackAndOpenWhatsApp = (opts: BuildWaOptions): string => {
         hasMessage: !!opts.userMessage?.trim(),
       });
     });
+    logWaUrlRef(url);
     window.open(url, "_blank", "noopener,noreferrer");
   }
   return url;
