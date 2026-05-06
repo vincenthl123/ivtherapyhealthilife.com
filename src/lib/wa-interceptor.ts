@@ -140,6 +140,22 @@ const findWaAnchor = (start: EventTarget | null): Element | null => {
   return null;
 };
 
+const findSkippedWaHref = (start: EventTarget | null): string | null => {
+  let node = start as Node | null;
+  while (node && node.nodeType !== 1) node = node.parentNode;
+  let el = node as Element | null;
+  let skipped = false;
+  while (el) {
+    if (el.hasAttribute && el.hasAttribute("data-wa-skip")) skipped = true;
+    if (skipped && el.tagName === "A") {
+      const href = (el as HTMLAnchorElement).href || "";
+      if (href.includes(WA_MATCH)) return href;
+    }
+    el = el.parentElement;
+  }
+  return null;
+};
+
 export const installWaInterceptor = (): (() => void) => {
   if (typeof window === "undefined" || typeof document === "undefined") {
     return () => {};
@@ -152,6 +168,12 @@ export const installWaInterceptor = (): (() => void) => {
     if (e.defaultPrevented) return;
     if (e.button !== undefined && e.button !== 0) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    const skippedHref = findSkippedWaHref(e.target);
+    if (skippedHref) {
+      void import("./whatsapp").then(({ logWaUrlRef }) => logWaUrlRef(skippedHref));
+      return;
+    }
 
     const match = findWaAnchor(e.target);
     if (!match) return;
