@@ -86,7 +86,7 @@ const buildWaData = (arg?: string | BuildWaOptions): WaLinkData => {
   const attr = typeof window !== "undefined" ? getAttribution() : {};
   const sid = typeof window !== "undefined" ? getSessionId() : "";
   const gclid = attr.gclid || "";
-  const ts = new Date().toISOString();
+  const ts = formatBangkokTimestamp(new Date());
 
   // Customer-visible portion: friendly greeting + their typed message only.
   const greeting = `Hello HealthiLife — I'm interested in ${interest}.`;
