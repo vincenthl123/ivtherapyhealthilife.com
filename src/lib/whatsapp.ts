@@ -16,6 +16,12 @@ import { getAttribution, getSessionId } from "./attribution";
 const WA_PHONE = "66919991744";
 const SITE_DOMAIN = "ivtherapyhealthilife.com";
 
+/** Format a Date as ISO-like string in GMT+7 (Bangkok), e.g. 2026-05-06T17:23:45.123+07:00 */
+const formatBangkokTimestamp = (date: Date): string => {
+  const shifted = new Date(date.getTime() + 7 * 60 * 60 * 1000);
+  return shifted.toISOString().replace("Z", "+07:00");
+};
+
 export type WaSource =
   | "default"
   | "hero"
@@ -86,7 +92,7 @@ const buildWaData = (arg?: string | BuildWaOptions): WaLinkData => {
   const attr = typeof window !== "undefined" ? getAttribution() : {};
   const sid = typeof window !== "undefined" ? getSessionId() : "";
   const gclid = attr.gclid || "";
-  const ts = new Date().toISOString();
+  const ts = formatBangkokTimestamp(new Date());
 
   // Customer-visible portion: friendly greeting + their typed message only.
   const greeting = `Hello HealthiLife — I'm interested in ${interest}.`;
