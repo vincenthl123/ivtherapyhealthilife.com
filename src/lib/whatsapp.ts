@@ -19,7 +19,7 @@ const SITE_DOMAIN = "ivtherapyhealthilife.com";
 /** Format a Date as 'YYYY-MM-DDTHH:mm:ss' in GMT+7 (Bangkok). */
 const formatBangkokTimestamp = (date: Date): string => {
   const shifted = new Date(date.getTime() + 7 * 60 * 60 * 1000);
-  return shifted.toISOString().slice(0, 19);
+  return `${shifted.toISOString().slice(0, 19)}+07:00`;
 };
 
 export type WaSource =
