@@ -16,10 +16,10 @@ import { getAttribution, getSessionId } from "./attribution";
 const WA_PHONE = "66919991744";
 const SITE_DOMAIN = "ivtherapyhealthilife.com";
 
-/** Format a Date as ISO-like string in GMT+7 (Bangkok), e.g. 2026-05-06T17:23:45.123+07:00 */
+/** Format a Date as 'YYYY-MM-DDTHH:mm:ss' in GMT+7 (Bangkok). */
 const formatBangkokTimestamp = (date: Date): string => {
   const shifted = new Date(date.getTime() + 7 * 60 * 60 * 1000);
-  return shifted.toISOString().replace("Z", "+07:00");
+  return shifted.toISOString().slice(0, 19);
 };
 
 export type WaSource =
