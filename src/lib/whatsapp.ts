@@ -149,6 +149,7 @@ const makeRefPayload = (
   c: cta,
   src: opts.source,
   sid,
+  ga_client_id: getGaClientId(),
   gclid: attr.gclid || "",
   utm_source: attr.utm_source,
   utm_medium: attr.utm_medium,
