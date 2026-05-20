@@ -143,27 +143,30 @@ const makeRefPayload = (
   sid: string,
   attr: ReturnType<typeof getAttribution>,
   ts: string,
-): Record<string, unknown> => ({
-  s: SITE_DOMAIN,
-  p: path,
-  c: cta,
-  src: opts.source,
-  sid,
-  ga_client_id: getGaClientId(),
-  ga_client_id_status: getGaClientIdStatus(),
-  gclid: attr.gclid || "",
-  gbraid: attr.gbraid || "",
-  wbraid: attr.wbraid || "",
-  gad_source: attr.gad_source || "",
-  gad_campaignid: attr.gad_campaignid || "",
-  utm_source: attr.utm_source || "",
-  utm_medium: attr.utm_medium || "",
-  utm_campaign: attr.utm_campaign || "",
-  utm_term: attr.utm_term || "",
-  utm_content: attr.utm_content || "",
-  fbclid: attr.fbclid || "",
-  ts,
-});
+): Record<string, unknown> => {
+  const v = (x?: string) => (x && x.length ? x : "missing");
+  return {
+    s: SITE_DOMAIN,
+    p: path,
+    c: cta,
+    src: opts.source,
+    sid,
+    ga_client_id: v(getGaClientId()),
+    ga_client_id_status: getGaClientIdStatus(),
+    gclid: v(attr.gclid),
+    gbraid: v(attr.gbraid),
+    wbraid: v(attr.wbraid),
+    gad_source: v(attr.gad_source),
+    gad_campaignid: v(attr.gad_campaignid),
+    utm_source: v(attr.utm_source),
+    utm_medium: v(attr.utm_medium),
+    utm_campaign: v(attr.utm_campaign),
+    utm_term: v(attr.utm_term),
+    utm_content: v(attr.utm_content),
+    fbclid: v(attr.fbclid),
+    ts,
+  };
+};
 
 const rememberRefMapping = (ref: string, payload: Record<string, unknown>): void => {
   if (typeof window === "undefined") return;
