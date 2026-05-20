@@ -11,7 +11,7 @@
  * should add `data-wa-skip="1"` so the interceptor leaves them alone.
  */
 
-import { getAttribution, getSessionId } from "./attribution";
+import { getAttribution, getSessionId, getGaClientId } from "./attribution";
 
 const WA_PHONE = "66919991744";
 const SITE_DOMAIN = "ivtherapyhealthilife.com";
