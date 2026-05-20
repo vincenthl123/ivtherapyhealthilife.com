@@ -35,6 +35,8 @@ export type Attribution = {
   utm_campaign?: string;
   utm_term?: string;
   utm_content?: string;
+  gad_source?: string;
+  gad_campaignid?: string;
   landing_page?: string;
   referrer?: string;
   captured_at?: number;
