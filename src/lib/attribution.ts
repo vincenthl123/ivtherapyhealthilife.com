@@ -132,6 +132,13 @@ export const getGaClientId = (): string => {
   return m?.[1] ?? "";
 };
 
+export type GaClientIdStatus = "ok" | "cookie_missing" | "no_document";
+
+export const getGaClientIdStatus = (): GaClientIdStatus => {
+  if (typeof document === "undefined") return "no_document";
+  return getGaClientId() ? "ok" : "cookie_missing";
+};
+
 /**
  * Async variant using gtag's `get` API. Falls back to the `_ga` cookie.
  * Resolves within ~300ms even if gtag is slow/blocked.
