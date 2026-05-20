@@ -117,6 +117,40 @@ export const getSessionId = (): string => {
   }
 };
 
+/**
+ * Read the GA4 `client_id` from the `_ga` cookie.
+ * Format: GA1.1.<client_id>  → client_id = "1234567890.1234567890"
+ * Returns "" if GA hasn't set the cookie yet.
+ */
+export const getGaClientId = (): string => {
+  if (typeof document === "undefined") return "";
+  const m = document.cookie.match(/(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/);
+  return m?.[1] ?? "";
+};
+
+/**
+ * Async variant using gtag's `get` API. Falls back to the `_ga` cookie.
+ * Resolves within ~300ms even if gtag is slow/blocked.
+ */
+export const getGaClientIdAsync = (measurementId?: string): Promise<string> =>
+  new Promise((resolve) => {
+    const fallback = () => resolve(getGaClientId());
+    if (typeof window === "undefined") return resolve("");
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    const id = measurementId || "G-K9R2HXK3QT";
+    if (typeof w.gtag !== "function") return fallback();
+    const t = window.setTimeout(fallback, 300);
+    try {
+      w.gtag("get", id, "client_id", (cid: string) => {
+        window.clearTimeout(t);
+        resolve(cid || getGaClientId());
+      });
+    } catch {
+      window.clearTimeout(t);
+      fallback();
+    }
+  });
+
 export const getAttribution = (): Attribution => {
   if (typeof window === "undefined") return {};
   const storage = safeStorage();
