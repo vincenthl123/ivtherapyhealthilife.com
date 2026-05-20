@@ -21,6 +21,8 @@ const KEYS = [
   "utm_campaign",
   "utm_term",
   "utm_content",
+  "gad_source",
+  "gad_campaignid",
 ] as const;
 
 export type Attribution = {
