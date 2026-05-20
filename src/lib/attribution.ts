@@ -21,6 +21,8 @@ const KEYS = [
   "utm_campaign",
   "utm_term",
   "utm_content",
+  "gad_source",
+  "gad_campaignid",
 ] as const;
 
 export type Attribution = {
@@ -33,6 +35,8 @@ export type Attribution = {
   utm_campaign?: string;
   utm_term?: string;
   utm_content?: string;
+  gad_source?: string;
+  gad_campaignid?: string;
   landing_page?: string;
   referrer?: string;
   captured_at?: number;
@@ -126,6 +130,13 @@ export const getGaClientId = (): string => {
   if (typeof document === "undefined") return "";
   const m = document.cookie.match(/(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/);
   return m?.[1] ?? "";
+};
+
+export type GaClientIdStatus = "ok" | "cookie_missing" | "no_document";
+
+export const getGaClientIdStatus = (): GaClientIdStatus => {
+  if (typeof document === "undefined") return "no_document";
+  return getGaClientId() ? "ok" : "cookie_missing";
 };
 
 /**

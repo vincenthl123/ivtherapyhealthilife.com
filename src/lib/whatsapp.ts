@@ -11,7 +11,7 @@
  * should add `data-wa-skip="1"` so the interceptor leaves them alone.
  */
 
-import { getAttribution, getSessionId, getGaClientId } from "./attribution";
+import { getAttribution, getSessionId, getGaClientId, getGaClientIdStatus } from "./attribution";
 
 const WA_PHONE = "66919991744";
 const SITE_DOMAIN = "ivtherapyhealthilife.com";
@@ -150,11 +150,18 @@ const makeRefPayload = (
   src: opts.source,
   sid,
   ga_client_id: getGaClientId(),
+  ga_client_id_status: getGaClientIdStatus(),
   gclid: attr.gclid || "",
-  utm_source: attr.utm_source,
-  utm_medium: attr.utm_medium,
-  utm_campaign: attr.utm_campaign,
-  fbclid: attr.fbclid,
+  gbraid: attr.gbraid || "",
+  wbraid: attr.wbraid || "",
+  gad_source: attr.gad_source || "",
+  gad_campaignid: attr.gad_campaignid || "",
+  utm_source: attr.utm_source || "",
+  utm_medium: attr.utm_medium || "",
+  utm_campaign: attr.utm_campaign || "",
+  utm_term: attr.utm_term || "",
+  utm_content: attr.utm_content || "",
+  fbclid: attr.fbclid || "",
   ts,
 });
 
@@ -177,18 +184,48 @@ const rememberRefMapping = (ref: string, payload: Record<string, unknown>): void
 const MAKE_WEBHOOK_URL =
   "https://hook.eu2.make.com/4n31im2g0pua1xa2qls4u9ith13vkhf9";
 
+/**
+ * Poll for the _ga cookie up to `maxMs` (50ms intervals).
+ * Returns the client_id once the cookie appears, or "" on timeout.
+ */
+const waitForGaClientId = (maxMs = 800): Promise<string> =>
+  new Promise((resolve) => {
+    const existing = getGaClientId();
+    if (existing) return resolve(existing);
+    const start = Date.now();
+    const tick = () => {
+      const v = getGaClientId();
+      if (v) return resolve(v);
+      if (Date.now() - start >= maxMs) return resolve("");
+      setTimeout(tick, 50);
+    };
+    setTimeout(tick, 50);
+  });
+
 const logRefMapping = async (
   ref: string,
   payload: Record<string, unknown>,
 ): Promise<void> => {
   if (loggedRefs.has(ref)) return;
   loggedRefs.add(ref);
+
+  // If the _ga cookie wasn't ready at click time, briefly wait for it so
+  // Make receives the GA4 client_id on the very first click of a session.
+  const finalPayload = { ...payload };
+  if (!finalPayload.ga_client_id) {
+    const late = await waitForGaClientId(800);
+    if (late) {
+      finalPayload.ga_client_id = late;
+      finalPayload.ga_client_id_status = "ok_delayed";
+    }
+  }
+
   try {
     // Use text/plain to avoid CORS preflight; Make parses the JSON body fine.
     await fetch(MAKE_WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=UTF-8" },
-      body: JSON.stringify({ ref, service: "iv_therapy", ...payload }),
+      body: JSON.stringify({ ref, service: "iv_therapy", ...finalPayload }),
       keepalive: true,
     });
   } catch {
