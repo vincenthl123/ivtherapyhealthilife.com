@@ -145,6 +145,16 @@ const Footer = () => {
             in Bangkok, Thailand, delivering medically supervised IV and NAD+ therapy protocols 
             within an integrated longevity and preventive medicine framework.
           </p>
+          <p className="text-xs text-background/70 max-w-3xl mt-3">
+            Part of Healthi Life — visit our main clinic for{" "}
+            <a
+              href="https://healthi-life.com/services/iv-drip-therapy-bangkok"
+              className="text-background underline hover:text-background/80 transition-colors"
+            >
+              IV drip therapy at Healthi Life Bangkok
+            </a>
+            .
+          </p>
         </div>
 
         {/* Bottom Bar */}
