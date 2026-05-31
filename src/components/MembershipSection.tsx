@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Leaf, Heart, Shield, Check, MessageCircle, LucideIcon } from "lucide-react";
+import { Leaf, Heart, Shield, Check, MessageCircle, Phone, LucideIcon } from "lucide-react";
+import { trackButtonClick } from "@/lib/tracking";
 
 type Tier = {
   id: string;
