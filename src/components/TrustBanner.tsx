@@ -1,4 +1,5 @@
-import { Star, Users, Globe, Shield, Award } from "lucide-react";
+import { Star, Users, Globe, Shield, Award, Phone } from "lucide-react";
+import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 
 const TrustBanner = () => {
@@ -62,6 +63,17 @@ const TrustBanner = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="mt-3 md:mt-4 flex justify-center">
+          <a
+            id="ivclick-trustbanner-phone"
+            href="tel:+66919991744"
+            onClick={() => trackButtonClick('ivclick-trustbanner-phone')}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
+          >
+            <Phone className="w-4 h-4 text-primary" />
+            Call us: +66 (0)9 1999 1744
+          </a>
         </div>
       </div>
     </section>

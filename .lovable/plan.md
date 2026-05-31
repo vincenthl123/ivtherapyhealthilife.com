@@ -1,45 +1,50 @@
-# Audit UX/UI + Affichage téléphone direct
+# Multiplier l'affichage de +66 (0)9 1999 1744 (conversion optimization)
 
-## Audit UX/UI (constats principaux)
+Objectif : afficher le téléphone cliquable 5 à 10 fois sur la home + pages clés pour maximiser les appels.
 
-**Header**
-- Mobile : seulement burger + langue, aucun moyen de contact direct visible. Le téléphone n'apparaît nulle part en haut de page.
-- Desktop : deux boutons WhatsApp côte à côte ("Book Now" et "WhatsApp") qui pointent vers la même URL — redondance visuelle.
-- Aucune ligne d'info (téléphone + horaires) en barre supérieure.
+## Inventaire actuel (home `/`)
+Déjà présent :
+1. Header desktop — lien texte
+2. Header mobile — icône appel
+3. Header mobile menu — bloc bordé
+4. Hero — "Or call us directly"
+5. Footer — bloc contact
 
-**Home page**
-- Hero : CTA WhatsApp uniquement, pas d'option téléphone pour les utilisateurs qui préfèrent appeler.
-- TrustBanner / Footer : téléphone parfois mentionné mais non cliquable de manière homogène (à vérifier/uniformiser via `tel:`).
-- WhatsAppWidget flotte en bas → bon, mais doublonne avec un éventuel bouton téléphone.
+→ 5 occurrences. On veut en rajouter 4-5 pour atteindre ~10.
 
-**Accessibilité**
-- Liens téléphone manquants → utilisateurs mobiles ne peuvent pas tap-to-call.
-- Format affiché doit être lisible : `+66 (0)9 1999 1744`, `href="tel:+66919991744"`.
+## Ajouts proposés sur la home
 
-## Changements à appliquer
+### A. `src/components/TrustBanner.tsx`
+Ajouter un petit ruban "Call us +66 (0)9 1999 1744" cliquable à droite (desktop) / en bas (mobile), avec icône Phone, tracking `ivclick-trustbanner-phone`.
 
-### 1. `src/components/Header.tsx`
-- **Desktop** : ajouter à gauche des boutons WhatsApp un lien téléphone discret avec icône `Phone` :
-  `+66 (0)9 1999 1744` → `tel:+66919991744`, tracking `ivclick-header-phone`.
-- **Mobile menu (ouvert)** : ajouter un bloc téléphone bien visible en haut des CTAs :
-  icône Phone + numéro formaté, pleine largeur, style `variant="outline"`, tracking `ivclick-mobile-phone`.
-- **Mobile header (fermé)** : ajouter une petite icône Phone cliquable à côté du burger pour appel direct sans ouvrir le menu, tracking `ivclick-mobile-phone-icon`.
+### B. `src/components/Services.tsx` (fin de section Most Popular IVs)
+Sous la grille, ligne centrée : "Not sure which IV is right for you? Call **+66 (0)9 1999 1744**" — tracking `ivclick-services-phone`.
 
-### 2. `src/components/Hero.tsx`
-- Sous les CTA WhatsApp existants, ajouter une ligne discrète "Or call us: **+66 (0)9 1999 1744**" cliquable (`tel:`), avec icône Phone, tracking `ivclick-hero-phone`.
+### C. `src/components/MembershipSection.tsx` (footer encart existant)
+Ajouter à côté du disclaimer Longevity Consultation un lien Phone cliquable — tracking `ivclick-membership-phone`.
 
-### 3. `src/components/Footer.tsx` (vérification + uniformisation)
-- S'assurer que le numéro affiché utilise le format `+66 (0)9 1999 1744` et est cliquable via `tel:+66919991744`.
+### D. `src/components/WhyChooseUs.tsx` (fin de section)
+Bandeau CTA secondaire : icône Phone + numéro + "Speak to our medical team" — tracking `ivclick-why-phone`.
+
+### E. `src/components/FAQ.tsx`
+Le numéro existe déjà (tel:) → vérifier qu'il s'affiche visuellement `+66 (0)9 1999 1744` (format avec espaces).
+
+### F. `src/components/Process.tsx`
+Idem : vérifier format affiché.
+
+## Résultat attendu sur `/`
+~10 points de contact téléphone visibles :
+Header (desktop + mobile icône) · Hero · TrustBanner · Services · Membership · WhyChooseUs · Process · FAQ · Footer.
 
 ## Détails techniques
-
-- Numéro affiché partout : `+66 (0)9 1999 1744`
-- Lien : `href="tel:+66919991744"`
-- Icône : `Phone` de `lucide-react`
-- Tracking : `trackButtonClick(id)` avec IDs `ivclick-{location}-phone`
-- Aucun changement de design tokens, on réutilise `text-foreground`, `text-primary`, variantes `Button` existantes
-- Pas de modif i18n (numéro identique dans toutes les langues)
+- Format affiché partout : `+66 (0)9 1999 1744`
+- `href="tel:+66919991744"`
+- Icône `Phone` lucide-react
+- `onClick={() => trackButtonClick('ivclick-{location}-phone')}`
+- Aucune nouvelle dépendance, aucun changement de design tokens
+- Styles discrets, alignés avec l'aesthetic premium médical (pas de boutons criards qui cassent la mise en page)
 
 ## Hors scope
-- Pas de refonte du header ni des sections existantes
-- Pas de modif du WhatsAppWidget ni du tracking webhook
+- Pas de modification des CTA WhatsApp existants
+- Pas de refonte de sections
+- Pas de pages secondaires (Clinic, PriceList ont déjà leur numéro)

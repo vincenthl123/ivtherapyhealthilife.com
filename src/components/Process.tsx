@@ -76,7 +76,7 @@ const Process = () => {
               <a href="tel:+66919991744">
                 <div className="text-left w-full">
                   <div className="font-bold text-base mb-1">{t("process.callUs")}</div>
-                  <div className="text-xs text-muted-foreground">+66 (0)9-1999-1744</div>
+                  <div className="text-xs text-muted-foreground">+66 (0)9 1999 1744</div>
                 </div>
               </a>
             </Button>
