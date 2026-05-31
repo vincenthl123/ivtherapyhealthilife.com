@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Shield, Award, Droplets, Zap, Heart } from "lucide-react";
+import { CheckCircle, Shield, Award, Droplets, Zap, Heart, Phone } from "lucide-react";
+import { trackButtonClick } from "@/lib/tracking";
 import treatmentImage from "@/assets/treatment-room.webp";
 import { useLanguage } from "@/lib/i18n";
 
