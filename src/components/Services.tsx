@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Calendar, Package, Users, CheckCircle2, Gift, Crown } from "lucide-react";
+import MembershipSection from "@/components/MembershipSection";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
