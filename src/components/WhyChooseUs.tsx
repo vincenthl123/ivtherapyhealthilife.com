@@ -93,10 +93,21 @@ const WhyChooseUs = () => {
               </Card>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-8 space-y-4">
             <Badge className="bg-success text-success-foreground">
               {t("why.luxurious")}
             </Badge>
+            <div>
+              <a
+                id="ivclick-why-phone"
+                href="tel:+66919991744"
+                onClick={() => trackButtonClick('ivclick-why-phone')}
+                className="inline-flex items-center gap-2 text-sm md:text-base font-semibold text-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="h-4 w-4 text-primary" />
+                Speak to our medical team: +66 (0)9 1999 1744
+              </a>
+            </div>
           </div>
         </div>
       </div>
