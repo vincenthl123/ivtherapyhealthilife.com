@@ -1,4 +1,5 @@
-import { Star, Users, Globe, Shield, Award } from "lucide-react";
+import { Star, Users, Globe, Shield, Award, Phone } from "lucide-react";
+import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 
 const TrustBanner = () => {
