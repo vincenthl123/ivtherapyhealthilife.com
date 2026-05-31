@@ -1,49 +1,45 @@
-## Add Membership Section — The Urban Longevity House
+# Audit UX/UI + Affichage téléphone direct
 
-### Goal
-Add a new 3-tier membership pricing section to the homepage, placed immediately after the Popular IV Drips grid and before the clinic gallery / wellness packages.
+## Audit UX/UI (constats principaux)
 
-### Scope
+**Header**
+- Mobile : seulement burger + langue, aucun moyen de contact direct visible. Le téléphone n'apparaît nulle part en haut de page.
+- Desktop : deux boutons WhatsApp côte à côte ("Book Now" et "WhatsApp") qui pointent vers la même URL — redondance visuelle.
+- Aucune ligne d'info (téléphone + horaires) en barre supérieure.
 
-1. **New component**: `src/components/MembershipSection.tsx`
-   - 3 pricing cards: Resident (฿50K), Patron (฿100K, featured), Founding Member (฿300K)
-   - Responsive: 1 col mobile, 3 col desktop
-   - Center card (Patron) highlighted with primary ring + "Best Seller" badge
-   - Each card: icon, floating tag, price top-right, title, headline, benefit list with checkmark, WhatsApp CTA
-   - Footer encart below cards with Longevity Consultation disclaimer
-   - Style: medical minimal premium, using existing design tokens (`primary`, `foreground`, `muted-foreground`, `border`, `bg-gradient-medical` / `bg-gradient-to-br` with primary/emerald fallback)
-   - Icons via `lucide-react`: `Leaf`, `Heart`, `Shield`, `Check`, `MessageCircle`
-   - Content hardcoded in English (no i18n keys added)
+**Home page**
+- Hero : CTA WhatsApp uniquement, pas d'option téléphone pour les utilisateurs qui préfèrent appeler.
+- TrustBanner / Footer : téléphone parfois mentionné mais non cliquable de manière homogène (à vérifier/uniformiser via `tel:`).
+- WhatsAppWidget flotte en bas → bon, mais doublonne avec un éventuel bouton téléphone.
 
-2. **Mount in `src/pages/Index.tsx`**
-   - Import and render `<MembershipSection />` inside the `<Suspense>` block, between `<Services />` and `<WhyChooseUs />`
+**Accessibilité**
+- Liens téléphone manquants → utilisateurs mobiles ne peuvent pas tap-to-call.
+- Format affiché doit être lisible : `+66 (0)9 1999 1744`, `href="tel:+66919991744"`.
 
-3. **WhatsApp CTA wiring**
-   - Each card opens `wa.me/66919991744` with pre-filled message:
-     ```
-     Hello Healthi-Life — I'm interested in the {TIER} membership (฿{PRICE}).
-     Ref: HL-MEMBERSHIP
-     ```
-   - Use direct `buildWaUrl`-style URL construction (inline or small helper)
-   - `target="_blank" rel="noopener noreferrer"`
-   - Unique IDs: `membership-resident`, `membership-patron`, `membership-founding`
+## Changements à appliquer
 
-### Files touched
-- `src/components/MembershipSection.tsx` — new
-- `src/pages/Index.tsx` — insert component
+### 1. `src/components/Header.tsx`
+- **Desktop** : ajouter à gauche des boutons WhatsApp un lien téléphone discret avec icône `Phone` :
+  `+66 (0)9 1999 1744` → `tel:+66919991744`, tracking `ivclick-header-phone`.
+- **Mobile menu (ouvert)** : ajouter un bloc téléphone bien visible en haut des CTAs :
+  icône Phone + numéro formaté, pleine largeur, style `variant="outline"`, tracking `ivclick-mobile-phone`.
+- **Mobile header (fermé)** : ajouter une petite icône Phone cliquable à côté du burger pour appel direct sans ouvrir le menu, tracking `ivclick-mobile-phone-icon`.
 
-### Content (unchanged from spec)
-- Badge header: "Membership · 12 months"
-- H2: "Membership into the house"
-- Subtitle: "The Urban Longevity House — Ekkamai, Bangkok"
-- Intro paragraph about 12-month relationship
-- 3 tiers with exact benefits, prices, headlines, tags
-- Footer encart with Dr. Petch consultation text + disclaimer
-- Closing line: "Come for the recovery. Stay for the longevity."
+### 2. `src/components/Hero.tsx`
+- Sous les CTA WhatsApp existants, ajouter une ligne discrète "Or call us: **+66 (0)9 1999 1744**" cliquable (`tel:`), avec icône Phone, tracking `ivclick-hero-phone`.
 
-### Design notes
-- Cards use `Card` / `CardContent` from existing UI primitives
-- Checkmarks use small accent-colored dots or `Check` icon
-- Featured card (`popular={true}`) gets `ring-2 ring-primary` and elevated shadow
-- No images; pure typography + icon + Tailwind
-- Background: `bg-gradient-subtle` or `bg-secondary/30` to separate from services section
+### 3. `src/components/Footer.tsx` (vérification + uniformisation)
+- S'assurer que le numéro affiché utilise le format `+66 (0)9 1999 1744` et est cliquable via `tel:+66919991744`.
+
+## Détails techniques
+
+- Numéro affiché partout : `+66 (0)9 1999 1744`
+- Lien : `href="tel:+66919991744"`
+- Icône : `Phone` de `lucide-react`
+- Tracking : `trackButtonClick(id)` avec IDs `ivclick-{location}-phone`
+- Aucun changement de design tokens, on réutilise `text-foreground`, `text-primary`, variantes `Button` existantes
+- Pas de modif i18n (numéro identique dans toutes les langues)
+
+## Hors scope
+- Pas de refonte du header ni des sections existantes
+- Pas de modif du WhatsAppWidget ni du tracking webhook
