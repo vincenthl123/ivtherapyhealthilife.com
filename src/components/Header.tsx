@@ -63,19 +63,17 @@ const Header = () => {
 
           {/* CTA Buttons + Language Switcher */}
           <div className="hidden md:flex items-center space-x-3">
-            <LanguageSwitcher />
-            <Button 
-              id="ivclick-header-book" 
-              variant="outline" 
-              size="sm" 
-              onClick={() => trackButtonClick('ivclick-header-book')}
-              asChild
+            <a
+              id="ivclick-header-phone"
+              href="tel:+66919991744"
+              onClick={() => trackButtonClick('ivclick-header-phone')}
+              className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
+              aria-label="Call +66 (0)9 1999 1744"
             >
-              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                {t("nav.bookNow")}
-              </a>
-            </Button>
+              <Phone className="h-4 w-4 mr-1.5" />
+              +66 (0)9 1999 1744
+            </a>
+            <LanguageSwitcher />
             <Button 
               id="ivclick-header-whatsapp" 
               size="sm" 
