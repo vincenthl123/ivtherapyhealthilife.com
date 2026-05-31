@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, Award, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Star, Award, MapPin, Clock, MessageCircle, Phone } from "lucide-react";
 import heroImage from "@/assets/clinic-exterior.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
