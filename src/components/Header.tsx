@@ -123,19 +123,18 @@ const Header = () => {
               </a>
             ))}
             <div className="pt-2 space-y-2">
-              <Button 
-                id="ivclick-mobile-book" 
-                variant="outline" 
-                size="sm" 
-                className="w-full" 
-                onClick={() => trackButtonClick('ivclick-mobile-book')}
-                asChild
+              <a
+                id="ivclick-mobile-phone"
+                href="tel:+66919991744"
+                onClick={() => {
+                  trackButtonClick('ivclick-mobile-phone');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="flex items-center justify-center w-full py-2.5 rounded-md border border-border text-sm font-semibold text-foreground hover:text-primary hover:border-primary transition-colors"
               >
-                <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  {t("nav.bookNow")}
-                </a>
-              </Button>
+                <Phone className="h-4 w-4 mr-2" />
+                +66 (0)9 1999 1744
+              </a>
               <Button 
                 id="ivclick-mobile-whatsapp" 
                 size="sm" 
