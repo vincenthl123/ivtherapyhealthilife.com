@@ -178,9 +178,20 @@ const MembershipSection = () => {
             <p className="text-xs md:text-sm text-muted-foreground italic mb-5">
               Member rate applies to all Recovery &amp; Performance treatments. Excludes blood tests.
             </p>
-            <p className="text-center text-base md:text-lg font-semibold text-foreground tracking-wide">
+            <p className="text-center text-base md:text-lg font-semibold text-foreground tracking-wide mb-4">
               Come for the recovery. Stay for the longevity.
             </p>
+            <div className="text-center">
+              <a
+                id="ivclick-membership-phone"
+                href="tel:+66919991744"
+                onClick={() => trackButtonClick('ivclick-membership-phone')}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="h-4 w-4 text-primary" />
+                Speak to a membership advisor: +66 (0)9 1999 1744
+              </a>
+            </div>
           </div>
         </div>
       </div>
