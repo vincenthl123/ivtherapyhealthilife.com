@@ -88,7 +88,16 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-1">
+            <a
+              id="ivclick-mobile-phone-icon"
+              href="tel:+66919991744"
+              onClick={() => trackButtonClick('ivclick-mobile-phone-icon')}
+              className="p-2 text-foreground hover:text-primary transition-colors"
+              aria-label="Call +66 (0)9 1999 1744"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
             <LanguageSwitcher />
             <button
               className="p-2 text-foreground"
