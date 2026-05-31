@@ -83,7 +83,7 @@ const FAQ = () => {
               >
                 <a href="tel:+66919991744">
                   <Phone className="h-5 w-5 mr-2" />
-                  {t("faq.call")} +66 (0)9-1999-1744
+                  {t("faq.call")} +66 (0)9 1999 1744
                 </a>
               </Button>
             </div>
