@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, Award, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Star, Award, MapPin, Clock, MessageCircle, Phone } from "lucide-react";
 import heroImage from "@/assets/clinic-exterior.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
@@ -100,8 +100,19 @@ const Hero = () => {
             </Button>
           </div>
 
+          {/* Direct call */}
+          <a
+            id="ivclick-hero-phone"
+            href="tel:+66919991744"
+            onClick={() => trackButtonClick('ivclick-hero-phone')}
+            className="animate-fade-in mt-6 inline-flex items-center text-sm md:text-base text-foreground hover:text-primary transition-colors"
+          >
+            <Phone className="h-4 w-4 mr-2" />
+            Or call us directly: <strong className="ml-1">+66 (0)9 1999 1744</strong>
+          </a>
+
           {/* Location Info */}
-          <p className="animate-fade-in mt-8 text-sm text-muted-foreground">
+          <p className="animate-fade-in mt-4 text-sm text-muted-foreground">
             {t("hero.locationInfo")}
           </p>
         </div>

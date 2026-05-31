@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
@@ -63,19 +63,17 @@ const Header = () => {
 
           {/* CTA Buttons + Language Switcher */}
           <div className="hidden md:flex items-center space-x-3">
-            <LanguageSwitcher />
-            <Button 
-              id="ivclick-header-book" 
-              variant="outline" 
-              size="sm" 
-              onClick={() => trackButtonClick('ivclick-header-book')}
-              asChild
+            <a
+              id="ivclick-header-phone"
+              href="tel:+66919991744"
+              onClick={() => trackButtonClick('ivclick-header-phone')}
+              className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
+              aria-label="Call +66 (0)9 1999 1744"
             >
-              <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                {t("nav.bookNow")}
-              </a>
-            </Button>
+              <Phone className="h-4 w-4 mr-1.5" />
+              +66 (0)9 1999 1744
+            </a>
+            <LanguageSwitcher />
             <Button 
               id="ivclick-header-whatsapp" 
               size="sm" 
@@ -90,7 +88,16 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-1">
+            <a
+              id="ivclick-mobile-phone-icon"
+              href="tel:+66919991744"
+              onClick={() => trackButtonClick('ivclick-mobile-phone-icon')}
+              className="p-2 text-foreground hover:text-primary transition-colors"
+              aria-label="Call +66 (0)9 1999 1744"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
             <LanguageSwitcher />
             <button
               className="p-2 text-foreground"
@@ -116,19 +123,18 @@ const Header = () => {
               </a>
             ))}
             <div className="pt-2 space-y-2">
-              <Button 
-                id="ivclick-mobile-book" 
-                variant="outline" 
-                size="sm" 
-                className="w-full" 
-                onClick={() => trackButtonClick('ivclick-mobile-book')}
-                asChild
+              <a
+                id="ivclick-mobile-phone"
+                href="tel:+66919991744"
+                onClick={() => {
+                  trackButtonClick('ivclick-mobile-phone');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="flex items-center justify-center w-full py-2.5 rounded-md border border-border text-sm font-semibold text-foreground hover:text-primary hover:border-primary transition-colors"
               >
-                <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  {t("nav.bookNow")}
-                </a>
-              </Button>
+                <Phone className="h-4 w-4 mr-2" />
+                +66 (0)9 1999 1744
+              </a>
               <Button 
                 id="ivclick-mobile-whatsapp" 
                 size="sm" 
