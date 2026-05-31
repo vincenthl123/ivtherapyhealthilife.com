@@ -910,6 +910,17 @@ const Services = () => {
               </a>
             </Button>
           </div>
+          <div className="text-center mt-6">
+            <a
+              id="ivclick-services-phone"
+              href="tel:+66919991744"
+              onClick={() => trackButtonClick('ivclick-services-phone')}
+              className="inline-flex items-center gap-2 text-sm md:text-base text-foreground hover:text-primary transition-colors"
+            >
+              <Phone className="h-4 w-4 text-primary" />
+              Not sure which IV is right for you? Call <strong>+66 (0)9 1999 1744</strong>
+            </a>
+          </div>
         </div>
       </div>
     </section>
