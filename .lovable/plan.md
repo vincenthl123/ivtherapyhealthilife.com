@@ -1,55 +1,49 @@
-## Goal
+## Add Membership Section — The Urban Longevity House
 
-Make sure every WhatsApp click sends `ga_client_id` to Make, plus forward `gbraid`/`wbraid` and Google Ads `gad_*` params that the current payload drops.
+### Goal
+Add a new 3-tier membership pricing section to the homepage, placed immediately after the Popular IV Drips grid and before the clinic gallery / wellness packages.
 
-## Why the current setup fails
+### Scope
 
-`src/lib/whatsapp.ts` → `makeRefPayload()` calls `getGaClientId()` which reads the `_ga` cookie **synchronously**. Three failure modes:
+1. **New component**: `src/components/MembershipSection.tsx`
+   - 3 pricing cards: Resident (฿50K), Patron (฿100K, featured), Founding Member (฿300K)
+   - Responsive: 1 col mobile, 3 col desktop
+   - Center card (Patron) highlighted with primary ring + "Best Seller" badge
+   - Each card: icon, floating tag, price top-right, title, headline, benefit list with checkmark, WhatsApp CTA
+   - Footer encart below cards with Longevity Consultation disclaimer
+   - Style: medical minimal premium, using existing design tokens (`primary`, `foreground`, `muted-foreground`, `border`, `bg-gradient-medical` / `bg-gradient-to-br` with primary/emerald fallback)
+   - Icons via `lucide-react`: `Leaf`, `Heart`, `Shield`, `Check`, `MessageCircle`
+   - Content hardcoded in English (no i18n keys added)
 
-1. **Race condition** — GA4 script loads async. On a fast click (or prerendered page where the user clicks within the first ~500ms), the `_ga` cookie does not exist yet → empty string.
-2. **Empty-string omission** — `getGaClientId()` returns `""` when missing. JSON keys with `undefined` values are dropped, and even `""` can be hard to spot in Make. No diagnostic info is sent.
-3. **No retry / no async fallback** — `getGaClientIdAsync()` already exists in `attribution.ts` but is never called.
+2. **Mount in `src/pages/Index.tsx`**
+   - Import and render `<MembershipSection />` inside the `<Suspense>` block, between `<Services />` and `<WhyChooseUs />`
 
-The screenshot confirms: payload has `gclid` (from URL → localStorage, works synchronously) but no `ga_client_id` field at all.
+3. **WhatsApp CTA wiring**
+   - Each card opens `wa.me/66919991744` with pre-filled message:
+     ```
+     Hello Healthi-Life — I'm interested in the {TIER} membership (฿{PRICE}).
+     Ref: HL-MEMBERSHIP
+     ```
+   - Use direct `buildWaUrl`-style URL construction (inline or small helper)
+   - `target="_blank" rel="noopener noreferrer"`
+   - Unique IDs: `membership-resident`, `membership-patron`, `membership-founding`
 
-## Changes
+### Files touched
+- `src/components/MembershipSection.tsx` — new
+- `src/pages/Index.tsx` — insert component
 
-### 1. `src/lib/attribution.ts`
-- Extend `KEYS` to also capture `gad_source` and `gad_campaignid` (already present on the live ad URL) into the 90-day attribution store.
-- Add a tiny helper `getGaClientIdStatus()` returning `"ok" | "cookie_missing" | "no_document"` so Make can see *why* it's blank.
+### Content (unchanged from spec)
+- Badge header: "Membership · 12 months"
+- H2: "Membership into the house"
+- Subtitle: "The Urban Longevity House — Ekkamai, Bangkok"
+- Intro paragraph about 12-month relationship
+- 3 tiers with exact benefits, prices, headlines, tags
+- Footer encart with Dr. Petch consultation text + disclaimer
+- Closing line: "Come for the recovery. Stay for the longevity."
 
-### 2. `src/lib/whatsapp.ts`
-- Convert `buildWaData` to await `getGaClientIdAsync()` (300 ms timeout, falls back to cookie). Because the WhatsApp open must stay synchronous with the user gesture, do this instead:
-  - Try sync cookie read first (fast path — works ≥95% of the time once GA has loaded).
-  - If empty, still open WhatsApp immediately, but **delay the Make webhook POST by up to 400 ms** while we poll for the cookie. The webhook is already fire-and-forget; user experience is unaffected.
-- Extend `makeRefPayload` to always include:
-  - `ga_client_id` (always present, even if `""`)
-  - `ga_client_id_status` (`"ok"` / `"cookie_missing"`)
-  - `gbraid`, `wbraid` (from attribution store)
-  - `gad_source`, `gad_campaignid` (from attribution store)
-  - `utm_term`, `utm_content` (currently dropped)
-
-### 3. `src/lib/wa-interceptor.ts`
-- No changes needed; it already calls `logWaUrlRef` which routes through the updated `makeRefPayload`.
-
-## Validation
-
-After the change, visit:
-`https://ivtherapyhealthilife.com/ivtherapybangkok?gad_source=1&gad_campaignid=22242031086&gbraid=…&gclid=…`
-
-Then click WhatsApp and check the Make webhook payload. Expected new fields:
-
-```json
-{
-  "ref": "HL-XXXX",
-  "ga_client_id": "1234567890.1747665432",
-  "ga_client_id_status": "ok",
-  "gclid": "EAIaIQob…",
-  "gbraid": "0AAAAA-qgsxj…",
-  "gad_source": "1",
-  "gad_campaignid": "22242031086",
-  "utm_source": "", "utm_medium": "", "utm_campaign": ""
-}
-```
-
-If `ga_client_id_status` ever shows `"cookie_missing"` in Make logs, that visitor has an ad blocker / GA blocked and there is no client_id to send — but you'll at least know why.
+### Design notes
+- Cards use `Card` / `CardContent` from existing UI primitives
+- Checkmarks use small accent-colored dots or `Check` icon
+- Featured card (`popular={true}`) gets `ring-2 ring-primary` and elevated shadow
+- No images; pure typography + icon + Tailwind
+- Background: `bg-gradient-subtle` or `bg-secondary/30` to separate from services section
