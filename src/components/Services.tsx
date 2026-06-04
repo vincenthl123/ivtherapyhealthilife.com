@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,7 +21,7 @@ const DiscountBadge = ({ percent }: { percent: number }) => (
   </span>
 );
 
-const Services = () => {
+const Services = ({ children }: { children?: ReactNode }) => {
   const { t } = useLanguage();
 
   const popularDrips = [
@@ -342,6 +343,8 @@ const Services = () => {
             </Card>
           ))}
         </div>
+
+        {children}
 
         {/* Clinic Gallery — visual trust signal above Wellness Packages */}
         <div className="mb-16">
