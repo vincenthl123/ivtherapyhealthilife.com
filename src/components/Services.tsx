@@ -21,7 +21,7 @@ const DiscountBadge = ({ percent }: { percent: number }) => (
   </span>
 );
 
-const Services = ({ children }: { children?: React.ReactNode }) => {
+const Services = ({ children }: { children?: ReactNode }) => {
   const { t } = useLanguage();
 
   const popularDrips = [
