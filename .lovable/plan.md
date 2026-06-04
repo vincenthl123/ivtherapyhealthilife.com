@@ -1,34 +1,40 @@
-# Repositionner MembershipSection
+## Goal
 
-Dans `src/pages/Index.tsx`, descendre `MembershipSection` de 2 sections vers le bas.
+Reorder the homepage so the user sees:
 
-## Ordre actuel
-1. Hero
-2. TrustBanner
-3. **MembershipSection**
-4. Services
-5. WhyChooseUs
-6. MedicalTeam
-7. Process
-8. VideoTestimonials
-9. Testimonials
-10. FAQ
-11. Contact
+1. Hero + TrustBanner (unchanged)
+2. **Most Popular IV Therapy** (top of Services)
+3. **Membership** section
+4. **Inside Our Ekkamai Center** + Wellness Packages + rest of Services
+5. WhyChooseUs → MedicalTeam → Process → … (unchanged)
 
-## Nouvel ordre
-1. Hero
-2. TrustBanner
-3. Services
-4. WhyChooseUs
-5. **MembershipSection** ← déplacée (après WhyChooseUs)
-6. MedicalTeam
-7. Process
-8. VideoTestimonials
-9. Testimonials
-10. FAQ
-11. Contact
+Currently `MembershipSection` sits above the whole `Services` section, so it appears before "Most Popular IV Therapy". We need it between two blocks that both live inside `Services.tsx`.
 
-## Détails techniques
-- Seul fichier modifié : `src/pages/Index.tsx`
-- Réordonner les composants JSX dans le `<Suspense>`
-- Aucun changement de logique, design, ou imports
+## Changes
+
+### 1. `src/components/Services.tsx`
+- Accept an optional `children` prop.
+- Render `{children}` between the Popular Drips grid (closing `</div>` at line 344) and the "Inside Our Ekkamai Center" gallery block (starts line 346).
+- No other markup, styling, copy, or logic changes.
+
+### 2. `src/pages/Index.tsx`
+- Remove the standalone `<MembershipSection />` line above `<Services />`.
+- Pass MembershipSection as a child: `<Services><MembershipSection /></Services>`.
+- Keep the lazy import for `MembershipSection`.
+
+Resulting `<Suspense>` order:
+```text
+<Services>
+  <MembershipSection />   {/* injected between Popular grid and Ekkamai gallery */}
+</Services>
+<WhyChooseUs />
+<MedicalTeam />
+<Process />
+<VideoTestimonials />
+<Testimonials />
+<FAQ />
+<Contact />
+```
+
+## Out of scope
+No changes to MembershipSection design, Services styling, translations, or any other component.
