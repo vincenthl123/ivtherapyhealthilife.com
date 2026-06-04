@@ -20,7 +20,7 @@ const DiscountBadge = ({ percent }: { percent: number }) => (
   </span>
 );
 
-const Services = () => {
+const Services = ({ children }: { children?: React.ReactNode }) => {
   const { t } = useLanguage();
 
   const popularDrips = [
