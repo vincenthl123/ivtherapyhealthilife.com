@@ -33,8 +33,9 @@ const Index = () => {
         <Hero />
         <TrustBanner />
         <Suspense fallback={<SectionLoader />}>
-          <MembershipSection />
-          <Services />
+          <Services>
+            <MembershipSection />
+          </Services>
           <WhyChooseUs />
           <MedicalTeam />
           <Process />
