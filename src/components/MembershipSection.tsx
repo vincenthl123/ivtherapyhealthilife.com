@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Leaf, Heart, Shield, Check, MessageCircle, Phone, LucideIcon } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
+import { Price } from "@/lib/currency";
 
 type Tier = {
   id: string;
@@ -123,7 +124,7 @@ const MembershipSection = () => {
                     </div>
                     <div className="text-right">
                       <span className="block text-2xl md:text-3xl font-bold text-primary leading-tight">
-                        ฿{tier.price.toLocaleString("en-US")}
+                        <Price value={`฿${tier.price.toLocaleString("en-US")}`} />
                       </span>
                       <span className="text-xs text-muted-foreground">12 months</span>
                     </div>
@@ -142,7 +143,7 @@ const MembershipSection = () => {
                     {tier.benefits.map((b, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-foreground">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{b}</span>
+                        <span><Price value={b} /></span>
                       </li>
                     ))}
                   </ul>

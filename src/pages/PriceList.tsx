@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Printer, Download } from "lucide-react";
+import { Price } from "@/lib/currency";
+import CurrencySwitcher from "@/components/CurrencySwitcher";
 
 const PriceList = () => {
   const handlePrint = () => window.print();
@@ -7,7 +9,10 @@ const PriceList = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Print button - hidden on print */}
-      <div className="print:hidden fixed top-4 right-4 z-50 flex gap-2">
+      <div className="print:hidden fixed top-4 right-4 z-50 flex items-center gap-2">
+        <div className="rounded-md bg-foreground text-background shadow-lg">
+          <CurrencySwitcher />
+        </div>
         <Button onClick={handlePrint} size="lg" className="shadow-lg">
           <Printer className="h-5 w-5 mr-2" />
           Save as PDF / Print
@@ -174,11 +179,11 @@ const PriceTable = ({ headers, rows }: { headers: string[]; rows: string[][] }) 
             <td key={j} className="py-1.5 px-2 border border-border text-xs print:text-[10px]">
               {cell.includes("was ") ? (
                 <>
-                  <strong>{cell.split(" (")[0]}</strong>{" "}
-                  <span className="text-muted-foreground line-through text-[10px]">({cell.split("(")[1]}</span>
+                  <strong><Price value={cell.split(" (")[0]} /></strong>{" "}
+                  <span className="text-muted-foreground line-through text-[10px]">(<Price value={cell.split("(")[1].replace(")", "")} />)</span>
                 </>
               ) : (
-                cell
+                <Price value={cell} />
               )}
             </td>
           ))}
@@ -197,7 +202,7 @@ const ProgramCard = ({
   <div className="border border-primary/20 rounded-lg p-4 print:p-3 bg-secondary/30">
     <div className="flex justify-between items-start mb-1">
       <h3 className="font-bold text-primary text-sm print:text-xs">{title}</h3>
-      <span className="font-bold text-accent-foreground text-sm print:text-xs">{price}</span>
+      <span className="font-bold text-accent-foreground text-sm print:text-xs"><Price value={price} /></span>
     </div>
     {designer && <p className="text-[10px] text-muted-foreground italic mb-1">Designed by Healthi Life | {designer}</p>}
     <p className="text-xs text-muted-foreground mb-2 print:text-[10px]">{duration}</p>

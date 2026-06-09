@@ -2,6 +2,7 @@ import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoWhite from "@/assets/healthilife-logo-white.png";
 import { useLanguage } from "@/lib/i18n";
+import CurrencySwitcher from "@/components/CurrencySwitcher";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -159,9 +160,12 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-background/20 pt-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-background/70">
-            © {currentYear} {t("footer.copyright")}
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="text-sm text-background/70">
+              © {currentYear} {t("footer.copyright")}
+            </p>
+            <CurrencySwitcher />
+          </div>
           <div className="flex items-center space-x-4 text-sm text-background/70">
             <Link to="/sitemap" className="hover:text-background transition-colors">
               Sitemap

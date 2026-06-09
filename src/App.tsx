@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense, useEffect } from "react";
 import { installWaInterceptor } from "@/lib/wa-interceptor";
 import { captureAttribution } from "@/lib/attribution";
+import { initCurrency } from "@/lib/currency";
 
 // Lazy load pages for better Core Web Vitals
 const Index = lazy(() => import("./pages/Index"));
@@ -29,6 +30,7 @@ const PageLoader = () => (
 const App = () => {
   useEffect(() => {
     captureAttribution();
+    initCurrency();
     return installWaInterceptor();
   }, []);
   return (
