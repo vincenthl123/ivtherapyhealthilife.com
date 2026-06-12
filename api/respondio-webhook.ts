@@ -74,11 +74,7 @@ const SITE_GA4: Record<string, { measurementId: string; secretEnv: string }> = {
     secretEnv: "GA4_API_SECRET_HEALTHILIFE",
   },
   "information-bangkok.com": {
-    // Peptide site — GA4 access pending. Fill measurementId once granted and
-    // add GA4_API_SECRET_INFOBANGKOK in Vercel; until then conversions for
-    // this site are acknowledged but not sent (instead of polluting another
-    // property's Ads data).
-    measurementId: "",
+    measurementId: "G-1QJF72V7RC",
     secretEnv: "GA4_API_SECRET_INFOBANGKOK",
   },
 };
