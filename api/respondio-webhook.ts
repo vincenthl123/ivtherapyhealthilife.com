@@ -23,11 +23,11 @@
  * Required env:
  *   GA4_API_SECRET            (GA4 Admin → Data Streams → Measurement Protocol API secrets)
  *   RESPONDIO_WEBHOOK_SECRET  (any long random string, mirrored in the respond.io workflow)
- *   BLOB_READ_WRITE_TOKEN     (auto-added with the Blob store)
+ *   BLOB_STORE_ID             (auto-added when the private Blob store was connected; OIDC auth)
  * Optional env:
  *   GA4_MEASUREMENT_ID        (defaults to G-K9R2HXK3QT)
  */
-import { head, put } from "@vercel/blob";
+import { get, put } from "@vercel/blob";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const GA4_MEASUREMENT_ID = process.env.GA4_MEASUREMENT_ID || "G-K9R2HXK3QT";
@@ -60,12 +60,12 @@ const extractRef = (...candidates: unknown[]): string | null => {
 
 const readBlobJson = async <T>(pathname: string): Promise<T | null> => {
   try {
-    const blob = await head(pathname);
-    const r = await fetch(blob.downloadUrl || blob.url);
-    if (!r.ok) return null;
-    return (await r.json()) as T;
+    const result = await get(pathname, { access: "private", useCache: false });
+    if (!result?.stream) return null;
+    const text = await new Response(result.stream as ReadableStream).text();
+    return JSON.parse(text) as T;
   } catch {
-    return null; // BlobNotFoundError → no record
+    return null; // not found / unreadable → no record
   }
 };
 
@@ -167,7 +167,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           sent_at: new Date().toISOString(),
         }),
         {
-          access: "public",
+          access: "private",
           addRandomSuffix: false,
           allowOverwrite: true,
           contentType: "application/json",

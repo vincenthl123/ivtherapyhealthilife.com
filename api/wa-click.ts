@@ -6,9 +6,9 @@
  * booking webhook (/api/respondio-webhook) can later attribute the
  * whatsapp_conversion back to the original GA4 client / ad click.
  *
- * Storage: wa-refs/<REF>.json  (e.g. wa-refs/HL-K3M9.json)
- * Requires env: BLOB_READ_WRITE_TOKEN (auto-added when a Blob store is
- * connected to the Vercel project).
+ * Storage: wa-refs/<REF>.json  (e.g. wa-refs/HL-K3M9.json) in a private Blob
+ * store. Auth is automatic on Vercel via OIDC + BLOB_STORE_ID (added when the
+ * store was connected to the project).
  */
 import { put } from "@vercel/blob";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
@@ -37,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     };
 
     await put(`wa-refs/${ref}.json`, JSON.stringify(record), {
-      access: "public",
+      access: "private",
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType: "application/json",
