@@ -8,14 +8,24 @@
  * the Measurement Protocol, attached to the original GA4 client_id so the
  * conversion attributes to the original ad session.
  *
- * Expected JSON body (configure in the respond.io HTTP Request step):
+ * Two payload types (configure in the respond.io HTTP Request steps):
+ *
+ * 1. Ref capture — Workflow "Conversation Opened": maps the contact to the
+ *    HL-XXXX ref found in their first WhatsApp message.
  *   {
- *     "phone":        "{{$contact.phone}}",
- *     "ref":          "{{$contact.<ref custom field>}}",   // or omit and pass message
- *     "message":      "<raw first message text>",           // optional fallback, ref is regexed out
- *     "contactId":    "{{$contact.id}}",
- *     "stage":        "Consultation Booked",
- *     "firstName":    "{{$contact.firstName}}"              // optional, for logs only
+ *     "type":      "ref_capture",
+ *     "contactId": "{{$contact.id}}",
+ *     "phone":     "{{$contact.phone}}",
+ *     "message":   "{{$conversation.first_incoming_message}}"
+ *   }
+ *
+ * 2. Booking — Workflow "Lifecycle Updated → Consultation Booked": sends the
+ *    whatsapp_conversion to GA4 using the stored contact → ref → attribution.
+ *   {
+ *     "type":      "booking",                       // or omit (default)
+ *     "contactId": "{{$contact.id}}",
+ *     "phone":     "{{$contact.phone}}",
+ *     "stage":     "Consultation Booked"
  *   }
  *
  * Auth: shared secret via ?secret= query param or X-Webhook-Secret header.
@@ -121,11 +131,50 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const phone = String(body.phone || "").trim();
     const stage = String(body.stage || "consultation_booked");
     const contactId = String(body.contactId || "").trim();
-    const ref = extractRef(body.ref, body.message);
+    const contactKey = contactId || phone.replace(/\D/g, "");
+
+    // --- Type 1: ref capture on conversation open -------------------------
+    if (body.type === "ref_capture") {
+      const capturedRef = extractRef(body.message, body.ref);
+      if (!capturedRef || !contactKey) {
+        // No ref in the first message (organic contact) — nothing to store.
+        return res.status(200).json({ ok: true, status: "no_ref_found" });
+      }
+      await put(
+        `wa-contacts/${contactKey}.json`,
+        JSON.stringify({
+          ref: capturedRef,
+          contactId,
+          phone,
+          captured_at: new Date().toISOString(),
+        }),
+        {
+          access: "private",
+          addRandomSuffix: false,
+          allowOverwrite: true,
+          contentType: "application/json",
+        },
+      );
+      console.log(`ref_capture stored ${capturedRef} for contact=${contactKey}`);
+      return res
+        .status(200)
+        .json({ ok: true, status: "ref_stored", ref: capturedRef });
+    }
+
+    // --- Type 2 (default): booking conversion ------------------------------
+    // Resolve the ref: explicit field/message, else the mapping stored at
+    // conversation open.
+    let ref = extractRef(body.ref, body.message);
+    if (!ref && contactKey) {
+      const mapping = await readBlobJson<{ ref?: string }>(
+        `wa-contacts/${contactKey}.json`,
+      );
+      ref = mapping?.ref || null;
+    }
 
     // Idempotency: respond.io can re-fire if the lifecycle stage bounces.
-    // One conversion per contact (falls back to phone, then ref).
-    const dedupeKey = contactId || phone.replace(/\D/g, "") || ref;
+    // One conversion per contact (falls back to ref).
+    const dedupeKey = contactKey || ref;
     if (dedupeKey) {
       const seen = await readBlobJson(`wa-conversions/${dedupeKey}.json`);
       if (seen) {
