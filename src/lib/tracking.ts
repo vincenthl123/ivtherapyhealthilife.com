@@ -78,11 +78,20 @@ export const trackGAEvent = (eventName: string, params?: Record<string, unknown>
 //   - Meta Pixel 'Lead'
 // All events include gclid/fbclid/utm_* captured on landing (90d window),
 // enabling Enhanced Conversions and offline attribution via the GA4 ↔ Ads link.
+// Dedupe window: a single physical click can reach this function through
+// several paths (interceptor click handler, wrapped window.open, delegated
+// link listener), which previously double/triple-counted whatsapp_click.
+let lastWaClickAt = 0;
+const WA_CLICK_DEDUPE_MS = 1500;
+
 export const trackWhatsAppClick = (params: {
   source: string;
   page?: string;
   hasMessage?: boolean;
 }) => {
+  const now = Date.now();
+  if (now - lastWaClickAt < WA_CLICK_DEDUPE_MS) return;
+  lastWaClickAt = now;
   // Lazy import to keep tracking.ts free of cycles.
   void import("./attribution").then(({ getAttribution }) => {
     const attr = getAttribution();
@@ -153,11 +162,9 @@ export const initLinkClickTracking = () => {
     if (!win.gtag) return;
 
     if (href.includes('wa.me/')) {
-      win.gtag('event', 'whatsapp_click', {
-        event_category: 'engagement',
-        event_label: 'iv_therapy',
-        page_source: 'iv_therapy',
-      });
+      // Route through trackWhatsAppClick so the dedupe window applies —
+      // the wa-interceptor also fires for the same physical click.
+      trackWhatsAppClick({ source: 'link' });
     } else if (href.startsWith('tel:')) {
       win.gtag('event', 'phone_click', {
         event_category: 'engagement',

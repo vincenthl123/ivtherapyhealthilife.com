@@ -220,17 +220,30 @@ const logRefMapping = async (
     }
   }
 
-  try {
+  const body = JSON.stringify({ ref, service: "iv_therapy", ...finalPayload });
+
+  // Fire both sinks concurrently; each failure is independent and ignored.
+  await Promise.allSettled([
+    // Make webhook (Sheets/CRM logging).
     // Use text/plain to avoid CORS preflight; Make parses the JSON body fine.
-    await fetch(MAKE_WEBHOOK_URL, {
+    fetch(MAKE_WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=UTF-8" },
-      body: JSON.stringify({ ref, service: "iv_therapy", ...finalPayload }),
+      body,
       keepalive: true,
-    });
-  } catch {
+    }),
+    // Own backend: stores ref → attribution so the respond.io
+    // "Consultation Booked" webhook can mint the GA4 whatsapp_conversion.
+    // Same-origin in production; 404s harmlessly on the Vite dev server.
+    fetch("/api/wa-click", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+      body,
+      keepalive: true,
+    }),
+  ]).catch(() => {
     /* ignore */
-  }
+  });
 };
 
 export const logWaUrlRef = (url: string | URL | undefined | null): void => {
