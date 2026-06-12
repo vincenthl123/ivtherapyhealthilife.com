@@ -73,7 +73,14 @@ const SITE_GA4: Record<string, { measurementId: string; secretEnv: string }> = {
     measurementId: "G-4XR12SQW4T",
     secretEnv: "GA4_API_SECRET_HEALTHILIFE",
   },
-  // information-bangkok.com: no GA4 property yet — falls back to default.
+  "information-bangkok.com": {
+    // Peptide site — GA4 access pending. Fill measurementId once granted and
+    // add GA4_API_SECRET_INFOBANGKOK in Vercel; until then conversions for
+    // this site are acknowledged but not sent (instead of polluting another
+    // property's Ads data).
+    measurementId: "",
+    secretEnv: "GA4_API_SECRET_INFOBANGKOK",
+  },
 };
 const DEFAULT_SITE = "ivtherapyhealthilife.com";
 
@@ -231,6 +238,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const clientId = record?.ga_client_id || randomClientId();
     const site = record?.s || DEFAULT_SITE;
     const config = siteConfig(site);
+
+    // Site known but its GA4 property isn't configured yet (e.g. awaiting
+    // access). Acknowledge without sending and without writing the dedupe
+    // marker, so the booking is not lost to a half-configured property.
+    if (!config.measurementId) {
+      console.log(
+        `whatsapp_conversion HELD site=${site} (GA4 pending) ref=${ref} contact=${contactId}`,
+      );
+      return res
+        .status(200)
+        .json({ ok: true, ref, matched, status: "site_ga4_pending" });
+    }
 
     const sent = await sendGa4Conversion(
       clientId,
