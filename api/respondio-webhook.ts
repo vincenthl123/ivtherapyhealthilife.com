@@ -40,8 +40,47 @@
 import { get, put } from "@vercel/blob";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const GA4_MEASUREMENT_ID = process.env.GA4_MEASUREMENT_ID || "G-K9R2HXK3QT";
 const REF_RE = /HL-[A-Z2-9]{4}/i;
+
+/**
+ * Per-site GA4 routing. All HealthiLife sites POST their click refs to this
+ * central endpoint; the conversion must be sent to the GA4 property that the
+ * click's client_id belongs to (a client_id is meaningless in another
+ * property). Site comes from the ref record's `s` field (set at click time).
+ */
+const SITE_GA4: Record<string, { measurementId: string; secretEnv: string }> = {
+  "ivtherapyhealthilife.com": {
+    measurementId: process.env.GA4_MEASUREMENT_ID || "G-K9R2HXK3QT",
+    secretEnv: "GA4_API_SECRET",
+  },
+  "skin-healthi-life.com": {
+    measurementId: "G-5VMVWT3Y5E",
+    secretEnv: "GA4_API_SECRET_SKIN",
+  },
+  "healthcheckup-healthilife.com": {
+    measurementId: "G-C7JWK2LM04",
+    secretEnv: "GA4_API_SECRET_CHECKUP",
+  },
+  "stemcellhealthilife.com": {
+    measurementId: "G-RLYCLWD5Q6",
+    secretEnv: "GA4_API_SECRET_STEMCELL",
+  },
+  "certificate-healthi-life.com": {
+    measurementId: "G-3YFQC228M0",
+    secretEnv: "GA4_API_SECRET_CERTIFICATE",
+  },
+  "healthi-life.com": {
+    measurementId: "G-4XR12SQW4T",
+    secretEnv: "GA4_API_SECRET_HEALTHILIFE",
+  },
+  // information-bangkok.com: no GA4 property yet — falls back to default.
+};
+const DEFAULT_SITE = "ivtherapyhealthilife.com";
+
+const siteConfig = (site?: string) => {
+  const key = (site || "").toLowerCase().replace(/^www\./, "");
+  return SITE_GA4[key] || SITE_GA4[DEFAULT_SITE];
+};
 
 type RefRecord = {
   ref?: string;
@@ -54,6 +93,7 @@ type RefRecord = {
   utm_campaign?: string;
   utm_term?: string;
   utm_content?: string;
+  s?: string; // site domain at click time
   p?: string; // page path at click time
   src?: string; // CTA source
   ts?: string; // click timestamp
@@ -88,15 +128,16 @@ const randomClientId = (): string => {
 const sendGa4Conversion = async (
   clientId: string,
   params: Record<string, unknown>,
+  config: { measurementId: string; secretEnv: string },
 ): Promise<boolean> => {
-  const apiSecret = process.env.GA4_API_SECRET;
+  const apiSecret = process.env[config.secretEnv];
   if (!apiSecret) {
-    console.error("GA4_API_SECRET not configured");
+    console.error(`${config.secretEnv} not configured (site routing)`);
     return false;
   }
   const url =
     "https://www.google-analytics.com/mp/collect" +
-    `?measurement_id=${encodeURIComponent(GA4_MEASUREMENT_ID)}` +
+    `?measurement_id=${encodeURIComponent(config.measurementId)}` +
     `&api_secret=${encodeURIComponent(apiSecret)}`;
   const r = await fetch(url, {
     method: "POST",
@@ -188,21 +229,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const matched = !!record?.ga_client_id;
     const clientId = record?.ga_client_id || randomClientId();
+    const site = record?.s || DEFAULT_SITE;
+    const config = siteConfig(site);
 
-    const sent = await sendGa4Conversion(clientId, {
-      currency: "THB",
-      value: 1,
-      ref: ref || "",
-      lifecycle_stage: stage,
-      attribution_status: matched ? "matched" : "unmatched",
-      source: "respondio_webhook",
-      gclid: record?.gclid || "",
-      utm_source: record?.utm_source || "",
-      utm_medium: record?.utm_medium || "",
-      utm_campaign: record?.utm_campaign || "",
-      click_page: record?.p || "",
-      click_cta: record?.src || "",
-    });
+    const sent = await sendGa4Conversion(
+      clientId,
+      {
+        currency: "THB",
+        value: 1,
+        ref: ref || "",
+        site,
+        lifecycle_stage: stage,
+        attribution_status: matched ? "matched" : "unmatched",
+        source: "respondio_webhook",
+        gclid: record?.gclid || "",
+        utm_source: record?.utm_source || "",
+        utm_medium: record?.utm_medium || "",
+        utm_campaign: record?.utm_campaign || "",
+        click_page: record?.p || "",
+        click_cta: record?.src || "",
+      },
+      config,
+    );
 
     if (sent && dedupeKey) {
       await put(
@@ -225,7 +273,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     console.log(
-      `whatsapp_conversion ${sent ? "sent" : "FAILED"} ref=${ref} matched=${matched} contact=${contactId}`,
+      `whatsapp_conversion ${sent ? "sent" : "FAILED"} site=${site} (${config.measurementId}) ref=${ref} matched=${matched} contact=${contactId}`,
     );
     return res
       .status(sent ? 200 : 502)
