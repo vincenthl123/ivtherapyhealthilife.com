@@ -88,8 +88,10 @@ const fmtDate = (iso?: string | null): string => {
   try {
     return new Date(iso).toLocaleString("en-GB", {
       timeZone: "Asia/Bangkok",
+      weekday: "short",
       day: "2-digit",
       month: "short",
+      year: "numeric",
       hour: "2-digit",
       minute: "2-digit",
     });
@@ -97,6 +99,40 @@ const fmtDate = (iso?: string | null): string => {
     return iso;
   }
 };
+
+const fmtAgo = (iso?: string | null): string => {
+  if (!iso) return "";
+  const ms = Date.now() - new Date(iso).getTime();
+  if (!isFinite(ms) || ms < 0) return "";
+  const min = Math.floor(ms / 60000);
+  if (min < 60) return `${min}m ago`;
+  const h = Math.floor(min / 60);
+  if (h < 48) return `${h}h ago`;
+  return `${Math.floor(h / 24)}d ago`;
+};
+
+const bangkokDay = (iso?: string | null): string => {
+  if (!iso) return "";
+  try {
+    return new Date(iso).toLocaleDateString("en-CA", { timeZone: "Asia/Bangkok" });
+  } catch {
+    return "";
+  }
+};
+
+/** All sites in the network — shown even before they record any data. */
+const KNOWN_SITES = [
+  "ivtherapyhealthilife.com",
+  "skin-healthi-life.com",
+  "healthcheckup-healthilife.com",
+  "stemcellhealthilife.com",
+  "certificate-healthi-life.com",
+  "healthi-life.com",
+  "information-bangkok.com",
+];
+
+const UNKNOWN_LABEL =
+  "No ref — direct WhatsApp / pre-tracking contact";
 
 const isTestRecord = (ref?: string | null, contactId?: string): boolean =>
   (contactId || "").startsWith("claude-test") || ref === "HL-TST9";
@@ -118,11 +154,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const siteOfRef = (ref?: string | null): string =>
     (ref && refBySite.get(ref)?.s) || "unknown";
 
-  // Per-site aggregates
+  // Per-site aggregates (pre-seeded so every site shows a row from day one)
   const sites = new Map<
     string,
-    { clicks: number; contacts: number; conversions: number; lastClick?: string }
+    {
+      clicks: number;
+      contacts: number;
+      conversions: number;
+      lastClick?: string;
+      lastBooking?: string;
+    }
   >();
+  for (const s of KNOWN_SITES) {
+    sites.set(s, { clicks: 0, contacts: 0, conversions: 0 });
+  }
   const bump = (site: string, key: "clicks" | "contacts" | "conversions") => {
     const s = sites.get(site) || { clicks: 0, contacts: 0, conversions: 0 };
     s[key] += 1;
@@ -144,19 +189,37 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const realConversions = conversions.filter(
     (c) => !isTestRecord(c.ref, c.contactId),
   );
-  for (const c of realConversions) bump(siteOfRef(c.ref), "conversions");
+  for (const c of realConversions) {
+    const site = siteOfRef(c.ref);
+    bump(site, "conversions");
+    const s = sites.get(site)!;
+    if (c.sent_at && (!s.lastBooking || c.sent_at > s.lastBooking)) {
+      s.lastBooking = c.sent_at;
+    }
+  }
 
   const siteRows = [...sites.entries()]
-    .sort((a, b) => b[1].clicks - a[1].clicks)
+    .sort(
+      (a, b) =>
+        b[1].conversions - a[1].conversions || b[1].clicks - a[1].clicks,
+    )
     .map(([site, s]) => {
-      const rate = s.clicks ? ((s.conversions / s.clicks) * 100).toFixed(1) : "0.0";
+      const isUnknown = site === "unknown";
+      const rate =
+        isUnknown || !s.clicks
+          ? "—"
+          : `${((s.conversions / s.clicks) * 100).toFixed(1)}%`;
+      const label = isUnknown
+        ? `<span class="muted">${esc(UNKNOWN_LABEL)}</span>`
+        : `<strong>${esc(site)}</strong>`;
       return `<tr>
-        <td><strong>${esc(site)}</strong></td>
-        <td class="num">${s.clicks}</td>
-        <td class="num">${s.contacts}</td>
+        <td>${label}</td>
+        <td class="num">${isUnknown ? "—" : s.clicks}</td>
+        <td class="num">${isUnknown ? "—" : s.contacts}</td>
         <td class="num">${s.conversions}</td>
-        <td class="num">${rate}%</td>
+        <td class="num">${rate}</td>
         <td>${fmtDate(s.lastClick)}</td>
+        <td>${fmtDate(s.lastBooking)}</td>
       </tr>`;
     })
     .join("");
@@ -166,14 +229,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     .map((c) => {
       const ref = c.ref || null;
       const r = ref ? refBySite.get(ref) : undefined;
+      const site = siteOfRef(ref);
+      const siteCell =
+        site === "unknown"
+          ? `<span class="muted" title="${esc(UNKNOWN_LABEL)}">unattributable*</span>`
+          : esc(site);
+      const clickedAt = r?.received_at || r?.ts;
       return `<tr>
-        <td>${fmtDate(c.sent_at)}</td>
-        <td>${esc(siteOfRef(ref))}</td>
-        <td><code>${esc(ref || "—")}</code></td>
+        <td><strong>${fmtDate(c.sent_at)}</strong><br><span class="muted">${fmtAgo(c.sent_at)}</span></td>
+        <td>${siteCell}</td>
+        <td><code>${esc(ref || "—")}</code>${clickedAt ? `<br><span class="muted">clicked ${fmtDate(clickedAt)}</span>` : ""}</td>
         <td>${esc(c.stage || "—")}</td>
-        <td>${c.matched ? "✅ matched" : "⚠️ unmatched"}</td>
-        <td>${r?.gclid ? "✅" : "—"}</td>
-        <td>${esc(r?.utm_source || "—")}/${esc(r?.utm_campaign || "—")}</td>
+        <td>${c.matched ? `<span class="ok">✅ matched</span>` : `<span class="warn">⚠️ unmatched</span>`}</td>
+        <td>${r?.gclid ? "✅ from ad" : "—"}</td>
+        <td>${esc(r?.utm_source || "—")} / ${esc(r?.utm_campaign || "—")}</td>
         <td>${esc(maskPhone(c.phone))}</td>
       </tr>`;
     })
@@ -207,10 +276,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     { clicks: 0, contacts: 0, conversions: 0 },
   );
 
+  const today = bangkokDay(new Date().toISOString());
+  const clicksToday = refs.filter(
+    (r) => !isTestRecord(r.ref) && bangkokDay(r.received_at || r.ts) === today,
+  ).length;
+  const bookingsToday = realConversions.filter(
+    (c) => bangkokDay(c.sent_at) === today,
+  ).length;
+
   const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<meta http-equiv="refresh" content="300">
 <title>WhatsApp Conversion Dashboard — HealthiLife</title>
 <style>
   :root { color-scheme: light; }
@@ -231,6 +309,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   td.num { text-align: right; font-variant-numeric: tabular-nums; }
   code { background: #f1f3f5; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
   .empty { color: #9aa1a9; padding: 18px; text-align: center; }
+  .muted { color: #9aa1a9; font-size: 11px; }
+  .ok { color: #15803d; }
+  .warn { color: #b45309; }
+  .note { color: #6b7280; font-size: 12px; margin: 8px 2px 0; }
+  .sub { font-size: 11px; color: #15803d; margin-top: 2px; }
   footer { color: #9aa1a9; font-size: 11px; margin-top: 30px; }
 </style></head><body>
 <header>
@@ -239,23 +322,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 </header>
 <main>
   <div class="cards">
-    <div class="card"><div class="v">${totals.clicks}</div><div class="l">WhatsApp clicks (refs)</div></div>
+    <div class="card"><div class="v">${totals.clicks}</div><div class="l">WhatsApp clicks (refs)</div><div class="sub">${clicksToday} today</div></div>
     <div class="card"><div class="v">${totals.contacts}</div><div class="l">Contacts linked</div></div>
-    <div class="card"><div class="v">${totals.conversions}</div><div class="l">Bookings (conversions)</div></div>
+    <div class="card"><div class="v">${totals.conversions}</div><div class="l">Bookings (conversions)</div><div class="sub">${bookingsToday} today</div></div>
     <div class="card"><div class="v">${totals.clicks ? ((totals.conversions / totals.clicks) * 100).toFixed(1) : "0.0"}%</div><div class="l">Click → booking rate</div></div>
   </div>
 
   <h2>Per-site stats</h2>
   <table>
-    <thead><tr><th>Site</th><th class="num">Clicks</th><th class="num">Contacts linked</th><th class="num">Bookings</th><th class="num">Rate</th><th>Last click</th></tr></thead>
-    <tbody>${siteRows || `<tr><td colspan="6" class="empty">No data yet</td></tr>`}</tbody>
+    <thead><tr><th>Site</th><th class="num">Clicks</th><th class="num">Contacts linked</th><th class="num">Bookings</th><th class="num">Rate</th><th>Last click</th><th>Last booking</th></tr></thead>
+    <tbody>${siteRows || `<tr><td colspan="7" class="empty">No data yet</td></tr>`}</tbody>
   </table>
+  <p class="note">"${esc(UNKNOWN_LABEL)}" = bookings from contacts whose chat carries no HL-ref: conversations started before tracking went live (12 Jun 2026), or people who messaged the WhatsApp number directly (saved contact, Google Business Profile) without going through a website. These can never be attributed to a site or ad — expect this row to shrink to near-zero for new conversations.</p>
 
   <h2>Conversion log (every booking)</h2>
   <table>
-    <thead><tr><th>When</th><th>Site</th><th>Ref</th><th>Stage</th><th>Attribution</th><th>Ad click</th><th>Source/Campaign</th><th>Phone</th></tr></thead>
+    <thead><tr><th>Booked at (Bangkok)</th><th>Site</th><th>Ref · click time</th><th>Stage</th><th>Attribution</th><th>Ad click</th><th>Source / Campaign</th><th>Phone</th></tr></thead>
     <tbody>${convRows || `<tr><td colspan="8" class="empty">No conversions yet — they appear here the moment a contact reaches "Consultation Booked"</td></tr>`}</tbody>
   </table>
+  <p class="note">✅ matched = booking tied back to a website click (and its GA4/ads session). ⚠️ unmatched = no ref found for this contact (*see note above) — counted, but not attributable to a campaign.</p>
 
   <h2>Recent clicks (last 25)</h2>
   <table>
@@ -263,7 +348,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     <tbody>${recentClicks || `<tr><td colspan="7" class="empty">No clicks yet</td></tr>`}</tbody>
   </table>
 
-  <footer>Generated ${new Date().toLocaleString("en-GB", { timeZone: "Asia/Bangkok" })} (Bangkok). Refresh the page for live numbers. GA4/Ads remain the source of truth for ad reporting; this is the raw pipeline view.</footer>
+  <footer>Generated ${fmtDate(new Date().toISOString())} (Bangkok) · auto-refreshes every 5 min · test records hidden. GA4/Ads remain the source of truth for ad reporting; this is the raw pipeline view.</footer>
 </main></body></html>`;
 
   res.setHeader("Content-Type", "text/html; charset=utf-8");
