@@ -224,6 +224,32 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     })
     .join("");
 
+  // Cross-reference: which contacts ever had a ref captured (ref_capture
+  // workflow). Lets us tell a "no ref ever captured" booking apart from a
+  // "ref captured but booking failed to resolve it" bug (contactId mismatch).
+  const normDigits = (s?: string) => (s || "").replace(/\D/g, "");
+  const contactByKey = new Map<string, ContactRecord>();
+  for (const ct of contacts) {
+    if (ct.contactId) contactByKey.set(ct.contactId, ct);
+    const ph = normDigits(ct.phone);
+    if (ph) contactByKey.set(ph, ct);
+  }
+
+  let bugCount = 0;
+  const unmatchedReason = (c: ConversionRecord): string => {
+    if (c.matched) return "";
+    if (c.ref) {
+      return `ref captured but the click had no GA client-id (visitor's GA cookie wasn't set yet) — sent with a fallback id, so it won't tie to a GA session`;
+    }
+    const key = c.contactId || normDigits(c.phone);
+    const mapping = key ? contactByKey.get(key) : undefined;
+    if (mapping?.ref) {
+      bugCount += 1;
+      return `⚠️ BUG: this contact HAS a captured ref (${esc(mapping.ref)}) but the booking didn't use it — likely a contactId format mismatch between workflows`;
+    }
+    return `no website click is linked to this contact — they messaged the number directly (saved contact / Google Business Profile / ad-to-chat) or the chat began before tracking went live`;
+  };
+
   const convRows = realConversions
     .sort((a, b) => (b.sent_at || "").localeCompare(a.sent_at || ""))
     .map((c) => {
@@ -235,12 +261,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           ? `<span class="muted" title="${esc(UNKNOWN_LABEL)}">unattributable*</span>`
           : esc(site);
       const clickedAt = r?.received_at || r?.ts;
+      const reason = unmatchedReason(c);
       return `<tr>
         <td><strong>${fmtDate(c.sent_at)}</strong><br><span class="muted">${fmtAgo(c.sent_at)}</span></td>
         <td>${siteCell}</td>
         <td><code>${esc(ref || "—")}</code>${clickedAt ? `<br><span class="muted">clicked ${fmtDate(clickedAt)}</span>` : ""}</td>
-        <td>${esc(c.stage || "—")}</td>
-        <td>${c.matched ? `<span class="ok">✅ matched</span>` : `<span class="warn">⚠️ unmatched</span>`}</td>
+        <td>${c.matched ? `<span class="ok">✅ matched</span>` : `<span class="warn">⚠️ unmatched</span>`}${reason ? `<br><span class="muted">${reason}</span>` : ""}</td>
         <td>${r?.gclid ? "✅ from ad" : "—"}</td>
         <td>${esc(r?.utm_source || "—")} / ${esc(r?.utm_campaign || "—")}</td>
         <td>${esc(maskPhone(c.phone))}</td>
@@ -336,11 +362,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   <p class="note">"${esc(UNKNOWN_LABEL)}" = bookings from contacts whose chat carries no HL-ref: conversations started before tracking went live (12 Jun 2026), or people who messaged the WhatsApp number directly (saved contact, Google Business Profile) without going through a website. These can never be attributed to a site or ad — expect this row to shrink to near-zero for new conversations.</p>
 
   <h2>Conversion log (every booking)</h2>
+  ${
+    bugCount > 0
+      ? `<p class="note" style="color:#b91c1c;font-weight:600">⚠️ ${bugCount} booking(s) below had a captured ref that wasn't used — a real linking gap to investigate (likely a contactId format mismatch between the respond.io workflows).</p>`
+      : `<p class="note" style="color:#15803d">✓ No linking bugs detected — every unmatched booking below is genuinely a no-ref contact, not a pipeline failure.</p>`
+  }
   <table>
-    <thead><tr><th>Booked at (Bangkok)</th><th>Site</th><th>Ref · click time</th><th>Stage</th><th>Attribution</th><th>Ad click</th><th>Source / Campaign</th><th>Phone</th></tr></thead>
-    <tbody>${convRows || `<tr><td colspan="8" class="empty">No conversions yet — they appear here the moment a contact reaches "Consultation Booked"</td></tr>`}</tbody>
+    <thead><tr><th>Booked at (Bangkok)</th><th>Site</th><th>Ref · click time</th><th>Attribution / why</th><th>Ad click</th><th>Source / Campaign</th><th>Phone</th></tr></thead>
+    <tbody>${convRows || `<tr><td colspan="7" class="empty">No conversions yet — they appear here the moment a contact reaches "Consultation Booked"</td></tr>`}</tbody>
   </table>
-  <p class="note">✅ matched = booking tied back to a website click (and its GA4/ads session). ⚠️ unmatched = no ref found for this contact (*see note above) — counted, but not attributable to a campaign.</p>
+  <p class="note">✅ matched = booking tied back to a website click and its GA4/ad session (this is what reaches Google Ads). ⚠️ unmatched = no website click linked — counted in respond.io but not attributable to a site or campaign. The reason for each is shown under its status.</p>
 
   <h2>Recent clicks (last 25)</h2>
   <table>
