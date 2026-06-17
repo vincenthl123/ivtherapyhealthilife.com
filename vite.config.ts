@@ -76,6 +76,8 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         // Workbox caching strategies for SEO & performance
         globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,webp,svg,woff,woff2}'],
+        // Serverless endpoints must never fall back to the SPA shell.
+        navigateFallbackDenylist: [/^\/api\//],
         runtimeCaching: [
           {
             // Cache Google Fonts
