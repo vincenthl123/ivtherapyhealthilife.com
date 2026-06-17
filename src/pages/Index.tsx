@@ -6,6 +6,7 @@ import SEO from "@/components/SEO";
 
 // Lazy load below-fold sections for faster initial paint
 const Services = lazy(() => import("@/components/Services"));
+const IVProgramsSection = lazy(() => import("@/components/IVProgramsSection"));
 const MembershipSection = lazy(() => import("@/components/MembershipSection"));
 const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
 const MedicalTeam = lazy(() => import("@/components/MedicalTeam"));
@@ -34,6 +35,7 @@ const Index = () => {
         <TrustBanner />
         <Suspense fallback={<SectionLoader />}>
           <Services>
+            <IVProgramsSection />
             <MembershipSection />
           </Services>
           <WhyChooseUs />
