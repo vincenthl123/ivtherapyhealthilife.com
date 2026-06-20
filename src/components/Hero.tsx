@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, Award, MapPin, Clock, MessageCircle, Phone } from "lucide-react";
+import { Star, Award, MapPin, Clock, MessageCircle, Phone, CalendarCheck } from "lucide-react";
 import heroImage from "@/assets/clinic-exterior.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
@@ -86,16 +86,15 @@ const Hero = () => {
                 {t("hero.cta1")}
               </a>
             </Button>
-            <Button 
-              id="ivclick-hero-book" 
-              size="lg" 
-              variant="outline" 
+            <Button
+              id="ivclick-hero-book"
+              size="lg"
               onClick={() => trackButtonClick('ivclick-hero-book')}
               asChild
             >
-              <a href={buildWaUrl({ source: "hero" })} target="_blank" rel="noopener noreferrer" data-wa-skip="1">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                {t("hero.cta2")}
+              <a href="/book?service=iv_therapy" target="_blank" rel="noopener noreferrer" data-booking-ctx="hero">
+                <CalendarCheck className="h-5 w-5 mr-2" />
+                Book Consultation
               </a>
             </Button>
           </div>

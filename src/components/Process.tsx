@@ -103,7 +103,7 @@ const Process = () => {
               onClick={() => trackButtonClick('ivclick-process-book')}
               asChild
             >
-              <a href="https://healthilife.fillout.com/ivtherapy" target="_blank" rel="noopener noreferrer">
+              <a href="/book?service=iv_therapy" target="_blank" rel="noopener noreferrer">
                 <div className="text-left w-full">
                   <div className="font-bold text-base mb-1">{t("process.bookOnline")}</div>
                   <div className="text-xs text-muted-foreground">{t("process.scheduleSession")}</div>

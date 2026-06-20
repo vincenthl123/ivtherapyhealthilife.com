@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/lib/i18n";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense, useEffect } from "react";
 import { installWaInterceptor } from "@/lib/wa-interceptor";
+import { installFilloutInterceptor } from "@/lib/fillout-interceptor";
 import { captureAttribution } from "@/lib/attribution";
 import { initCurrency } from "@/lib/currency";
 
@@ -31,7 +32,15 @@ const App = () => {
   useEffect(() => {
     captureAttribution();
     initCurrency();
-    return installWaInterceptor();
+    // Install the global click interceptors — WhatsApp (wa.me) and Fillout
+    // booking links — so both the whatsapp_conversion and booking_confirmed
+    // conversions attribute to the original ad click.
+    const teardownWa = installWaInterceptor();
+    const teardownFillout = installFilloutInterceptor();
+    return () => {
+      teardownWa();
+      teardownFillout();
+    };
   }, []);
   return (
   <HelmetProvider>

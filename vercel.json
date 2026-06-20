@@ -1,1 +1,1 @@
-{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
+{"rewrites":[{"source":"/book","destination":"https://healthilife.fillout.com/book"},{"source":"/book/:path*","destination":"https://healthilife.fillout.com/book/:path*"},{"source":"/(.*)","destination":"/index.html"}]}

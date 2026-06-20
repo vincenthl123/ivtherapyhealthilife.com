@@ -35,7 +35,7 @@
  *   RESPONDIO_WEBHOOK_SECRET  (any long random string, mirrored in the respond.io workflow)
  *   BLOB_STORE_ID             (auto-added when the private Blob store was connected; OIDC auth)
  * Optional env:
- *   GA4_MEASUREMENT_ID        (defaults to G-K9R2HXK3QT)
+ *   GA4_MEASUREMENT_ID        (defaults to G-4XR12SQW4T)
  */
 import { get, put } from "@vercel/blob";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
@@ -48,34 +48,21 @@ const REF_RE = /HL-[A-Z2-9]{4}/i;
  * click's client_id belongs to (a client_id is meaningless in another
  * property). Site comes from the ref record's `s` field (set at click time).
  */
+// UNIFIED 2026-06-19 (Vincent): non-stem-cell sites consolidate into the main
+// "Healthi Life Group" property (G-4XR12SQW4T). Stem cell stays ISOLATED →
+// StemCell Ads account only (guardrail). Per-site reporting via the `site` param.
+const GROUP = { measurementId: "G-K9R2HXK3QT", secretEnv: "GA4_API_SECRET" };
 const SITE_GA4: Record<string, { measurementId: string; secretEnv: string }> = {
-  "ivtherapyhealthilife.com": {
-    measurementId: process.env.GA4_MEASUREMENT_ID || "G-K9R2HXK3QT",
-    secretEnv: "GA4_API_SECRET",
-  },
-  "skin-healthi-life.com": {
-    measurementId: "G-5VMVWT3Y5E",
-    secretEnv: "GA4_API_SECRET_SKIN",
-  },
-  "healthcheckup-healthilife.com": {
-    measurementId: "G-C7JWK2LM04",
-    secretEnv: "GA4_API_SECRET_CHECKUP",
-  },
+  "healthi-life.com": GROUP,
+  "ivtherapyhealthilife.com": GROUP,
+  "healthcheckup-healthilife.com": GROUP,
+  "certificate-healthi-life.com": GROUP,
+  "skin-healthi-life.com": GROUP,
+  "information-bangkok.com": GROUP,
+  // GUARDRAIL: stem cell isolated → StemCell Ads account only. Never unify.
   "stemcellhealthilife.com": {
     measurementId: "G-RLYCLWD5Q6",
     secretEnv: "GA4_API_SECRET_STEMCELL",
-  },
-  "certificate-healthi-life.com": {
-    measurementId: "G-3YFQC228M0",
-    secretEnv: "GA4_API_SECRET_CERTIFICATE",
-  },
-  "healthi-life.com": {
-    measurementId: "G-4XR12SQW4T",
-    secretEnv: "GA4_API_SECRET_HEALTHILIFE",
-  },
-  "information-bangkok.com": {
-    measurementId: "G-1QJF72V7RC",
-    secretEnv: "GA4_API_SECRET_INFOBANGKOK",
   },
 };
 const DEFAULT_SITE = "ivtherapyhealthilife.com";
@@ -161,7 +148,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "method_not_allowed" });
   }
 
-  const secret = process.env.RESPONDIO_WEBHOOK_SECRET;
+  const secret =
+    process.env.RESPONDIO_WEBHOOK_SECRET || process.env.FILLOUT_WEBHOOK_SECRET;
   const provided =
     (req.query.secret as string) || (req.headers["x-webhook-secret"] as string);
   if (!secret || provided !== secret) {

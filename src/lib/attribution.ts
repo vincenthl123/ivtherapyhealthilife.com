@@ -139,6 +139,39 @@ export const getGaClientIdStatus = (): GaClientIdStatus => {
   return getGaClientId() ? "ok" : "cookie_missing";
 };
 
+/** Domain this build runs on — used to route the booking conversion to the
+ *  correct per-site GA4 property in /api/fillout-webhook. */
+export const SITE_DOMAIN = "ivtherapyhealthilife.com";
+
+/**
+ * Append click-time attribution to a Fillout booking URL as hidden fields, so
+ * the Fillout webhook can send `booking_confirmed` to the correct GA4 property
+ * on the original ad click's client_id (cross-domain safe). Field names mirror
+ * what /api/fillout-webhook reads: cid, gclid, gbraid, wbraid, site, ctx, utm_*.
+ */
+export const buildBookingUrl = (baseUrl: string, ctaContext?: string): string => {
+  if (typeof window === "undefined") return baseUrl;
+  try {
+    const attr = getAttribution();
+    const u = new URL(baseUrl);
+    const set = (k: string, v?: string) => {
+      if (v) u.searchParams.set(k, v);
+    };
+    set("cid", getGaClientId());
+    set("gclid", attr.gclid);
+    set("gbraid", attr.gbraid);
+    set("wbraid", attr.wbraid);
+    set("utm_source", attr.utm_source);
+    set("utm_medium", attr.utm_medium);
+    set("utm_campaign", attr.utm_campaign);
+    u.searchParams.set("site", SITE_DOMAIN);
+    set("ctx", ctaContext);
+    return u.toString();
+  } catch {
+    return baseUrl;
+  }
+};
+
 /**
  * Async variant using gtag's `get` API. Falls back to the `_ga` cookie.
  * Resolves within ~300ms even if gtag is slow/blocked.
