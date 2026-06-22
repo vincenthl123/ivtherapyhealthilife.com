@@ -67,6 +67,21 @@ const SITE_GA4: Record<string, { measurementId: string; secretEnv: string }> = {
 };
 const DEFAULT_SITE = "ivtherapyhealthilife.com";
 
+/**
+ * Pre-registered SOURCE refs for off-site surfaces (Google Business Profile,
+ * Instagram bio, printed cards, Maps…). A tracked wa.me link on each surface
+ * embeds the matching ref in its prefilled message. They carry no per-click GA
+ * session (so they won't attribute to a paid ad — they're organic sources),
+ * but they let a booking attribute to its SOURCE instead of falling into
+ * "unknown / unmatched". No fabricated click records are created — attribution
+ * is resolved from this in-code map at booking time.
+ */
+const SOURCE_REFS: Record<string, RefRecord> = {
+  "HL-GBP9": { ref: "HL-GBP9", s: "google-business-profile", src: "gbp", utm_source: "google", utm_medium: "organic", utm_campaign: "gbp_profile" },
+  "HL-IGRM": { ref: "HL-IGRM", s: "instagram", src: "instagram_bio", utm_source: "instagram", utm_medium: "social", utm_campaign: "ig_bio" },
+  "HL-MAPS": { ref: "HL-MAPS", s: "google-maps", src: "maps", utm_source: "google", utm_medium: "maps" },
+};
+
 const siteConfig = (site?: string) => {
   const key = (site || "").toLowerCase().replace(/^www\./, "");
   return SITE_GA4[key] || SITE_GA4[DEFAULT_SITE];
@@ -215,7 +230,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const record = ref
-      ? await readBlobJson<RefRecord>(`wa-refs/${ref}.json`)
+      ? (await readBlobJson<RefRecord>(`wa-refs/${ref}.json`)) ||
+        SOURCE_REFS[ref.toUpperCase()] ||
+        null
       : null;
 
     const matched = !!record?.ga_client_id;

@@ -131,6 +131,15 @@ const KNOWN_SITES = [
   "information-bangkok.com",
 ];
 
+/** Off-site source refs (mirror of respondio-webhook.ts SOURCE_REFS) — let
+ *  bookings from tracked wa.me links on GBP / Instagram / Maps attribute to
+ *  their source instead of "unknown", without any fabricated click record. */
+const SOURCE_REFS: Record<string, RefRecord> = {
+  "HL-GBP9": { ref: "HL-GBP9", s: "google-business-profile", src: "gbp", utm_source: "google", utm_medium: "organic", utm_campaign: "gbp_profile" },
+  "HL-IGRM": { ref: "HL-IGRM", s: "instagram", src: "instagram_bio", utm_source: "instagram", utm_medium: "social", utm_campaign: "ig_bio" },
+  "HL-MAPS": { ref: "HL-MAPS", s: "google-maps", src: "maps", utm_source: "google", utm_medium: "maps" },
+};
+
 const UNKNOWN_LABEL =
   "No ref — direct WhatsApp / pre-tracking contact";
 
@@ -151,6 +160,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const refBySite = new Map<string, RefRecord>();
   for (const r of refs) if (r.ref) refBySite.set(r.ref, r);
+  for (const [k, v] of Object.entries(SOURCE_REFS))
+    if (!refBySite.has(k)) refBySite.set(k, v);
   const siteOfRef = (ref?: string | null): string =>
     (ref && refBySite.get(ref)?.s) || "unknown";
 
@@ -238,6 +249,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   let bugCount = 0;
   const unmatchedReason = (c: ConversionRecord): string => {
     if (c.matched) return "";
+    if (c.ref && SOURCE_REFS[c.ref.toUpperCase()]) {
+      return `attributed to off-site source (${esc(SOURCE_REFS[c.ref.toUpperCase()].s)}) via a tracked link — organic, not a paid-ad click`;
+    }
     if (c.ref) {
       return `ref captured but the click had no GA client-id (visitor's GA cookie wasn't set yet) — sent with a fallback id, so it won't tie to a GA session`;
     }
