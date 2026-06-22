@@ -25,9 +25,10 @@ const tiers: Tier[] = [
     price: 50000,
     headline: "Enter the house. Begin the relationship.",
     benefits: [
-      "10% member rate on all Recovery & Performance",
-      "฿50,000 treatment credit (12 months)",
-      "Health Check-Up (value ฿8,900)",
+      "10% member rate on wellness & longevity services",
+      "฿50,000 fully redeemable (12 months)",
+      "Personalized Blood Check-Up — physician-designed",
+      "Privileges included — value ฿7,000",
     ],
     cta: "Enquire about Resident",
   },
@@ -39,10 +40,11 @@ const tiers: Tier[] = [
     price: 100000,
     headline: "The signature membership — most chosen.",
     benefits: [
-      "15% member rate on all Recovery & Performance",
-      "฿100,000 treatment credit (12 months)",
-      "Health Check-Up (value ฿19,900)",
-      "Longevity Consultation with Dr. Petch (฿10,000)",
+      "15% member rate on wellness & longevity services",
+      "฿100,000 fully redeemable (12 months)",
+      "Foundation Longevity Check-Up — 30 biomarkers",
+      "Complimentary Longevity Consultation with Dr. Petch",
+      "Privileges included — value ฿20,500",
     ],
     cta: "Enquire about Patron",
     popular: true,
@@ -55,11 +57,11 @@ const tiers: Tier[] = [
     price: 300000,
     headline: "The full house experience, from arrival to interpretation.",
     benefits: [
-      "20% member rate on all Recovery & Performance",
-      "฿300,000 treatment credit (12 months)",
-      "Health Check-Up (value ฿39,900)",
-      "Consultation with Dr. Petch (฿10,000)",
-      "Airport fast-track + transfer to the house (฿10,000)",
+      "20% member rate on wellness & longevity services",
+      "฿300,000 fully redeemable (12 months)",
+      "Advanced Longevity Check-Up — 45 biomarkers",
+      "Complimentary Longevity Consultation with Dr. Petch",
+      "Privileges included — value ฿40,000+",
     ],
     cta: "Enquire about Founding",
   },
@@ -126,7 +128,7 @@ const MembershipSection = () => {
                       <span className="block text-2xl md:text-3xl font-bold text-primary leading-tight">
                         <Price value={`฿${tier.price.toLocaleString("en-US")}`} />
                       </span>
-                      <span className="text-xs text-muted-foreground">12 months</span>
+                      <span className="text-xs text-muted-foreground">Fully redeemable</span>
                     </div>
                   </div>
 
@@ -174,10 +176,10 @@ const MembershipSection = () => {
         <div className="max-w-4xl mx-auto mt-12 md:mt-16">
           <div className="bg-gradient-to-br from-primary/5 via-card to-accent/5 border border-primary/20 rounded-2xl p-6 md:p-8">
             <p className="text-foreground text-sm md:text-base leading-relaxed mb-4">
-              <strong className="text-primary">The Longevity Consultation</strong> — with Dr. Petch, Longevity &amp; Functional Medicine. Explore your energy, sleep, stress, hormones, recovery and overall health. The starting point of a structured roadmap built around your biology.
+              <strong className="text-primary">The Longevity Consultation</strong> — with Dr. Petch, Longevity &amp; Functional Medicine. Explore your energy, sleep, stress, hormones, recovery and overall health. The starting point of a structured roadmap built around your biology (value ฿10,000).
             </p>
             <p className="text-xs md:text-sm text-muted-foreground italic mb-5">
-              Member rate applies to all Recovery &amp; Performance treatments. Excludes blood tests.
+              Privileges are inclusions, not discounts — treatment and programme pricing is identical for all guests. Member rates apply to selected wellness &amp; longevity services; certain specialised treatments are excluded. Valid 12 months from activation; privileges reset on renewal and do not carry over.
             </p>
             <p className="text-center text-base md:text-lg font-semibold text-foreground tracking-wide mb-4">
               Come for the recovery. Stay for the longevity.

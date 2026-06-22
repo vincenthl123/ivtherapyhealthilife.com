@@ -49,7 +49,6 @@ const Services = ({ children }: { children?: ReactNode }) => {
       price: t("popular.fatBurner.price"),
       description: t("popular.fatBurner.desc"),
       benefits: [t("popular.fatBurner.benefit1"), t("popular.fatBurner.benefit2"), t("popular.fatBurner.benefit3")],
-      discount: 10,
       limited: t("body.fatBurner.limited"),
       cta: t("services.bookMedicalReview"),
     },
@@ -86,30 +85,30 @@ const Services = ({ children }: { children?: ReactNode }) => {
     { title: t("body.nad.title"), price: t("body.nad.price"), tagline: t("body.nad.tagline"), description: t("body.nad.desc"), footMassage: true },
     { title: t("body.nad250.title"), price: t("body.nad250.price"), tagline: t("body.nad250.tagline"), description: t("body.nad250.desc"), footMassage: true },
     { title: t("body.nadResveratrol.title"), price: t("body.nadResveratrol.price"), tagline: t("body.nadResveratrol.tagline"), description: t("body.nadResveratrol.desc"), limited: t("body.nadResveratrol.limited") },
-    { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), discount: 10, limited: t("body.fatBurner.limited") },
-    { title: t("body.vitalBoost.title"), price: t("body.vitalBoost.price"), tagline: t("body.vitalBoost.tagline"), description: t("body.vitalBoost.desc"), discount: 10, limited: t("body.vitalBoost.limited") },
-    { title: t("body.athletePro.title"), price: t("body.athletePro.price"), tagline: t("body.athletePro.tagline"), description: t("body.athletePro.desc"), discount: 10, limited: t("body.athletePro.limited") },
+    { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), limited: t("body.fatBurner.limited") },
+    { title: t("body.vitalBoost.title"), price: t("body.vitalBoost.price"), tagline: t("body.vitalBoost.tagline"), description: t("body.vitalBoost.desc"), limited: t("body.vitalBoost.limited") },
+    { title: t("body.athletePro.title"), price: t("body.athletePro.price"), tagline: t("body.athletePro.tagline"), description: t("body.athletePro.desc"), limited: t("body.athletePro.limited") },
     { title: t("body.athleteProMax.title"), price: t("body.athleteProMax.price"), tagline: t("body.athleteProMax.tagline"), description: t("body.athleteProMax.desc"), footMassage: true },
     { title: t("body.resveratrol.title"), price: t("body.resveratrol.price"), tagline: t("body.resveratrol.tagline"), description: t("body.resveratrol.desc"), footMassage: true },
-    { title: t("body.vitaminD.title"), price: t("body.vitaminD.price"), tagline: t("body.vitaminD.tagline"), description: t("body.vitaminD.desc"), discount: 10, limited: t("body.vitaminD.limited") },
-    { title: t("body.liverDetox.title"), price: t("body.liverDetox.price"), tagline: t("body.liverDetox.tagline"), description: t("body.liverDetox.desc"), discount: 10, limited: t("body.liverDetox.limited") },
+    { title: t("body.vitaminD.title"), price: t("body.vitaminD.price"), tagline: t("body.vitaminD.tagline"), description: t("body.vitaminD.desc"), limited: t("body.vitaminD.limited") },
+    { title: t("body.liverDetox.title"), price: t("body.liverDetox.price"), tagline: t("body.liverDetox.tagline"), description: t("body.liverDetox.desc"), limited: t("body.liverDetox.limited") },
     { title: t("body.curcumin.title"), price: t("body.curcumin.price"), tagline: t("body.curcumin.tagline"), description: t("body.curcumin.desc"), footMassage: true },
     { title: t("body.proGut.title"), price: t("body.proGut.price"), tagline: t("body.proGut.tagline"), description: t("body.proGut.desc"), footMassage: true },
     { title: t("body.fullDetox.title"), price: t("body.fullDetox.price"), tagline: t("body.fullDetox.tagline"), description: t("body.fullDetox.desc"), footMassage: true },
-    { title: t("body.cMax.title"), price: t("body.cMax.price"), tagline: t("body.cMax.tagline"), description: t("body.cMax.desc"), discount: 10, limited: t("body.cMax.limited") },
-    { title: t("body.partyShield.title"), price: t("body.partyShield.price"), tagline: t("body.partyShield.tagline"), description: t("body.partyShield.desc"), discount: 10, limited: t("body.partyShield.limited") },
-    { title: t("body.hangover.title"), price: t("body.hangover.price"), tagline: t("body.hangover.tagline"), description: t("body.hangover.desc"), discount: 10, limited: t("body.hangover.limited") },
+    { title: t("body.cMax.title"), price: t("body.cMax.price"), tagline: t("body.cMax.tagline"), description: t("body.cMax.desc"), limited: t("body.cMax.limited") },
+    { title: t("body.partyShield.title"), price: t("body.partyShield.price"), tagline: t("body.partyShield.tagline"), description: t("body.partyShield.desc"), limited: t("body.partyShield.limited") },
+    { title: t("body.hangover.title"), price: t("body.hangover.price"), tagline: t("body.hangover.tagline"), description: t("body.hangover.desc"), limited: t("body.hangover.limited") },
   ];
 
   const brainBoosterDrips = [
-    { title: t("brain.timeZone.title"), price: t("brain.timeZone.price"), tagline: t("brain.timeZone.tagline"), description: t("brain.timeZone.desc"), discount: 10, limited: t("brain.timeZone.limited") },
-    { title: t("brain.stressEase.title"), price: t("brain.stressEase.price"), tagline: t("brain.stressEase.tagline"), description: t("brain.stressEase.desc"), discount: 10, limited: t("brain.stressEase.limited") },
-    { title: t("brain.neuroBoost.title"), price: t("brain.neuroBoost.price"), tagline: t("brain.neuroBoost.tagline"), description: t("brain.neuroBoost.desc"), discount: 10, limited: t("brain.neuroBoost.limited") },
-    { title: t("brain.dreamEase.title"), price: t("brain.dreamEase.price"), tagline: t("brain.dreamEase.tagline"), description: t("brain.dreamEase.desc"), discount: 10, limited: t("brain.dreamEase.limited") },
+    { title: t("brain.timeZone.title"), price: t("brain.timeZone.price"), tagline: t("brain.timeZone.tagline"), description: t("brain.timeZone.desc"), limited: t("brain.timeZone.limited") },
+    { title: t("brain.stressEase.title"), price: t("brain.stressEase.price"), tagline: t("brain.stressEase.tagline"), description: t("brain.stressEase.desc"), limited: t("brain.stressEase.limited") },
+    { title: t("brain.neuroBoost.title"), price: t("brain.neuroBoost.price"), tagline: t("brain.neuroBoost.tagline"), description: t("brain.neuroBoost.desc"), limited: t("brain.neuroBoost.limited") },
+    { title: t("brain.dreamEase.title"), price: t("brain.dreamEase.price"), tagline: t("brain.dreamEase.tagline"), description: t("brain.dreamEase.desc"), limited: t("brain.dreamEase.limited") },
   ];
 
   const skinBoosterDrips = [
-    { title: t("skin.glowVita.title"), price: t("skin.glowVita.price"), tagline: t("skin.glowVita.tagline"), description: t("skin.glowVita.desc"), discount: 10, limited: t("skin.glowVita.limited") },
+    { title: t("skin.glowVita.title"), price: t("skin.glowVita.price"), tagline: t("skin.glowVita.tagline"), description: t("skin.glowVita.desc"), limited: t("skin.glowVita.limited") },
     { title: t("skin.glowRestore.title"), price: t("skin.glowRestore.price"), tagline: t("skin.glowRestore.tagline"), description: t("skin.glowRestore.desc"), footMassage: true },
     { title: t("skin.glowRevive.title"), price: t("skin.glowRevive.price"), tagline: t("skin.glowRevive.tagline"), description: t("skin.glowRevive.desc") },
   ];
@@ -117,7 +116,7 @@ const Services = ({ children }: { children?: ReactNode }) => {
   const packages = [
     {
       id: "fat-burner-5",
-      saveBadge: "Save 20%",
+      saveBadge: "Save 10%",
       icon: Flame,
       title: t("package.fatBurner5.title"),
       subtitle: t("package.fatBurner5.subtitle"),
@@ -132,7 +131,7 @@ const Services = ({ children }: { children?: ReactNode }) => {
     {
       id: "fat-burner-10",
       icon: Flame,
-      saveBadge: "Save 30%",
+      saveBadge: "Save 15%",
       title: t("package.fatBurner10.title"),
       subtitle: t("package.fatBurner10.subtitle"),
       price: t("package.fatBurner10.price"),

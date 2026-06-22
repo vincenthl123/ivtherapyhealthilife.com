@@ -35,7 +35,7 @@ const PriceList = () => {
             rows={[
               ["NAD+ IV Drip 100mg", "6,000 THB", "🎁 Foot Massage"],
               ["NAD+ IV Drip 250mg", "8,500 THB", "🎁 Foot Massage"],
-              ["Fat Burner IV Drip", "4,050 THB (was 4,500)", "-10%"],
+              ["Fat Burner IV Drip", "4,500 THB", ""],
               ["Curcumin IV Drip", "8,500 THB", "🎁 Foot Massage"],
               ["Full Body Detox IV Drip", "8,500 THB", "🎁 Foot Massage"],
               ["Resveratrol IV Drip", "8,500 THB", "🎁 Foot Massage"],
@@ -50,20 +50,20 @@ const PriceList = () => {
             rows={[
               ["NAD+ IV Drip 100mg", "6,000 THB", "🎁 Foot Massage"],
               ["NAD+ IV Drip 250mg", "8,500 THB", "🎁 Foot Massage"],
-              ["NAD+ 100mg + Resveratrol 500mg", "6,750 THB (was 7,500)", "Limited"],
-              ["Fat Burner IV Drip", "4,050 THB (was 4,500)", "-10%"],
-              ["Vital Boost / Myer's Cocktail", "4,050 THB (was 4,500)", "-10%"],
-              ["Athlete Pro IV Drip", "4,050 THB (was 4,500)", "-10%"],
+              ["NAD+ 100mg + Resveratrol 500mg", "7,500 THB", "Limited"],
+              ["Fat Burner IV Drip", "4,500 THB", ""],
+              ["Vital Boost / Myer's Cocktail", "4,500 THB", ""],
+              ["Athlete Pro IV Drip", "4,500 THB", ""],
               ["Athlete Pro Max IV Drip", "8,500 THB", "🎁 Foot Massage"],
               ["Resveratrol IV Drip", "8,500 THB", "🎁 Foot Massage"],
-              ["Vitamin D IM", "4,050 THB (was 4,500)", "-10%"],
-              ["Liver Detox IV Drip", "4,050 THB (was 4,500)", "-10%"],
+              ["Vitamin D IM", "4,500 THB", ""],
+              ["Liver Detox IV Drip", "4,500 THB", ""],
               ["Curcumin IV Drip", "8,500 THB", "🎁 Foot Massage"],
               ["ProGut IV Drip", "8,500 THB", "🎁 Foot Massage"],
               ["Full Body Detox IV Drip", "8,500 THB", "🎁 Foot Massage"],
-              ["C Max IV Drip", "4,050 THB (was 4,500)", "-10%"],
-              ["Party Shield IV Drip", "4,050 THB (was 4,500)", "-10%"],
-              ["Hangover IV Drip", "4,050 THB (was 4,500)", "-10%"],
+              ["C Max IV Drip", "4,500 THB", ""],
+              ["Party Shield IV Drip", "4,500 THB", ""],
+              ["Hangover IV Drip", "4,500 THB", ""],
             ]}
           />
         </Section>
@@ -73,10 +73,10 @@ const PriceList = () => {
           <PriceTable
             headers={["IV Drip", "Price", "Note"]}
             rows={[
-              ["Time Zone IV Drip", "4,050 THB (was 4,500)", "-10%"],
-              ["Stress Ease IV Drip", "4,050 THB (was 4,500)", "-10%"],
-              ["Neuro Boost IV Drip", "4,050 THB (was 4,500)", "-10%"],
-              ["Dream Ease IV Drip", "4,050 THB (was 4,500)", "-10%"],
+              ["Time Zone IV Drip", "4,500 THB", ""],
+              ["Stress Ease IV Drip", "4,500 THB", ""],
+              ["Neuro Boost IV Drip", "4,500 THB", ""],
+              ["Dream Ease IV Drip", "4,500 THB", ""],
             ]}
           />
         </Section>
@@ -86,7 +86,7 @@ const PriceList = () => {
           <PriceTable
             headers={["IV Drip", "Price", "Note"]}
             rows={[
-              ["Glow Vita IV Drip", "4,050 THB (was 4,500)", "-10%"],
+              ["Glow Vita IV Drip", "4,500 THB", ""],
               ["Glow Restore IV Drip", "8,500 THB", "🎁 Foot Massage"],
               ["Glow Revive IV Therapy", "15,000 THB", "Premium"],
             ]}
@@ -101,8 +101,8 @@ const PriceList = () => {
           <PriceTable
             headers={["Package", "Promo Price", "Original Price", "Discount", "Per Session"]}
             rows={[
-              ["Fat Burner — 5 Sessions", "18,000 THB", "22,500 THB", "20%", "3,600 THB"],
-              ["Fat Burner — 10 Sessions + Nutrition Plan", "31,500 THB", "45,000 THB", "30%", "3,150 THB"],
+              ["Fat Burner — 5 Sessions", "20,250 THB", "22,500 THB", "10%", "4,050 THB"],
+              ["Fat Burner — 10 Sessions + Nutrition Plan", "38,250 THB", "45,000 THB", "15%", "3,825 THB"],
               ["NAD+ 100mg — 5 Sessions", "27,000 THB", "30,000 THB", "10%", "5,400 THB"],
               ["NAD+ 100mg — 10 Sessions", "51,000 THB", "60,000 THB", "15%", "5,100 THB"],
               ["NAD+ 250mg — 5 Sessions", "38,250 THB", "42,500 THB", "10%", "7,650 THB"],
@@ -147,7 +147,7 @@ const PriceList = () => {
         {/* Footer */}
         <div className="mt-8 pt-4 border-t border-border text-center print:mt-4">
           <p className="text-xs text-muted-foreground">Healthi Life Clinic · Bangkok, Thailand · All prices in Thai Baht (THB)</p>
-          <p className="text-xs text-muted-foreground">Prices subject to change. Contact us for the latest offers.</p>
+          <p className="text-xs text-muted-foreground">Prices subject to change. Contact us for current pricing.</p>
         </div>
       </div>
     </div>
