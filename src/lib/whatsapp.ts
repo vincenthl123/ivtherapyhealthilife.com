@@ -202,28 +202,12 @@ const waitForGaClientId = (maxMs = 800): Promise<string> =>
     setTimeout(tick, 50);
   });
 
-const logRefMapping = async (
-  ref: string,
-  payload: Record<string, unknown>,
-): Promise<void> => {
-  if (loggedRefs.has(ref)) return;
-  loggedRefs.add(ref);
-
-  // If the _ga cookie wasn't ready at click time, briefly wait for it so
-  // Make receives the GA4 client_id on the very first click of a session.
-  const finalPayload = { ...payload };
-  if (!finalPayload.ga_client_id) {
-    const late = await waitForGaClientId(800);
-    if (late) {
-      finalPayload.ga_client_id = late;
-      finalPayload.ga_client_id_status = "ok_delayed";
-    }
-  }
-
-  const body = JSON.stringify({ ref, service: "iv_therapy", ...finalPayload });
-
-  // Fire both sinks concurrently; each failure is independent and ignored.
-  await Promise.allSettled([
+/**
+ * POST one JSON body to both sinks concurrently (Make webhook + own backend).
+ * Each failure is independent and ignored.
+ */
+const postToSinks = (body: string): Promise<unknown> =>
+  Promise.allSettled([
     // Make webhook (Sheets/CRM logging).
     // Use text/plain to avoid CORS preflight; Make parses the JSON body fine.
     fetch(MAKE_WEBHOOK_URL, {
@@ -244,6 +228,78 @@ const logRefMapping = async (
   ]).catch(() => {
     /* ignore */
   });
+
+/** Refs for which a late ga_client_id upgrade has already been scheduled. */
+const lateUpgradedRefs = new Set<string>();
+
+/**
+ * Late upgrade: the initial payload went out without ga_client_id (the _ga
+ * cookie still wasn't set after the 800ms wait — slow GA load, consent
+ * banner, etc.). Keep polling document.cookie for the _ga cookie every 1s
+ * for up to 20s; if it appears, re-POST the SAME payload once with
+ * ga_client_id filled and ga_client_id_status:"ok_late" through the same
+ * dual-sink path. The central store overwrites by ref, so this is idempotent.
+ */
+const scheduleLateGaUpgrade = (
+  ref: string,
+  payload: Record<string, unknown>,
+): void => {
+  // Never run server-side; send at most once per ref.
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  if (lateUpgradedRefs.has(ref)) return;
+  lateUpgradedRefs.add(ref);
+
+  const start = Date.now();
+  const tick = () => {
+    // getGaClientId() reads document.cookie via
+    // /(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/
+    const cid = getGaClientId();
+    if (cid) {
+      const body = JSON.stringify({
+        ref,
+        service: "iv_therapy",
+        ...payload,
+        ga_client_id: cid,
+        ga_client_id_status: "ok_late",
+      });
+      void postToSinks(body);
+      return;
+    }
+    if (Date.now() - start >= 20_000) return;
+    setTimeout(tick, 1000);
+  };
+  setTimeout(tick, 1000);
+};
+
+const logRefMapping = async (
+  ref: string,
+  payload: Record<string, unknown>,
+): Promise<void> => {
+  if (loggedRefs.has(ref)) return;
+  loggedRefs.add(ref);
+
+  // If the _ga cookie wasn't ready at click time, briefly wait for it so
+  // Make receives the GA4 client_id on the very first click of a session.
+  const finalPayload = { ...payload };
+  if (!finalPayload.ga_client_id) {
+    const late = await waitForGaClientId(800);
+    if (late) {
+      finalPayload.ga_client_id = late;
+      finalPayload.ga_client_id_status = "ok_delayed";
+    }
+  }
+
+  const body = JSON.stringify({ ref, service: "iv_therapy", ...finalPayload });
+
+  const send = postToSinks(body);
+
+  // The payload still went out without ga_client_id: keep watching the _ga
+  // cookie for up to 20s and re-POST once with the id if it shows up late.
+  if (!finalPayload.ga_client_id) {
+    scheduleLateGaUpgrade(ref, finalPayload);
+  }
+
+  await send;
 };
 
 export const logWaUrlRef = (url: string | URL | undefined | null): void => {
