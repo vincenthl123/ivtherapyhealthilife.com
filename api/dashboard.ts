@@ -143,8 +143,15 @@ const SOURCE_REFS: Record<string, RefRecord> = {
 const UNKNOWN_LABEL =
   "No ref — direct WhatsApp / pre-tracking contact";
 
+const TEST_CONTACT_PREFIXES = ["claude-test", "assess-", "seed-", "verify-"];
+const TEST_REFS = new Set([
+  "HL-TST9", "HL-2297", "HL-MYJZ", "HL-5T9V", "HL-V3XV", "HL-SW5L",
+  "HL-PNG2", "HL-PNG8", "HL-VRF1", "HL-VRF7", "HL-CHK7", "HL-STM8",
+  "HL-CRT9", "HL-HLF6", "HL-INF4", "HL-AGRP", "HL-ASTM",
+]);
 const isTestRecord = (ref?: string | null, contactId?: string): boolean =>
-  (contactId || "").startsWith("claude-test") || ref === "HL-TST9";
+  TEST_CONTACT_PREFIXES.some((p) => (contactId || "").startsWith(p)) ||
+  TEST_REFS.has((ref || "").toUpperCase());
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const secret = process.env.RESPONDIO_WEBHOOK_SECRET;
@@ -324,6 +331,57 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     (c) => bangkokDay(c.sent_at) === today,
   ).length;
 
+  // --- Attribution diagnostics: classify every captured contact + booking ---
+  const upRef = (x?: string | null) => (x || "").toUpperCase();
+  const refPayload = new Map<string, RefRecord>();
+  for (const r of refs) if (r.ref) refPayload.set(upRef(r.ref), r);
+
+  const cdiag = { healthy: 0, noCid: 0, offsite: 0, orphan: 0, total: 0 };
+  const orphanSamples: string[] = [];
+  for (const c of contacts) {
+    if (isTestRecord(c.ref, c.contactId)) continue;
+    cdiag.total += 1;
+    const k = upRef(c.ref);
+    if (SOURCE_REFS[k]) { cdiag.offsite += 1; continue; }
+    const rec = refPayload.get(k);
+    if (!rec) {
+      cdiag.orphan += 1;
+      if (orphanSamples.length < 10)
+        orphanSamples.push(`${k} (${(c.captured_at || "").slice(0, 10)})`);
+      continue;
+    }
+    if (rec.ga_client_id) cdiag.healthy += 1;
+    else cdiag.noCid += 1;
+  }
+
+  const bdiag = { matched: 0, offsite: 0, refNoPayload: 0, noRef: 0 };
+  for (const c of realConversions) {
+    if (c.matched) { bdiag.matched += 1; continue; }
+    const k = upRef(c.ref);
+    if (k && SOURCE_REFS[k]) { bdiag.offsite += 1; continue; }
+    if (k) { bdiag.refNoPayload += 1; continue; }
+    bdiag.noRef += 1;
+  }
+
+  const pct = (n: number, d: number) => (d ? `${((n / d) * 100).toFixed(0)}%` : "—");
+  const diagHtml = `
+  <h2>Attribution diagnostics — where attribution is lost</h2>
+  <table>
+    <thead><tr><th>Stage / bucket</th><th class="num">Count</th><th class="num">Share</th><th>Meaning → what fixes it</th></tr></thead>
+    <tbody>
+      <tr><td colspan="4" style="background:#fafbfc;font-weight:600">Contacts captured by respond.io (${cdiag.total} total, excluding tests)</td></tr>
+      <tr><td><span class="ok">✅ Ref + full click payload</span></td><td class="num">${cdiag.healthy}</td><td class="num">${pct(cdiag.healthy, cdiag.total)}</td><td>Fully attributable — their future booking will match a site + session.</td></tr>
+      <tr><td><span class="warn">⚠️ Ref known, click payload MISSING</span></td><td class="num">${cdiag.orphan}</td><td class="num">${pct(cdiag.orphan, cdiag.total)}</td><td>The WhatsApp message carried the ref, but the browser's POST to the central click store never arrived — <strong>ad-blockers / privacy browsers block the cross-site call</strong> (plus a few pre-Jun-12 legacy refs). Fix: give each site a same-domain <code>/api/wa-click</code> relay (first-party requests are rarely blocked).${orphanSamples.length ? `<br><span class="muted">e.g. ${orphanSamples.slice(0, 6).join(", ")}</span>` : ""}</td></tr>
+      <tr><td><span class="warn">⚠️ Ref + payload but no GA cookie</span></td><td class="num">${cdiag.noCid}</td><td class="num">${pct(cdiag.noCid, cdiag.total)}</td><td>Click stored, but GA hadn't set its cookie yet (fast click / consent delay / blocker). Fix: re-send the payload once the cookie appears.</td></tr>
+      <tr><td>Off-site tracked link (GBP / IG / Maps)</td><td class="num">${cdiag.offsite}</td><td class="num">${pct(cdiag.offsite, cdiag.total)}</td><td>Attributes to its source — organic by design, never a paid ad.</td></tr>
+      <tr><td colspan="4" style="background:#fafbfc;font-weight:600">Bookings (${realConversions.length} total, excluding tests)</td></tr>
+      <tr><td><span class="ok">✅ Matched to a website click</span></td><td class="num">${bdiag.matched}</td><td class="num">${pct(bdiag.matched, realConversions.length)}</td><td>Full attribution incl. GA4/Ads session.</td></tr>
+      <tr><td><span class="warn">⚠️ Ref known, session lost</span></td><td class="num">${bdiag.refNoPayload}</td><td class="num">${pct(bdiag.refNoPayload, realConversions.length)}</td><td>Came from a website (ref proves it) but the click payload/GA cookie was lost — see the two buckets above. Recoverable going forward with the same fixes.</td></tr>
+      <tr><td>Off-site source (GBP / IG / Maps)</td><td class="num">${bdiag.offsite}</td><td class="num">${pct(bdiag.offsite, realConversions.length)}</td><td>Correctly attributed to an off-site surface.</td></tr>
+      <tr><td><span class="muted">No ref at all</span></td><td class="num">${bdiag.noRef}</td><td class="num">${pct(bdiag.noRef, realConversions.length)}</td><td>First message had no HL-ref: pre-tracking contacts (before 12 Jun), returning customers messaging directly, users who deleted the prefilled text, or untracked off-site links. Shrinks naturally as the contact base refreshes.</td></tr>
+    </tbody>
+  </table>`;
+
   const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -374,6 +432,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     <tbody>${siteRows || `<tr><td colspan="7" class="empty">No data yet</td></tr>`}</tbody>
   </table>
   <p class="note">"${esc(UNKNOWN_LABEL)}" = bookings from contacts whose chat carries no HL-ref: conversations started before tracking went live (12 Jun 2026), or people who messaged the WhatsApp number directly (saved contact, Google Business Profile) without going through a website. These can never be attributed to a site or ad — expect this row to shrink to near-zero for new conversations.</p>
+
+  ${diagHtml}
 
   <h2>Conversion log (every booking)</h2>
   ${
