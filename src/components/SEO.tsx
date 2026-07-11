@@ -111,7 +111,8 @@ const SEO = () => {
             "availableLanguage": ["English", "Thai", "Japanese"]
           },
           "award": [
-            "2025 Regenerative Clinic of the Year in Asia-Pacific — GlobalHealth Asia-Pacific Awards"
+            "2025 Regenerative Clinic of the Year in Asia-Pacific — GlobalHealth Asia-Pacific Awards",
+            "Thailand Rising Star 2025 — ArokaGo"
           ]
         },
         
