@@ -111,8 +111,7 @@ const SEO = () => {
             "availableLanguage": ["English", "Thai", "Japanese"]
           },
           "award": [
-            "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
-            "Thailand Rising Star 2025"
+            "2025 Regenerative Clinic of the Year in Asia-Pacific — GlobalHealth Asia-Pacific Awards"
           ]
         },
         
@@ -477,7 +476,7 @@ const SEO = () => {
           "name": "Where is the best IV therapy clinic in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110 — near Ekkamai BTS station. Awarded Best Regenerative Medicine Clinic 2025 Asia-Pacific with 5.0 Google rating from 250+ patients. Book via WhatsApp: +66919991744"
+            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110 — near Ekkamai BTS station. Awarded 2025 Regenerative Clinic of the Year in Asia-Pacific with 5.0 Google rating from 250+ patients. Book via WhatsApp: +66919991744"
           }
         },
         {

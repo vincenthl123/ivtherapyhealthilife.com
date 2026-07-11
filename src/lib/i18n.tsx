@@ -21,7 +21,7 @@ const translations = {
     "nav.whatsapp": "WhatsApp",
 
     // Hero
-    "hero.badge": "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
+    "hero.badge": "2025 Regenerative Clinic of the Year in Asia-Pacific",
     "hero.title": "IV Therapy",
     "hero.titleHighlight": "Bangkok",
     "hero.subtitle": "Powerful nutrients delivered directly into your bloodstream — for instant absorption and maximum results.",
@@ -587,7 +587,7 @@ const translations = {
     "testimonials.googleRating": "Google Rating",
     "testimonials.patientsTreated": "Patients Treated",
     "testimonials.countriesServed": "Countries Served",
-    "testimonials.bestClinic": "Best Clinic 2025 Asia-Pacific",
+    "testimonials.bestClinic": "Clinic of the Year 2025 Asia-Pacific",
 
     // Contact
     "contact.title": "Visit Our Clinic",
@@ -601,7 +601,7 @@ const translations = {
     "contact.sunday": "Sunday: Closed",
     "contact.contactUs": "Contact Us",
     "contact.awardWinning": "Award-Winning Facility",
-    "contact.awardDesc": "Best Regenerative Medicine Clinic 2025 – Asia-Pacific & Thailand Rising Star 2025",
+    "contact.awardDesc": "2025 Regenerative Clinic of the Year in Asia-Pacific — GlobalHealth Asia-Pacific Awards",
     "contact.feelFast": "Feel It Fast. Stay Energized Longer.",
     "contact.feelFastDesc": "Don't wait days to feel better. Our high-performance IV infusions deliver potent vitamins, minerals, and antioxidants directly to your bloodstream — for immediate energy, deep hydration, and cellular repair that lasts.",
     "contact.bookYour": "Book Your IV Therapy",
@@ -617,7 +617,7 @@ const translations = {
     "footer.serviceProvider": "Service provided by Healthi-Life Group",
 
     // Clinic landing page (/clinic)
-    "clinic.hero.badge": "Best Regenerative Medicine Clinic 2025 – Asia-Pacific",
+    "clinic.hero.badge": "2025 Regenerative Clinic of the Year in Asia-Pacific",
     "clinic.hero.title": "HealthiLife Longevity Center",
     "clinic.hero.subtitle": "Bangkok's doctor-led clinic for preventive medicine and longevity.",
     "clinic.hero.info": "5.0 Google Reviews · Ekkamai, Bangkok · Mon–Sat 11 AM – 7 PM",
@@ -669,7 +669,7 @@ const translations = {
     "nav.whatsapp": "WhatsApp",
 
     // Hero
-    "hero.badge": "คลินิกเวชศาสตร์ฟื้นฟูดีที่สุดแห่งปี 2025 – เอเชียแปซิฟิก",
+    "hero.badge": "คลินิกเวชศาสตร์ฟื้นฟูแห่งปี 2025 – เอเชียแปซิฟิก",
     "hero.title": "IV Therapy",
     "hero.titleHighlight": "กรุงเทพฯ",
     "hero.subtitle": "สารอาหารทรงพลังส่งตรงเข้าสู่กระแสเลือด — ดูดซึมทันทีและได้ผลสูงสุด",
@@ -1233,7 +1233,7 @@ const translations = {
     "testimonials.googleRating": "คะแนน Google",
     "testimonials.patientsTreated": "ผู้ป่วยที่รักษา",
     "testimonials.countriesServed": "ประเทศที่ให้บริการ",
-    "testimonials.bestClinic": "คลินิกดีที่สุด 2025 เอเชียแปซิฟิก",
+    "testimonials.bestClinic": "คลินิกแห่งปี 2025 เอเชียแปซิฟิก",
 
     // Contact
     "contact.title": "เยี่ยมชมคลินิกของเรา",
@@ -1247,7 +1247,7 @@ const translations = {
     "contact.sunday": "อาทิตย์: ปิด",
     "contact.contactUs": "ติดต่อเรา",
     "contact.awardWinning": "สถานที่ได้รับรางวัล",
-    "contact.awardDesc": "คลินิกเวชศาสตร์ฟื้นฟูดีที่สุด 2025 – เอเชียแปซิฟิก และ Rising Star ประเทศไทย 2025",
+    "contact.awardDesc": "คลินิกเวชศาสตร์ฟื้นฟูแห่งปี 2025 – เอเชียแปซิฟิก (GlobalHealth Asia-Pacific Awards)",
     "contact.feelFast": "รู้สึกผลเร็ว มีพลังยาวนาน",
     "contact.feelFastDesc": "ไม่ต้องรอหลายวันเพื่อรู้สึกดีขึ้น IV อินฟิวชันประสิทธิภาพสูงของเราส่งวิตามิน แร่ธาตุ และสารต้านอนุมูลอิสระตรงเข้าสู่กระแสเลือด — เพื่อพลังงานทันที ความชุ่มชื้นล้ำลึก และการซ่อมแซมเซลล์ที่ยั่งยืน",
     "contact.bookYour": "จอง IV Therapy ของคุณ",
@@ -1263,7 +1263,7 @@ const translations = {
     "footer.serviceProvider": "บริการโดย Healthi-Life Group",
 
     // Clinic landing page (/clinic)
-    "clinic.hero.badge": "คลินิกเวชศาสตร์ฟื้นฟูดีที่สุดแห่งปี 2025 – เอเชียแปซิฟิก",
+    "clinic.hero.badge": "คลินิกเวชศาสตร์ฟื้นฟูแห่งปี 2025 – เอเชียแปซิฟิก",
     "clinic.hero.title": "HealthiLife Longevity Center",
     "clinic.hero.subtitle": "คลินิกในกรุงเทพฯ ที่ดูแลโดยแพทย์ มุ่งเน้นเวชศาสตร์ป้องกันและการมีอายุยืนอย่างมีคุณภาพ",
     "clinic.hero.info": "5.0 รีวิว Google · เอกมัย กรุงเทพฯ · จันทร์–เสาร์ 11:00 – 19:00",
@@ -1315,7 +1315,7 @@ const translations = {
     "nav.whatsapp": "WhatsApp",
 
     // Hero
-    "hero.badge": "2025年アジア太平洋地域最優秀再生医療クリニック",
+    "hero.badge": "2025年アジア太平洋地域 再生医療クリニック・オブ・ザ・イヤー",
     "hero.title": "IV療法",
     "hero.titleHighlight": "バンコク",
     "hero.subtitle": "強力な栄養素を血流に直接届ける — 即時吸収と最大の効果を実現。",
@@ -1879,7 +1879,7 @@ const translations = {
     "testimonials.googleRating": "Google評価",
     "testimonials.patientsTreated": "治療患者数",
     "testimonials.countriesServed": "対応国数",
-    "testimonials.bestClinic": "2025年アジア太平洋最優秀クリニック",
+    "testimonials.bestClinic": "2025年アジア太平洋 クリニック・オブ・ザ・イヤー",
 
     // Contact
     "contact.title": "クリニックにお越しください",
@@ -1893,7 +1893,7 @@ const translations = {
     "contact.sunday": "日曜日：休業",
     "contact.contactUs": "お問い合わせ",
     "contact.awardWinning": "受賞施設",
-    "contact.awardDesc": "2025年アジア太平洋最優秀再生医療クリニック & タイランドライジングスター2025",
+    "contact.awardDesc": "2025年アジア太平洋 再生医療クリニック・オブ・ザ・イヤー（GlobalHealth Asia-Pacific Awards）",
     "contact.feelFast": "素早く効果を実感。長くエネルギッシュに。",
     "contact.feelFastDesc": "気分が良くなるまで何日も待つ必要はありません。高性能点滴が強力なビタミン、ミネラル、抗酸化物質を血流に直接届けます — 即時のエネルギー、深い水分補給、持続する細胞修復のために。",
     "contact.bookYour": "IV療法を予約",
