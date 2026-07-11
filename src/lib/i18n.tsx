@@ -37,8 +37,8 @@ const translations = {
     "trust.googleRating": "Google Rating",
     "trust.patientsTreated": "Patients Treated",
     "trust.countriesServed": "Countries Served",
-    "trust.certifiedLab": "Certified Lab",
-    "trust.bestClinicValue": "Best Clinic",
+    "trust.certifiedLab": "Partner Labs",
+    "trust.bestClinicValue": "Clinic of the Year",
     "trust.bestClinicLabel": "2025 Asia-Pacific",
 
     // WhatsApp Widget
@@ -121,7 +121,7 @@ const translations = {
 
     "popular.nad250.title": "NAD+ IV Drip 250mg",
     "popular.nad250.price": "8,500 THB",
-    "popular.nad250.desc": "High-dose NAD+ therapy for maximum cellular regeneration. Premium anti-aging treatment that supercharges energy, sharpens cognitive function, and reverses cellular decline.",
+    "popular.nad250.desc": "High-dose NAD+ therapy for cellular support. Premium anti-aging treatment that may help support energy, cognitive function, and cellular vitality.",
     "popular.nad250.benefit1": "Maximum regeneration",
     "popular.nad250.benefit2": "Peak energy",
     "popular.nad250.benefit3": "Brain optimization",
@@ -389,7 +389,7 @@ const translations = {
     "body.nad250.title": "NAD+ IV Drip 250mg",
     "body.nad250.price": "8,500 THB",
     "body.nad250.tagline": "Maximize NAD+ levels, enhance brain function, boost longevity",
-    "body.nad250.desc": "High-dose NAD+ therapy for maximum cellular regeneration. Premium anti-aging treatment that supercharges energy, sharpens cognitive function, and reverses cellular decline.",
+    "body.nad250.desc": "High-dose NAD+ therapy for cellular support. Premium anti-aging treatment that may help support energy, cognitive function, and cellular vitality.",
 
     "body.nadResveratrol.title": "NAD+ 100mg + Resveratrol 500mg IV Drip",
     "body.nadResveratrol.price": "7,500 THB",
@@ -685,8 +685,8 @@ const translations = {
     "trust.googleRating": "คะแนน Google",
     "trust.patientsTreated": "ผู้ป่วยที่รักษา",
     "trust.countriesServed": "ประเทศที่ให้บริการ",
-    "trust.certifiedLab": "ห้องปฏิบัติการรับรอง",
-    "trust.bestClinicValue": "คลินิกดีที่สุด",
+    "trust.certifiedLab": "ห้องแล็บพันธมิตร",
+    "trust.bestClinicValue": "คลินิกแห่งปี",
     "trust.bestClinicLabel": "2025 เอเชียแปซิฟิก",
 
     // WhatsApp Widget
@@ -1331,8 +1331,8 @@ const translations = {
     "trust.googleRating": "Google評価",
     "trust.patientsTreated": "治療患者数",
     "trust.countriesServed": "対応国数",
-    "trust.certifiedLab": "認定ラボ",
-    "trust.bestClinicValue": "最優秀クリニック",
+    "trust.certifiedLab": "パートナーラボ",
+    "trust.bestClinicValue": "クリニック・オブ・ザ・イヤー",
     "trust.bestClinicLabel": "2025 アジア太平洋",
 
     // WhatsApp Widget

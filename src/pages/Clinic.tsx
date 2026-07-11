@@ -356,7 +356,7 @@ const Clinic = () => {
               },
               {
                 title: "Medical Supervision",
-                desc: "Every protocol supervised by ABLM-certified longevity physicians.",
+                desc: "Every protocol supervised by IBLM-aligned longevity physicians.",
               },
             ].map((s) => (
               <Card key={s.title} className="p-6 bg-background border-border">

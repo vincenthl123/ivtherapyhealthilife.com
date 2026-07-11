@@ -445,7 +445,7 @@ const SEO = () => {
           "name": "Is IV Therapy safe?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — all IV drips at Healthi-Life are prepared by medical professionals using hospital-grade, ISO and GMP certified ingredients. Treatments are administered by trained nurses under doctor supervision."
+            "text": "Yes — all IV drips at Healthi-Life are prepared by medical professionals using hospital-grade ingredients, administered by trained nurses under doctor supervision. Cellular and compounded products are processed by ISO- and GMP-certified partner laboratories."
           }
         },
         {
