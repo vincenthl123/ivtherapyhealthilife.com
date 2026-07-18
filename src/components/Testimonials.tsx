@@ -23,15 +23,6 @@ const testimonials = [
     avatar: "",
   },
   {
-    name: "Nathalie Dufresne",
-    city: "Paris",
-    country: "France",
-    text: "I was told I had poor egg quality and limited chances with IVF. But after undergoing the fertility stem cell program at Healthi-Life, my hormone levels improved significantly. I felt energized, balanced, and within two months—I received a positive pregnancy test. Forever grateful!",
-    rating: 5,
-    initials: "ND",
-    avatar: "",
-  },
-  {
     name: "Richard Chen",
     city: "Hong Kong",
     country: "China",

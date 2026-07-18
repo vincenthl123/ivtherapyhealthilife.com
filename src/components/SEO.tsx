@@ -201,13 +201,6 @@ const SEO = () => {
               "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
               "datePublished": "2025-10-22",
               "reviewBody": "The results exceeded my expectations—my wrinkles have softened, my hair is thicker, and I have mental clarity I haven't experienced in years. Dr. Petch and the team are exceptional professionals."
-            },
-            {
-              "@type": "Review",
-              "author": { "@type": "Person", "name": "Nathalie Dufresne" },
-              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-              "datePublished": "2025-09-30",
-              "reviewBody": "After undergoing the fertility stem cell program at Healthi-Life, my hormone levels improved significantly. I felt energized, balanced, and within two months—I received a positive pregnancy test. Forever grateful!"
             }
           ],
           "parentOrganization": { "@id": "https://ivtherapyhealthilife.com/#org" },

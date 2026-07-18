@@ -14,7 +14,7 @@ const TrustBanner = () => {
     },
     {
       icon: Users,
-      value: "2,000+",
+      value: "2,500+",
       label: t("trust.patientsTreated"),
     },
     {
