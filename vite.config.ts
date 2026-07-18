@@ -77,7 +77,9 @@ export default defineConfig(({ mode }) => ({
         // Workbox caching strategies for SEO & performance
         globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,webp,svg,woff,woff2}'],
         // Serverless endpoints must never fall back to the SPA shell.
-        navigateFallbackDenylist: [/^\/api\//],
+        // /book* is a Vercel edge redirect to Fillout — if the SW swallows it,
+        // React Router has no /book route and the visitor lands on a 404.
+        navigateFallbackDenylist: [/^\/api\//, /^\/book/],
         runtimeCaching: [
           {
             // Cache Google Fonts
