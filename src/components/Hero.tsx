@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, Award, MapPin, Clock, MessageCircle, Phone, CalendarCheck } from "lucide-react";
-import heroImage from "@/assets/clinic-exterior.webp";
+import heroRoomDesktop from "@/assets/hero-private-room-desktop.webp";
+import heroRoomMobile from "@/assets/hero-private-room-mobile.webp";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
@@ -14,18 +15,41 @@ const Hero = () => {
       {/* Background Image with Overlay - LCP Optimized */}
       <div className="absolute inset-0 z-0">
         {/* Preload hint already in index.html */}
-        <img
-          src={heroImage}
-          alt="Healthi-Life IV Therapy Clinic Bangkok - Premium IV Drip Treatments at Ekkamai"
-          className="w-full h-full object-cover"
-          width={1920}
-          height={1080}
-          // @ts-expect-error fetchpriority is valid HTML but React 18 uses camelCase
-          fetchpriority="high"
-          loading="eager"
-          decoding="sync"
+        <picture>
+          <source media="(min-width: 768px)" srcSet={heroRoomDesktop} type="image/webp" />
+          <img
+            src={heroRoomMobile}
+            alt="Private treatment room at Healthi Life — the urban longevity house in Ekkamai, Bangkok"
+            width={2400}
+            height={1862}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "32% 58%" }}
+          />
+        </picture>
+        <div
+          className="absolute inset-0 hl-hero-veil"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,249,239,0.95) 0%, rgba(255,249,239,0.90) 50%, rgba(255,249,239,0.45) 100%)",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        <style>{`
+          @media (min-width: 768px) {
+            .hl-hero-veil {
+              background: linear-gradient(
+                90deg,
+                rgba(255,249,239,0.97) 0%,
+                rgba(255,249,239,0.94) 34%,
+                rgba(255,249,239,0.72) 55%,
+                rgba(255,249,239,0.38) 78%,
+                rgba(255,249,239,0.28) 100%
+              ) !important;
+            }
+          }
+        `}</style>
       </div>
 
       {/* Content */}
