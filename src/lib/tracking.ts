@@ -79,6 +79,17 @@ export const trackGAEvent = (eventName: string, params?: Record<string, unknown>
   scheduleProcessing();
 };
 
+// Raw dataLayer push so GTM Custom Event triggers can see the standard
+// events (whatsapp_click / call_click / booking_click). gtag('event') calls
+// are invisible to GTM triggers — only a plain dataLayer.push({event}) fires
+// them. Model: stemcell tracking.ts (validated John/Vincent 2026-07-24).
+const pushDataLayerEvent = (event: string, params?: Record<string, unknown>) => {
+  if (typeof window === 'undefined') return;
+  const win = window as TrackingWindow;
+  win.dataLayer = win.dataLayer || [];
+  win.dataLayer.push({ event, ...params });
+};
+
 // WhatsApp click conversion event with full funnel attribution.
 // Fires:
 //   - GA4 'whatsapp_click' (marked as conversion in GA4 → imported to Google Ads)
@@ -126,6 +137,12 @@ export const trackWhatsAppClick = (params: {
     };
 
     trackGAEvent("whatsapp_click", payload);
+    // GTM Custom Event trigger mirror.
+    pushDataLayerEvent("whatsapp_click", {
+      wa_source: params.source,
+      wa_page: payload.page_path,
+      wa_has_message: !!params.hasMessage,
+    });
     // Recommended GA4 event (Enhanced Conversions / Ads import).
     trackGAEvent("generate_lead", {
       ...payload,
@@ -137,6 +154,38 @@ export const trackWhatsAppClick = (params: {
       content_category: "iv_therapy",
     });
   });
+};
+
+// Standard call conversion event (site-wide standard name: call_click).
+// Replaces the former unrouted 'phone_click' gtag call, which was silently
+// dropped for lack of send_to (runtime probe 2026-07-24).
+export const trackCallClick = (source: string) => {
+  const params = {
+    event_category: 'engagement',
+    event_label: source,
+    page_source: 'iv_therapy',
+  };
+  trackGAEvent('call_click', params);
+  pushDataLayerEvent('call_click', { call_source: source });
+};
+
+// Standard booking CTA event, fired by the fillout-interceptor when a
+// /book or fillout.com link is clicked/opened. Dedupe mirrors whatsapp_click:
+// one physical click can reach both the click listener and window.open.
+let lastBookingClickAt = 0;
+const BOOKING_CLICK_DEDUPE_MS = 1500;
+
+export const trackBookingClick = (source: string) => {
+  const now = Date.now();
+  if (now - lastBookingClickAt < BOOKING_CLICK_DEDUPE_MS) return;
+  lastBookingClickAt = now;
+  const params = {
+    event_category: 'engagement',
+    event_label: source,
+    page_source: 'iv_therapy',
+  };
+  trackGAEvent('booking_click', params);
+  pushDataLayerEvent('booking_click', { booking_source: source });
 };
 
 // Combined button click tracking - sends to both Meta & GA
@@ -166,19 +215,12 @@ export const initLinkClickTracking = () => {
     if (!anchor) return;
     const href = anchor.getAttribute('href') || '';
 
-    const win = window as TrackingWindow;
-    if (!win.gtag) return;
-
     if (href.includes('wa.me/')) {
       // Route through trackWhatsAppClick so the dedupe window applies —
       // the wa-interceptor also fires for the same physical click.
       trackWhatsAppClick({ source: 'link' });
     } else if (href.startsWith('tel:')) {
-      win.gtag('event', 'phone_click', {
-        event_category: 'engagement',
-        event_label: 'iv_therapy',
-        page_source: 'iv_therapy',
-      });
+      trackCallClick('link');
     }
   }, { capture: true, passive: true });
 };
