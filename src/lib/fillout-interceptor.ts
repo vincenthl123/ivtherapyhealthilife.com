@@ -15,6 +15,7 @@
  * Opt out on any element with `data-fillout-skip="1"`.
  */
 import { buildBookingUrl } from "./attribution";
+import { trackBookingClick } from "./tracking";
 
 const isFilloutUrl = (val: unknown): boolean =>
   typeof val === "string" && /(?:^|\/\/|\.)fillout\.com\//.test(val);
@@ -74,6 +75,8 @@ export const installFilloutInterceptor = (): (() => void) => {
     // Mutate the href in place; the default navigation (any modifier / target)
     // then proceeds to the attribution-stamped URL without us hijacking it.
     if (finalUrl !== href) anchor.setAttribute("href", finalUrl);
+    // Standard booking CTA event (GA4 + dataLayer for GTM triggers).
+    trackBookingClick(ctx);
   };
 
   document.addEventListener("click", onClick, true);
@@ -86,6 +89,7 @@ export const installFilloutInterceptor = (): (() => void) => {
   ) => {
     const s = typeof url === "string" ? url : String(url ?? "");
     if (isFilloutUrl(s)) {
+      trackBookingClick("programmatic");
       return originalOpen(buildBookingUrl(s, "programmatic"), target as string, features as string);
     }
     return originalOpen(url as string, target as string, features as string);
