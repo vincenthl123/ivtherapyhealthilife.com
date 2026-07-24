@@ -61,11 +61,19 @@ export const trackMetaEvent = (eventName: string, params?: Record<string, unknow
 };
 
 // Google Analytics tracking - deferred
+// send_to is REQUIRED: gtag.js is loaded twice on this site (GTM __googtag
+// fan-out + inline snippet in index.html), which breaks default event routing —
+// any gtag('event') without an explicit send_to is silently dropped (proven by
+// runtime probe 2026-07-24). Routing explicitly to G-K9R2HXK3QT restores
+// whatsapp_click / generate_lead / button_click / web_vitals delivery.
+// Deliberately NOT including AW-6855903980 here: the Google Ads tag lives in
+// GTM, so adding it app-side would double-count conversions (same call as the
+// stemcell fix, PR stemcellheatlthilife#19).
 export const trackGAEvent = (eventName: string, params?: Record<string, unknown>) => {
   trackingQueue.push(() => {
     const win = window as TrackingWindow;
     if (typeof window !== 'undefined' && win.gtag) {
-      win.gtag('event', eventName, params);
+      win.gtag('event', eventName, { send_to: 'G-K9R2HXK3QT', ...params });
     }
   });
   scheduleProcessing();
