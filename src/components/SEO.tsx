@@ -305,42 +305,42 @@ const SEO = () => {
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 100mg — 5 Sessions Package" },
-                "price": "27500",
+                "price": "27000",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 100mg — 10 Sessions Package" },
-                "price": "54000",
+                "price": "51000",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 250mg — 5 Sessions Package" },
-                "price": "41500",
+                "price": "38250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 250mg — 10 Sessions Package" },
-                "price": "80000",
+                "price": "72250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "Fat Burner — 5 Sessions Package" },
-                "price": "17500",
+                "price": "20250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "Fat Burner — 10 Sessions Package" },
-                "price": "30000",
+                "price": "38250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               }
