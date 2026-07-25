@@ -168,7 +168,7 @@ const SEO = () => {
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
-            "reviewCount": "250",
+            "reviewCount": "193",
             "bestRating": "5",
             "worstRating": "1"
           },
