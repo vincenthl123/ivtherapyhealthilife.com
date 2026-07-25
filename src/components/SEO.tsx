@@ -130,7 +130,7 @@ const SEO = () => {
           "paymentAccepted": "Cash, Credit Card, Bank Transfer",
           "image": "https://ivtherapyhealthilife.com/og-image.jpg",
           "logo": "https://ivtherapyhealthilife.com/og-image.jpg",
-          "description": "Bangkok's premium IV therapy clinic offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips. Award-winning clinic at Ekkamai with 5.0 Google rating from 250+ patients.",
+          "description": "Bangkok's premium IV therapy clinic offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips. Award-winning clinic at Ekkamai with 5.0 Google rating from 193 verified reviews.",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "94 Ekkamai 10 Alley",
@@ -470,7 +470,7 @@ const SEO = () => {
           "name": "Where is the best IV therapy clinic in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110 — near Ekkamai BTS station. Awarded 2025 Regenerative Clinic of the Year in Asia-Pacific with 5.0 Google rating from 250+ patients. Book via WhatsApp: +66919991744"
+            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110 — near Ekkamai BTS station. Awarded 2025 Regenerative Clinic of the Year in Asia-Pacific with 5.0 Google rating from 193 verified reviews. Book via WhatsApp: +66919991744"
           }
         },
         {
