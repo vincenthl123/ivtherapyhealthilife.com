@@ -11,6 +11,7 @@ const MembershipSection = lazy(() => import("@/components/MembershipSection"));
 const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
 const MedicalTeam = lazy(() => import("@/components/MedicalTeam"));
 const Process = lazy(() => import("@/components/Process"));
+const FeaturedVideo = lazy(() => import("@/components/FeaturedVideo"));
 const VideoTestimonials = lazy(() => import("@/components/VideoTestimonials"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const FAQ = lazy(() => import("@/components/FAQ"));
@@ -41,6 +42,7 @@ const Index = () => {
           <WhyChooseUs />
           <MedicalTeam />
           <Process />
+          <FeaturedVideo />
           <VideoTestimonials />
           <Testimonials />
           <FAQ />
