@@ -112,7 +112,7 @@ const SEO = () => {
           },
           "award": [
             "2025 Regenerative Clinic of the Year in Asia-Pacific — GlobalHealth Asia-Pacific Awards",
-            "Thailand Rising Star 2025 — ArokaGo"
+            "ArokaGo Best Rising Star 2025"
           ]
         },
         
@@ -462,7 +462,7 @@ const SEO = () => {
           "name": "How much does IV therapy cost in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,050 THB for treatments like Fat Burner or Hangover IV, to 15,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg. Multi-session packages available: NAD+ 100mg 5 sessions at 27,500 THB, NAD+ 250mg 5 sessions at 41,500 THB."
+            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,500 THB for treatments like Fat Burner or Hangover IV, to 15,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg and 8,500 THB for 250mg. Multi-session packages available: NAD+ 100mg 5 sessions at 27,000 THB, NAD+ 250mg 5 sessions at 38,250 THB."
           }
         },
         {
