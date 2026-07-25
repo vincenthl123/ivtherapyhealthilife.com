@@ -209,7 +209,7 @@ const SEO = () => {
               "@type": "Physician",
               "@id": "https://ivtherapyhealthilife.com/#dr-petch",
               "name": "Dr. Petch (Sarassawadee Suwanjinda)",
-              "jobTitle": "Founder & Lifestyle Medicine Specialist",
+              "jobTitle": "Co-Founder & Chief Medical Strategy Officer",
               "medicalSpecialty": ["Longevity Medicine", "Preventive Medicine"],
               "worksFor": { "@id": "https://ivtherapyhealthilife.com/#clinic" }
             },
@@ -217,7 +217,7 @@ const SEO = () => {
               "@type": "Physician",
               "@id": "https://ivtherapyhealthilife.com/#dr-first",
               "name": "Dr. First (Napat Hunsajarupan)",
-              "jobTitle": "Founder & MD",
+              "jobTitle": "Co-Founder & Chief Medical Officer",
               "medicalSpecialty": ["Dermatology", "Aesthetic Medicine"],
               "worksFor": { "@id": "https://ivtherapyhealthilife.com/#clinic" }
             }
@@ -384,7 +384,7 @@ const SEO = () => {
         {
           "@type": "VideoObject",
           "@id": "https://ivtherapyhealthilife.com/#video-dr-petch",
-          "name": "Dr. Petch - Founder & Lifestyle Medicine Specialist",
+          "name": "Dr. Petch — Co-Founder & Chief Medical Strategy Officer",
           "description": "Dr. Petch introduces Healthi-Life's holistic approach to regenerative medicine, IV therapy, and longevity in Bangkok.",
           "thumbnailUrl": "https://img.youtube.com/vi/0q0ht-nms4w/maxresdefault.jpg",
           "uploadDate": "2024-01-15T00:00:00+07:00",
