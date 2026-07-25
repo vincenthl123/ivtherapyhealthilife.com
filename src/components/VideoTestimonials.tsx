@@ -10,7 +10,6 @@ const videoTestimonials = [
     description: "Dr. Petch introduces our holistic approach to regenerative medicine and longevity.",
     duration: "PT1M30S",
     uploadDate: "2024-01-15T00:00:00+07:00",
-    transcript: "Welcome to Healthi-Life Longevity Center. I'm Dr. Petch, founder and lifestyle medicine specialist. Our approach combines cutting-edge regenerative medicine with personalized wellness protocols to help you achieve optimal health and longevity.",
     inLanguage: "en",
   },
   {
@@ -20,7 +19,6 @@ const videoTestimonials = [
     description: "Patient testimonial: Enhancing athletic performance with regenerative medicine at Healthi-Life Bangkok.",
     duration: "PT1M45S",
     uploadDate: "2024-03-10T00:00:00+07:00",
-    transcript: "I'm Blake from the USA. As an athlete, I wanted to optimize my performance naturally. Healthi-Life's regenerative treatments helped me recover faster and perform better. Highly recommend for anyone serious about their health.",
     inLanguage: "en",
   },
   {
@@ -30,13 +28,21 @@ const videoTestimonials = [
     description: "Patient testimonial: Recovery journey with stem cell therapy for knee pain at Healthi-Life Longevity Center Bangkok.",
     duration: "PT2M00S",
     uploadDate: "2024-02-20T00:00:00+07:00",
-    transcript: "Hi, I'm Angelica from the Philippines. I came to Healthi-Life for stem cell treatment for my knee. After years of pain, I can now walk and exercise without discomfort. The team was amazing and the results exceeded my expectations.",
     inLanguage: "en",
   },
 ];
 
-// VideoObject Schema for SEO with accessibility
-// VideoObject Schema for SEO - Optimized for Rich Snippets
+// VideoObject Schema for SEO.
+//
+// Do NOT re-add `transcript`, `interactionStatistic`, `accessibilityFeature`,
+// `accessibilitySummary` or `accessibilityHazard` here. They were removed on
+// 2026-07-25: the transcripts were written from scratch and did not match what
+// the videos actually say, `userInteractionCount: 1000` was a hard-coded view
+// count (identical on all three videos, never measured), and the accessibility
+// fields asserted captions/transcripts that do not exist. Declaring engagement
+// or content that cannot be evidenced is a structured-data violation and a
+// paid-traffic risk. Only re-add a field with a real, measured value — never a
+// plausible-sounding placeholder.
 const generateVideoSchema = () => ({
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -61,15 +67,6 @@ const generateVideoSchema = () => ({
       "contentUrl": `https://www.youtube.com/watch?v=${video.id}`,
       "embedUrl": `https://www.youtube.com/embed/${video.id}`,
       "inLanguage": video.inLanguage,
-      "transcript": video.transcript,
-      "interactionStatistic": {
-        "@type": "InteractionCounter",
-        "interactionType": "https://schema.org/WatchAction",
-        "userInteractionCount": 1000
-      },
-      "accessibilityFeature": ["captions", "transcript"],
-      "accessibilityHazard": "noFlashingHazard",
-      "accessibilitySummary": "Video includes captions and transcript for accessibility",
       "publisher": {
         "@type": "Organization",
         "@id": "https://ivtherapyhealthilife.com/#org",
