@@ -5,7 +5,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 const videoTestimonials = [
   {
     id: "0q0ht-nms4w",
-    title: "Dr. Petch - Founder & Lifestyle Medicine",
+    title: "Dr. Petch — Co-Founder & Chief Medical Strategy Officer",
     subtitle: "Meet Our Founder",
     description: "Dr. Petch introduces our holistic approach to regenerative medicine and longevity.",
     duration: "PT1M30S",

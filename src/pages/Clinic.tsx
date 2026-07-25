@@ -325,6 +325,43 @@ const Clinic = () => {
         </div>
       </section>
 
+      {/* Visit us on video — house tour + concierge welcome.
+          Lazy iframes: this page is below the paid-traffic entry point, so the
+          two players cost nothing until the section scrolls into view. */}
+      <section className="py-16 md:py-20" aria-labelledby="clinic-video-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 id="clinic-video-heading" className="text-3xl md:text-4xl font-bold mb-4">
+              Take a Look Inside
+            </h2>
+            <p className="text-muted-foreground">
+              A walk through the house in Ekkamai, and a welcome from the team who
+              will greet you at the door.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {[
+              { id: "ND02f0vA9Yk", title: "Longevity House Tour" },
+              { id: "cKxiZ3Mts3A", title: "Chompu — Your Concierge" },
+            ].map((video) => (
+              <div key={video.id} className="space-y-3">
+                <div className="aspect-video rounded-2xl overflow-hidden shadow-soft">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}?modestbranding=1&rel=0`}
+                    title={video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="w-full h-full"
+                  />
+                </div>
+                <p className="text-sm font-semibold text-center">{video.title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services overview – conservative wording */}
       <section className="py-16 md:py-20 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
