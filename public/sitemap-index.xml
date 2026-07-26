@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <!-- Main Sitemap - All Pages & Services -->
   <sitemap>
     <loc>https://ivtherapyhealthilife.com/sitemap.xml</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-07-26</lastmod>
   </sitemap>
-  
-  <!-- Google Images Sitemap -->
-  <sitemap>
-    <loc>https://ivtherapyhealthilife.com/sitemap-images.xml</loc>
-    <lastmod>2026-02-28</lastmod>
-  </sitemap>
-  
-  <!-- Google News Sitemap -->
-  <sitemap>
-    <loc>https://ivtherapyhealthilife.com/sitemap-news.xml</loc>
-    <lastmod>2026-02-28</lastmod>
-  </sitemap>
+
+  <!--
+    An image sitemap and a news sitemap were removed on 2026-07-26. Do not
+    re-add them. Both carried unverifiable claims, and every image URL in the
+    first pointed at a build-time source path that does not exist in a
+    production bundle. This site is noindex, so neither could have produced any
+    indexing benefit. See the removal commit for the full account.
+  -->
 
 </sitemapindex>

@@ -6,7 +6,7 @@ const videoTestimonials = [
   {
     id: "0q0ht-nms4w",
     title: "Dr. Petch — Co-Founder & Chief Medical Strategy Officer",
-    subtitle: "Meet Our Founder",
+    subtitle: "Meet Our Co-Founder",
     description: "Dr. Petch introduces our holistic approach to regenerative medicine and longevity.",
     duration: "PT1M30S",
     uploadDate: "2024-01-15T00:00:00+07:00",

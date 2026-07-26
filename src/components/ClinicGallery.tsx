@@ -29,9 +29,9 @@ const tiles: Tile[] = [
   { src: imgPrivateRoom, alt: "Private treatment suite at Healthi Life", label: "Private Suite", cls: "col-span-1 md:col-span-2" },
   {
     src: imgDrFirst,
-    alt: "Dr. First, Chief Medical Officer at Healthi Life",
+    alt: "Dr. First, Co-Founder & Chief Medical Officer at Healthi Life",
     label: "Dr. First",
-    sub: "Chief Medical Officer",
+    sub: "Co-Founder & Chief Medical Officer",
     cls: "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
   },
   {
