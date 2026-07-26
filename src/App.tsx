@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToHash from "@/components/ScrollToHash";
+import MobileCTABar from "@/components/MobileCTABar";
 import { LanguageProvider } from "@/lib/i18n";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense, useEffect } from "react";
@@ -52,13 +53,14 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <ScrollToHash />
+            <MobileCTABar />
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/ivtherapybangkok" element={<Index />} />
                 <Route path="/sitemap" element={<Sitemap />} />
                 <Route path="/install" element={<Install />} />
-                <Route path="/price-list" element={<PriceList />} />
+                <Route path="/pricing" element={<PriceList />} />
                 <Route path="/clinic" element={<Clinic />} />
                 {/* Les anciennes URL peptides ne vivent plus ici. Elles sont
                     redirigees au niveau edge (vercel.json) vers

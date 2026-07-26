@@ -20,7 +20,7 @@ const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
  */
 const routes = [
   {
-    path: '/price-list',
+    path: '/pricing',
     title: 'IV Therapy Prices Bangkok | Healthi-Life – Full Price List',
     description: 'Complete IV therapy price list. NAD+ from 6,000 THB, Fat Burner 4,500 THB, Glow Revive 15,000 THB. Packages save up to 15%.',
     content: `
@@ -45,7 +45,7 @@ const routes = [
       <nav>
         <ul>
           <li><a href="/">Home — IV Therapy Bangkok</a></li>
-          <li><a href="/price-list">Price List</a></li>
+          <li><a href="/pricing">Price List</a></li>
           <li><a href="/clinic">Clinic — Ekkamai</a></li>
         </ul>
       </nav>

@@ -28,6 +28,7 @@ export type WaSource =
   | "protocol"
   | "visit"
   | "widget"
+  | "sticky"
   | "consultation"
   | "popup";
 
@@ -37,6 +38,7 @@ const SOURCE_INTEREST: Record<Exclude<WaSource, "protocol">, string> = {
   hero: "your IV therapy services",
   visit: "booking a consultation",
   widget: "your IV protocols",
+  sticky: "your IV therapy services",
   consultation: "booking a consultation",
   popup: "your IV protocols",
 };

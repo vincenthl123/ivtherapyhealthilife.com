@@ -180,9 +180,15 @@ const WhatsAppWidget = () => {
     }
   }, [isOpen, autoOpened]);
 
+  // « hidden md:block » : en mobile, MobileCTABar remplace cette bulle.
+  // Les deux ensemble se recouvraient — la bulle est a 16 px du bas, donc DANS
+  // la zone de la barre, et au meme z-50 : elle masquait le bouton de droite.
+  // C est encore le cas sur le satellite check-up, qui fait tourner les deux.
+  // Au-dessus de md il n y a pas de barre et la bulle reprend son role.
+  // Ne pas retirer ce « hidden » sans retirer la barre.
   return (
     <div
-      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
+      className="hidden md:block fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
       data-wa-skip="1"
       style={{ ["--wa-cream" as string]: CREAM, ["--wa-green" as string]: WA_GREEN }}
     >

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
@@ -27,6 +28,9 @@ const Header = () => {
     { name: t("nav.process"), href: "#process" },
     { name: t("nav.testimonials"), href: "#testimonials" },
     { name: t("nav.faq"), href: "#faq" },
+    // Route, pas ancre : rendue en <Link> plus bas. La page /pricing existait
+    // depuis toujours sans etre liee de nulle part.
+    { name: t("nav.pricing"), href: "/pricing" },
   ];
 
   return (
@@ -50,15 +54,25 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navigation.map((item) =>
+              item.href.startsWith("#") ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* CTA Buttons + Language Switcher */}
@@ -112,16 +126,27 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-4 space-y-3 border-t border-border bg-background shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
+            {navigation.map((item) =>
+              item.href.startsWith("#") ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
             <div className="pt-2 space-y-2">
               <a
                 id="ivclick-mobile-phone"

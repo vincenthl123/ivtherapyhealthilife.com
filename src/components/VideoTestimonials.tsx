@@ -21,15 +21,12 @@ const videoTestimonials = [
     uploadDate: "2024-03-10T00:00:00+07:00",
     inLanguage: "en",
   },
-  {
-    id: "Q0-FuK5CViA",
-    title: "Angelica from Philippines - Stem Cell Knee Treatment",
-    subtitle: "Stem Cell Knee Treatment",
-    description: "Patient testimonial: Recovery journey with stem cell therapy for knee pain at Healthi-Life Longevity Center Bangkok.",
-    duration: "PT2M00S",
-    uploadDate: "2024-02-20T00:00:00+07:00",
-    inLanguage: "en",
-  },
+  // Le temoignage cellules souches d Angelica (genou) a ete retire d ici le
+  // 2026-07-26. La video est reelle et bonne — mais sur une landing IV, un
+  // visiteur venu chercher un drip a 4 500 THB ne se reconnait pas dans une
+  // greffe cellulaire au genou. Elle convertit sur le satellite cellules
+  // souches, pas ici. Ne pas la remettre : c est un probleme de correspondance
+  // message-offre, pas de qualite de la video.
 ];
 
 // VideoObject Schema for SEO.
