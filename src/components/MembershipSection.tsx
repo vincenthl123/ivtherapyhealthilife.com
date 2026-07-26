@@ -192,7 +192,7 @@ const MembershipSection = () => {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4 text-primary" />
-                Speak to a membership advisor: +66 (0)9 1999 1744
+                Speak to a membership advisor: +66 91 999 1744
               </a>
             </div>
           </div>

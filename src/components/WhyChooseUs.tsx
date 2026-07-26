@@ -105,7 +105,7 @@ const WhyChooseUs = () => {
                 className="inline-flex items-center gap-2 text-sm md:text-base font-semibold text-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4 text-primary" />
-                Speak to our medical team: +66 (0)9 1999 1744
+                Speak to our medical team: +66 91 999 1744
               </a>
             </div>
           </div>

@@ -860,7 +860,7 @@ const Services = ({ children }: { children?: ReactNode }) => {
               className="inline-flex items-center gap-2 text-sm md:text-base text-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4 text-primary" />
-              Not sure which IV is right for you? Call <strong>+66 (0)9 1999 1744</strong>
+              Not sure which IV is right for you? Call <strong>+66 91 999 1744</strong>
             </a>
           </div>
         </div>

@@ -93,7 +93,7 @@ const SEO = () => {
             "height": 630
           },
           "image": "https://ivtherapyhealthilife.com/og-image.jpg",
-          "description": "Bangkok's premier IV therapy clinic. Award-winning medical facility offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips.",
+          "description": "A physician-led IV therapy clinic in Bangkok. Award-winning medical facility offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips.",
           "foundingDate": "2022",
           "parentOrganization": { "@id": "https://healthi-life.com/#org" },
           "sameAs": [
@@ -124,7 +124,7 @@ const SEO = () => {
           "alternateName": ["Healthi-Life IV Therapy Bangkok", "IV Therapy Bangkok", "HealthiLife Ekkamai"],
           "url": "https://ivtherapyhealthilife.com/",
           "telephone": "+66919991744",
-          "email": "info@healthi-life.com",
+          "email": "contact@healthi-life.com",
           "priceRange": "$$",
           "currenciesAccepted": "THB, USD",
           "paymentAccepted": "Cash, Credit Card, Bank Transfer",
@@ -172,37 +172,15 @@ const SEO = () => {
             "bestRating": "5",
             "worstRating": "1"
           },
-          // Real customer reviews for rich snippets
-          "review": [
-            {
-              "@type": "Review",
-              "author": { "@type": "Person", "name": "James O'Connell" },
-              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-              "datePublished": "2025-12-15",
-              "reviewBody": "After years of living with knee pain from an old sports injury, I finally found relief at Healthi-Life. The stem cell therapy not only reduced my inflammation but restored mobility I hadn't had in years. Truly life-changing."
-            },
-            {
-              "@type": "Review",
-              "author": { "@type": "Person", "name": "Meera Kapoor" },
-              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-              "datePublished": "2025-11-28",
-              "reviewBody": "Healthi-Life gave me more than just a refreshed appearance—it gave me confidence. After one month, I noticed firmer skin, deeper sleep, and better focus. Highly recommended for anyone serious about graceful aging."
-            },
-            {
-              "@type": "Review",
-              "author": { "@type": "Person", "name": "Richard Chen" },
-              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-              "datePublished": "2025-11-10",
-              "reviewBody": "At 58, I was feeling the effects of aging—low energy, brain fog, and joint stiffness. After my anti-aging stem cell treatment at Healthi-Life, I feel 15 years younger. My energy levels are through the roof."
-            },
-            {
-              "@type": "Review",
-              "author": { "@type": "Person", "name": "Sophie Williams" },
-              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-              "datePublished": "2025-10-22",
-              "reviewBody": "The results exceeded my expectations—my wrinkles have softened, my hair is thicker, and I have mental clarity I haven't experienced in years. Dr. Petch and the team are exceptional professionals."
-            }
-          ],
+          // Aucun noeud Review ici, et ne pas en re-ajouter.
+          // Quatre Review fabriques y vivaient — James O'Connell, Meera Kapoor,
+          // Richard Chen, Sophie Williams — sous le commentaire « Real customer
+          // reviews for rich snippets ». Le scanner YMYL du satellite cellules
+          // souches les interdit nommement comme « faux temoin » depuis des
+          // semaines ; personne n avait verifie ce depot. Retires le 2026-07-26
+          // sur decision de Vincent.
+          // Un avis n entre ici que s il vient d un vrai avis Google verifiable.
+          // L aggregateRating ci-dessus reste : 193 avis, lui, est verifie.
           "parentOrganization": { "@id": "https://ivtherapyhealthilife.com/#org" },
           "employee": [
             {

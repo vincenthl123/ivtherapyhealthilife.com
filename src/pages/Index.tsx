@@ -13,7 +13,6 @@ const MedicalTeam = lazy(() => import("@/components/MedicalTeam"));
 const Process = lazy(() => import("@/components/Process"));
 const FeaturedVideo = lazy(() => import("@/components/FeaturedVideo"));
 const VideoTestimonials = lazy(() => import("@/components/VideoTestimonials"));
-const Testimonials = lazy(() => import("@/components/Testimonials"));
 const FAQ = lazy(() => import("@/components/FAQ"));
 const Contact = lazy(() => import("@/components/Contact"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -44,7 +43,6 @@ const Index = () => {
           <Process />
           <FeaturedVideo />
           <VideoTestimonials />
-          <Testimonials />
           <FAQ />
           <Contact />
         </Suspense>

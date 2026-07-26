@@ -131,7 +131,7 @@ const Hero = () => {
             className="animate-fade-in mt-6 inline-flex items-center text-sm md:text-base text-foreground hover:text-primary transition-colors"
           >
             <Phone className="h-4 w-4 mr-2" />
-            Or call us directly: <strong className="ml-1">+66 (0)9 1999 1744</strong>
+            Or call us directly: <strong className="ml-1">+66 91 999 1744</strong>
           </a>
 
           {/* Location Info */}

@@ -91,7 +91,7 @@ const Contact = () => {
                         className="flex items-center text-muted-foreground hover:text-primary transition-colors"
                       >
                         <Phone className="h-4 w-4 mr-2" />
-                        +66 (0)9-1999-1744
+                        +66 91 999 1744
                       </a>
                       <div className="flex gap-3">
                         <Button 
