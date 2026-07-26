@@ -60,7 +60,7 @@ const App = () => {
                 <Route path="/ivtherapybangkok" element={<Index />} />
                 <Route path="/sitemap" element={<Sitemap />} />
                 <Route path="/install" element={<Install />} />
-                <Route path="/price-list" element={<PriceList />} />
+                <Route path="/pricing" element={<PriceList />} />
                 <Route path="/clinic" element={<Clinic />} />
                 {/* Les anciennes URL peptides ne vivent plus ici. Elles sont
                     redirigees au niveau edge (vercel.json) vers

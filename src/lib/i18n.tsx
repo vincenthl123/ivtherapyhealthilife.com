@@ -17,6 +17,7 @@ const translations = {
     "nav.process": "Process",
     "nav.testimonials": "Testimonials",
     "nav.faq": "FAQ",
+    "nav.pricing": "Prices",
     "nav.bookNow": "Book Now",
     "nav.whatsapp": "WhatsApp",
 
@@ -665,6 +666,7 @@ const translations = {
     "nav.process": "ขั้นตอน",
     "nav.testimonials": "รีวิว",
     "nav.faq": "คำถามที่พบบ่อย",
+    "nav.pricing": "ราคา",
     "nav.bookNow": "จองเลย",
     "nav.whatsapp": "WhatsApp",
 
@@ -1311,6 +1313,7 @@ const translations = {
     "nav.process": "施術の流れ",
     "nav.testimonials": "口コミ",
     "nav.faq": "よくある質問",
+    "nav.pricing": "料金",
     "nav.bookNow": "予約する",
     "nav.whatsapp": "WhatsApp",
 
