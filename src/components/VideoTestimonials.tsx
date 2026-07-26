@@ -110,7 +110,12 @@ const VideoTestimonials = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(generateVideoSchema()) }}
       />
 
-      <section className="py-16 md:py-20 bg-muted/30">
+      {/* id="testimonials" : le menu, le footer et /sitemap pointent ici.
+          Il vivait sur l ancien composant Testimonials, supprime avec les
+          quatre faux avis. Les videos patients sont les seuls temoignages
+          reels du site : l ancre leur revient. Ne pas la retirer sans
+          corriger Header.tsx, Footer.tsx et pages/Sitemap.tsx en meme temps. */}
+      <section id="testimonials" className="py-16 md:py-20 bg-muted/30">
         <div className="container px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">

@@ -45,11 +45,13 @@ PATTERNS = [
     # cellules souches les interdisait deja nommement — mais lui seul. Retires
     # le 2026-07-26.
     (r"O'Connell|Meera Kapoor|Richard Chen|Sophie Williams", 'faux temoin'),
-    # Un noeud Review individuel affirme a Google qu un avis nomme est
-    # authentique. Il n en entre un ici que s il provient d un vrai avis Google
-    # verifiable — d ou le signalement systematique.
-    # (L aggregateRating au niveau clinique, lui, est legitime : 193 avis reels.)
-    (r'"@type":\s*"Review"', 'Review JSON-LD — prouver qu il est reel'),
+    # Interdiction seche, decision Vincent du 2026-07-26 : les avis reels se
+    # publient en TEXTE VISIBLE, jamais en noeud Review. Google proscrit le
+    # balisage d avis qu une entreprise collecte sur elle-meme ; les etoiles ne
+    # s afficheraient pas et le site s exposerait a une penalite pour spam
+    # structure. L aggregateRating au niveau clinique reste legitime, lui :
+    # 193 avis Google reels.
+    (r'"@type":\s*"Review"', 'noeud Review JSON-LD interdit'),
 
     # --- identite des medecins (SSOT _SOURCE_OF_TRUTH_doctors.md) ---------
     (r'\bABLM\b', 'ABLM INTERDIT — le board de Dr Petch est IBLM'),
@@ -68,9 +70,16 @@ PATTERNS = [
      'declaration d accessibilite invérifiable'),
 
     # --- ISO : appartient aux laboratoires partenaires, jamais a la clinique
-    # On ne signale que si « partner » n absente dans les 70 caracteres suivants.
-    (r'(?i)\bISO[-\s]?(?:and\s|&\s|/)?(?:GMP[-\s]?)?certified(?!.{0,70}partner)',
-     'ISO attribue a la clinique'),
+    # Troisieme element = mot de contexte : si « partner » apparait dans la
+    # fenetre autour de l occurrence, la regle ne s applique pas.
+    #
+    # La version precedente n utilisait qu un lookahead — elle ne regardait donc
+    # que ce qui SUIT. Or l anglais met le plus souvent le partenaire AVANT :
+    # « Our partner laboratories maintain ISO-certified ... ». Elle produisait
+    # une alerte sur chaque phrase correctement redigee, et un scanner qui crie
+    # sur du bon texte est un scanner qu on cesse de lire.
+    (r'(?i)\bISO[-\s]?(?:and\s|&\s|/)?(?:GMP[-\s]?)?certified',
+     'ISO attribue a la clinique', 'partner|พันธมิตร|パートナー|提携'),
 
     # --- revendication reglementaire nue ----------------------------------
     (r'FDA Thailand Approved', 'approbation reglementaire nue'),
@@ -174,16 +183,27 @@ for f in files():
         continue
     scanned += 1
     rel = os.path.relpath(f, root).replace(os.sep, '/')
-    for pat, label in PATTERNS + EXTRA_PATTERNS:
+    for rule in PATTERNS + EXTRA_PATTERNS:
+        pat, label = rule[0], rule[1]
+        near = rule[2] if len(rule) > 2 else None
         for m in re.finditer(pat, s):
             line = s[:m.start()].count('\n') + 1
             # Les commentaires de garde citent les motifs qu ils interdisent
             # (« ne pas re-ajouter transcript ... »). Les signaler noierait les
             # vraies occurrences sous du bruit, et un scanner bruyant est un
             # scanner qu on cesse de lire.
+            # « {/* » est la forme JSX : sans elle, un commentaire de section
+            # React comme {/* Best Clinic Award */} remonte en superlatif.
             src_line = s.splitlines()[line - 1].lstrip() if line <= len(s.splitlines()) else ''
-            if src_line.startswith(('//', '*', '/*', '#', '<!--')):
+            if src_line.startswith(('//', '*', '/*', '{/*', '#', '<!--')):
                 continue
+            # Mot de contexte : on regarde des DEUX cotes. Voir la regle ISO.
+            # Plusieurs termes separes par « | », parce qu une phrase thaie ou
+            # japonaise correcte n emploie pas le mot anglais « partner ».
+            if near:
+                window = s[max(0, m.start() - 90):m.end() + 90].lower()
+                if any(t.lower() in window for t in near.split('|')):
+                    continue
             if exempt(rel, label):
                 continue
             hits += 1
