@@ -108,7 +108,8 @@ const SitemapPage = () => {
                 {ivServices.popular.map((service) => (
                   <article
                     key={service.slug}
-                    className="group p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
+                    id={service.slug}
+                    className="scroll-mt-24 group p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
                     itemScope
                     itemType="https://schema.org/MedicalProcedure"
                   >
@@ -144,7 +145,8 @@ const SitemapPage = () => {
                 {ivServices.bodyBooster.map((service) => (
                   <article
                     key={service.slug}
-                    className="p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
+                    id={service.slug}
+                    className="scroll-mt-24 p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
                     itemScope
                     itemType="https://schema.org/MedicalProcedure"
                   >
@@ -172,7 +174,8 @@ const SitemapPage = () => {
                 {ivServices.brainBooster.map((service) => (
                   <article
                     key={service.slug}
-                    className="p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
+                    id={service.slug}
+                    className="scroll-mt-24 p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
                     itemScope
                     itemType="https://schema.org/MedicalProcedure"
                   >
@@ -200,7 +203,8 @@ const SitemapPage = () => {
                 {ivServices.skinBooster.map((service) => (
                   <article
                     key={service.slug}
-                    className="p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
+                    id={service.slug}
+                    className="scroll-mt-24 p-5 rounded-xl border border-border bg-card hover:border-primary hover:shadow-md transition-all duration-300"
                     itemScope
                     itemType="https://schema.org/MedicalProcedure"
                   >

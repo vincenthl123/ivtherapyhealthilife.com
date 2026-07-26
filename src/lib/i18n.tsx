@@ -503,7 +503,7 @@ const translations = {
     "why.bodyBoosterDesc": "Total body revival in one drip. Restores energy, strengthens immunity, and supports detox at the cellular level.",
     "why.skinBooster": "Skin Booster IV",
     "why.skinBoosterDesc": "Glow starts from the inside. Skin-loving antioxidants and collagen boosters for radiant, youthful skin.",
-    "why.luxurious": "Bangkok's Most Luxurious IV Experience",
+    "why.luxurious": "A Calm, Private IV Experience in Sukhumvit",
 
     // Medical Team
     "team.badge": "Physician-Led Medical Team",
@@ -591,7 +591,7 @@ const translations = {
 
     // Contact
     "contact.title": "Visit Our Clinic",
-    "contact.subtitle": "Bangkok's most luxurious IV therapy experience in the heart of Sukhumvit",
+    "contact.subtitle": "A calm, private IV therapy experience in the heart of Sukhumvit",
     "contact.location": "Location",
     "contact.address": "94 Ekkamai 10 Alley, Watthana, Bangkok 10110",
     "contact.bts": "BTS Ekkamai - Take motorbike 3 mins",
@@ -1149,7 +1149,7 @@ const translations = {
     "why.bodyBoosterDesc": "ฟื้นฟูร่างกายทั้งหมดในหยดเดียว ฟื้นฟูพลังงาน เสริมภูมิคุ้มกัน และสนับสนุนการล้างพิษในระดับเซลล์",
     "why.skinBooster": "Skin Booster IV",
     "why.skinBoosterDesc": "ความเปล่งประกายเริ่มจากภายใน สารต้านอนุมูลอิสระที่รักผิวและคอลลาเจนบูสเตอร์เพื่อผิวเปล่งประกายและดูอ่อนเยาว์",
-    "why.luxurious": "ประสบการณ์ IV หรูหราที่สุดในกรุงเทพฯ",
+    "why.luxurious": "ประสบการณ์ IV ที่เป็นส่วนตัวและผ่อนคลาย ใจกลางสุขุมวิท",
 
     // Medical Team
     "team.badge": "ทีมแพทย์ผู้เชี่ยวชาญ",
@@ -1237,7 +1237,7 @@ const translations = {
 
     // Contact
     "contact.title": "เยี่ยมชมคลินิกของเรา",
-    "contact.subtitle": "ประสบการณ์ IV Therapy หรูหราที่สุดในกรุงเทพฯ ใจกลางสุขุมวิท",
+    "contact.subtitle": "ประสบการณ์ IV Therapy ที่เป็นส่วนตัวและผ่อนคลาย ใจกลางสุขุมวิท",
     "contact.location": "ที่ตั้ง",
     "contact.address": "94 ซอยเอกมัย 10 วัฒนา กรุงเทพฯ 10110",
     "contact.bts": "BTS เอกมัย - นั่งมอเตอร์ไซค์ 3 นาที",
@@ -1795,7 +1795,7 @@ const translations = {
     "why.bodyBoosterDesc": "一回の点滴で全身を活性化。エネルギーを回復し、免疫力を強化、細胞レベルでデトックスをサポート。",
     "why.skinBooster": "スキンブースター IV",
     "why.skinBoosterDesc": "輝きは内側から始まる。輝く若々しい肌のための肌を愛する抗酸化物質とコラーゲンブースター。",
-    "why.luxurious": "バンコクで最も豪華なIV体験",
+    "why.luxurious": "スクンビットの静かでプライベートなIV体験",
 
     // Medical Team
     "team.badge": "医師主導の医療チーム",
@@ -1883,7 +1883,7 @@ const translations = {
 
     // Contact
     "contact.title": "クリニックにお越しください",
-    "contact.subtitle": "スクンビットの中心にあるバンコクで最も豪華なIV療法体験",
+    "contact.subtitle": "スクンビットの中心にある、静かでプライベートなIV療法体験",
     "contact.location": "所在地",
     "contact.address": "94 エカマイ10アレー、ワッタナー、バンコク 10110",
     "contact.bts": "BTSエカマイ - バイクタクシーで3分",
