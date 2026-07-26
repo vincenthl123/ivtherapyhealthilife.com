@@ -38,6 +38,19 @@ PATTERNS = [
     (r'Thailand Rising Star|ดาวรุ่งไทยแลนด์|タイランド ライジングスター',
      'award fabrique (variante Thailand)'),
 
+    # --- temoignages fabriques --------------------------------------------
+    # Ces quatre noms etaient publies sur le satellite IV en JSON-LD « Review »,
+    # avec notes 5 etoiles et promesses de resultat, sous le commentaire
+    # « Real customer reviews for rich snippets ». Le scanner du satellite
+    # cellules souches les interdisait deja nommement — mais lui seul. Retires
+    # le 2026-07-26.
+    (r"O'Connell|Meera Kapoor|Richard Chen|Sophie Williams", 'faux temoin'),
+    # Un noeud Review individuel affirme a Google qu un avis nomme est
+    # authentique. Il n en entre un ici que s il provient d un vrai avis Google
+    # verifiable — d ou le signalement systematique.
+    # (L aggregateRating au niveau clinique, lui, est legitime : 193 avis reels.)
+    (r'"@type":\s*"Review"', 'Review JSON-LD — prouver qu il est reel'),
+
     # --- identite des medecins (SSOT _SOURCE_OF_TRUTH_doctors.md) ---------
     (r'\bABLM\b', 'ABLM INTERDIT — le board de Dr Petch est IBLM'),
     (r'American Academy of Aesthetic Medicine', 'AAAM = Anti-Aging, jamais Aesthetic'),

@@ -1,0 +1,47 @@
+#!/bin/sh
+# Hook pre-commit — garde-fou canon Healthi Life.
+# Decision Vincent du 2026-07-26 : bloquant.
+#
+# Installation :  git config core.hooksPath .githooks
+# Contournement : git commit --no-verify   (a n utiliser qu en connaissance de cause)
+#
+# Deux controles, dans cet ordre.
+
+fail=0
+
+# --- 1. Ne jamais commiter directement sur main -----------------------------
+# Le 2026-07-26, un commit est parti directement sur main du satellite cellules
+# souches : la branche etait restee sur main apres un merge, et un script a
+# pousse sans verifier. Le contenu etait bon, mais il a saute la PR et la passe
+# adversariale. Ce controle rend l accident impossible.
+branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  printf '\n\033[31m✗ Commit direct sur %s refuse.\033[0m\n' "$branch"
+  printf '  Cree une branche, ouvre une PR, fais passer la gate.\n'
+  printf '    git checkout -b claude/<sujet>\n\n'
+  fail=1
+fi
+
+# --- 2. Le scan canon doit passer -------------------------------------------
+# Il verifie les awards, l identite des medecins, les donnees fabriquees,
+# l attribution de l ISO, les superlatifs, les temoignages fabriques, et la
+# PRESENCE des surfaces de citation AI.
+if [ -f tools/canon_scan.py ]; then
+  if ! python3 tools/canon_scan.py; then
+    printf '\n\033[31m✗ Le scan canon a trouve des occurrences.\033[0m\n'
+    printf '  Corrige-les, ou ajoute une exemption JUSTIFIEE dans EXEMPT\n'
+    printf '  (tools/canon_scan.py) si la regle ne s applique reellement pas.\n\n'
+    fail=1
+  fi
+fi
+
+# Le scanner YMYL propre au satellite cellules souches, s il existe.
+if [ -f tools/geo/ymyl_scan.py ]; then
+  if ! python3 tools/geo/ymyl_scan.py; then
+    printf '\n\033[31m✗ Le scan YMYL a trouve des occurrences.\033[0m\n\n'
+    fail=1
+  fi
+fi
+
+[ "$fail" -eq 0 ] || exit 1
+exit 0
