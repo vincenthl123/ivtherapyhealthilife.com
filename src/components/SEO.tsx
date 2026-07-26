@@ -124,7 +124,7 @@ const SEO = () => {
           "alternateName": ["Healthi-Life IV Therapy Bangkok", "IV Therapy Bangkok", "HealthiLife Ekkamai"],
           "url": "https://ivtherapyhealthilife.com/",
           "telephone": "+66919991744",
-          "email": "info@healthi-life.com",
+          "email": "contact@healthi-life.com",
           "priceRange": "$$",
           "currenciesAccepted": "THB, USD",
           "paymentAccepted": "Cash, Credit Card, Bank Transfer",
