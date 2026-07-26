@@ -50,10 +50,19 @@ const MobileCTABar = () => (
         <Phone className="h-4 w-4" />
       </a>
 
+      {/* data-wa-skip="1" est indispensable : sans lui, wa-interceptor.ts
+          avale ce clic. Il ecoute en phase de CAPTURE sur document, fait
+          preventDefault() + stopPropagation(), et reconstruit l URL avec
+          source "default". Le onClick ci-dessous ne s executerait jamais
+          (React 18 delegue a la racine, donc APRES la capture sur document)
+          et la source "sticky" serait perdue — l inverse exact de ce que
+          cette barre existe pour faire. Hero.tsx, Contact.tsx et
+          WhatsAppWidget.tsx portent tous cet opt-out ; je l avais oublie. */}
       <a
         href={buildWaUrl({ source: "sticky", extras: { sourceLabel: "Mobile CTA bar" } })}
         target="_blank"
         rel="noopener noreferrer"
+        data-wa-skip="1"
         data-wa-source="sticky"
         data-wa-label="Mobile CTA bar"
         onClick={() => {

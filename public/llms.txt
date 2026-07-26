@@ -3,7 +3,7 @@
 
 ## Core Pages
 - [Home](https://ivtherapyhealthilife.com/): IV therapy menu, pricing, medical team, Google reviews, FAQ, booking
-- [Price List](https://ivtherapyhealthilife.com/price-list): Complete pricing for all IV drips and packages
+- [Price List](https://ivtherapyhealthilife.com/pricing): Complete pricing for all IV drips and packages
 - [Sitemap](https://ivtherapyhealthilife.com/sitemap): Visual sitemap of all IV services
 - [Clinic](https://ivtherapyhealthilife.com/clinic): HealthiLife wellness center in Ekkamai, Bangkok
 
