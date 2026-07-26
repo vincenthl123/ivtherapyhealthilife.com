@@ -93,7 +93,7 @@ const SEO = () => {
             "height": 630
           },
           "image": "https://ivtherapyhealthilife.com/og-image.jpg",
-          "description": "Bangkok's premier IV therapy clinic. Award-winning medical facility offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips.",
+          "description": "A physician-led IV therapy clinic in Bangkok. Award-winning medical facility offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips.",
           "foundingDate": "2022",
           "parentOrganization": { "@id": "https://healthi-life.com/#org" },
           "sameAs": [

@@ -506,7 +506,7 @@ const translations = {
     "why.luxurious": "Bangkok's Most Luxurious IV Experience",
 
     // Medical Team
-    "team.badge": "World-Class Medical Team",
+    "team.badge": "Physician-Led Medical Team",
     "team.title": "Meet Your Expert Physicians",
     "team.subtitle": "Our internationally certified doctors combine decades of experience in regenerative medicine, aesthetic procedures, and longevity science to deliver personalized treatment plans.",
     "team.education": "Education & Training",
@@ -1152,7 +1152,7 @@ const translations = {
     "why.luxurious": "ประสบการณ์ IV หรูหราที่สุดในกรุงเทพฯ",
 
     // Medical Team
-    "team.badge": "ทีมแพทย์ระดับโลก",
+    "team.badge": "ทีมแพทย์ผู้เชี่ยวชาญ",
     "team.title": "พบกับแพทย์ผู้เชี่ยวชาญของคุณ",
     "team.subtitle": "แพทย์ที่ได้รับการรับรองระดับสากลของเราผสมผสานประสบการณ์หลายทศวรรษในด้านเวชศาสตร์ฟื้นฟู ขั้นตอนความงาม และวิทยาศาสตร์อายุยืน เพื่อมอบแผนการรักษาเฉพาะบุคคล",
     "team.education": "การศึกษาและการฝึกอบรม",
@@ -1798,7 +1798,7 @@ const translations = {
     "why.luxurious": "バンコクで最も豪華なIV体験",
 
     // Medical Team
-    "team.badge": "世界クラスの医療チーム",
+    "team.badge": "医師主導の医療チーム",
     "team.title": "専門医のご紹介",
     "team.subtitle": "国際的に認定された医師が、再生医療、美容施術、長寿科学における数十年の経験を組み合わせ、パーソナライズされた治療計画を提供します。",
     "team.education": "学歴・研修",

@@ -2,3 +2,31 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+
+# Assistants IA et moteurs de reponse — autorises explicitement.
+# Ces sites sont noindex : le referencement n est pas le sujet, la citation l est.
+# Un bot qui n est pas nomme ici peut appliquer une politique par defaut plus
+# restrictive que le wildcard ci-dessus.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
