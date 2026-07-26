@@ -112,7 +112,7 @@ const SEO = () => {
           },
           "award": [
             "2025 Regenerative Clinic of the Year in Asia-Pacific — GlobalHealth Asia-Pacific Awards",
-            "ArokaGo Best Rising Star 2025"
+            "ArokaGo Best Clinic Rising Star 2025"
           ]
         },
         
