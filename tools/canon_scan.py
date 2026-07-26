@@ -93,8 +93,17 @@ PATTERNS = [
     # Trouves par la passe adversariale du 26/07, encore en ligne : la liste
     # ci-dessus ne les couvrait pas. « leading » est qualifie par un nom pour
     # ne pas attraper le « leading to » ordinaire.
-    (r'(?i)\bleading\s+(?:lifestyle|medicine|specialist|clinic|doctor|physician|'
-     r'provider|expert|centre|center|authority)', 'superlatif'),
+    # Jusqu a deux mots entre « leading » et le nom : « Bangkok's leading
+    # HEALTH clinic » echappait a la version collee.
+    (r'(?i)\bleading\s+(?:\w+\s+){0,2}(?:lifestyle|medicine|specialist|clinic|'
+     r'doctor|physician|provider|expert|centre|center|authority)', 'superlatif'),
+    # « Ultimate » est le nom d un forfait check-up (90 000 THB) : le
+    # lookahead evite de signaler un nom propre comme un superlatif.
+    (r'(?i)\bunparalleled\b|\bunrivall?ed\b|\bsecond to none\b'
+     r'|\bthe ultimate\b(?!(?:\s+\w+){0,2}\s+(?:package|program|programme|tier|plan))',
+     'superlatif'),
+    (r'(?i)\b(?:no\.?\s*1|#1|number one)\b', 'superlatif'),
+    (r'(?i)top\s+clinic|トップクリニック|ชั้นนำ|比類なき|ไม่เคยมีมาก่อน', 'superlatif'),
     # « our most comprehensive program » est un classement INTERNE : factuel,
     # verifiable, legitime. « Bangkok's most trusted clinic » est une
     # revendication contre tous les concurrents, invérifiable. Seule la seconde
@@ -185,8 +194,24 @@ def check_anchors():
             p = os.path.join(dp, f)
             s = io.open(p, encoding='utf-8', errors='ignore').read()
             rel = os.path.relpath(p, repo_root()).replace(os.sep, '/')
+            lines = s.split('\n')
+
+            def in_comment(pos):
+                """Un commentaire ne rend rien et ne lie rien.
+
+                Sans cette exclusion, un commentaire de garde documentant
+                id="ancienne-section" suffisait a faire passer un lien mort
+                pour vivant — le controle se validait lui-meme. Le depot
+                contient deja exactement ce cas de figure : le commentaire
+                de VideoTestimonials.tsx cite l id qu il protege.
+                """
+                return lines[s[:pos].count('\n')].lstrip().startswith(
+                    ('//', '*', '/*', '{/*', '#', '<!--'))
+
             # id="x"  et  id={'x'} / id={`x`}
             for m in re.finditer(r'id=(?:"([\w-]+)"|\{[\'"`]([\w-]+)[\'"`]\})', s):
+                if in_comment(m.start()):
+                    continue
                 ids.add(m.group(1) or m.group(2))
             # id={service.slug} : le fichier rend une valeur de donnees en id.
             # On n ajoute ses slugs QUE dans ce cas. La nuance est le cœur du
@@ -195,11 +220,24 @@ def check_anchors():
             # attribut dans le DOM, et les six liens du footer sautaient dans le
             # vide. Ajouter les slugs sans exiger ce rendu aurait masque
             # exactement le defaut que ce controle existe pour trouver.
+            #
+            # LIMITE CONNUE, assumee : la recolte est par FICHIER, pas par
+            # tableau. Un fichier qui rend un tableau en id et en declare un
+            # second, non rendu, verra les slugs du second acceptes a tort.
+            # Verifie a la main sur les quatre consommateurs actuels du motif
+            # (AutoBlog.tsx, Sitemap.tsx, MembershipSection.tsx x2) : tous
+            # rendent bien l integralite de leurs tableaux. Resserrer
+            # demanderait d analyser la portee du .map(), ce qu une regex ne
+            # sait pas faire honnetement.
             if re.search(r'id=\{\s*\w+\.(?:slug|id)\s*\}', s):
                 for m in re.finditer(r'\b(?:slug|id):\s*[\'"]([\w-]+)[\'"]', s):
+                    if in_comment(m.start()):
+                        continue
                     ids.add(m.group(1))
             # href="#x", to="/#x", path: "/#x"  — le fragment seul, sans domaine
             for m in re.finditer(r'["\'`](?:[\w/.-]*)#([\w-]+)["\'`]', s):
+                if in_comment(m.start()):
+                    continue
                 frag = m.group(1)
                 # Un code couleur n est pas une ancre. Sans ce filtre le
                 # controle noyait six vrais liens morts sous « #fff » et
@@ -247,41 +285,71 @@ def _amounts(txt):
                re.findall(r'(?:฿\s*)?([\d][\d,]{2,})(?:\s*THB)?', txt))
 
 
+def _add(store, source, name, amounts):
+    if name and amounts:
+        store.setdefault(name, {}).setdefault(source, set()).update(amounts)
+
+
 def check_prices():
     root = repo_root()
+    prices = {}     # nom normalise -> { source : {montants} }
+
     html_path = os.path.join(root, 'index.html')
-    if not os.path.isfile(html_path):
-        return 0
-    html = io.open(html_path, encoding='utf-8', errors='ignore').read()
+    if os.path.isfile(html_path):
+        html = io.open(html_path, encoding='utf-8', errors='ignore').read()
+        for m in re.finditer(r'"name":\s*"([^"]+)"[^{}]*?"price":\s*"?([\d,]+)"?',
+                             html):
+            _add(prices, 'index.html JSON-LD', _pname(m.group(1)),
+                 {m.group(2).replace(',', '')})
+        for li in re.findall(r'<li>(.*?)</li>', html, re.S):
+            if 'THB' in li or '฿' in li:
+                _add(prices, 'index.html statique', _pname(li), _amounts(li))
 
-    # Surface de reference : les Offer du JSON-LD, le seul endroit ou un prix
-    # est affirme a la machine comme LE prix.
-    jsonld = {}
-    for m in re.finditer(r'"name":\s*"([^"]+)"[^{}]*?"price":\s*"?([\d,]+)"?', html):
-        jsonld.setdefault(_pname(m.group(1)), set()).add(m.group(2).replace(',', ''))
-
-    # Surfaces enoncees : le bloc statique et llms.txt.
-    stated = {}
-    for li in re.findall(r'<li>(.*?)</li>', html, re.S):
-        if 'THB' in li or '฿' in li:
-            stated.setdefault(_pname(li), set()).update(_amounts(li))
     llms = os.path.join(root, 'public', 'llms.txt')
     if os.path.isfile(llms):
         for line in io.open(llms, encoding='utf-8', errors='ignore'):
             if 'THB' in line or '฿' in line:
-                stated.setdefault(_pname(line), set()).update(_amounts(line))
+                _add(prices, 'llms.txt', _pname(line), _amounts(line))
 
+    # Le code source. La version precedente ne lisait QUE index.html et
+    # llms.txt : elle ne pouvait donc pas voir les cinq prix faux que
+    # src/pages/Sitemap.tsx portait en dur sur le satellite IV — dont un ecart
+    # de 3 000 THB sur Glow Revive, en ligne. Un controle de prix qui ignore le
+    # code n en est pas un.
+    src = os.path.join(root, 'src')
+    if os.path.isdir(src):
+        for dp, dn, fn in os.walk(src):
+            dn[:] = [d for d in dn if d not in ('node_modules', '.git', 'assets')]
+            for f in fn:
+                if not f.endswith(('.tsx', '.ts')):
+                    continue
+                fp = os.path.join(dp, f)
+                rel = os.path.relpath(fp, root).replace(os.sep, '/')
+                body = io.open(fp, encoding='utf-8', errors='ignore').read()
+                # « name: "X", ... price: "N THB" »  et  « "X", "N THB" »
+                for m in re.finditer(
+                        r'name:\s*"([^"]+)"[^\n]{0,120}?price:\s*"([\d,]+)\s*THB"'
+                        r'|"([^"]{4,60})",\s*"([\d,]+)\s*THB"', body):
+                    nm = m.group(1) or m.group(3)
+                    am = m.group(2) or m.group(4)
+                    _add(prices, rel, _pname(nm), {am.replace(',', '')})
+
+    # Desaccord = deux sources dont les montants n ont AUCUNE valeur commune.
+    # Formulee ainsi, la regle tolere la remise (« 15,000 → 13,500 » face a
+    # 13500) et la fourchette (« 45,000–65,000 » face au prix d entree), et
+    # refuse un chiffre qu aucune autre surface ne mentionne.
     bad = 0
-    for name, prices in sorted(jsonld.items()):
-        said = stated.get(name)
-        if not said:
-            continue          # produit absent des surfaces enoncees : rien a croiser
-        for p in sorted(prices):
-            if p not in said:
-                bad += 1
-                out.write('%-46s:%-5s %-34s %s (JSON-LD) vs %s\n'
-                          % ('index.html', '-', 'PRIX EN DESACCORD',
-                             p, '/'.join(sorted(said))))
+    for name, bysrc in sorted(prices.items()):
+        if len(bysrc) < 2:
+            continue
+        common = set.intersection(*bysrc.values())
+        if common:
+            continue
+        bad += 1
+        detail = ' · '.join('%s=%s' % (s, '/'.join(sorted(v)))
+                            for s, v in sorted(bysrc.items()))
+        out.write('%-46s:%-5s %-34s %s\n'
+                  % (name[:46], '-', 'PRIX EN DESACCORD', detail[:90]))
     return bad
 
 
