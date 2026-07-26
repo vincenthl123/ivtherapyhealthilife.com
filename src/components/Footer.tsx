@@ -89,8 +89,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/sitemap#athlete-max-iv" className="hover:text-background transition-colors">
-                  Athlete Max IV
+                <Link to="/sitemap#athlete-pro-max-iv" className="hover:text-background transition-colors">
+                  Athlete Pro Max IV
                 </Link>
               </li>
               <li>

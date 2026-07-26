@@ -456,7 +456,13 @@ const SEO = () => {
           "name": "What IV drips does Healthi-Life Bangkok offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Healthi-Life offers 21+ specialized IV drips including: NAD+ (anti-aging & energy), Fat Burner (weight loss), Glow Revive (skin rejuvenation), Hangover Recovery, Immune Boost, Athlete Max, Neuro Boost, Curcumin, Resveratrol, and Full Body Detox treatments."
+            // « Immune Boost » et « Athlete Max » ne figuraient dans aucun
+            // catalogue — ni le Sheet master, ni llms.txt, ni PriceList : deux
+            // produits inventes, enonces en JSON-LD, donc servis aux crawlers
+            // comme une reponse de la clinique. « Hangover Recovery » etait le
+            // libelle d un produit reel nomme « Hangover IV » ailleurs.
+            // Aucun nom ne doit apparaitre ici sans exister dans llms.txt.
+            "text": "Healthi-Life offers 21+ specialized IV drips including: NAD+ (anti-aging & energy), Fat Burner (weight loss), Glow Revive (skin rejuvenation), Hangover IV, Athlete Pro Max IV, Neuro Boost, Curcumin, Resveratrol, and Full Body Detox treatments."
           }
         }
       ]
