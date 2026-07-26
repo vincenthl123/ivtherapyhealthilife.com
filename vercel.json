@@ -15,6 +15,56 @@
       "source": "/book/:path*",
       "destination": "https://healthilife.fillout.com/book/:path*",
       "permanent": false
+    },
+    {
+      "source": "/science/peptides-introduction",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/science/peptides-introduction/",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/peptides-therapy",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/therapy-bangkok",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/peptide/bangkok",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/BPC-157",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/GLP-1",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/CJC-1295-Ipamorelin",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/Semaglutide",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
+    },
+    {
+      "source": "/Retatrutide",
+      "destination": "https://information-bangkok.com/",
+      "permanent": true
     }
   ]
 }

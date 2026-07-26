@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/lib/i18n";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense, useEffect } from "react";
@@ -58,17 +58,12 @@ const App = () => {
                 <Route path="/install" element={<Install />} />
                 <Route path="/price-list" element={<PriceList />} />
                 <Route path="/clinic" element={<Clinic />} />
-                {/* Legacy peptide routes — 301 redirect to home */}
-                <Route path="/science/peptides-introduction" element={<Navigate to="/" replace />} />
-                <Route path="/science/peptides-introduction/" element={<Navigate to="/" replace />} />
-                <Route path="/peptides-therapy" element={<Navigate to="/" replace />} />
-                <Route path="/therapy-bangkok" element={<Navigate to="/" replace />} />
-                <Route path="/peptide/bangkok" element={<Navigate to="/" replace />} />
-                <Route path="/BPC-157" element={<Navigate to="/" replace />} />
-                <Route path="/GLP-1" element={<Navigate to="/" replace />} />
-                <Route path="/CJC-1295-Ipamorelin" element={<Navigate to="/" replace />} />
-                <Route path="/Semaglutide" element={<Navigate to="/" replace />} />
-                <Route path="/Retatrutide" element={<Navigate to="/" replace />} />
+                {/* Les anciennes URL peptides ne vivent plus ici. Elles sont
+                    redirigees au niveau edge (vercel.json) vers
+                    information-bangkok.com, le seul site qui porte les peptides.
+                    Ne PAS re-ajouter de route peptide dans ce fichier : un
+                    <Navigate> est un alias fantome, interdit par la regle SEO 4,
+                    et l edge s execute de toute facon avant le routeur React. */}
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

@@ -68,10 +68,10 @@ const Header = () => {
               href="tel:+66919991744"
               onClick={() => trackButtonClick('ivclick-header-phone')}
               className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
-              aria-label="Call +66 (0)9 1999 1744"
+              aria-label="Call +66 91 999 1744"
             >
               <Phone className="h-4 w-4 mr-1.5" />
-              +66 (0)9 1999 1744
+              +66 91 999 1744
             </a>
             <LanguageSwitcher />
             <Button 
@@ -94,7 +94,7 @@ const Header = () => {
               href="tel:+66919991744"
               onClick={() => trackButtonClick('ivclick-mobile-phone-icon')}
               className="p-2 text-foreground hover:text-primary transition-colors"
-              aria-label="Call +66 (0)9 1999 1744"
+              aria-label="Call +66 91 999 1744"
             >
               <Phone className="h-5 w-5" />
             </a>
@@ -133,7 +133,7 @@ const Header = () => {
                 className="flex items-center justify-center w-full py-2.5 rounded-md border border-border text-sm font-semibold text-foreground hover:text-primary hover:border-primary transition-colors"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                +66 (0)9 1999 1744
+                +66 91 999 1744
               </a>
               <Button 
                 id="ivclick-mobile-whatsapp" 

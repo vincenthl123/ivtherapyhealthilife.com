@@ -72,7 +72,7 @@ const TrustBanner = () => {
             className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Phone className="w-4 h-4 text-primary" />
-            Call us: +66 (0)9 1999 1744
+            Call us: +66 91 999 1744
           </a>
         </div>
       </div>
