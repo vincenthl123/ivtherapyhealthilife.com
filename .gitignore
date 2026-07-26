@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Sous-produit de l execution de tools/canon_scan.py
+tools/__pycache__/

@@ -18,10 +18,21 @@ const ivServices = {
     { slug: "curcumin-iv", name: "Curcumin IV Therapy", price: "8,500 THB", description: "Anti-inflammatory powerhouse for joint and gut health", icon: Sparkles },
   ],
   bodyBooster: [
-    { slug: "vital-boost-iv", name: "Vital Boost IV", price: "4,500 THB", description: "Essential vitamins for daily energy and immune support" },
-    { slug: "athlete-max-iv", name: "Athlete Max IV", price: "5,500 THB", description: "Performance recovery for athletes and fitness enthusiasts" },
+    // Les libelles suivent llms.txt et PriceList au mot pres. Ils en divergeaient
+    // — « Vital Boost IV » pour « Vital Boost / Myer's Cocktail », « Hangover
+    // Recovery IV » pour « Hangover IV » — et un meme drip sous deux noms se lit
+    // comme deux produits pour un crawler IA, ce que ce satellite existe
+    // precisement pour eviter.
+    { slug: "vital-boost-iv", name: "Vital Boost / Myer's Cocktail", price: "4,500 THB", description: "Essential vitamins for daily energy and immune support" },
+    // « Athlete Max IV » a 5 500 THB n existait dans AUCUN catalogue : ni le
+    // Sheet master, ni llms.txt, ni PriceList, ni prerender.mjs. Un produit et
+    // un prix inventes, en ligne, et lies depuis le pied de page. Le catalogue
+    // reel porte « Athlete Pro » a 4 500 et « Athlete Pro Max » a 8 500 ; c est
+    // le second qui est repris ici. Ne pas reintroduire de drip sans l avoir
+    // d abord trouve dans le Sheet HealthiLife_Pricing_Master.
+    { slug: "athlete-pro-max-iv", name: "Athlete Pro Max IV", price: "8,500 THB", description: "Performance recovery for athletes and fitness enthusiasts" },
     { slug: "party-shield-iv", name: "Party Shield IV", price: "4,500 THB", description: "Pre-party protection and hangover prevention" },
-    { slug: "hangover-iv", name: "Hangover Recovery IV", price: "4,500 THB", description: "Rapid hangover relief with hydration and vitamins" },
+    { slug: "hangover-iv", name: "Hangover IV", price: "4,500 THB", description: "Rapid hangover relief with hydration and vitamins" },
   ],
   brainBooster: [
     { slug: "time-zone-iv", name: "Time Zone IV", price: "4,500 THB", description: "Combat jet lag and reset your circadian rhythm" },

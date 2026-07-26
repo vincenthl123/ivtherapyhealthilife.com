@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
  *
  * POURQUOI CE COMPOSANT EXISTE
  *
- * Un <Link to="/sitemap#athlete-max-iv"> ne declenche PAS le defilement natif
+ * Un <Link to="/sitemap#athlete-pro-max-iv"> ne declenche PAS le defilement natif
  * du navigateur. React Router intercepte le clic et appelle history.pushState :
  * aucun clic d ancre reel n a lieu, donc le navigateur n a rien a faire defiler.
  *

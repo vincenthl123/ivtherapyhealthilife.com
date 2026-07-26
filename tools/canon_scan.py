@@ -270,14 +270,36 @@ def check_anchors():
 # ecritures legitimes — la remise (« 15,000 → 13,500 », le JSON-LD porte 13500)
 # et la fourchette (« 45,000–65,000 », le JSON-LD porte le prix d entree) —
 # tout en refusant un chiffre qu aucune autre surface ne mentionne.
+# Mots-vehicule : ils nomment le CONTENANT, jamais le produit. Un meme drip
+# s ecrit « Fat Burner », « Fat Burner IV », « Fat Burner IV Drip » et « Fat
+# Burner IV Therapy » selon la surface. Sans ce retrait, ces quatre ecritures
+# sont quatre produits distincts, chacun seul sur sa surface, donc chacun
+# invisible au controle de desaccord — qui exige DEUX sources pour comparer.
+# Mesure au 27/07 sur le satellite IV : 50 « produits » dont 42 orphelins, soit
+# 8 produits reellement compares sur 33. Le controle existait sans controler.
+# Apres retrait : 33 produits, 17 orphelins, et zero fusion abusive (verifiee
+# nom brut par nom brut sur les quatre satellites).
+_NOISE = frozenset(('therapy', 'drip', 'treatment', 'infusion', 'iv'))
+
+
 def _pname(txt):
     txt = re.sub(r'<[^>]+>', '', txt)
     txt = re.sub(r'^\s*(?:[-*]|\d+\.)\s*', '', txt).replace('**', '')
     # Coupe au premier separateur suivi d un montant, et jamais ailleurs :
     # « Pico Laser – Executive ... – 20 Sessions — 58,000 THB » garde son nom.
-    txt = re.split(r'\s+[—–-]\s+(?=[\d฿])|\s*\((?=[\d฿])', txt)[0]
+    #
+    # Le « : » est indispensable et manquait. llms.txt s ecrit « - Nom: 4,500 »,
+    # donc sans lui le nom normalise etait « fat burner 4 500 » — le montant
+    # colle au nom. Consequence mesuree le 27/07 : AUCUNE ligne de llms.txt ne
+    # pouvait s apparier a une autre surface, donc le fichier que la regle
+    # designe comme l une des trois surfaces devant s accorder etait de fait
+    # exclu du controle. Le « : » ne coupe que devant un chiffre : « Package:
+    # Foundation » garde son nom entier.
+    txt = re.split(r'\s+[—–-]\s+(?=[\d฿])|\s*\((?=[\d฿])|\s*:\s*(?=[\d฿])',
+                   txt)[0]
     txt = re.sub(r'[^a-z0-9+ ]', ' ', txt.lower())
-    return re.sub(r'\s+', ' ', txt).strip()
+    txt = re.sub(r'\s+', ' ', txt).strip()
+    return ' '.join(w for w in txt.split() if w not in _NOISE) or txt
 
 
 def _amounts(txt):
@@ -290,7 +312,7 @@ def _add(store, source, name, amounts):
         store.setdefault(name, {}).setdefault(source, set()).update(amounts)
 
 
-def check_prices():
+def _collect_prices():
     root = repo_root()
     prices = {}     # nom normalise -> { source : {montants} }
 
@@ -333,6 +355,57 @@ def check_prices():
                     nm = m.group(1) or m.group(3)
                     am = m.group(2) or m.group(4)
                     _add(prices, rel, _pname(nm), {am.replace(',', '')})
+
+    return prices
+
+
+# Surfaces de reference : le catalogue que la clinique publie comme etant le
+# sien. Un produit peut legitimement n exister que la (le catalogue check-up
+# vit presque entierement dans le JSON-LD de index.html : 65 de ses 76 produits
+# n ont qu une seule surface, et aucun n est un probleme).
+def _is_canonical(source):
+    return (source.startswith(('llms.txt', 'index.html'))
+            or 'PriceList' in source or 'Pricing' in source)
+
+
+# --- PRODUIT ORPHELIN : invente plutot que contredit -----------------------
+# Le controle de desaccord ci-dessus compare un produit ENTRE surfaces : il ne
+# peut donc rien voir d un produit qui n existe QUE sur une surface — il n a
+# rien avec quoi etre en desaccord. C est exactement la forme du defaut trouve
+# le 27/07 sur IV : « Athlete Max IV » a 5 500 THB, dans src/pages/Sitemap.tsx
+# et lie depuis le pied de page, absent du Sheet master, de llms.txt, de
+# PriceList et de prerender.mjs. Le catalogue reel porte « Athlete Pro » 4 500
+# et « Athlete Pro Max » 8 500. Le scanner declarait le depot PROPRE.
+#
+# Le controle detectait la contradiction, pas l invention. Celui-ci comble le
+# trou : un produit PORTEUR D UN PRIX, present sur une seule surface, et cette
+# surface n etant pas le catalogue de reference, est tenu pour invente jusqu a
+# preuve du contraire.
+#
+# Portee volontairement etroite (decision Vincent 27/07) : un produit vu sur la
+# seule surface canonique n est PAS signale — sinon 65 faux positifs sur le
+# seul check-up, et un scanner bruyant est un scanner qu on cesse de lire.
+# Calibrage au 27/07 : 3 detections sur IV, 0 sur skin, check-up et stem cell.
+def check_orphans():
+    bad = 0
+    for name, bysrc in sorted(_collect_prices().items()):
+        if len(bysrc) != 1:
+            continue
+        source, amounts = next(iter(bysrc.items()))
+        if _is_canonical(source):
+            continue
+        if exempt(source, 'PRODUIT ORPHELIN'):
+            continue
+        bad += 1
+        out.write('%-46s:%-5s %-34s %s\n'
+                  % (source[:46], '-', 'PRODUIT ORPHELIN',
+                     '%s = %s (nulle part ailleurs)'
+                     % (name[:40], '/'.join(sorted(amounts)))))
+    return bad
+
+
+def check_prices():
+    prices = _collect_prices()
 
     # Desaccord = deux sources dont les montants n ont AUCUNE valeur commune.
     # Formulee ainsi, la regle tolere la remise (« 15,000 → 13,500 » face a
@@ -413,6 +486,7 @@ for f in files():
 hits += check_presence()
 hits += check_anchors()
 hits += check_prices()
+hits += check_orphans()
 
 out.write('\n%d fichiers scannes · %d occurrences · %s\n'
           % (scanned, hits, 'PROPRE' if not hits else 'A CORRIGER'))
