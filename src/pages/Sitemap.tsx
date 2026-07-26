@@ -40,7 +40,7 @@ const sitePages = [
   { name: "Services", path: "/#services", description: "21+ specialized IV drip treatments" },
   { name: "Why Choose Us", path: "/#why-us", description: "Award-winning clinic with certified doctors" },
   { name: "Our Process", path: "/#process", description: "Simple 4-step treatment process" },
-  { name: "Testimonials", path: "/#testimonials", description: "250+ 5-star patient reviews" },
+  { name: "Testimonials", path: "/#testimonials", description: "193 verified 5-star patient reviews" },
   { name: "FAQ", path: "/#faq", description: "Frequently asked questions about IV therapy" },
   { name: "Contact", path: "/#contact", description: "Book appointment via WhatsApp" },
 ];

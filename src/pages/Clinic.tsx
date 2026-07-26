@@ -33,7 +33,7 @@ const CLINIC_JSONLD = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
-    "reviewCount": "250",
+    "reviewCount": "193",
     "bestRating": "5",
   },
 };

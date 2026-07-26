@@ -67,7 +67,7 @@ const Testimonials = () => {
                   <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">+250 {t("testimonials.reviews")}</span>
+              <span className="text-sm text-muted-foreground">193 {t("testimonials.reviews")}</span>
             </div>
             
             {/* Google Private Clients */}

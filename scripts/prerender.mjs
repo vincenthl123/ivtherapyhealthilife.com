@@ -22,17 +22,17 @@ const routes = [
   {
     path: '/price-list',
     title: 'IV Therapy Prices Bangkok | Healthi-Life – Full Price List',
-    description: 'Complete IV therapy price list. NAD+ from 6,000 THB, Fat Burner 4,050 THB, Glow Revive 15,000 THB. Packages save up to 33%.',
+    description: 'Complete IV therapy price list. NAD+ from 6,000 THB, Fat Burner 4,500 THB, Glow Revive 15,000 THB. Packages save up to 15%.',
     content: `
       <h1>Healthi-Life IV Therapy Price List — Bangkok</h1>
       <h2>Popular IV Drips</h2>
-      <p>NAD+ IV 100mg ฿6,000 · NAD+ IV 250mg ฿8,500 · Fat Burner IV ฿4,050 · Curcumin IV ฿8,500 · Resveratrol IV ฿8,500 · Full Body Detox IV ฿8,500 · Hangover IV ฿4,050 · Glow Revive IV ฿15,000.</p>
+      <p>NAD+ IV 100mg ฿6,000 · NAD+ IV 250mg ฿8,500 · Fat Burner IV ฿4,500 · Curcumin IV ฿8,500 · Resveratrol IV ฿8,500 · Full Body Detox IV ฿8,500 · Hangover IV ฿4,500 · Glow Revive IV ฿15,000.</p>
       <h2>Body Booster IV</h2>
-      <p>Vital Boost ฿4,050 · Athlete Pro ฿4,050 · Athlete Pro Max ฿8,500 · Vitamin D IM ฿4,050 · Liver Detox ฿4,050 · ProGut ฿8,500 · C Max ฿4,050 · Party Shield ฿4,050.</p>
+      <p>Vital Boost ฿4,500 · Athlete Pro ฿4,500 · Athlete Pro Max ฿8,500 · Vitamin D IM ฿4,500 · Liver Detox ฿4,500 · ProGut ฿8,500 · C Max ฿4,500 · Party Shield ฿4,500.</p>
       <h2>Brain &amp; Skin Booster IV</h2>
-      <p>Time Zone ฿4,050 · Stress Ease ฿4,050 · Neuro Boost ฿4,050 · Dream Ease ฿4,050 · Glow Vita ฿4,050 · Glow Restore ฿8,500 · Glow Revive ฿15,000.</p>
+      <p>Time Zone ฿4,500 · Stress Ease ฿4,500 · Neuro Boost ฿4,500 · Dream Ease ฿4,500 · Glow Vita ฿4,500 · Glow Restore ฿8,500 · Glow Revive ฿15,000.</p>
       <h2>Wellness Packages</h2>
-      <p>Fat Burner 5x ฿18,000 (save 20%) · Fat Burner 10x + Nutrition ฿31,500 (save 30%) · NAD+ 100mg 5x ฿27,500 · NAD+ 100mg 10x ฿54,000 · NAD+ 250mg 5x ฿41,500 · NAD+ 250mg 10x ฿80,000.</p>
+      <p>Fat Burner 5x ฿20,250 (save 10%) · Fat Burner 10x + Nutrition ฿38,250 (save 15%) · NAD+ 100mg 5x ฿27,000 (save 10%) · NAD+ 100mg 10x ฿51,000 (save 15%) · NAD+ 250mg 5x ฿38,250 (save 10%) · NAD+ 250mg 10x ฿72,250 (save 15%).</p>
       <p>Contact: +66 91 999 1744 (WhatsApp) · Mon-Sat 11AM-7PM · 94 Ekkamai 10, Bangkok.</p>
     `
   },

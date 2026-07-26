@@ -112,7 +112,7 @@ const SEO = () => {
           },
           "award": [
             "2025 Regenerative Clinic of the Year in Asia-Pacific — GlobalHealth Asia-Pacific Awards",
-            "Thailand Rising Star 2025 — ArokaGo"
+            "ArokaGo Best Rising Star 2025"
           ]
         },
         
@@ -130,7 +130,7 @@ const SEO = () => {
           "paymentAccepted": "Cash, Credit Card, Bank Transfer",
           "image": "https://ivtherapyhealthilife.com/og-image.jpg",
           "logo": "https://ivtherapyhealthilife.com/og-image.jpg",
-          "description": "Bangkok's premium IV therapy clinic offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips. Award-winning clinic at Ekkamai with 5.0 Google rating from 250+ patients.",
+          "description": "Bangkok's premium IV therapy clinic offering NAD+, Fat Burner, Glow, and 21+ specialized IV drips. Award-winning clinic at Ekkamai with 5.0 Google rating from 193 verified reviews.",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "94 Ekkamai 10 Alley",
@@ -168,7 +168,7 @@ const SEO = () => {
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
-            "reviewCount": "250",
+            "reviewCount": "193",
             "bestRating": "5",
             "worstRating": "1"
           },
@@ -209,7 +209,7 @@ const SEO = () => {
               "@type": "Physician",
               "@id": "https://ivtherapyhealthilife.com/#dr-petch",
               "name": "Dr. Petch (Sarassawadee Suwanjinda)",
-              "jobTitle": "Founder & Lifestyle Medicine Specialist",
+              "jobTitle": "Co-Founder & Chief Medical Strategy Officer",
               "medicalSpecialty": ["Longevity Medicine", "Preventive Medicine"],
               "worksFor": { "@id": "https://ivtherapyhealthilife.com/#clinic" }
             },
@@ -217,7 +217,7 @@ const SEO = () => {
               "@type": "Physician",
               "@id": "https://ivtherapyhealthilife.com/#dr-first",
               "name": "Dr. First (Napat Hunsajarupan)",
-              "jobTitle": "Founder & MD",
+              "jobTitle": "Co-Founder & Chief Medical Officer",
               "medicalSpecialty": ["Dermatology", "Aesthetic Medicine"],
               "worksFor": { "@id": "https://ivtherapyhealthilife.com/#clinic" }
             }
@@ -305,42 +305,42 @@ const SEO = () => {
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 100mg — 5 Sessions Package" },
-                "price": "27500",
+                "price": "27000",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 100mg — 10 Sessions Package" },
-                "price": "54000",
+                "price": "51000",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 250mg — 5 Sessions Package" },
-                "price": "41500",
+                "price": "38250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "NAD+ 250mg — 10 Sessions Package" },
-                "price": "80000",
+                "price": "72250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "Fat Burner — 5 Sessions Package" },
-                "price": "17500",
+                "price": "20250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
                 "itemOffered": { "@type": "Service", "name": "Fat Burner — 10 Sessions Package" },
-                "price": "30000",
+                "price": "38250",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               }
@@ -384,7 +384,7 @@ const SEO = () => {
         {
           "@type": "VideoObject",
           "@id": "https://ivtherapyhealthilife.com/#video-dr-petch",
-          "name": "Dr. Petch - Founder & Lifestyle Medicine Specialist",
+          "name": "Dr. Petch — Co-Founder & Chief Medical Strategy Officer",
           "description": "Dr. Petch introduces Healthi-Life's holistic approach to regenerative medicine, IV therapy, and longevity in Bangkok.",
           "thumbnailUrl": "https://img.youtube.com/vi/0q0ht-nms4w/maxresdefault.jpg",
           "uploadDate": "2024-01-15T00:00:00+07:00",
@@ -462,7 +462,7 @@ const SEO = () => {
           "name": "How much does IV therapy cost in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,050 THB for treatments like Fat Burner or Hangover IV, to 15,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg. Multi-session packages available: NAD+ 100mg 5 sessions at 27,500 THB, NAD+ 250mg 5 sessions at 41,500 THB."
+            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,500 THB for treatments like Fat Burner or Hangover IV, to 15,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg and 8,500 THB for 250mg. Multi-session packages available: NAD+ 100mg 5 sessions at 27,000 THB, NAD+ 250mg 5 sessions at 38,250 THB."
           }
         },
         {
@@ -470,7 +470,7 @@ const SEO = () => {
           "name": "Where is the best IV therapy clinic in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110 — near Ekkamai BTS station. Awarded 2025 Regenerative Clinic of the Year in Asia-Pacific with 5.0 Google rating from 250+ patients. Book via WhatsApp: +66919991744"
+            "text": "Healthi-Life IV Therapy Clinic is located at 94 Ekkamai 10 Alley, Watthana, Bangkok 10110 — near Ekkamai BTS station. Awarded 2025 Regenerative Clinic of the Year in Asia-Pacific with 5.0 Google rating from 193 verified reviews. Book via WhatsApp: +66919991744"
           }
         },
         {
