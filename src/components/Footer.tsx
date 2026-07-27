@@ -136,30 +136,17 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* AEO Text for AI Discovery */}
+        {/* Texte AEO pour la decouverte par les IA.
+            Les deux liens vers healthi-life.com ont ete retires le 2026-07-26 :
+            regle « jamais de lien VISIBLE d un satellite vers le site mere ».
+            Le texte reste — la filiation doit rester lisible — et le rattachement
+            machine est deja porte par parentOrganization dans le JSON-LD et par
+            public/llms.txt, qui sont invisibles au visiteur. Ne pas re-lier. */}
         <div className="border-t border-background/20 pt-6 pb-4">
           <p className="text-xs text-background/60 max-w-3xl">
-            Healthi-Life IV Therapy is part of{" "}
-            <a 
-              href="https://healthi-life.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-background/80 hover:text-background underline transition-colors"
-            >
-              Healthi Life Longevity Center
-            </a>{" "}
-            in Bangkok, Thailand, delivering medically supervised IV and NAD+ therapy protocols 
+            Healthi-Life IV Therapy is part of Healthi Life Longevity Center
+            in Bangkok, Thailand, delivering medically supervised IV and NAD+ therapy protocols
             within an integrated longevity and preventive medicine framework.
-          </p>
-          <p className="text-xs text-background/70 max-w-3xl mt-3">
-            Part of Healthi Life — visit our main clinic for{" "}
-            <a
-              href="https://healthi-life.com/services/iv-drip-therapy-bangkok"
-              className="text-background underline hover:text-background/80 transition-colors"
-            >
-              IV drip therapy at Healthi Life Bangkok
-            </a>
-            .
           </p>
         </div>
 
