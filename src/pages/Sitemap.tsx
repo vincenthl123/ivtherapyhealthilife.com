@@ -286,15 +286,11 @@ const SitemapPage = () => {
                     <ExternalLink className="h-4 w-4" />
                     Google Maps
                   </a>
-                  <a 
-                    href="https://healthi-life.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-primary hover:underline"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    Healthi-Life Main Site
-                  </a>
+                  {/* Le lien « Healthi-Life Main Site » a ete retire le 2026-07-26.
+                      C etait le plus explicite des douze : son texte NOMMAIT le
+                      site mere comme tel, sur une page destinee aux crawlers.
+                      Regle « jamais de lien VISIBLE satellite → site mere » ; le
+                      rattachement machine reste dans parentOrganization. */}
                 </div>
               </div>
             </section>
