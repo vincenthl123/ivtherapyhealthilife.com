@@ -426,6 +426,56 @@ def check_prices():
     return bad
 
 
+
+# --- TUNNEL DE RESERVATION : les trois pieces doivent aller ensemble --------
+# Constate le 27/07 : quatre satellites portaient des liens /book et un seul
+# avait la page d aboutissement qui mesure la soumission. On savait donc combien
+# de visiteurs partaient vers le formulaire, jamais combien allaient au bout.
+# L ecart n avait produit aucune alerte parce qu aucun controle ne regardait le
+# tunnel comme un ensemble.
+#
+# La regle : si ce depot expose des liens /book, alors il lui faut AUSSI la
+# redirection vers Fillout, la route /merci, et l evenement form_submit. Un
+# depot sans lien /book (peptides, qui n adresse que WhatsApp) n est pas
+# concerne — l absence y est un choix, pas un oubli.
+def check_funnel():
+    root = repo_root()
+
+    def read(rel):
+        p = os.path.join(root, rel)
+        return io.open(p, encoding='utf-8', errors='ignore').read() if os.path.isfile(p) else ''
+
+    src = os.path.join(root, 'src')
+    book = merci = submit = 0
+    for dp, dn, fn in os.walk(src) if os.path.isdir(src) else []:
+        dn[:] = [d for d in dn if d not in ('node_modules', '.git', 'assets')]
+        for f in fn:
+            if not f.endswith(('.tsx', '.ts')):
+                continue
+            body = io.open(os.path.join(dp, f), encoding='utf-8',
+                           errors='ignore').read()
+            book += len(re.findall(r'(?:href|to)=[{"\']*"?/book', body))
+            merci += len(re.findall(r'["\']/merci["\']', body))
+            submit += body.count('form_submit')
+
+    if not book:
+        return 0
+
+    bad = 0
+    for label, ok in (
+        ('redirection /book absente de vercel.json',
+         '/book' in read('vercel.json')),
+        ('route /merci absente alors que /book est expose', merci > 0),
+        ('form_submit jamais emis : les soumissions ne sont pas mesurees',
+         submit > 0),
+    ):
+        if not ok:
+            bad += 1
+            out.write('%-46s:%-5s %-34s %s\n'
+                      % ('tunnel de reservation', '-', 'TUNNEL INCOMPLET',
+                         '%s (%d lien(s) /book)' % (label, book)))
+    return bad
+
 ROOTS = ['dist', 'public', 'index.html', 'src']
 EXT = ('html', 'json', 'txt', 'tsx', 'ts', 'yaml', 'yml', 'tsv', 'xml', 'mjs')
 SELF = os.path.basename(__file__)   # ce fichier cite les motifs : il s exclut
@@ -487,6 +537,7 @@ hits += check_presence()
 hits += check_anchors()
 hits += check_prices()
 hits += check_orphans()
+hits += check_funnel()
 
 out.write('\n%d fichiers scannes · %d occurrences · %s\n'
           % (scanned, hits, 'PROPRE' if not hits else 'A CORRIGER'))

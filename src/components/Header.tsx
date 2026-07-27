@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/healthilife-logo.png";
-import { trackButtonClick } from "@/lib/tracking";
+import { trackButtonClick, trackBookingClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -88,6 +88,23 @@ const Header = () => {
               +66 91 999 1744
             </a>
             <LanguageSwitcher />
+            {/* Point d entree de reservation. IV etait le seul des quatre
+                satellites a formulaire dont l en-tete n en portait pas — alors
+                que c est l emplacement le plus vu du site. Le parametre
+                ?service=iv_therapy suit la convention des trois autres
+                (skin, health_checkup, stem_cell) : Vercel preserve la query
+                string en redirigeant vers Fillout, c est donc lui qui porte
+                l origine de la demande. */}
+            <Button variant="outline" size="sm" asChild>
+              <a
+                href="/book?service=iv_therapy"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackBookingClick('header_desktop')}
+              >
+                {t("nav.bookNow")}
+              </a>
+            </Button>
             <Button 
               id="ivclick-header-whatsapp" 
               size="sm" 
@@ -148,6 +165,21 @@ const Header = () => {
               )
             )}
             <div className="pt-2 space-y-2">
+              {/* Meme point d entree qu en desktop : un visiteur mobile ne doit
+                  pas avoir moins de chemins vers la reservation. */}
+              <Button variant="outline" size="sm" className="w-full" asChild>
+                <a
+                  href="/book?service=iv_therapy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    trackBookingClick('header_mobile');
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  {t("nav.bookNow")}
+                </a>
+              </Button>
               <a
                 id="ivclick-mobile-phone"
                 href="tel:+66919991744"
