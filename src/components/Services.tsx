@@ -22,16 +22,12 @@ const DiscountBadge = ({ percent }: { percent: number }) => (
 const Services = ({ children }: { children?: ReactNode }) => {
   const { t } = useLanguage();
 
+  // Ordre arrêté avec Vincent le 2026-07-27, sur les ventes réelles (Daily report
+  // juin→juillet 2026 + audit stock du 20/07 + audit 90 j du 27/07) :
+  // NAD+ 250mg est le n°1 clinique, Glutathione pesait ฿164 750 / 90 j sans aucune
+  // card. Fat Burner, Curcumin et Resveratrol seul sortent de la vedette — ils
+  // restent listés plus bas dans Body Booster.
   const popularDrips = [
-    {
-      icon: Zap,
-      title: t("popular.nad.title"),
-      price: t("popular.nad.price"),
-      description: t("popular.nad.desc"),
-      benefits: [t("popular.nad.benefit1"), t("popular.nad.benefit2"), t("popular.nad.benefit3")],
-      footMassage: true,
-      cta: t("services.bookMedicalReview"),
-    },
     {
       icon: Zap,
       title: t("popular.nad250.title"),
@@ -42,20 +38,29 @@ const Services = ({ children }: { children?: ReactNode }) => {
       cta: t("services.bookMedicalReview"),
     },
     {
-      icon: Flame,
-      title: t("popular.fatBurner.title"),
-      price: t("popular.fatBurner.price"),
-      description: t("popular.fatBurner.desc"),
-      benefits: [t("popular.fatBurner.benefit1"), t("popular.fatBurner.benefit2"), t("popular.fatBurner.benefit3")],
-      limited: t("body.fatBurner.limited"),
+      icon: Sparkles,
+      title: t("popular.glutathione.title"),
+      price: t("popular.glutathione.price"),
+      description: t("popular.glutathione.desc"),
+      benefits: [t("popular.glutathione.benefit1"), t("popular.glutathione.benefit2"), t("popular.glutathione.benefit3")],
+      footMassage: true,
       cta: t("services.bookMedicalReview"),
     },
     {
-      icon: Sparkles,
-      title: t("popular.curcumin.title"),
-      price: t("popular.curcumin.price"),
-      description: t("popular.curcumin.desc"),
-      benefits: [t("popular.curcumin.benefit1"), t("popular.curcumin.benefit2"), t("popular.curcumin.benefit3")],
+      icon: Crown,
+      title: t("popular.nad500.title"),
+      price: t("popular.nad500.price"),
+      description: t("popular.nad500.desc"),
+      benefits: [t("popular.nad500.benefit1"), t("popular.nad500.benefit2"), t("popular.nad500.benefit3")],
+      footMassage: true,
+      cta: t("services.bookMedicalReview"),
+    },
+    {
+      icon: Zap,
+      title: t("popular.nad.title"),
+      price: t("popular.nad.price"),
+      description: t("popular.nad.desc"),
+      benefits: [t("popular.nad.benefit1"), t("popular.nad.benefit2"), t("popular.nad.benefit3")],
       footMassage: true,
       cta: t("services.bookMedicalReview"),
     },
@@ -70,11 +75,11 @@ const Services = ({ children }: { children?: ReactNode }) => {
     },
     {
       icon: Heart,
-      title: t("popular.resveratrol.title"),
-      price: t("popular.resveratrol.price"),
-      description: t("popular.resveratrol.desc"),
-      benefits: [t("popular.resveratrol.benefit1"), t("popular.resveratrol.benefit2"), t("popular.resveratrol.benefit3")],
-      footMassage: true,
+      title: t("popular.nadResveratrol.title"),
+      price: t("popular.nadResveratrol.price"),
+      description: t("popular.nadResveratrol.desc"),
+      benefits: [t("popular.nadResveratrol.benefit1"), t("popular.nadResveratrol.benefit2"), t("popular.nadResveratrol.benefit3")],
+      limited: t("popular.nadResveratrol.limited"),
       cta: t("services.bookMedicalReview"),
     },
   ];
@@ -82,6 +87,8 @@ const Services = ({ children }: { children?: ReactNode }) => {
   const bodyBoosterDrips = [
     { title: t("body.nad.title"), price: t("body.nad.price"), tagline: t("body.nad.tagline"), description: t("body.nad.desc"), footMassage: true },
     { title: t("body.nad250.title"), price: t("body.nad250.price"), tagline: t("body.nad250.tagline"), description: t("body.nad250.desc"), footMassage: true },
+    { title: t("body.nad500.title"), price: t("body.nad500.price"), tagline: t("body.nad500.tagline"), description: t("body.nad500.desc"), footMassage: true },
+    { title: t("body.glutathione.title"), price: t("body.glutathione.price"), tagline: t("body.glutathione.tagline"), description: t("body.glutathione.desc"), footMassage: true },
     { title: t("body.nadResveratrol.title"), price: t("body.nadResveratrol.price"), tagline: t("body.nadResveratrol.tagline"), description: t("body.nadResveratrol.desc"), limited: t("body.nadResveratrol.limited") },
     { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), limited: t("body.fatBurner.limited") },
     { title: t("body.vitalBoost.title"), price: t("body.vitalBoost.price"), tagline: t("body.vitalBoost.tagline"), description: t("body.vitalBoost.desc"), limited: t("body.vitalBoost.limited") },

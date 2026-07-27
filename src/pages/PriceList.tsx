@@ -33,12 +33,12 @@ const PriceList = () => {
           <PriceTable
             headers={["IV Drip", "Price", "Note"]}
             rows={[
-              ["NAD+ IV Drip 100mg", "6,000 THB", "🎁 Foot Massage"],
               ["NAD+ IV Drip 250mg", "8,500 THB", "🎁 Foot Massage"],
-              ["Fat Burner IV Drip", "4,500 THB", ""],
-              ["Curcumin IV Drip", "8,500 THB", "🎁 Foot Massage"],
+              ["Glutathione IV Drip", "8,500 THB", "🎁 Foot Massage"],
+              ["NAD+ IV Drip 500mg — 2 Sessions", "17,000 THB", "🎁 Foot Massage"],
+              ["NAD+ IV Drip 100mg", "6,000 THB", "🎁 Foot Massage"],
               ["Full Body Detox IV Drip", "8,500 THB", "🎁 Foot Massage"],
-              ["Resveratrol IV Drip", "8,500 THB", "🎁 Foot Massage"],
+              ["NAD+ 100mg + Resveratrol 500mg", "7,500 THB", "Limited"],
             ]}
           />
         </Section>
@@ -50,7 +50,9 @@ const PriceList = () => {
             rows={[
               ["NAD+ IV Drip 100mg", "6,000 THB", "🎁 Foot Massage"],
               ["NAD+ IV Drip 250mg", "8,500 THB", "🎁 Foot Massage"],
+              ["NAD+ IV Drip 500mg — 2 Sessions", "17,000 THB", "🎁 Foot Massage"],
               ["NAD+ 100mg + Resveratrol 500mg", "7,500 THB", "Limited"],
+              ["Glutathione IV Drip", "8,500 THB", "🎁 Foot Massage"],
               ["Fat Burner IV Drip", "4,500 THB", ""],
               ["Vital Boost / Myer's Cocktail", "4,500 THB", ""],
               ["Athlete Pro IV Drip", "4,500 THB", ""],

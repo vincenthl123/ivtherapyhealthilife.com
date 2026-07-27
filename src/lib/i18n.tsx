@@ -126,6 +126,28 @@ const translations = {
     "popular.nad250.benefit2": "Peak energy",
     "popular.nad250.benefit3": "Brain optimization",
 
+    "popular.nad500.title": "NAD+ IV Drip 500mg — 2 Sessions",
+    "popular.nad500.price": "17,000 THB",
+    "popular.nad500.desc": "Our most complete NAD+ course: 500mg total delivered across two supervised 250mg sessions, paced for comfort. For guests who want the full protocol rather than a single infusion.",
+    "popular.nad500.benefit1": "500mg NAD+ total",
+    "popular.nad500.benefit2": "2 supervised sessions",
+    "popular.nad500.benefit3": "Deep cellular renewal",
+
+    "popular.glutathione.title": "Glutathione IV Drip",
+    "popular.glutathione.price": "8,500 THB",
+    "popular.glutathione.desc": "The master antioxidant — 1,200mg delivered intravenously over a 60-minute session. Supports the body's own detoxification pathways, cellular protection and skin radiance.",
+    "popular.glutathione.benefit1": "1,200mg glutathione",
+    "popular.glutathione.benefit2": "Detoxification support",
+    "popular.glutathione.benefit3": "Skin brightness",
+
+    "popular.nadResveratrol.title": "NAD+ 100mg + Resveratrol 500mg",
+    "popular.nadResveratrol.price": "7,500 THB",
+    "popular.nadResveratrol.desc": "NAD+ 100mg combined with 500mg Resveratrol for deep cellular renewal, protection against aging, sustained energy, and enhanced resilience. Doctor's choice for longevity.",
+    "popular.nadResveratrol.benefit1": "Deep cellular renewal",
+    "popular.nadResveratrol.benefit2": "Antioxidant protection",
+    "popular.nadResveratrol.benefit3": "Doctor's choice",
+    "popular.nadResveratrol.limited": "Available for a limited number of bookings.",
+
     // Discount labels
     "discount.off": "OFF",
 
@@ -390,6 +412,16 @@ const translations = {
     "body.nad250.price": "8,500 THB",
     "body.nad250.tagline": "Maximize NAD+ levels, enhance brain function, boost longevity",
     "body.nad250.desc": "High-dose NAD+ therapy for cellular support. Premium anti-aging treatment that may help support energy, cognitive function, and cellular vitality.",
+
+    "body.nad500.title": "NAD+ IV Drip 500mg — 2 Sessions",
+    "body.nad500.price": "17,000 THB",
+    "body.nad500.tagline": "Full 500mg NAD+ course across two supervised sessions",
+    "body.nad500.desc": "Our most complete NAD+ course: 500mg total delivered across two supervised 250mg sessions, paced for comfort.",
+
+    "body.glutathione.title": "Glutathione IV Drip",
+    "body.glutathione.price": "8,500 THB",
+    "body.glutathione.tagline": "Master antioxidant, detox support, skin radiance",
+    "body.glutathione.desc": "The master antioxidant — 1,200mg delivered intravenously over a 60-minute session. Supports the body's own detoxification pathways, cellular protection and skin radiance.",
 
     "body.nadResveratrol.title": "NAD+ 100mg + Resveratrol 500mg IV Drip",
     "body.nadResveratrol.price": "7,500 THB",
@@ -774,6 +806,28 @@ const translations = {
     "popular.nad250.benefit2": "พลังงานสูงสุด",
     "popular.nad250.benefit3": "เพิ่มประสิทธิภาพสมอง",
 
+    "popular.nad500.title": "NAD+ IV Drip 500mg — 2 เซสชัน",
+    "popular.nad500.price": "17,000 บาท",
+    "popular.nad500.desc": "คอร์ส NAD+ ที่สมบูรณ์ที่สุดของเรา รวม 500mg แบ่งเป็น 2 เซสชัน เซสชันละ 250mg ภายใต้การดูแลของแพทย์ เหมาะสำหรับผู้ที่ต้องการโปรโตคอลเต็มรูปแบบมากกว่าการให้ครั้งเดียว",
+    "popular.nad500.benefit1": "NAD+ รวม 500mg",
+    "popular.nad500.benefit2": "2 เซสชันภายใต้การดูแลของแพทย์",
+    "popular.nad500.benefit3": "ฟื้นฟูเซลล์ระดับลึก",
+
+    "popular.glutathione.title": "กลูตาไธโอน IV Drip",
+    "popular.glutathione.price": "8,500 บาท",
+    "popular.glutathione.desc": "สุดยอดสารต้านอนุมูลอิสระ กลูตาไธโอน 1,200 มก. ให้ทางหลอดเลือดดำในเวลา 60 นาที ช่วยสนับสนุนกระบวนการล้างพิษตามธรรมชาติของร่างกาย ปกป้องเซลล์ และผิวกระจ่างใส",
+    "popular.glutathione.benefit1": "กลูตาไธโอน 1,200 มก.",
+    "popular.glutathione.benefit2": "สนับสนุนการล้างพิษ",
+    "popular.glutathione.benefit3": "ผิวกระจ่างใส",
+
+    "popular.nadResveratrol.title": "NAD+ 100mg + Resveratrol 500mg",
+    "popular.nadResveratrol.price": "7,500 บาท",
+    "popular.nadResveratrol.desc": "NAD+ 100mg ผสมกับ Resveratrol 500mg เพื่อฟื้นฟูเซลล์ลึก ปกป้องจากความชรา พลังงานยั่งยืน และเพิ่มความยืดหยุ่น ทางเลือกของแพทย์สำหรับอายุยืน",
+    "popular.nadResveratrol.benefit1": "ฟื้นฟูเซลล์ลึก",
+    "popular.nadResveratrol.benefit2": "ปกป้องด้วยสารต้านอนุมูลอิสระ",
+    "popular.nadResveratrol.benefit3": "ทางเลือกของแพทย์",
+    "popular.nadResveratrol.limited": "จำนวนจำกัดสำหรับการจอง",
+
     // Discount labels
     "discount.off": "ลด",
 
@@ -1038,6 +1092,16 @@ const translations = {
     "body.nad250.price": "8,500 บาท",
     "body.nad250.tagline": "เพิ่มระดับ NAD+ สูงสุด เพิ่มการทำงานของสมอง ส่งเสริมอายุยืน",
     "body.nad250.desc": "การบำบัด NAD+ ขนาดสูงเพื่อการฟื้นฟูเซลล์สูงสุด การรักษาชะลอวัยระดับพรีเมียมที่เพิ่มพลังงาน เพิ่มความคมชัดของสมอง และย้อนกลับความเสื่อมของเซลล์",
+
+    "body.nad500.title": "NAD+ IV Drip 500mg — 2 เซสชัน",
+    "body.nad500.price": "17,000 บาท",
+    "body.nad500.tagline": "คอร์ส NAD+ เต็ม 500mg แบ่งเป็น 2 เซสชันภายใต้การดูแลของแพทย์",
+    "body.nad500.desc": "คอร์ส NAD+ ที่สมบูรณ์ที่สุดของเรา รวม 500mg แบ่งเป็น 2 เซสชัน เซสชันละ 250mg ภายใต้การดูแลของแพทย์",
+
+    "body.glutathione.title": "กลูตาไธโอน IV Drip",
+    "body.glutathione.price": "8,500 บาท",
+    "body.glutathione.tagline": "สุดยอดสารต้านอนุมูลอิสระ สนับสนุนการล้างพิษ ผิวกระจ่างใส",
+    "body.glutathione.desc": "สุดยอดสารต้านอนุมูลอิสระ กลูตาไธโอน 1,200 มก. ให้ทางหลอดเลือดดำในเวลา 60 นาที ช่วยสนับสนุนกระบวนการล้างพิษตามธรรมชาติของร่างกาย ปกป้องเซลล์ และผิวกระจ่างใส",
 
     "body.nadResveratrol.title": "NAD+ 100mg + Resveratrol 500mg IV Drip",
     "body.nadResveratrol.price": "7,500 บาท",
@@ -1420,6 +1484,28 @@ const translations = {
     "popular.nad250.benefit2": "ピークエネルギー",
     "popular.nad250.benefit3": "脳の最適化",
 
+    "popular.nad500.title": "NAD+ IV Drip 500mg — 2セッション",
+    "popular.nad500.price": "17,000 バーツ",
+    "popular.nad500.desc": "当院で最も完成度の高いNAD+コース。合計500mgを250mgずつ2回のセッションに分け、医師の管理のもとで無理のないペースで点滴します。単回投与ではなくフルプロトコルを希望される方へ。",
+    "popular.nad500.benefit1": "NAD+ 合計500mg",
+    "popular.nad500.benefit2": "医師管理下の2セッション",
+    "popular.nad500.benefit3": "深い細胞再生",
+
+    "popular.glutathione.title": "グルタチオン IV Drip",
+    "popular.glutathione.price": "8,500 バーツ",
+    "popular.glutathione.desc": "マスター抗酸化物質グルタチオンを1,200mg、60分かけて点滴投与。体本来の解毒経路、細胞の保護、肌の透明感をサポートします。",
+    "popular.glutathione.benefit1": "グルタチオン 1,200mg",
+    "popular.glutathione.benefit2": "デトックスサポート",
+    "popular.glutathione.benefit3": "肌の透明感",
+
+    "popular.nadResveratrol.title": "NAD+ 100mg + レスベラトロール 500mg",
+    "popular.nadResveratrol.price": "7,500 バーツ",
+    "popular.nadResveratrol.desc": "NAD+ 100mgとレスベラトロール500mgの組み合わせで、深い細胞再生、老化防止、持続的エネルギー、回復力向上。長寿のためのドクターズチョイス。",
+    "popular.nadResveratrol.benefit1": "深い細胞再生",
+    "popular.nadResveratrol.benefit2": "抗酸化保護",
+    "popular.nadResveratrol.benefit3": "ドクターズチョイス",
+    "popular.nadResveratrol.limited": "予約数限定で提供中。",
+
     // Discount labels
     "discount.off": "オフ",
 
@@ -1684,6 +1770,16 @@ const translations = {
     "body.nad250.price": "8,500 バーツ",
     "body.nad250.tagline": "NAD+レベル最大化、脳機能向上、長寿促進",
     "body.nad250.desc": "最大限の細胞再生のための高用量NAD+療法。エネルギーを最大化し、認知機能を鋭くし、細胞の衰退を逆転するプレミアムアンチエイジング治療。",
+
+    "body.nad500.title": "NAD+ IV Drip 500mg — 2セッション",
+    "body.nad500.price": "17,000 バーツ",
+    "body.nad500.tagline": "医師管理下の2セッションでNAD+合計500mgのフルコース",
+    "body.nad500.desc": "当院で最も完成度の高いNAD+コース。合計500mgを250mgずつ2回のセッションに分け、医師の管理のもとで無理のないペースで点滴します。",
+
+    "body.glutathione.title": "グルタチオン IV Drip",
+    "body.glutathione.price": "8,500 バーツ",
+    "body.glutathione.tagline": "マスター抗酸化物質、デトックスサポート、肌の透明感",
+    "body.glutathione.desc": "マスター抗酸化物質グルタチオンを1,200mg、60分かけて点滴投与。体本来の解毒経路、細胞の保護、肌の透明感をサポートします。",
 
     "body.nadResveratrol.title": "NAD+ 100mg + レスベラトロール 500mg IV Drip",
     "body.nadResveratrol.price": "7,500 バーツ",
