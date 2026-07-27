@@ -20,6 +20,7 @@ const Sitemap = lazy(() => import("./pages/Sitemap"));
 const Install = lazy(() => import("./pages/Install"));
 const PriceList = lazy(() => import("./pages/PriceList"));
 const Clinic = lazy(() => import("./pages/Clinic"));
+const Merci = lazy(() => import("./pages/Merci"));
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,10 @@ const App = () => {
                     <Navigate> est un alias fantome, interdit par la regle SEO 4,
                     et l edge s execute de toute facon avant le routeur React. */}
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                {/* /merci — page d aboutissement du formulaire Fillout. Fillout doit
+                    etre configure pour y rediriger apres soumission, sinon la route
+                    existe sans jamais etre atteinte. Meme chemin que sur skin. */}
+                <Route path="/merci" element={<Merci />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
