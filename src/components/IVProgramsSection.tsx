@@ -7,7 +7,7 @@ import { buildWaUrl } from "@/lib/whatsapp";
 
 // ============================================================================
 // IV Therapy Programs — 3 curated multi-day programs.
-// Card chrome cloned from MembershipSection.tsx (floating tag, icon+price row,
+// Card chrome (floating tag, icon+price row,
 // benefit list, CTA). Inner elements (benefit chips, "What Most Clients Report"
 // box, gift perk strip, ⭐ badge) reuse the exact tokens used in Services.tsx.
 // ============================================================================

@@ -5,8 +5,14 @@ import { buildWaUrl, trackAndOpenWhatsApp } from "@/lib/whatsapp";
 import conciergeAvatar from "@/assets/concierge-anna-v2.jpg";
 
 const SESSION_KEY = "wa_widget_auto_opened";
-const AUTO_OPEN_DELAY_MS = 10_000;
+const AUTO_OPEN_DELAY_MS = 30_000;
 const SCROLL_THRESHOLD = 0.5; // 50% of the page
+
+const QUICK_REPLIES = [
+  "I'd like to book an IV session",
+  "What are your NAD+ prices?",
+  "I have a question first",
+];
 
 // Official WhatsApp green (legacy launcher icon color)
 const WA_GREEN = "#25D366";
@@ -180,15 +186,20 @@ const WhatsAppWidget = () => {
     }
   }, [isOpen, autoOpened]);
 
-  // « hidden md:block » : en mobile, MobileCTABar remplace cette bulle.
-  // Les deux ensemble se recouvraient — la bulle est a 16 px du bas, donc DANS
-  // la zone de la barre, et au meme z-50 : elle masquait le bouton de droite.
-  // C est encore le cas sur le satellite check-up, qui fait tourner les deux.
-  // Au-dessus de md il n y a pas de barre et la bulle reprend son role.
-  // Ne pas retirer ce « hidden » sans retirer la barre.
+  // The round green launcher bubble stays desktop-only: on mobile it sits at
+  // 16px from the bottom, DIRECTLY inside MobileCTABar's zone at the same
+  // z-50, and would hide its right-hand button (still true on the check-up
+  // satellite, which runs both). That launcher — and only the launcher — is
+  // "hidden md:flex" below.
+  //
+  // The AUTO-OPEN WELCOME DIALOG is a different surface and must work on
+  // mobile too (that's the actual ask: a WA welcome popup after 30s / 50%
+  // scroll, "not the green button"). It is `fixed` and positions itself
+  // independently of this wrapper, so it renders on every viewport — only
+  // the persistent closed-state bubble is viewport-gated.
   return (
     <div
-      className="hidden md:block fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
       data-wa-skip="1"
       style={{ ["--wa-cream" as string]: CREAM, ["--wa-green" as string]: WA_GREEN }}
     >
@@ -287,10 +298,30 @@ const WhatsAppWidget = () => {
                 style={{ boxShadow: "-2px 2px 4px rgba(60, 40, 0, 0.04)" }}
                 aria-hidden="true"
               />
-              Hi 👋 Welcome to Healthi Life! Need info on treatments, a
-              consultation, or pricing? Just send us a message — our team will
-              reply shortly.
+              Hi 👋 Welcome to Healthi Life! Ready to book your IV drip or
+              NAD+ session? Tell us what you're after and our team will
+              confirm your slot in minutes.
             </div>
+          </div>
+
+          {/* Quick replies — a blank textarea is the #1 reason a chat popup
+              gets closed instead of sent. Pre-filled, tap-to-send options
+              built for the actual conversion goal (book an IV / NAD+ slot). */}
+          <div className="px-4 pb-3 flex flex-wrap gap-2" data-wa-skip="1">
+            {QUICK_REPLIES.map((reply) => (
+              <button
+                key={reply}
+                type="button"
+                onClick={() => {
+                  setUserMessage(reply);
+                  textareaRef.current?.focus();
+                }}
+                className="rounded-full border px-3 py-1.5 text-xs font-medium text-foreground bg-white hover:bg-secondary/60 transition-colors"
+                style={{ borderColor: "rgba(184, 148, 31, 0.35)" }}
+              >
+                {reply}
+              </button>
+            ))}
           </div>
 
           {/* Form: textarea + CTA */}
@@ -369,7 +400,7 @@ const WhatsAppWidget = () => {
         <button
           onClick={handleToggle}
           aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
-          className="relative rounded-full flex items-center justify-center transition-transform hover:scale-105"
+          className="hidden md:flex relative rounded-full items-center justify-center transition-transform hover:scale-105"
           style={{
             width: 60,
             height: 60,
