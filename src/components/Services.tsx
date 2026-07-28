@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, Calendar, Package, Users, CheckCircle2, Gift, Crown, Phone } from "lucide-react";
+import { Flame, Zap, Sparkles, MessageCircle, Brain, Heart, Activity, CheckCircle2, Gift, Phone } from "lucide-react";
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
@@ -82,6 +82,7 @@ const Services = ({ children }: { children?: ReactNode }) => {
   const bodyBoosterDrips = [
     { title: t("body.nad.title"), price: t("body.nad.price"), tagline: t("body.nad.tagline"), description: t("body.nad.desc"), footMassage: true },
     { title: t("body.nad250.title"), price: t("body.nad250.price"), tagline: t("body.nad250.tagline"), description: t("body.nad250.desc"), footMassage: true },
+    { title: t("body.nad500.title"), price: t("body.nad500.price"), tagline: t("body.nad500.tagline"), description: t("body.nad500.desc"), footMassage: true },
     { title: t("body.nadResveratrol.title"), price: t("body.nadResveratrol.price"), tagline: t("body.nadResveratrol.tagline"), description: t("body.nadResveratrol.desc"), limited: t("body.nadResveratrol.limited") },
     { title: t("body.fatBurner.title"), price: t("body.fatBurner.price"), tagline: t("body.fatBurner.tagline"), description: t("body.fatBurner.desc"), limited: t("body.fatBurner.limited") },
     { title: t("body.vitalBoost.title"), price: t("body.vitalBoost.price"), tagline: t("body.vitalBoost.tagline"), description: t("body.vitalBoost.desc"), limited: t("body.vitalBoost.limited") },
@@ -112,35 +113,6 @@ const Services = ({ children }: { children?: ReactNode }) => {
   ];
 
   const packages = [
-    {
-      id: "fat-burner-5",
-      saveBadge: "Save 10%",
-      icon: Flame,
-      title: t("package.fatBurner5.title"),
-      subtitle: t("package.fatBurner5.subtitle"),
-      price: t("package.fatBurner5.price"),
-      originalPrice: t("package.fatBurner5.originalPrice"),
-      pricePerSession: t("package.fatBurner5.pricePerSession"),
-      desc: t("package.fatBurner5.desc"),
-      highlight: t("package.fatBurner5.highlight"),
-      benefits: [t("package.fatBurner5.benefit1"), t("package.fatBurner5.benefit2"), t("package.fatBurner5.benefit3"), t("package.fatBurner5.benefit4")],
-      outcomes: [t("package.fatBurner5.outcome1"), t("package.fatBurner5.outcome2"), t("package.fatBurner5.outcome3"), t("package.fatBurner5.outcome4")],
-    },
-    {
-      id: "fat-burner-10",
-      icon: Flame,
-      saveBadge: "Save 15%",
-      title: t("package.fatBurner10.title"),
-      subtitle: t("package.fatBurner10.subtitle"),
-      price: t("package.fatBurner10.price"),
-      originalPrice: t("package.fatBurner10.originalPrice"),
-      pricePerSession: t("package.fatBurner10.pricePerSession"),
-      desc: t("package.fatBurner10.desc"),
-      highlight: t("package.fatBurner10.highlight"),
-      bonus: t("package.fatBurner10.bonus"),
-      benefits: [t("package.fatBurner10.benefit1"), t("package.fatBurner10.benefit2"), t("package.fatBurner10.benefit3"), t("package.fatBurner10.benefit4")],
-      outcomes: [t("package.fatBurner10.outcome1"), t("package.fatBurner10.outcome2"), t("package.fatBurner10.outcome3"), t("package.fatBurner10.outcome4")],
-    },
     {
       id: "nad-5",
       icon: Zap,
@@ -200,6 +172,36 @@ const Services = ({ children }: { children?: ReactNode }) => {
       bonus: t("package.nad250_10.bonus"),
       benefits: [t("package.nad250_10.benefit1"), t("package.nad250_10.benefit2"), t("package.nad250_10.benefit3"), t("package.nad250_10.benefit4")],
       outcomes: [t("package.nad250_10.outcome1"), t("package.nad250_10.outcome2"), t("package.nad250_10.outcome3"), t("package.nad250_10.outcome4")],
+    },
+    {
+      id: "nad-500-5",
+      icon: Zap,
+      saveBadge: "Save 10%",
+      title: t("package.nad500_5.title"),
+      subtitle: t("package.nad500_5.subtitle"),
+      price: t("package.nad500_5.price"),
+      originalPrice: t("package.nad500_5.originalPrice"),
+      pricePerSession: t("package.nad500_5.pricePerSession"),
+      desc: t("package.nad500_5.desc"),
+      highlight: t("package.nad500_5.highlight"),
+      bonus: t("package.nad500_5.bonus"),
+      benefits: [t("package.nad500_5.benefit1"), t("package.nad500_5.benefit2"), t("package.nad500_5.benefit3"), t("package.nad500_5.benefit4")],
+      outcomes: [t("package.nad500_5.outcome1"), t("package.nad500_5.outcome2"), t("package.nad500_5.outcome3"), t("package.nad500_5.outcome4")],
+    },
+    {
+      id: "nad-500-10",
+      icon: Zap,
+      saveBadge: "Save 15%",
+      title: t("package.nad500_10.title"),
+      subtitle: t("package.nad500_10.subtitle"),
+      price: t("package.nad500_10.price"),
+      originalPrice: t("package.nad500_10.originalPrice"),
+      pricePerSession: t("package.nad500_10.pricePerSession"),
+      desc: t("package.nad500_10.desc"),
+      highlight: t("package.nad500_10.highlight"),
+      bonus: t("package.nad500_10.bonus"),
+      benefits: [t("package.nad500_10.benefit1"), t("package.nad500_10.benefit2"), t("package.nad500_10.benefit3"), t("package.nad500_10.benefit4")],
+      outcomes: [t("package.nad500_10.outcome1"), t("package.nad500_10.outcome2"), t("package.nad500_10.outcome3"), t("package.nad500_10.outcome4")],
     },
   ];
 
@@ -402,7 +404,7 @@ const Services = ({ children }: { children?: ReactNode }) => {
                   <div className="bg-primary/5 border border-primary/15 rounded-lg p-3 mb-4">
                     <div className="flex items-center gap-2 mb-2">
                       <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
-                      <h4 className="font-semibold text-foreground text-xs">{t("pathway.vitalReset.outcomeTitle")}</h4>
+                      <h4 className="font-semibold text-foreground text-xs">{t("services.packageOutcomeTitle")}</h4>
                     </div>
                     <ul className="space-y-1.5">
                       {pkg.outcomes.map((o, i) => (
@@ -439,328 +441,6 @@ const Services = ({ children }: { children?: ReactNode }) => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Personalized Wellness Programs */}
-        <div className="mb-16">
-          <div className="text-center mb-8">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wider mb-4">
-              {t("services.vitalityPathway")}
-            </span>
-          </div>
-
-          <div className="space-y-8">
-            {/* VITAL RESET™ */}
-            <div className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-6 md:p-8 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
-                <div>
-                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
-                    <span className="text-primary text-lg">⭐</span>
-                    <p className="text-sm font-semibold text-primary">{t("pathway.vitalReset.nadHighlight")}</p>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("pathway.vitalReset.title")}</h3>
-                  <p className="text-primary font-semibold mb-3">{t("pathway.vitalReset.subtitle")}</p>
-                  <p className="text-muted-foreground mb-4">{t("pathway.vitalReset.desc")}</p>
-                  <div className="bg-secondary/60 rounded-lg p-4 mb-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Users className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.idealFor")}</h4>
-                    </div>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {[t("pathway.vitalReset.persona1"), t("pathway.vitalReset.persona2"), t("pathway.vitalReset.persona3"), t("pathway.vitalReset.persona4")].map((p, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {[t("pathway.vitalReset.benefit1"), t("pathway.vitalReset.benefit2"), t("pathway.vitalReset.benefit3"), t("pathway.vitalReset.benefit4")].map((b, i) => (
-                      <span key={i} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                        <Activity className="h-3 w-3 mr-1.5" />
-                        {b}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-baseline gap-3 mb-6">
-                    <span className="text-2xl md:text-3xl font-bold text-primary">{t("pathway.vitalReset.price")}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-6">{t("pathway.vitalReset.duration")}</p>
-                  <Button id="ivclick-vital-reset" size="lg" onClick={() => trackButtonClick('ivclick-vital-reset')} asChild>
-                    <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      {t("services.bookMedicalReview")}
-                    </a>
-                  </Button>
-                </div>
-                <div className="space-y-5">
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Calendar className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.protocol")}</h4>
-                    </div>
-                    <div className="space-y-3">
-                      {[
-                        { day: t("pathway.vitalReset.day1"), desc: t("pathway.vitalReset.day1Desc") },
-                        { day: t("pathway.vitalReset.day3"), desc: t("pathway.vitalReset.day3Desc") },
-                        { day: t("pathway.vitalReset.day5"), desc: t("pathway.vitalReset.day5Desc") },
-                      ].map((step, i) => (
-                        <div key={i} className="bg-secondary/50 rounded-lg p-3">
-                          <p className="font-medium text-foreground text-sm">{step.day}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Package className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.takeHome")}</h4>
-                    </div>
-                    <p className="text-xs text-muted-foreground">{t("pathway.vitalReset.takeHomeDesc")}</p>
-                  </div>
-                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.vitalReset.outcomeTitle")}</h4>
-                    </div>
-                    <ul className="space-y-2">
-                      {[t("pathway.vitalReset.outcome1"), t("pathway.vitalReset.outcome2"), t("pathway.vitalReset.outcome3"), t("pathway.vitalReset.outcome4")].map((o, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
-                          {o}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* VITALITY PROTOCOL™ */}
-            <div className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-8 md:p-10 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
-                <div>
-                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
-                    <span className="text-primary text-lg">⭐</span>
-                    <p className="text-sm font-semibold text-primary">{t("pathway.protocol.nadHighlight")}</p>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("pathway.protocol.title")}</h3>
-                  <p className="text-primary font-semibold mb-1">{t("pathway.protocol.subtitle")}</p>
-                  <p className="text-xs text-muted-foreground italic mb-3">{t("pathway.protocol.designer")}</p>
-                  <p className="text-muted-foreground mb-4">{t("pathway.protocol.desc")}</p>
-
-                  {/* VIP Services */}
-                  <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4 mb-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Crown className="h-4 w-4 text-amber-600" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.protocol.vip")}</h4>
-                    </div>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {[t("pathway.protocol.vip1"), t("pathway.protocol.vip2"), t("pathway.protocol.vip3"), t("pathway.protocol.vip4")].map((v, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2 flex-shrink-0" />
-                          {v}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Ideal For */}
-                  <div className="bg-secondary/60 rounded-lg p-4 mb-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Users className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.protocol.idealFor")}</h4>
-                    </div>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {[t("pathway.protocol.persona1"), t("pathway.protocol.persona2"), t("pathway.protocol.persona3"), t("pathway.protocol.persona4")].map((p, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {[t("pathway.protocol.benefit1"), t("pathway.protocol.benefit2"), t("pathway.protocol.benefit3"), t("pathway.protocol.benefit4")].map((b, i) => (
-                      <span key={i} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                        <Activity className="h-3 w-3 mr-1.5" />
-                        {b}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-baseline gap-3 mb-6">
-                    <span className="text-2xl md:text-3xl font-bold text-primary">{t("pathway.protocol.price")}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-6">{t("pathway.protocol.duration")}</p>
-                  <Button id="ivclick-vitality-protocol" size="lg" onClick={() => trackButtonClick('ivclick-vitality-protocol')} asChild>
-                    <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      {t("services.bookMedicalReview")}
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="space-y-5">
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Calendar className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.protocol.protocol")}</h4>
-                    </div>
-                    <div className="space-y-3">
-                      {[
-                        { day: t("pathway.protocol.day1"), desc: t("pathway.protocol.day1Desc") },
-                        { day: t("pathway.protocol.day3"), desc: t("pathway.protocol.day3Desc") },
-                        { day: t("pathway.protocol.day5"), desc: t("pathway.protocol.day5Desc") },
-                      ].map((step, i) => (
-                        <div key={i} className="bg-secondary/50 rounded-lg p-3">
-                          <p className="font-medium text-foreground text-sm">{step.day}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Package className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.protocol.takeHome")}</h4>
-                    </div>
-                    <p className="text-xs text-muted-foreground">{t("pathway.protocol.takeHomeDesc")}</p>
-                  </div>
-                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.protocol.outcomeTitle")}</h4>
-                    </div>
-                    <ul className="space-y-2">
-                      {[t("pathway.protocol.outcome1"), t("pathway.protocol.outcome2"), t("pathway.protocol.outcome3"), t("pathway.protocol.outcome4")].map((o, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
-                          {o}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* VITALITY INTENSIVE™ */}
-            <div className="relative bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20 rounded-2xl p-8 md:p-10 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-medical opacity-10 rounded-bl-[100px]" />
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
-                <div>
-                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 flex items-center gap-2 mb-4">
-                    <span className="text-primary text-lg">⭐</span>
-                    <p className="text-sm font-semibold text-primary">{t("pathway.intensive.nadHighlight")}</p>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("pathway.intensive.title")}</h3>
-                  <p className="text-primary font-semibold mb-1">{t("pathway.intensive.subtitle")}</p>
-                  <p className="text-xs text-muted-foreground italic mb-3">{t("pathway.intensive.designer")}</p>
-                  <p className="text-muted-foreground mb-4">{t("pathway.intensive.desc")}</p>
-
-                  {/* VIP Services */}
-                  <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4 mb-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Crown className="h-4 w-4 text-amber-600" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.intensive.vip")}</h4>
-                    </div>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {[t("pathway.intensive.vip1"), t("pathway.intensive.vip2"), t("pathway.intensive.vip3"), t("pathway.intensive.vip4")].map((v, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2 flex-shrink-0" />
-                          {v}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Ideal For */}
-                  <div className="bg-secondary/60 rounded-lg p-4 mb-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Users className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.intensive.idealFor")}</h4>
-                    </div>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {[t("pathway.intensive.persona1"), t("pathway.intensive.persona2"), t("pathway.intensive.persona3"), t("pathway.intensive.persona4")].map((p, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {[t("pathway.intensive.benefit1"), t("pathway.intensive.benefit2"), t("pathway.intensive.benefit3"), t("pathway.intensive.benefit4")].map((b, i) => (
-                      <span key={i} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                        <Activity className="h-3 w-3 mr-1.5" />
-                        {b}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-baseline gap-3 mb-6">
-                    <span className="text-2xl md:text-3xl font-bold text-primary">{t("pathway.intensive.price")}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-6">{t("pathway.intensive.duration")}</p>
-                  <Button id="ivclick-vitality-intensive" size="lg" onClick={() => trackButtonClick('ivclick-vitality-intensive')} asChild>
-                    <a href={buildWaUrl("IV Therapy Enquiry")} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      {t("services.bookMedicalReview")}
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="space-y-5">
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Calendar className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.intensive.protocol")}</h4>
-                    </div>
-                    <div className="space-y-3">
-                      {[
-                        { day: t("pathway.intensive.day1"), desc: t("pathway.intensive.day1Desc") },
-                        { day: t("pathway.intensive.day3"), desc: t("pathway.intensive.day3Desc") },
-                        { day: t("pathway.intensive.day5"), desc: t("pathway.intensive.day5Desc") },
-                      ].map((step, i) => (
-                        <div key={i} className="bg-secondary/50 rounded-lg p-3">
-                          <p className="font-medium text-foreground text-sm">{step.day}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Package className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.intensive.takeHome")}</h4>
-                    </div>
-                    <p className="text-xs text-muted-foreground">{t("pathway.intensive.takeHomeDesc")}</p>
-                  </div>
-                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold text-foreground text-sm">{t("pathway.intensive.outcomeTitle")}</h4>
-                    </div>
-                    <ul className="space-y-2">
-                      {[t("pathway.intensive.outcome1"), t("pathway.intensive.outcome2"), t("pathway.intensive.outcome3"), t("pathway.intensive.outcome4")].map((o, i) => (
-                        <li key={i} className="flex items-center text-xs text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
-                          {o}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 

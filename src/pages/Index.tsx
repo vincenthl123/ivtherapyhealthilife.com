@@ -7,7 +7,6 @@ import SEO from "@/components/SEO";
 // Lazy load below-fold sections for faster initial paint
 const Services = lazy(() => import("@/components/Services"));
 const IVProgramsSection = lazy(() => import("@/components/IVProgramsSection"));
-const MembershipSection = lazy(() => import("@/components/MembershipSection"));
 const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
 const MedicalTeam = lazy(() => import("@/components/MedicalTeam"));
 const Process = lazy(() => import("@/components/Process"));
@@ -35,13 +34,14 @@ const Index = () => {
         <TrustBanner />
         <Suspense fallback={<SectionLoader />}>
           <Services>
+            {/* "Unlock Your Energy & Vitality" video sits right before the
+                "Curated multi-day IV programs" heading it introduces. */}
+            <FeaturedVideo />
             <IVProgramsSection />
-            <MembershipSection />
           </Services>
           <WhyChooseUs />
           <MedicalTeam />
           <Process />
-          <FeaturedVideo />
           <VideoTestimonials />
           <FAQ />
           <Contact />

@@ -11,6 +11,7 @@ const ivServices = {
     { slug: "fat-burner-iv", name: "Fat Burner IV Therapy", price: "4,500 THB", description: "Accelerate metabolism with L-Carnitine & B-vitamins for weight loss", icon: Flame },
     { slug: "nad-plus-100mg", name: "NAD+ IV Therapy 100mg", price: "6,000 THB", description: "Boost energy, repair cells, slow aging with NAD+ infusion", icon: Zap },
     { slug: "nad-plus-250mg", name: "NAD+ IV Therapy 250mg", price: "8,500 THB", description: "Premium dose NAD+ for maximum cellular regeneration", icon: Zap },
+    { slug: "nad-plus-500mg", name: "NAD+ IV Therapy 500mg", price: "17,000 THB", description: "Our highest single-session NAD+ dose for maximum cellular renewal", icon: Zap },
     { slug: "glow-revive", name: "Glow Revive IV Therapy", price: "15,000 THB", description: "Skin rejuvenation with placenta extract & antioxidants", icon: Sparkles },
     { slug: "resveratrol-iv", name: "Resveratrol IV Therapy", price: "8,500 THB", description: "Powerful antioxidant for heart health and longevity", icon: Heart },
     { slug: "full-body-detox", name: "Full Body Detox IV", price: "8,500 THB", description: "Complete detoxification and liver support", icon: Activity },

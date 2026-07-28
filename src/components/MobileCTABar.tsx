@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
 import { MessageCircle, Phone } from "lucide-react";
 import { buildWaUrl } from "@/lib/whatsapp";
 import { trackButtonClick, trackCallClick, trackWhatsAppClick } from "@/lib/tracking";
+
+// Reveal only after the visitor scrolls past the hero. The hero already
+// carries a primary WhatsApp CTA + an outline Book CTA — showing this bar
+// on top of that from the first frame was 4 competing conversion points on
+// the very first thing a visitor sees. One threshold (80% of the viewport
+// height, roughly the hero's own height) keeps this simple and avoids
+// wiring a ref/IntersectionObserver across component boundaries.
+const REVEAL_AT_RATIO = 0.8;
 
 /**
  * Barre de canaux, mobile uniquement.
@@ -15,8 +24,17 @@ import { trackButtonClick, trackCallClick, trackWhatsAppClick } from "@/lib/trac
  * Les deux ne peuvent pas coexister en mobile : la bulle est a 16 px du bas,
  * donc DANS la zone de cette barre, et au meme z-50. Sur le satellite
  * check-up, ou les deux tournent deja, la bulle recouvre le bouton de droite.
- * WhatsAppWidget est donc masque sous md et cette barre le remplace ; au-dessus
- * de md c est l inverse, il n y a pas de barre et la bulle reprend son role.
+ * Le LANCEUR rond de WhatsAppWidget (bouton vert persistant) est donc masque
+ * sous md et cette barre le remplace ; au-dessus de md c est l inverse, il n y
+ * a pas de barre et le lanceur reprend son role. Le POPUP de bienvenue
+ * auto-declenche de WhatsAppWidget (30s / 50% scroll) est une surface
+ * differente et reste actif sur mobile aussi — seul le bouton vert persistant
+ * est concerne par ce masquage.
+ *
+ * Cette barre elle-meme ne s affiche qu apres le hero (scroll > 80% de la
+ * hauteur d ecran) pour ne pas empiler un 3e/4e point de conversion sur la
+ * toute premiere chose vue par le visiteur — le hero porte deja son propre
+ * CTA WhatsApp primaire + Book en outline.
  *
  * TRACKING (zone John — lecture attentive avant de modifier)
  *
@@ -29,10 +47,27 @@ import { trackButtonClick, trackCallClick, trackWhatsAppClick } from "@/lib/trac
  * Le troisieme bouton (formulaire) arrive avec le formulaire lui-meme. Un
  * bouton qui ne mene nulle part serait pire que son absence.
  */
-const MobileCTABar = () => (
+const MobileCTABar = () => {
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * REVEAL_AT_RATIO) {
+        setRevealed(true);
+      } else {
+        setRevealed(false);
+      }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
   <div
-    className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-border
-               bg-background/95 backdrop-blur-sm px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
+    className={`fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-border
+               bg-background/95 backdrop-blur-sm px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]
+               transition-transform duration-300 ${revealed ? "translate-y-0" : "translate-y-full"}`}
     role="group"
     aria-label="Contact"
   >
@@ -77,6 +112,7 @@ const MobileCTABar = () => (
       </a>
     </div>
   </div>
-);
+  );
+};
 
 export default MobileCTABar;

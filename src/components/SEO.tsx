@@ -247,6 +247,13 @@ const SEO = () => {
               },
               {
                 "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "NAD+ IV Therapy 500mg" },
+                "price": "17000",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
               "itemOffered": { "@type": "Service", "name": "Glow Revive IV Therapy" },
                 "price": "15000",
                 "priceCurrency": "THB",
@@ -310,15 +317,15 @@ const SEO = () => {
               },
               {
                 "@type": "Offer",
-                "itemOffered": { "@type": "Service", "name": "Fat Burner — 5 Sessions Package" },
-                "price": "20250",
+                "itemOffered": { "@type": "Service", "name": "NAD+ 500mg — 5 Sessions Package" },
+                "price": "76500",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
-                "itemOffered": { "@type": "Service", "name": "Fat Burner — 10 Sessions Package" },
-                "price": "38250",
+                "itemOffered": { "@type": "Service", "name": "NAD+ 500mg — 10 Sessions Package" },
+                "price": "144500",
                 "priceCurrency": "THB",
                 "availability": "https://schema.org/InStock"
               }
@@ -440,7 +447,7 @@ const SEO = () => {
           "name": "How much does IV therapy cost in Bangkok?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,500 THB for treatments like Fat Burner or Hangover IV, to 15,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg and 8,500 THB for 250mg. Multi-session packages available: NAD+ 100mg 5 sessions at 27,000 THB, NAD+ 250mg 5 sessions at 38,250 THB."
+            "text": "IV therapy at Healthi-Life Bangkok ranges from 4,500 THB for treatments like Fat Burner or Hangover IV, to 15,000 THB for premium treatments like Glow Revive. NAD+ IV starts at 6,000 THB for 100mg, 8,500 THB for 250mg, and 17,000 THB for 500mg. Multi-session packages available: NAD+ 100mg 5 sessions at 27,000 THB, NAD+ 250mg 5 sessions at 38,250 THB, NAD+ 500mg 5 sessions at 76,500 THB."
           }
         },
         {

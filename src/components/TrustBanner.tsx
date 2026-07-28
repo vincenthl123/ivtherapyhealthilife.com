@@ -34,10 +34,34 @@ const TrustBanner = () => {
     },
   ];
 
+  // Mobile keeps only the 3 strongest conversion signals — rating, volume,
+  // award — in a single horizontal row. Countries Served and ISO/GMP stay
+  // desktop-only; five wrapped stats plus a call line was reading as clutter
+  // on small screens, not proof.
+  const mobileStats = [stats[0], stats[1], stats[4]];
+
   return (
     <section className="bg-secondary/50 py-4 md:py-5 border-y border-border/30">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 md:gap-12 lg:gap-16">
+        {/* Mobile: 3 stats, one row */}
+        <div className="grid grid-cols-3 gap-2 md:hidden">
+          {mobileStats.map((stat, index) => (
+            <div key={index} className="flex flex-col items-center text-center gap-1">
+              <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                <stat.icon className={`w-4 h-4 ${stat.highlight ? 'text-yellow-500 fill-yellow-500' : 'text-primary/70'}`} />
+              </div>
+              <p className="font-bold text-foreground text-sm leading-tight">
+                {stat.value}
+              </p>
+              <p className="text-[11px] text-muted-foreground leading-tight">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop / tablet: full stat row + call link */}
+        <div className="hidden md:flex flex-wrap justify-center items-center gap-x-8 gap-y-4 md:gap-12 lg:gap-16">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -64,7 +88,7 @@ const TrustBanner = () => {
             </div>
           ))}
         </div>
-        <div className="mt-3 md:mt-4 flex justify-center">
+        <div className="hidden md:flex mt-3 md:mt-4 justify-center">
           <a
             id="ivclick-trustbanner-phone"
             href="tel:+66919991744"

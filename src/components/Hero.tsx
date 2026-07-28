@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, Award, MapPin, Clock, MessageCircle, Phone, CalendarCheck } from "lucide-react";
+import { Star, Award, MapPin, Clock, MessageCircle, CalendarCheck } from "lucide-react";
 import heroRoomDesktop from "@/assets/hero-private-room-desktop.webp";
 import heroRoomMobile from "@/assets/hero-private-room-mobile.webp";
 import { trackButtonClick } from "@/lib/tracking";
@@ -113,6 +113,7 @@ const Hero = () => {
             <Button
               id="ivclick-hero-book"
               size="lg"
+              variant="outline"
               onClick={() => trackButtonClick('ivclick-hero-book')}
               asChild
             >
@@ -122,29 +123,6 @@ const Hero = () => {
               </a>
             </Button>
           </div>
-
-          {/* Direct call */}
-          <a
-            id="ivclick-hero-phone"
-            href="tel:+66919991744"
-            onClick={() => trackButtonClick('ivclick-hero-phone')}
-            className="animate-fade-in mt-6 inline-flex items-center text-sm md:text-base text-foreground hover:text-primary transition-colors"
-          >
-            <Phone className="h-4 w-4 mr-2" />
-            Or call us directly: <strong className="ml-1">+66 91 999 1744</strong>
-          </a>
-
-          {/* Location Info */}
-          <p className="animate-fade-in mt-4 text-sm text-muted-foreground">
-            {t("hero.locationInfo")}
-          </p>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
         </div>
       </div>
     </section>
