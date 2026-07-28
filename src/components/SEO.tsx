@@ -254,6 +254,13 @@ const SEO = () => {
               },
               {
                 "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Glutathione IV Therapy" },
+                "price": "8500",
+                "priceCurrency": "THB",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
               "itemOffered": { "@type": "Service", "name": "Glow Revive IV Therapy" },
                 "price": "15000",
                 "priceCurrency": "THB",
