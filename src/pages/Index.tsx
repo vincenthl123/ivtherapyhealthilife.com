@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBanner from "@/components/TrustBanner";
+import DoctorIntro from "@/components/DoctorIntro";
 import SEO from "@/components/SEO";
 
 // Lazy load below-fold sections for faster initial paint
@@ -32,6 +33,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <TrustBanner />
+        <DoctorIntro />
         <Suspense fallback={<SectionLoader />}>
           <Services>
             {/* "Unlock Your Energy & Vitality" video sits right before the
