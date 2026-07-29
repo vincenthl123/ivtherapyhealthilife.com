@@ -110,11 +110,17 @@ const Hero = () => {
                 {t("hero.cta1")}
               </a>
             </Button>
+            {/* Mobile: WhatsApp alone is the hero CTA — the always-visible
+                sticky bar (MobileCTABar) already covers Call/Book below
+                md, duplicating them here was 6 tap targets for 3 actions
+                on the first screen. Desktop has no sticky bar, so both
+                stay visible there. */}
             <Button
               id="ivclick-hero-book"
               size="lg"
               variant="outline"
               onClick={() => trackButtonClick('ivclick-hero-book')}
+              className="hidden md:inline-flex"
               asChild
             >
               <a href="/book?service=iv_therapy" target="_blank" rel="noopener noreferrer" data-booking-ctx="hero">
@@ -124,12 +130,12 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Call link — small, under the primary CTAs (not a 3rd big button) */}
+          {/* Call link — desktop only, same reasoning as Book above */}
           <a
             href="tel:+66919991744"
             id="ivclick-hero-call"
             onClick={() => { trackButtonClick('ivclick-hero-call'); trackCallClick('hero'); }}
-            className="animate-fade-in-up mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="animate-fade-in-up mt-4 hidden md:inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <Phone className="h-4 w-4" />
             Or call us directly: +66 91 999 1744
