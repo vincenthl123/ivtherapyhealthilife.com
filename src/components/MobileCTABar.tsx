@@ -1,15 +1,6 @@
-import { useEffect, useState } from "react";
 import { MessageCircle, Phone } from "lucide-react";
 import { buildWaUrl } from "@/lib/whatsapp";
 import { trackButtonClick, trackCallClick, trackWhatsAppClick } from "@/lib/tracking";
-
-// Reveal only after the visitor scrolls past the hero. The hero already
-// carries a primary WhatsApp CTA + an outline Book CTA — showing this bar
-// on top of that from the first frame was 4 competing conversion points on
-// the very first thing a visitor sees. One threshold (80% of the viewport
-// height, roughly the hero's own height) keeps this simple and avoids
-// wiring a ref/IntersectionObserver across component boundaries.
-const REVEAL_AT_RATIO = 0.8;
 
 /**
  * Barre de canaux, mobile uniquement.
@@ -31,10 +22,11 @@ const REVEAL_AT_RATIO = 0.8;
  * differente et reste actif sur mobile aussi — seul le bouton vert persistant
  * est concerne par ce masquage.
  *
- * Cette barre elle-meme ne s affiche qu apres le hero (scroll > 80% de la
- * hauteur d ecran) pour ne pas empiler un 3e/4e point de conversion sur la
- * toute premiere chose vue par le visiteur — le hero porte deja son propre
- * CTA WhatsApp primaire + Book en outline.
+ * Cette barre est visible des le chargement (Vincent, 2026-07-29 — decision
+ * d uniformisation avec les 4 autres satellites, qui n avaient jamais eu de
+ * masquage au scroll). Elle a porte un masquage jusqu a 80% de scroll de
+ * 2026-07-2x a 2026-07-29 pour ne pas empiler de CTA sur le hero ; ne pas le
+ * reintroduire sans la meme decision sur les 4 autres sites.
  *
  * TRACKING (zone John — lecture attentive avant de modifier)
  *
@@ -48,26 +40,10 @@ const REVEAL_AT_RATIO = 0.8;
  * bouton qui ne mene nulle part serait pire que son absence.
  */
 const MobileCTABar = () => {
-  const [revealed, setRevealed] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > window.innerHeight * REVEAL_AT_RATIO) {
-        setRevealed(true);
-      } else {
-        setRevealed(false);
-      }
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
   <div
-    className={`fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-border
-               bg-background/95 backdrop-blur-sm px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]
-               transition-transform duration-300 ${revealed ? "translate-y-0" : "translate-y-full"}`}
+    className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-border
+               bg-background/95 backdrop-blur-sm px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
     role="group"
     aria-label="Contact"
   >
