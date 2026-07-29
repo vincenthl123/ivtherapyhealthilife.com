@@ -593,10 +593,10 @@ const translations = {
 
     // Hero
     "hero.badge": "คลินิกเวชศาสตร์ฟื้นฟูแห่งปี 2025 – เอเชียแปซิฟิก",
-    "hero.title": "IV Therapy",
-    "hero.titleHighlight": "กรุงเทพฯ",
-    "hero.subtitle": "สารอาหารทรงพลังส่งตรงเข้าสู่กระแสเลือด — ดูดซึมทันทีและได้ผลสูงสุด",
-    "hero.subtitleBold": "เติมพลัง ฟื้นฟู และชะลอวัย",
+    "hero.title": "รู้สึกอ่อนเพลียหรือขาดน้ำ?",
+    "hero.titleHighlight": "ฟื้นตัวได้ในไม่ถึงชั่วโมง",
+    "hero.subtitle": "IV ดริปภายใต้การดูแลของแพทย์ ฟื้นฟูพลังงาน ความชุ่มชื้น และสมาธิ — ดูแลโดยพยาบาลผู้เชี่ยวชาญ",
+    "hero.subtitleBold": "รู้สึกได้ผลภายในไม่กี่ชั่วโมง",
     "hero.reviews": "5.0 รีวิว Google",
     "hero.location": "เอกมัย กรุงเทพฯ",
     "hero.hours": "จันทร์-เสาร์: 11:00 - 19:00",
@@ -1161,10 +1161,10 @@ const translations = {
 
     // Hero
     "hero.badge": "2025年アジア太平洋地域 再生医療クリニック・オブ・ザ・イヤー",
-    "hero.title": "IV療法",
-    "hero.titleHighlight": "バンコク",
-    "hero.subtitle": "強力な栄養素を血流に直接届ける — 即時吸収と最大の効果を実現。",
-    "hero.subtitleBold": "エネルギー回復、リカバリー、若返り。",
+    "hero.title": "疲れや脱水を感じていませんか？",
+    "hero.titleHighlight": "1時間以内に回復。",
+    "hero.subtitle": "医師監修のIVドリップでエネルギー、水分、集中力を回復 — 訓練を受けた看護師が施術。",
+    "hero.subtitleBold": "数時間で効果を実感。",
     "hero.reviews": "5.0 Google レビュー",
     "hero.location": "エカマイ、バンコク",
     "hero.hours": "月〜土：11:00 〜 19:00",
