@@ -39,6 +39,11 @@ if (import.meta.env.PROD && 'performance' in window) {
           const win = window as Window & { gtag?: (...args: unknown[]) => void };
           if (lastEntry && win.gtag) {
             win.gtag('event', 'web_vitals', {
+              // send_to explicite obligatoire : gtag.js est chargé deux fois
+              // (fan-out GTM + snippet différé index.html) et les events sans
+              // send_to sont silencieusement droppés (sonde 2026-07-24).
+              // Même règle que trackGAEvent dans src/lib/tracking.ts.
+              send_to: 'G-K9R2HXK3QT',
               event_category: 'Web Vitals',
               event_label: 'LCP',
               value: Math.round(lastEntry.startTime),
