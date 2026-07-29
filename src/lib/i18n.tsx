@@ -23,10 +23,10 @@ const translations = {
 
     // Hero
     "hero.badge": "2025 Regenerative Clinic of the Year in Asia-Pacific",
-    "hero.title": "IV Therapy",
-    "hero.titleHighlight": "Bangkok",
-    "hero.subtitle": "Powerful nutrients delivered directly into your bloodstream — for instant absorption and maximum results.",
-    "hero.subtitleBold": "Recharge, recover, and rejuvenate.",
+    "hero.title": "Feeling Drained or Dehydrated?",
+    "hero.titleHighlight": "Recover in Under an Hour.",
+    "hero.subtitle": "Doctor-supervised IV drips restore energy, hydration and focus — administered by trained nurses,",
+    "hero.subtitleBold": "results felt within hours.",
     "hero.reviews": "5.0 Google Reviews",
     "hero.location": "Ekkamai, Bangkok",
     "hero.hours": "Mon-Sat: 11 AM – 7 PM",

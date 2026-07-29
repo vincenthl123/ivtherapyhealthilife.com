@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, Award, MapPin, Clock, MessageCircle, CalendarCheck } from "lucide-react";
+import { Star, Award, MapPin, Clock, MessageCircle, CalendarCheck, Phone } from "lucide-react";
 import heroRoomDesktop from "@/assets/hero-private-room-desktop.webp";
 import heroRoomMobile from "@/assets/hero-private-room-mobile.webp";
-import { trackButtonClick } from "@/lib/tracking";
+import { trackButtonClick, trackCallClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
 
@@ -123,6 +123,17 @@ const Hero = () => {
               </a>
             </Button>
           </div>
+
+          {/* Call link — small, under the primary CTAs (not a 3rd big button) */}
+          <a
+            href="tel:+66919991744"
+            id="ivclick-hero-call"
+            onClick={() => { trackButtonClick('ivclick-hero-call'); trackCallClick('hero'); }}
+            className="animate-fade-in-up mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Phone className="h-4 w-4" />
+            Or call us directly: +66 91 999 1744
+          </a>
         </div>
       </div>
     </section>
