@@ -25,8 +25,8 @@ const Hero = () => {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "32% 58%" }}
+            className="absolute inset-0 w-full h-full object-cover scale-150 md:scale-100"
+            style={{ objectPosition: "32% 62%" }}
           />
         </picture>
         <div
@@ -77,7 +77,11 @@ const Hero = () => {
           </p>
 
           {/* Trust Signals */}
-          <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-8">
+          {/* mb reduced ~19px (0.5cm) on mobile only to bring the CTA up —
+              desktop/tablet keep the original mb-8 rhythm. Location/hours
+              switched from muted-foreground to foreground: against the photo
+              background the gray was low-contrast, per Vincent's audit. */}
+          <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-[13px] md:mb-8">
             <div className="flex items-center space-x-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -86,11 +90,11 @@ const Hero = () => {
               </div>
               <span className="text-sm font-medium">{t("hero.reviews")}</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-2 text-sm text-foreground">
               <MapPin className="h-4 w-4" />
               <span>{t("hero.location")}</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-2 text-sm text-foreground">
               <Clock className="h-4 w-4" />
               <span>{t("hero.hours")}</span>
             </div>
