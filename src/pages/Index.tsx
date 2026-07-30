@@ -33,7 +33,6 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <TrustBanner />
-        <DoctorIntro />
         <Suspense fallback={<SectionLoader />}>
           <Services>
             {/* "Unlock Your Energy & Vitality" video sits right before the
@@ -41,6 +40,9 @@ const Index = () => {
             <FeaturedVideo />
             <IVProgramsSection />
           </Services>
+          {/* Dr. Petch credibility card — after the programs, where the
+              reader is weighing the offer (same placement as Stem Cell). */}
+          <DoctorIntro />
           <WhyChooseUs />
           <MedicalTeam />
           <Process />
