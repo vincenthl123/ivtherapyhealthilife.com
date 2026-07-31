@@ -11,7 +11,6 @@ import { Zap, Sparkles, MessageCircle, Brain, Heart, Activity, CheckCircle2, Gif
 import { trackButtonClick } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n";
 import { buildWaUrl } from "@/lib/whatsapp";
-import ClinicGallery from "@/components/ClinicGallery";
 
 const DiscountBadge = ({ percent }: { percent: number }) => (
   <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold">
@@ -351,10 +350,9 @@ const Services = ({ children }: { children?: ReactNode }) => {
 
         {children}
 
-        {/* Clinic Gallery — shared bento component (elephant hero) */}
-        <div className="mb-16">
-          <ClinicGallery />
-        </div>
+        {/* ClinicGallery moved out to Index.tsx (canonical section order,
+            Vincent 2026-07-30): the house now has its own slot between
+            MedicalTeam and WhyChooseUs, matching the other satellites. */}
 
         {/* Wellness Packages Section */}
         <div className="mb-16">

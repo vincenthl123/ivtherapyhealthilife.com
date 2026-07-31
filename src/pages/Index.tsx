@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 // Lazy load below-fold sections for faster initial paint
 const Services = lazy(() => import("@/components/Services"));
 const IVProgramsSection = lazy(() => import("@/components/IVProgramsSection"));
+const ClinicGallery = lazy(() => import("@/components/ClinicGallery"));
 const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
 const MedicalTeam = lazy(() => import("@/components/MedicalTeam"));
 const Process = lazy(() => import("@/components/Process"));
@@ -40,13 +41,17 @@ const Index = () => {
             <FeaturedVideo />
             <IVProgramsSection />
           </Services>
-          {/* Dr. Petch credibility card — after the programs, where the
-              reader is weighing the offer (same placement as Stem Cell). */}
+          {/* Canonical section order (validated by Vincent 2026-07-30, model =
+              Stem Cell): offer → Dr. Petch → process → proof → doctors →
+              the house → differentiators → objections → contact. */}
           <DoctorIntro />
-          <WhyChooseUs />
-          <MedicalTeam />
           <Process />
           <VideoTestimonials />
+          <MedicalTeam />
+          {/* ClinicGallery extracted from Services.tsx — the house now has
+              its own slot, matching the other satellites. */}
+          <ClinicGallery />
+          <WhyChooseUs />
           <FAQ />
           <Contact />
         </Suspense>
