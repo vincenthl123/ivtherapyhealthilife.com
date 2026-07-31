@@ -218,7 +218,7 @@ const WhatsAppWidget = () => {
       {isOpen && (
         <div
           ref={dialogRef}
-          className="fixed inset-x-3 bottom-24 md:absolute md:inset-auto md:bottom-20 md:right-0 md:w-[380px] max-w-[420px] md:max-w-[380px] mx-auto md:mx-0 rounded-2xl shadow-2xl border overflow-hidden motion-safe:animate-fade-in"
+          className="fixed inset-x-3 bottom-24 md:absolute md:inset-auto md:bottom-20 md:right-0 md:w-[380px] max-w-[420px] md:max-w-[380px] max-h-[calc(100vh-140px)] overflow-y-auto mx-auto md:mx-0 rounded-2xl shadow-2xl border overflow-x-hidden motion-safe:animate-fade-in"
           style={{
             backgroundColor: CREAM,
             borderColor: "rgba(184, 148, 31, 0.35)",

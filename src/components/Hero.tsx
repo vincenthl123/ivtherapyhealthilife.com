@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-16 md:pt-20">
       {/* Background Image with Overlay - LCP Optimized */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Preload hint already in index.html */}
         <picture>
           <source media="(min-width: 768px)" srcSet={heroRoomDesktop} type="image/webp" />
@@ -25,8 +25,8 @@ const Hero = () => {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "32% 58%" }}
+            className="absolute left-1/2 top-0 h-full w-[380%] max-w-none -translate-x-1/2 object-cover md:inset-0 md:left-0 md:w-full md:translate-x-0"
+            style={{ objectPosition: "32% 54%" }}
           />
         </picture>
         <div
@@ -77,7 +77,7 @@ const Hero = () => {
           </p>
 
           {/* Trust Signals */}
-          <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-8">
+          <div className="animate-fade-in-up flex flex-wrap items-center gap-4 md:gap-6 mb-[13px] md:mb-8">
             <div className="flex items-center space-x-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -86,11 +86,11 @@ const Hero = () => {
               </div>
               <span className="text-sm font-medium">{t("hero.reviews")}</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-2 text-sm text-foreground">
               <MapPin className="h-4 w-4" />
               <span>{t("hero.location")}</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-2 text-sm text-foreground">
               <Clock className="h-4 w-4" />
               <span>{t("hero.hours")}</span>
             </div>
