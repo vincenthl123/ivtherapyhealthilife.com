@@ -18,6 +18,8 @@ import {
 // ============================================================================
 
 const STORAGE_KEY = 'healthilife-currency';
+/** Set once we have applied (or deliberately skipped) IP-based auto-selection. */
+const GEO_KEY = 'healthilife-currency-geo';
 
 interface CurrencyState {
   currency: string;
@@ -25,16 +27,16 @@ interface CurrencyState {
   version: number;
 }
 
-function readPersisted(): string {
-  if (typeof window === 'undefined') return 'THB';
+function readPersisted(): string | null {
+  if (typeof window === 'undefined') return null;
   try {
-    return window.localStorage.getItem(STORAGE_KEY) || 'THB';
+    return window.localStorage.getItem(STORAGE_KEY);
   } catch {
-    return 'THB';
+    return null;
   }
 }
 
-let state: CurrencyState = { currency: readPersisted(), version: 0 };
+let state: CurrencyState = { currency: readPersisted() || 'THB', version: 0 };
 
 const listeners = new Set<() => void>();
 
@@ -70,12 +72,120 @@ if (typeof window !== 'undefined') {
   });
 }
 
+// ---------------------------------------------------------------------------
+// IP-based currency pre-selection (conversion lever, ported from stemcell).
+// ---------------------------------------------------------------------------
+// The satellite serves a fly-in international audience: AUD is the #1 market by
+// value, then USD, EUR, GBP. Showing them THB first costs a mental conversion
+// on the single most important number on the page.
+//
+// Rules, in order:
+//   1. A manual selection (localStorage) ALWAYS wins — we never overwrite it.
+//   2. Otherwise resolve the visitor's country over a free, key-less IP API.
+//   3. Map the country to a currency the picker offers. Anything else stays THB.
+//   4. Anything that goes wrong — network error, timeout (~1.5s), bad payload,
+//      blocked by an ad-blocker — leaves THB in place. Never blocks rendering,
+//      never throws, never logs to the console.
+// The auto-selection is written to localStorage so it survives navigation, and
+// a GEO flag records that it was applied (so a manual reset back to THB is
+// respected rather than being re-detected on the next page view).
+// ---------------------------------------------------------------------------
+
+const GEO_ENDPOINT = 'https://ipapi.co/json/';
+const GEO_TIMEOUT_MS = 1500;
+
+/** Country (ISO-3166 alpha-2) → currency. Only currencies the picker offers. */
+const COUNTRY_TO_CURRENCY: Record<string, string> = {
+  // Australia / NZ — first market by value.
+  AU: 'AUD',
+  NZ: 'AUD',
+  US: 'USD',
+  GB: 'GBP',
+  // Asia & Gulf fly-in markets.
+  SG: 'SGD',
+  HK: 'HKD',
+  AE: 'AED',
+  SA: 'SAR',
+  CN: 'CNY',
+  KR: 'KRW',
+  JP: 'JPY',
+  IN: 'INR',
+  LK: 'LKR',
+  TW: 'TWD',
+  MY: 'MYR',
+  ID: 'IDR',
+  PH: 'PHP',
+  VN: 'VND',
+  CA: 'CAD',
+  CH: 'CHF',
+};
+
+/** Eurozone — mapped to EUR (3rd priority). */
+const EUROZONE = [
+  'FR', 'DE', 'IT', 'ES', 'PT', 'NL', 'BE', 'AT', 'IE', 'FI',
+  'GR', 'LU', 'SK', 'SI', 'EE', 'LV', 'LT', 'CY', 'MT', 'HR',
+];
+for (const cc of EUROZONE) COUNTRY_TO_CURRENCY[cc] = 'EUR';
+
+function hasGeoRun(): boolean {
+  try {
+    return window.localStorage.getItem(GEO_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function markGeoRun() {
+  try {
+    window.localStorage.setItem(GEO_KEY, '1');
+  } catch {
+    /* ignore */
+  }
+}
+
+/**
+ * Resolve the visitor's country and pre-select their currency.
+ * Fire-and-forget: resolves silently on every failure path, leaving THB.
+ */
+async function autoSelectCurrencyByIp(): Promise<void> {
+  if (typeof window === 'undefined') return;
+  // A stored choice — manual or a previous auto-detect — is authoritative.
+  if (readPersisted() || hasGeoRun()) return;
+
+  const controller =
+    typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timer = controller
+    ? window.setTimeout(() => controller.abort(), GEO_TIMEOUT_MS)
+    : null;
+
+  try {
+    const res = await fetch(GEO_ENDPOINT, {
+      signal: controller?.signal,
+      cache: 'no-store',
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    const country = typeof data?.country_code === 'string' ? data.country_code : '';
+    const mapped = COUNTRY_TO_CURRENCY[country.toUpperCase()];
+    // Re-check: the visitor may have picked a currency while we were in flight.
+    if (mapped && !readPersisted()) setCurrency(mapped);
+  } catch {
+    /* offline / blocked / aborted / malformed — stay on THB */
+  } finally {
+    if (timer != null) window.clearTimeout(timer);
+    // Only detect once per browser, whatever the outcome.
+    markGeoRun();
+  }
+}
+
 let inited = false;
-/** Call once on app mount. Starts the live-rate fetch (12h cached). */
+/** Call once on app mount. Starts the live-rate fetch (12h cached) + geo-detect. */
 export function initCurrency() {
   if (inited) return;
   inited = true;
   initRates();
+  // Deliberately not awaited — rendering must never wait on the IP lookup.
+  void autoSelectCurrencyByIp();
 }
 
 /** Reactive hook: current currency + helpers. Re-renders on change / new rates. */
