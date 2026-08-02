@@ -322,6 +322,91 @@ export const logWaUrlRef = (url: string | URL | undefined | null): void => {
   void logRefMapping(ref, payload);
 };
 
+export type WaEnv = "in-app" | "mobile" | "desktop";
+
+/**
+ * In-app browsers (Instagram, Facebook, Line…) block custom URL schemes,
+ * so they must keep using the wa.me link.
+ */
+export function detectWaEnv(): WaEnv {
+  if (typeof navigator === "undefined") return "desktop";
+  const ua = navigator.userAgent;
+  if (/FBAN|FBAV|Instagram|Line\/|TikTok|Snapchat|MicroMessenger/i.test(ua)) {
+    return "in-app";
+  }
+  if (/Android|iPhone|iPad|iPod/i.test(ua)) return "mobile";
+  return "desktop";
+}
+
+function parseWaLink(url: string): { phone: string; text: string } | null {
+  try {
+    const u = new URL(url, window.location.href);
+    const fromPath = u.pathname.replace(/^\/+/, "").split("/")[0];
+    const phone = /^\d{6,}$/.test(fromPath)
+      ? fromPath
+      : u.searchParams.get("phone") ?? "";
+    return phone ? { phone, text: u.searchParams.get("text") ?? "" } : null;
+  } catch {
+    return null;
+  }
+}
+
+export type WaTarget =
+  /** Desktop: new tab, keeps the site open behind. */
+  | { mode: "open"; url: string }
+  /** Mobile / in-app: same tab, `fallback` used if nothing opened. */
+  | { mode: "navigate"; url: string; fallback?: string };
+
+/**
+ * Resolves a wa.me link to the target that reaches the conversation with the
+ * fewest clicks. wa.me always shows a "Continue to Chat" interstitial, so we
+ * skip it: the native app on mobile, WhatsApp Web on desktop.
+ */
+export function resolveWaTarget(waUrl: string): WaTarget {
+  const env = detectWaEnv();
+  const parsed = parseWaLink(waUrl);
+  if (!parsed || env === "in-app") return { mode: "navigate", url: waUrl };
+
+  const q = encodeURIComponent(parsed.text);
+  if (env === "desktop") {
+    return {
+      mode: "open",
+      url: `https://web.whatsapp.com/send?phone=${parsed.phone}&text=${q}`,
+    };
+  }
+  return {
+    mode: "navigate",
+    url: `whatsapp://send?phone=${parsed.phone}&text=${q}`,
+    fallback: waUrl,
+  };
+}
+
+/**
+ * Applies a resolved target. Must be called synchronously from the click
+ * handler so the popup permission is preserved.
+ */
+export function applyWaTarget(target: WaTarget): void {
+  if (typeof window === "undefined") return;
+  if (target.mode === "open") {
+    window.open(target.url, "_blank", "noopener");
+    return;
+  }
+  const { url, fallback } = target;
+  if (fallback) {
+    let left = false;
+    const mark = () => {
+      left = true;
+    };
+    document.addEventListener("visibilitychange", mark, { once: true });
+    window.addEventListener("pagehide", mark, { once: true });
+    // If the app scheme did not take over, the page is still visible.
+    window.setTimeout(() => {
+      if (!left && !document.hidden) window.location.href = fallback;
+    }, 1200);
+  }
+  window.location.href = url;
+}
+
 /**
  * Build the URL and open WhatsApp in a new tab. Preserves the user gesture.
  * Fires the GA4 'whatsapp_click' + 'generate_lead' conversion events with
@@ -339,7 +424,7 @@ export const trackAndOpenWhatsApp = (opts: BuildWaOptions): string => {
       });
     });
     logWaUrlRef(url);
-    window.open(url, "_blank", "noopener,noreferrer");
+    applyWaTarget(resolveWaTarget(url));
   }
   return url;
 };
