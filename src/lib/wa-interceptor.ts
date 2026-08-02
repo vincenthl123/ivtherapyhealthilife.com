@@ -86,17 +86,27 @@ const fetchRef = async (payload: TrackingPayload): Promise<string | null> => {
 
 const openWa = (originalOpen: typeof window.open) => {
   // Build the parser-friendly message with SID/GCLID/TS pulled from localStorage.
-  void import("./whatsapp").then(({ buildWaUrl, logWaUrlRef }) => {
-    const url = buildWaUrl({
-      source: "default",
-      extras: {
-        sourceLabel: "Legacy WA Link",
-        page: location.pathname,
-      },
-    });
-    logWaUrlRef(url);
-    originalOpen.call(window, url, "_blank");
-  });
+  void import("./whatsapp").then(
+    ({ buildWaUrl, logWaUrlRef, resolveWaTarget, applyWaTarget }) => {
+      const url = buildWaUrl({
+        source: "default",
+        extras: {
+          sourceLabel: "Legacy WA Link",
+          page: location.pathname,
+        },
+      });
+      logWaUrlRef(url);
+      // wa.me forces a "Continue to Chat" interstitial. Reroute to the app
+      // (mobile) or WhatsApp Web (desktop) so the chat opens in one click.
+      const resolved = resolveWaTarget(url);
+      if (resolved.mode === "open") {
+        // originalOpen, not applyWaTarget: window.open is patched here.
+        originalOpen.call(window, resolved.url, "_blank", "noopener");
+      } else {
+        applyWaTarget(resolved);
+      }
+    },
+  );
 };
 
 const handleWaIntent = async (originalOpen: typeof window.open) => {
@@ -199,10 +209,22 @@ export const installWaInterceptor = (): (() => void) => {
       void import("./tracking").then(({ trackWhatsAppClick }) => {
         trackWhatsAppClick({ source: "interceptor" });
       });
-      void import("./whatsapp").then(({ logWaUrlRef }) => logWaUrlRef(url));
       const tracking = collectTracking();
       if (tracking) void fetchRef(tracking);
-      return originalOpen(url as string, target as string, features as string);
+      void import("./whatsapp").then(
+        ({ logWaUrlRef, resolveWaTarget, applyWaTarget }) => {
+          logWaUrlRef(url);
+          // Reroute away from the wa.me "Continue to Chat" interstitial.
+          const resolved = resolveWaTarget(String(url));
+          if (resolved.mode === "open") {
+            // originalOpen, not applyWaTarget: window.open is patched here.
+            originalOpen(resolved.url, target as string, "noopener");
+          } else {
+            applyWaTarget(resolved);
+          }
+        },
+      );
+      return null;
     }
     return originalOpen(url as string, target as string, features as string);
   }) as typeof window.open;
